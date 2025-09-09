@@ -1,0 +1,205 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva Animada para tu Bienestar Mental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .infographic-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out, padding-top 0.7s ease-in-out;
+        }
+        .infographic-step.open .infographic-step-content {
+            max-height: 800px; /* Aumentado para más contenido */
+            padding-top: 1.5rem; /* 24px */
+        }
+        .icon-container {
+            transition: transform 0.5s ease-in-out;
+        }
+        .infographic-step.open .icon-container {
+            transform: rotate(180deg);
+        }
+        .path-line {
+            width: 4px;
+            background-image: linear-gradient(to bottom, #cbd5e1, #a78bfa, #f472b6);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 4rem;
+            bottom: 4rem;
+            z-index: 1;
+            opacity: 0.3;
+        }
+        .book-item {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-left: 4px solid;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            transition: background-color 0.3s;
+        }
+        .book-item:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        /* Animaciones de entrada */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .from-left { transform: translateX(-30px); }
+        .from-right { transform: translateX(30px); }
+        .from-left.is-visible, .from-right.is-visible { transform: translateX(0); }
+
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 via-purple-50 to-rose-50 min-h-screen antialiased">
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <header class="text-center mb-16 fade-in-section">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Guía Práctica para tu Bienestar Mental</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Un mapa interactivo con 16 lecturas clave. Haz clic en cada fase para explorar.</p>
+        </header>
+
+        <main class="relative">
+            <div class="path-line hidden md:block"></div>
+            <div id="infographic-container" class="space-y-12">
+                
+                <!-- Fase 1: Calma tu Mente -->
+                <div class="infographic-step fade-in-section from-right">
+                    <div class="md:flex">
+                        <div class="md:w-1/2"></div>
+                        <div class="md:w-1/2 relative z-10">
+                            <!-- FIX: The onclick event now correctly targets the parent '.infographic-step' element -->
+                            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/50 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg">
+                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-blue-800">1. Calma tu Mente</h2>
+                                         <p class="text-gray-600">Ansiedad, estrés y bienestar físico.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-blue-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content"><div class="book-item border-blue-500"><h4 class="font-bold text-gray-800">AnsiosaMENTE</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un método práctico para decir adiós a la ansiedad y los ataques de pánico.</p></div><div class="book-item border-blue-500"><h4 class="font-bold text-gray-800">Deshacer la ansiedad</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Rompe los bucles de hábitos de la ansiedad usando la curiosidad y el mindfulness.</p></div><div class="book-item border-blue-500"><h4 class="font-bold text-gray-800">Déjate en paz</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Libérate de la tiranía del perfeccionismo y abraza el derecho a ser imperfecto.</p></div><div class="book-item border-blue-500"><h4 class="font-bold text-gray-800">Resetea tus intestinos</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Revela la conexión vital entre la salud intestinal y una mente en calma.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 2: Desafía tus Creencias -->
+                <div class="infographic-step fade-in-section from-left">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 relative z-10">
+                             <!-- FIX: The onclick event now correctly targets the parent '.infographic-step' element -->
+                             <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/50 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-purple-500 text-white flex items-center justify-center shadow-lg">
+                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-purple-800">2. Desafía tus Creencias</h2>
+                                         <p class="text-gray-600">Autocrítica, patrones y autenticidad.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-purple-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content"><div class="book-item border-purple-500"><h4 class="font-bold text-gray-800">Deja de tratarte como el culo</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una guía directa para abandonar la autocrítica destructiva.</p></div><div class="book-item border-purple-500"><h4 class="font-bold text-gray-800">Tus zonas erróneas</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un clásico para tomar control de tu felicidad y dejar de buscar aprobación.</p></div><div class="book-item border-purple-500"><h4 class="font-bold text-gray-800">El Síndrome De La Chica Buena</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Desmonta la necesidad de agradar y construye una autoestima auténtica.</p></div><div class="book-item border-purple-500"><h4 class="font-bold text-gray-800">Piensa y razona como Sócrates</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Aprende a cuestionar tus ideas para tomar mejores decisiones.</p></div></div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- Fase 3: Construye Relaciones Sanas -->
+                <div class="infographic-step fade-in-section from-right">
+                    <div class="md:flex">
+                         <div class="md:w-1/2"></div>
+                        <div class="md:w-1/2 relative z-10">
+                            <!-- FIX: The onclick event now correctly targets the parent '.infographic-step' element -->
+                            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/50 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-rose-500 text-white flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-rose-800">3. Construye Relaciones Sanas</h2>
+                                         <p class="text-gray-600">Aprende a querer bien, empezando por ti.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-rose-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content"><p class="text-gray-700 mb-4">La calidad de tus relaciones define tu vida. Estos libros te enseñan a identificar señales, establecer límites y a construir vínculos basados en el respeto y la empatía.</p><div class="book-item border-rose-500"><h4 class="font-bold text-gray-800">El bienquerer</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un nuevo paradigma para las relaciones basado en la responsabilidad afectiva.</p></div><div class="book-item border-rose-500"><h4 class="font-bold text-gray-800">Red Flags, Green Flags</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una herramienta para identificar comportamientos tóxicos y saludables.</p></div><div class="book-item border-rose-500"><h4 class="font-bold text-gray-800">Una vida sin salud mental</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un testimonio real que rompe el estigma y fomenta la empatía y la comprensión.</p></div><div class="book-item border-rose-500"><h4 class="font-bold text-gray-800">Cartas que no llegaron</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Explora la sanación a través de la escritura y la reflexión sobre lo no dicho.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fase 4: Crea tu Felicidad -->
+                 <div class="infographic-step fade-in-section from-left">
+                     <div class="md:flex">
+                        <div class="md:w-1/2 relative z-10">
+                             <!-- FIX: The onclick event now correctly targets the parent '.infographic-step' element -->
+                             <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/50 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg">
+                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor"><path d="M11.383 2.252A1 1 0 0112 3v1a1 1 0 01-1 1H9a1 1 0 01-1-1V3a1 1 0 01.617-.928 6.002 6.002 0 00-4.594 4.594 1 1 0 01-1 .928H2a1 1 0 01-1-1V6a1 1 0 01.928-.617A6.002 6.002 0 006.52 1.828a1 1 0 011.616.632zM13 6a1 1 0 100-2 1 1 0 000 2zM3 13a1 1 0 100 2 1 1 0 000-2z" /><path fill-rule="evenodd" d="M8.342 10.428a1 1 0 011.316 1.316l-3 3a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L8 12.586l2.646-2.647a1 1 0 011.316.03z" clip-rule="evenodd" /><path d="M12.5 8a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-emerald-800">4. Crea tu Felicidad</h2>
+                                         <p class="text-gray-600">Diseña conscientemente la vida que deseas.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-emerald-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content"><p class="text-gray-700 mb-4">El bienestar no es un destino, es una creación diaria. Estos libros te inspiran a conectar con tu interior, recordar lo importante y construir una felicidad sostenible y auténtica.</p><div class="book-item border-emerald-500"><h4 class="font-bold text-gray-800">El cerebro de la gente feliz</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Entrena tu cerebro para ser más optimista y resiliente con base en la neurociencia.</p></div><div class="book-item border-emerald-500"><h4 class="font-bold text-gray-800">Creyendo y Creando</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un manual para manifestar la vida que deseas a través de tus creencias internas.</p></div><div class="book-item border-emerald-500"><h4 class="font-bold text-gray-800">Llámame cuando no te encuentres</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una invitación a reconectar contigo en momentos de pérdida y confusión.</p></div><div class="book-item border-emerald-500"><h4 class="font-bold text-gray-800">Para que no te olvides</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> La importancia de vivir el presente, atesorar recuerdos y cuidar las conexiones.</p></div></div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleStep(element) {
+            // Cierra cualquier otra sección que esté abierta
+            document.querySelectorAll('.infographic-step.open').forEach(openStep => {
+                if (openStep !== element) {
+                    openStep.classList.remove('open');
+                }
+            });
+            // Alterna la sección en la que se hizo clic
+            element.classList.toggle('open');
+        }
+        
+        // Animación de entrada al hacer scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

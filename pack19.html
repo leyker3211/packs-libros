@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva del Mundo de los Cuentos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .infographic-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out, padding-top 0.7s ease-in-out;
+        }
+        .infographic-step.open .infographic-step-content {
+            max-height: 800px;
+            padding-top: 1.5rem;
+        }
+        .icon-container {
+            transition: transform 0.5s ease-in-out;
+        }
+        .infographic-step.open .icon-container {
+            transform: rotate(180deg);
+        }
+        .path-line {
+            width: 4px;
+            background-image: linear-gradient(to bottom, #a7f3d0, #bfdbfe, #ddd6fe, #9ca3af);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 4rem;
+            bottom: 4rem;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        .book-item {
+            background-color: rgba(249, 250, 251, 0.5);
+            border-left: 4px solid;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            transition: background-color 0.3s;
+        }
+        .book-item:hover {
+            background-color: white;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .from-left { transform: translateX(-30px); }
+        .from-right { transform: translateX(30px); }
+        .from-left.is-visible, .from-right.is-visible { transform: translateX(0); }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen antialiased text-gray-800">
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <header class="text-center mb-16 fade-in-section">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Guía del Mundo de los Cuentos</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Un viaje por historias que enseñan, inspiran y transforman. Haz clic en cada fase.</p>
+        </header>
+
+        <main class="relative">
+            <div class="path-line hidden md:block"></div>
+            <div id="infographic-container" class="space-y-12">
+                
+                <!-- Fase 1: Cuentos con Valores -->
+                <div class="infographic-step fade-in-section from-right">
+                    <div class="md:flex">
+                        <div class="md:w-1/2"></div>
+                        <div class="md:w-1/2 relative z-10">
+                            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-emerald-200 text-emerald-700 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-emerald-800">1. Cuentos con Valores</h2>
+                                         <p class="text-gray-600">Enseñanzas para Crecer.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-emerald-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-emerald-400"><h4 class="font-bold text-gray-800">Cuentos para educar en valores / Cuentos y fábulas</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Historias diseñadas para enseñar principios fundamentales como la honestidad, el respeto y la amistad.</p></div>
+                                    <div class="book-item border-emerald-400"><h4 class="font-bold text-gray-800">EL GRAN LIBRO DE LOS CUENTOS CON VALORES / Pequeños-cuentos-con-grandes-valores</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Compendios de relatos que refuerzan las virtudes y el carácter a través de narrativas entretenidas.</p></div>
+                                    <div class="book-item border-emerald-400"><h4 class="font-bold text-gray-800">Invertir en valores: Cuentos de niños para todas las edades</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Utiliza el formato de cuento para explicar la importancia de los valores de una forma que conecta con todas las edades.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 2: Cuentos de Héroes e Inspiración -->
+                <div class="infographic-step fade-in-section from-left">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 relative z-10">
+                             <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-sky-200 text-sky-700 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-sky-800">2. Héroes e Inspiración</h2>
+                                         <p class="text-gray-600">Historias para Atreverse y Salvar el Mundo.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-sky-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-sky-400"><h4 class="font-bold text-gray-800">Cuentos para niños que se atreven a ser diferentes</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Biografías e historias que celebran la individualidad y rompen los estereotipos tradicionales.</p></div>
+                                    <div class="book-item border-sky-400"><h4 class="font-bold text-gray-800">CUENTOS PARA NIÑOS Y NIÑAS QUE QUIEREN SALVAR EL MUNDO</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Relatos inspiradores sobre ecología y activismo para motivar a las nuevas generaciones.</p></div>
+                                    <div class="book-item border-sky-400"><h4 class="font-bold text-gray-800">Las madres saben qué es lo mejor</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Cuentos que resaltan la sabiduría, el amor y la fuerza de las figuras maternas.</p></div>
+                                    <div class="book-item border-sky-400"><h4 class="font-bold text-gray-800">LIBRO-DE-HISTORIAS-DE-LA-BIBLIA-PARA-LOS-PEQUEÑOS</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Adaptaciones de relatos bíblicos para introducir a los niños a las narrativas de fe y tradición.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- Fase 3: Cuentos para la Mente -->
+                <div class="infographic-step fade-in-section from-right">
+                    <div class="md:flex">
+                         <div class="md:w-1/2"></div>
+                        <div class="md:w-1/2 relative z-10">
+                            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-violet-200 text-violet-700 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197M15 21a6 6 0 013.43-5.197m-3.43 5.197l-3.43-5.197M12 4.354a4 4 0 000 5.292" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-violet-800">3. Mente, Finanzas y Descanso</h2>
+                                         <p class="text-gray-600">Herramientas Prácticas para la Vida.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-violet-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-violet-400"><h4 class="font-bold text-gray-800">Cuentos Para Dormir Para Adultos</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Historias de meditación diseñadas para relajar la mente, reducir el estrés y facilitar el sueño.</p></div>
+                                    <div class="book-item border-violet-400"><h4 class="font-bold text-gray-800">MI PRIMER LIBRO DE EDUCACIÓN FINANCIERA 1 y 2</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Introduce conceptos básicos de ahorro e inversión de forma sencilla para construir una base financiera sólida desde la infancia.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fase 4: Cuentos de Monstruos y Sombras -->
+                 <div class="infographic-step fade-in-section from-left">
+                     <div class="md:flex">
+                        <div class="md:w-1/2 relative z-10">
+                             <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016l-2.42-.093a.5.5 0 01-.49-.49z" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-slate-800">4. Monstruos y Sombras</h2>
+                                         <p class="text-gray-600">Explorando el Lado Misterioso.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-slate-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-slate-400"><h4 class="font-bold text-gray-800">Cuentos para monstruos - Santiago Pedraza</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Narrativas que exploran el miedo, lo desconocido y lo diferente a través de la figura del monstruo.</p></div>
+                                    <div class="book-item border-slate-400"><h4 class="font-bold text-gray-800">La bestia interior - cuentos</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un conjunto de relatos que se adentran en la dualidad de la naturaleza humana y nuestras "sombras" internas.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleStep(element) {
+            document.querySelectorAll('.infographic-step.open').forEach(openStep => {
+                if (openStep !== element) {
+                    openStep.classList.remove('open');
+                }
+            });
+            element.classList.toggle('open');
+        }
+        
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

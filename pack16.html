@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva para el Despertar de la Conciencia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .infographic-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out, padding-top 0.7s ease-in-out;
+        }
+        .infographic-step.open .infographic-step-content {
+            max-height: 800px;
+            padding-top: 1.5rem;
+        }
+        .icon-container {
+            transition: transform 0.5s ease-in-out;
+        }
+        .infographic-step.open .icon-container {
+            transform: rotate(180deg);
+        }
+        .path-line {
+            width: 4px;
+            background-image: linear-gradient(to bottom, #d1d5db, #a78bfa, #f59e0b);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 4rem;
+            bottom: 4rem;
+            z-index: 1;
+            opacity: 0.4;
+        }
+        .book-item {
+            background-color: rgba(243, 244, 246, 0.5);
+            border-left: 4px solid;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            transition: background-color 0.3s;
+        }
+        .book-item:hover {
+            background-color: white;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .from-left { transform: translateX(-30px); }
+        .from-right { transform: translateX(30px); }
+        .from-left.is-visible, .from-right.is-visible { transform: translateX(0); }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen antialiased text-gray-800">
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <header class="text-center mb-16 fade-in-section">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Guía para el Despertar de la Conciencia</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Un viaje por la filosofía, la ciencia y la espiritualidad. Haz clic en cada fase para explorar.</p>
+        </header>
+
+        <main class="relative">
+            <div class="path-line hidden md:block"></div>
+            <div id="infographic-container" class="space-y-12">
+                
+                <!-- Fase 1: La Fortaleza del Ser -->
+                <div class="infographic-step fade-in-section from-right">
+                    <div class="md:flex">
+                        <div class="md:w-1/2"></div>
+                        <div class="md:w-1/2 relative z-10">
+                            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M5 6h14M5 9h14M5 12h14M5 15h14M5 18h14M5 21h14" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-gray-800">1. La Fortaleza del Ser</h2>
+                                         <p class="text-gray-600">Estoicismo y Resiliencia.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-gray-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-gray-400"><h4 class="font-bold text-gray-800">El pequeño libro del estoicismo - Jonas Salzgeber</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una guía moderna y accesible para entender y aplicar el estoicismo en el día a día.</p></div>
+                                    <div class="book-item border-gray-400"><h4 class="font-bold text-gray-800">El Arte de vivir como un Estoico - David Fideler</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Profundiza en la filosofía estoica, enseñando a vivir una vida de virtud y serenidad.</p></div>
+                                    <div class="book-item border-gray-400"><h4 class="font-bold text-gray-800">Cartas a Lucilio - Séneca</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Consejos atemporales sobre cómo enfrentar la adversidad, la amistad y la muerte.</p></div>
+                                    <div class="book-item border-gray-400"><h4 class="font-bold text-gray-800">El hombre en busca de sentido - Viktor Frankl</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> La búsqueda de un propósito es la principal fuerza motivadora del ser humano, incluso en el sufrimiento.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 2: Los Acuerdos de la Sabiduría -->
+                <div class="infographic-step fade-in-section from-left">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 relative z-10">
+                             <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-purple-200 text-purple-700 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-purple-800">2. Los Acuerdos de la Sabiduría</h2>
+                                         <p class="text-gray-600">Filosofía Práctica para la Vida.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-purple-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-purple-400"><h4 class="font-bold text-gray-800">Los cuatro acuerdos - Miguel Angel Ruiz</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Principios Toltecas para liberarse de las creencias que nos limitan y generan sufrimiento.</p></div>
+                                    <div class="book-item border-purple-400"><h4 class="font-bold text-gray-800">El quinto acuerdo - Miguel Angel Ruiz Macias</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Añade un acuerdo crucial: sé escéptico, pero aprende a escuchar. Usa la duda para discernir la verdad.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- Fase 3: Expandiendo la Conciencia -->
+                <div class="infographic-step fade-in-section from-right">
+                    <div class="md:flex">
+                         <div class="md:w-1/2"></div>
+                        <div class="md:w-1/2 relative z-10">
+                            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-amber-200 text-amber-700 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-amber-800">3. Expandiendo la Conciencia</h2>
+                                         <p class="text-gray-600">Metafísica y Potencial Humano.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-amber-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-amber-400"><h4 class="font-bold text-gray-800">Metahumano - Deepak Chopra</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Libera tu potencial infinito yendo más allá de las limitaciones de la mente y el cuerpo.</p></div>
+                                    <div class="book-item border-amber-400"><h4 class="font-bold text-gray-800">Jamás moriremos - Deepak Chopra</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una exploración de la conciencia y la evidencia de que la vida continúa más allá de la muerte física.</p></div>
+                                    <div class="book-item border-amber-400"><h4 class="font-bold text-gray-800">La Supraconciencia existe - Dr. Manuel Sans Segarra</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una perspectiva científica sobre cómo la conciencia puede existir independientemente del cerebro.</p></div>
+                                    <div class="book-item border-amber-400"><h4 class="font-bold text-gray-800">El poder frente a la fuerza - Enric Corbera</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Diferencia entre los niveles de conciencia, mostrando cómo el poder (integridad) es superior a la fuerza (ego).</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fase 4: La Conexión Divina -->
+                 <div class="infographic-step fade-in-section from-left">
+                     <div class="md:flex">
+                        <div class="md:w-1/2 relative z-10">
+                             <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-200/80 cursor-pointer transition-shadow hover:shadow-2xl" onclick="toggleStep(this.closest('.infographic-step'))">
+                                <div class="flex items-center space-x-4">
+                                     <div class="flex-shrink-0 w-16 h-16 rounded-full bg-cyan-200 text-cyan-700 flex items-center justify-center shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10m-5.657 8.657A8 8 0 0118.657 7.343S17 9 15 10" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" /></svg>
+                                     </div>
+                                     <div class="flex-grow">
+                                         <h2 class="text-2xl font-bold text-cyan-800">4. La Conexión Divina</h2>
+                                         <p class="text-gray-600">Espiritualidad, Misticismo y Fe.</p>
+                                     </div>
+                                     <div class="icon-container w-8 h-8 flex items-center justify-center text-cyan-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+                                </div>
+                                <div class="infographic-step-content">
+                                    <div class="book-item border-cyan-400"><h4 class="font-bold text-gray-800">Conversaciones con Dios - Neale Donald Walsch</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un diálogo que redefine la relación del ser humano con Dios, presentándolo como un amigo.</p></div>
+                                    <div class="book-item border-cyan-400"><h4 class="font-bold text-gray-800">El poder de la Kabbalah / Kabbalah - Yehuda Berg</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Herramientas de la mística judía para entender las leyes espirituales del universo.</p></div>
+                                    <div class="book-item border-cyan-400"><h4 class="font-bold text-gray-800">El Libro de Urantia</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una visión expandida del cosmos, la divinidad y la historia del universo.</p></div>
+                                    <div class="book-item border-cyan-400"><h4 class="font-bold text-gray-800">jesus.pdf</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un texto enfocado en la vida y enseñanzas de Jesús desde una perspectiva espiritual profunda.</p></div>
+                                    <div class="book-item border-cyan-400"><h4 class="font-bold text-gray-800">Dios Vuelve en una Harley - Joan Brady</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una narrativa moderna y accesible sobre el encuentro con lo divino en la vida cotidiana.</p></div>
+                                    <div class="book-item border-cyan-400"><h4 class="font-bold text-gray-800">Conocer A Dios - Deepak Chopra</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Un mapa de las diferentes etapas de la fe hasta llegar a la unidad con lo divino.</p></div>
+                                    <div class="book-item border-cyan-400"><h4 class="font-bold text-gray-800">Dios y nuestra felicidad - José M. Castillo</h4><p class="text-sm text-gray-600"><strong>Concepto clave:</strong> Una reflexión teológica sobre cómo la idea de Dios se relaciona con la búsqueda humana de la felicidad.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleStep(element) {
+            document.querySelectorAll('.infographic-step.open').forEach(openStep => {
+                if (openStep !== element) {
+                    openStep.classList.remove('open');
+                }
+            });
+            element.classList.toggle('open');
+        }
+        
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

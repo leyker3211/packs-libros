@@ -1,0 +1,214 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Didáctica: Tu Viaje de Sanación Interior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .infographic-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out;
+        }
+        .infographic-step.open .infographic-step-content {
+            max-height: 500px; /* Adjust based on content */
+        }
+        .infographic-step .icon-container svg {
+            transition: transform 0.5s ease-in-out;
+        }
+        .infographic-step.open .icon-container svg {
+            transform: rotate(360deg) scale(1.1);
+        }
+        .path-line {
+            width: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-indigo-200 min-h-screen antialiased">
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Tu Viaje de Sanación Interior</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Una guía didáctica e interactiva a través de lecturas que sanan. Pulsa en cada fase para explorar.</p>
+        </header>
+
+        <main class="relative">
+            <div class="path-line hidden md:block"></div>
+            <div id="infographic-container" class="space-y-8">
+                
+                <!-- Fase 1: Sanando Heridas del Pasado -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                             <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-rose-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-rose-800">1. Sanando Heridas</h2>
+                                <p class="text-gray-600">Comprender de dónde vienes para saber a dónde vas.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">El primer paso es mirar atrás con valentía para entender las heridas de la infancia, los traumas familiares y cómo nos han hecho invisibles.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Lecturas para empezar a sanar:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Invisible - Eloy Moreno</li>
+                                <li>Abraza a la niña que fuiste - Marta Segrelles</li>
+                                <li>Cuando mamá lastima - R. Guzmán</li>
+                                <li>Cuando papá lastima - R. Guzmán</li>
+                                <li>Este dolor no es mío - Mark Wolynn</li>
+                                <li>La sanación de las 5 heridas - Lise Bourbeau</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 2: Rompiendo Cadenas -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                            <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-amber-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-amber-800">2. Rompiendo Cadenas</h2>
+                                <p class="text-gray-600">Decir adiós a lo que te hace daño.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Aprende a identificar relaciones tóxicas, a poner límites y a alejarte de amores que no son amor. La liberación es un acto de valentía.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Lecturas para liberarte:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Basta de amores de mierda - Gonzalo Romero</li>
+                                <li>Mujeres que aman demasiado</li>
+                                <li>Hasta la vista, narcisista - Raquel Jiménez González</li>
+                                <li>Ya te dije adiós, ahora cómo te olvido - Walter Riso</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- Fase 3: Entendiendo tu Mente -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                     <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                            <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-cyan-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-cyan-800">3. Entendiendo tu Mente</h2>
+                                <p class="text-gray-600">Poner orden en tu mundo interior.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                             <p class="text-gray-700 mb-3">Para reconstruirte, primero debes entender cómo funciona tu mente, gestionar la ansiedad, procesar el duelo y poner en equilibrio tu caos mental.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Lecturas para reconstruirte:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>ENTIENDE-TU-MENTE - MOLO CEBRIAN</li>
+                                <li>TDAH del caos mental al equilibrio - Elysia Lune</li>
+                                <li>Ansiedad en las relaciones - Michelle Miller</li>
+                                <li>ENTENDER-TU-MUERTE-ME-SALVO-LA-VIDA - R. Aguirre</li>
+                                <li>Sanando heridas, llantos y despedidas - Jairo Guerrero</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fase 4: Dialogando Contigo -->
+                 <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                           <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-violet-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-violet-800">4. Dialogando Contigo</h2>
+                                <p class="text-gray-600">La conversación más importante de tu vida.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Es hora de hablarte con cariño, de abrazar tus partes rotas y de construir una relación sana contigo mismo. Quererte a ti para poder querer bien a otros.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Lecturas para el autocuidado:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Querida yo, tenemos que hablar - Elizabeth Clapés</li>
+                                <li>Querido yo, vamos a estar bien - Alejandro Sequ</li>
+                                <li>ABRAZA TUS PARTES ROTAS - María Ros</li>
+                                <li>Me quiero, te quiero - María Esclapez</li>
+                                <li>Como llamarte amor a gritos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- Fase 5: Descubriendo tu Poder -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                     <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                           <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4v4m-2-2h4M17 3l-1.17.585A2 2 0 0015 5.414V6m0 8v2.586a2 2 0 00.83 1.629L17 19m-5-14l-1.17.585A2 2 0 0110 5.414V6m0 8v2.586a2 2 0 01-.83 1.629L8 19" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-emerald-800">5. El Florecimiento</h2>
+                                <p class="text-gray-600">Abrazar tu verdadera esencia y vivir en plenitud.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Conecta con tu lado más salvaje y auténtico. Descubre todas las personas que has sido y celebra tu belleza verdadera, viviendo el amor en todas sus formas.</p>
+                             <h4 class="font-semibold text-gray-800 mb-2">Lecturas para florecer:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Mujeres que corren con los lobos - Clarissa P. Estés</li>
+                                <li>Belleza Verdadera - C. Mahaney & N. Whitacre</li>
+                                <li>Todas las personas que fui - Alonso Casas</li>
+                                <li>Aquello Que No Te Dijeron - Víctor Hernández</li>
+                                <li>Eres el amor de mi otra vida - Gilraen Eärfalas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        
+        <footer class="text-center mt-16">
+            <p class="text-gray-700 font-semibold text-xl mb-4">Empieza hoy tu viaje de sanación. Un libro a la vez.</p>
+            <button class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Descubre tu Próxima Lectura
+            </button>
+        </footer>
+
+    </div>
+
+    <script>
+        // Función para manejar la interactividad de los pasos de la infografía
+        function toggleStep(element) {
+            // Cierra todos los demás pasos abiertos para evitar que se solapen
+            document.querySelectorAll('.infographic-step.open').forEach(openStep => {
+                if (openStep !== element) {
+                    openStep.classList.remove('open');
+                }
+            });
+            // Abre o cierra el paso actual
+            element.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
