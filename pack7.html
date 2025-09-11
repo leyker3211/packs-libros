@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros de Paz Interior y Desarrollo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .infographic-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out;
+        }
+        .infographic-step.open .infographic-step-content {
+            max-height: 500px; /* Adjust based on content */
+        }
+        .infographic-step .icon-container svg {
+            transition: transform 0.5s ease-in-out;
+        }
+        .infographic-step.open .icon-container svg {
+            transform: rotate(360deg) scale(1.1);
+        }
+        /* This is the vertical line connecting the steps */
+        .path-line {
+            width: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-indigo-200 min-h-screen antialiased">
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Libros de Paz Interior y Desarrollo</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Una selección de libros para transformar tu mente y encontrar tu propósito. Haz clic en cada categoría para explorar.</p>
+        </header>
+
+        <main class="relative">
+            <div class="path-line hidden md:block"></div>
+            <div id="infographic-container" class="space-y-8">
+                
+                <!-- Category 1 -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                             <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-5.747-8.247l11.494 4.994-4.994-11.494-1.506 6.506-6.506-1.506z" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-blue-800">Calma Mental y Presencia</h2>
+                                <p class="text-gray-600">Aprende a vivir en el ahora y a gestionar tus pensamientos.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Estos libros te darán herramientas para aquietar el ruido mental y conectar con el momento presente.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Tus libros:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Cómo Dejar de Pensar Demasiado - Adam Tusco</li>
+                                <li>El poder del ahora - Eckhart Tolle</li>
+                                <li>No te creas todo lo que piensas - Joseph Nguyen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                            <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h10a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.737 11l-.546-3.646a2 2 0 011.697-2.316L12 4.414l3.113.624a2 2 0 011.697 2.316L16.263 11" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-green-800">Transformación Personal</h2>
+                                <p class="text-gray-600">Descubre tu potencial y encuentra tu propósito de vida.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Lecturas para inspirarte a cambiar, descubrir tu "razón de ser" y elevar tu vitalidad.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Tus libros:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Deja de ser tu - Joe Dispenza</li>
+                                <li>Ikigai - Hector Garcia</li>
+                                <li>Potencia tu energía - Pam Grout</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                     <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                            <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-purple-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 10v-5h6v5m0 0l-3-1.5-3 1.5" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-purple-800">Filosofía Práctica y Realidad</h2>
+                                <p class="text-gray-600">Enfrenta la vida con honestidad, perspectiva y mejores relaciones.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                             <p class="text-gray-700 mb-3">Estos libros ofrecen una visión directa y sin filtros para navegar la complejidad de la vida y las interacciones humanas.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Tus libros:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>El sutil arte de que (casi todo) te importe una mierda - Mark Manson</li>
+                                <li>El hombre que estaba rodeado de idiotas - Thomas Erikson</li>
+                                <li>Memento Mori</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        
+        <footer class="text-center mt-16">
+            <p class="text-gray-700 font-semibold text-xl mb-4">El conocimiento es el primer paso hacia la transformación.</p>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                ¡Comienza tu lectura!
+            </button>
+        </footer>
+
+    </div>
+
+    <script>
+        // Function to handle the interactivity of the infographic steps
+        function toggleStep(element) {
+            // Close all other open steps
+            document.querySelectorAll('.infographic-step.open').forEach(openStep => {
+                if (openStep !== element) {
+                    openStep.classList.remove('open');
+                }
+            });
+            // Toggle the current step
+            element.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
+

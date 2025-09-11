@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando los Secretos del Cerebro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .infographic-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out;
+        }
+        .infographic-step.open .infographic-step-content {
+            max-height: 800px; /* Increased height for longer lists */
+        }
+        .infographic-step .icon-container svg {
+            transition: transform 0.5s ease-in-out;
+        }
+        .infographic-step.open .icon-container svg {
+            transform: rotate(360deg) scale(1.1);
+        }
+        /* This is the vertical line connecting the steps */
+        .path-line {
+            width: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen antialiased text-gray-800">
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Explorando los Secretos del Cerebro</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Una colección de National Geographic para desentrañar los misterios de la mente.</p>
+        </header>
+
+        <main class="relative">
+            <div class="path-line hidden md:block"></div>
+            <div id="infographic-container" class="space-y-8">
+                
+                <!-- Category 1: Fundamentos del Cerebro -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                             <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-blue-800">Fundamentos del Cerebro</h2>
+                                <p class="text-gray-600">La máquina biológica y su evolución.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Descubre la estructura básica del cerebro, sus componentes esenciales como las neuronas y cómo ha evolucionado a lo largo del tiempo.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Tus libros:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>01 el cerebro Ng.pdf</li>
+                                <li>13 La Evolucion del cerebelo.pdf</li>
+                                <li>15 Las Neuronas NG.pdf</li>
+                                <li>23 la electricidad del cerebro.pdf</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Procesos Cognitivos -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                            <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-purple-500 text-white flex items-center justify-center">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-purple-800">Procesos Cognitivos</h2>
+                                <p class="text-gray-600">Memoria, conciencia, emociones y más.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Explora cómo el cerebro procesa información, crea recuerdos, genera emociones, y da lugar a la conciencia y el lenguaje.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Tus libros:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>02 la Memoria Ng.pdf</li>
+                                <li>03 La Conciencia Ng.pdf</li>
+                                <li>05 Las Emociones Ng.pdf</li>
+                                <li>06 La Naturaleza del Sueño Ng.pdf</li>
+                                <li>07 La Neurociencia del aprend Ng.pdf</li>
+                                <li>21_EL_Lenguaje-.pdf</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- Category 3: Desarrollo y Potencial -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                     <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                            <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-teal-500 text-white flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-teal-800">Desarrollo y Potencial</h2>
+                                <p class="text-gray-600">Desde la infancia hasta la creatividad.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                             <p class="text-gray-700 mb-3">Comprende cómo se desarrolla el cerebro, su increíble plasticidad, y cómo potenciar la creatividad y la regeneración neuronal.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Tus libros:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>04 La edad del cerebro Ng.pdf</li>
+                                <li>10 El Cerebro Infantil Ng.pdf</li>
+                                <li>11 El Cerebro Creati.pdf</li>
+                                <li>12 La Plasticidad Ng.pdf</li>
+                                <li>22 la regeneracion neuronal.pdf</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Category 4: El Cerebro Social y el Futuro -->
+                <div class="infographic-step md:flex md:items-center md:justify-start md:space-x-8">
+                    <div class="md:w-1/2 bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/50 cursor-pointer" onclick="toggleStep(this.parentElement)">
+                        <div class="flex items-center space-x-4">
+                            <div class="icon-container flex-shrink-0 w-16 h-16 rounded-full bg-indigo-500 text-white flex items-center justify-center">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-indigo-800">El Cerebro Social y el Futuro</h2>
+                                <p class="text-gray-600">Hormonas, conexiones y nuevas fronteras.</p>
+                            </div>
+                        </div>
+                        <div class="infographic-step-content mt-4">
+                            <p class="text-gray-700 mb-3">Explora cómo interactuamos, la influencia de las hormonas, la lucha contra enfermedades y las futuras interfaces cerebro-máquina.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2">Tus libros:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>08 El futuro del Ng.pdf</li>
+                                <li>09 El Cerebro Social.pdf</li>
+                                <li>16 La lucha contra el can Ng.pdf</li>
+                                <li>17 El Cerebro y las Hormonas Ng.pdf</li>
+                                <li>19 EL CONECTOMA.pdf</li>
+                                <li>27 Las Interfaces.pdf</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="md:w-1/2"></div>
+                </div>
+                
+            </div>
+        </main>
+        
+        <footer class="text-center mt-16">
+            <p class="text-gray-700 font-semibold text-xl mb-4">La aventura más grande es el viaje hacia adentro.</p>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Descubre tu Mente
+            </button>
+        </footer>
+
+    </div>
+
+    <script>
+        // Function to handle the interactivity of the infographic steps
+        function toggleStep(element) {
+            // Close all other open steps
+            document.querySelectorAll('.infographic-step.open').forEach(openStep => {
+                if (openStep !== element) {
+                    openStep.classList.remove('open');
+                }
+            });
+            // Toggle the current step
+            element.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
+
