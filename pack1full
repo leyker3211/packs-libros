@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Libros - 3 Packs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .packs-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pack-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .pack-card.principal {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .pack-card.regalo {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .pack-card.regalo-2 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .pack-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pack-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .pack-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .pack-count {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .btn-ver {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-ver:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 50px auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .book-list {
+            list-style: none;
+        }
+
+        .book-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .book-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .book-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .book-title {
+            font-size: 1em;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Biblioteca de Libros 2025</h1>
+        
+        <div class="packs-grid">
+            <!-- Pack Principal -->
+            <div class="pack-card principal">
+                <div class="pack-header">
+                    <div class="pack-badge">PACK PRINCIPAL</div>
+                    <div class="pack-title">Pack 1: Autoayuda</div>
+                    <div class="pack-count">30 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack1')">Ver Libros</button>
+            </div>
+
+            <!-- Pack Regalo 2 -->
+            <div class="pack-card regalo-2">
+                <div class="pack-header">
+                    <div class="pack-badge">🎁 PACK DE REGALO</div>
+                    <div class="pack-title">Pack 2: Superación</div>
+                    <div class="pack-count">25 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack2')">Ver Libros</button>
+            </div>
+
+            <!-- Pack Regalo 3 -->
+            <div class="pack-card regalo">
+                <div class="pack-header">
+                    <div class="pack-badge">🎁 PACK DE REGALO</div>
+                    <div class="pack-title">Pack 3: Inteligencia Emocional</div>
+                    <div class="pack-count">17 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack3')">Ver Libros</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 1 -->
+    <div id="pack1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack1')">&times;</span>
+                <h2>Pack 1: Autoayuda</h2>
+                <p>Pack Principal - 30 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">50 Cápsulas de Amor Propio - Sara Espejo</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Abraza a tu Niño Interior</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Arregla tu desmadre - Sarah Knight</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Cómo mandar a la mierda de forma educada - Alba Cardalda</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Comprende tus emociones - Enrique Rojas</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">Cosas que nunca hablé con mi madre - Michele Filgate</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">Cuídate para crecer - Ana Pérez</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">De mi para mi, la tormenta pasará versión 1</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">De mi para mi, puedes con esto y más versión 2</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">Desapegarse sin anestesia - Walter Riso</span></li>
+                    <li class="book-item"><span class="book-number">11</span><span class="book-title">Desfibrilador - Gilraen Eärfalas</span></li>
+                    <li class="book-item"><span class="book-number">12</span><span class="book-title">El Arte de Gestionar tus Emociones - Sergio Aparicio</span></li>
+                    <li class="book-item"><span class="book-number">13</span><span class="book-title">El arte de amar las cosas imperfectas - Haemin Sunim</span></li>
+                    <li class="book-item"><span class="book-number">14</span><span class="book-title">Es manipulación y no lo sabes - Claudia Nicolasa</span></li>
+                    <li class="book-item"><span class="book-number">15</span><span class="book-title">Ikigai - Hector Garcia</span></li>
+                    <li class="book-item"><span class="book-number">16</span><span class="book-title">Imposible decir adiós - Han Kang</span></li>
+                    <li class="book-item"><span class="book-number">17</span><span class="book-title">La increíble conexión intestino cerebro - Camila Rowlands</span></li>
+                    <li class="book-item"><span class="book-number">18</span><span class="book-title">Los 5 Lenguajes del Amor - Gary Chapman</span></li>
+                    <li class="book-item"><span class="book-number">19</span><span class="book-title">Maravillosamente imperfecto, escandalosamente feliz - Walter Riso</span></li>
+                    <li class="book-item"><span class="book-number">20</span><span class="book-title">Encuentra tu persona vitamina - Marian Rojas Estapé</span></li>
+                    <li class="book-item"><span class="book-number">21</span><span class="book-title">Mi psicóloga me dijo - Katherine Hoyer Yulibeth</span></li>
+                    <li class="book-item"><span class="book-number">22</span><span class="book-title">Nadie tiene que saberlo excepto tú - Anni Vital</span></li>
+                    <li class="book-item"><span class="book-number">23</span><span class="book-title">Recupera tu mente, reconquista tu vida - Marian Rojas Estapé</span></li>
+                    <li class="book-item"><span class="book-number">24</span><span class="book-title">Cómo hacer que te pasen cosas buenas - Marian Rojas Estapé</span></li>
+                    <li class="book-item"><span class="book-number">25</span><span class="book-title">Romper el Círculo - Mystical Books</span></li>
+                    <li class="book-item"><span class="book-number">26</span><span class="book-title">Sana, Suelta, Sigue: Atrévete a Conocer el Poder - Brenda Quintana</span></li>
+                    <li class="book-item"><span class="book-number">27</span><span class="book-title">Sobreviviendo con un corazón roto - Faty Salinas</span></li>
+                    <li class="book-item"><span class="book-number">28</span><span class="book-title">Terapia para llevar - Ana Pérez</span></li>
+                    <li class="book-item"><span class="book-number">29</span><span class="book-title">Trastorno de Apego: Cómo superar la ansiedad - Blanca Navarro</span></li>
+                    <li class="book-item"><span class="book-number">30</span><span class="book-title">Uno siempre cambia al amor de su vida - Amalia Andrade</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 2 -->
+    <div id="pack2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack2')">&times;</span>
+                <h2>Pack 2: Superación</h2>
+                <p>Pack de Regalo - 25 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">Invisible - Eloy Moreno</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Abraza a la niña que fuiste - Marta Segrelles</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Abraza tus Partes Rotas - María Ros</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Ansiedad en las Relaciones: 7 Sencillos Pasos - Michelle Miller</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Aquello Que No Te Dijeron - Victor Hernández</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">Basta de amores de mierda - Gonzalo Romero</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">Belleza Verdadera - Carolyn Mahaney & Nicole Whitacre</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">Cómo llamarte amor: A gritos - Alina Not</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">Cuando mamá lastima: Relatos de perdón - R. Guzmán</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">Cuando papá lastima: Reconstruyendo la capa del superhéroe - R. Guzmán</span></li>
+                    <li class="book-item"><span class="book-number">11</span><span class="book-title">Entender tu Muerte me Salvó la Vida - Roberto Aguirre</span></li>
+                    <li class="book-item"><span class="book-number">12</span><span class="book-title">Entiende tu Mente - Molo Cebrián</span></li>
+                    <li class="book-item"><span class="book-number">13</span><span class="book-title">Eres el amor de mi otra vida - Gilraen Eärfalas</span></li>
+                    <li class="book-item"><span class="book-number">14</span><span class="book-title">Este dolor no es mío - Mark Wolynn</span></li>
+                    <li class="book-item"><span class="book-number">15</span><span class="book-title">Hasta la vista, narcisista - Raquel Jiménez González</span></li>
+                    <li class="book-item"><span class="book-number">16</span><span class="book-title">La Sanación de las 5 Heridas - Lise Bourbeau</span></li>
+                    <li class="book-item"><span class="book-number">17</span><span class="book-title">Me quiero, te quiero - María Esclapez</span></li>
+                    <li class="book-item"><span class="book-number">18</span><span class="book-title">Mujeres que corren con los lobos - Clarissa Pinkola Estés</span></li>
+                    <li class="book-item"><span class="book-number">19</span><span class="book-title">Mujeres que Aman Demasiado</span></li>
+                    <li class="book-item"><span class="book-number">20</span><span class="book-title">Querida yo, tenemos que hablar - Elizabeth Clapés</span></li>
+                    <li class="book-item"><span class="book-number">21</span><span class="book-title">Querido yo, vamos a estar bien - Alejandro Sequera</span></li>
+                    <li class="book-item"><span class="book-number">22</span><span class="book-title">Sanando heridas, llantos y despedidas - Jairo Guerrero</span></li>
+                    <li class="book-item"><span class="book-number">23</span><span class="book-title">TDAH del caos mental al equilibrio - Elysia Lune</span></li>
+                    <li class="book-item"><span class="book-number">24</span><span class="book-title">Todas las Personas que Fuí - Alonso Casas</span></li>
+                    <li class="book-item"><span class="book-number">25</span><span class="book-title">Ya te dije adiós, ahora cómo te olvido - Walter Riso</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 3 -->
+    <div id="pack3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack3')">&times;</span>
+                <h2>Pack 3: Inteligencia Emocional</h2>
+                <p>Pack de Regalo - 17 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">AnsiosaMente: Adiós Ansiedad y Ataques de Pánico - Sara Espejo</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Cartas que no llegaron - Gilraen</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Creyendo y Creando - Sara Espejo</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Deja de tratarte como el culo - Lorena Gascón</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Déjate en paz - Fabrice</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">Deshacer la ansiedad - Judson Brewer</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">El bienquerer: Aprende a construir relaciones - Paula Delgado</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">El cerebro de la gente feliz - Grijaldo</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">El Síndrome de la Chica Buena - Marta Martínez Novoa</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">Llámame cuando no te encuentres - Gilraen Eärfalas</span></li>
+                    <li class="book-item"><span class="book-number">11</span><span class="book-title">Para que no te olvides - Raquel Perera</span></li>
+                    <li class="book-item"><span class="book-number">12</span><span class="book-title">Piensa y razona como Sócrates - Wiss, Elke</span></li>
+                    <li class="book-item"><span class="book-number">13</span><span class="book-title">Red Flags, Green Flags - Dr Ali Fenwick</span></li>
+                    <li class="book-item"><span class="book-number">14</span><span class="book-title">Resetea tus intestinos - Facundo Pereyra</span></li>
+                    <li class="book-item"><span class="book-number">15</span><span class="book-title">TDAH del caos mental al equilibrio - Elysia Lune</span></li>
+                    <li class="book-item"><span class="book-number">16</span><span class="book-title">Tus zonas erróneas - Wayne W. Dyer</span></li>
+                    <li class="book-item"><span class="book-number">17</span><span class="book-title">Una vida sin salud mental - Alba González</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(packId) {
+            document.getElementById(packId).style.display = 'block';
+        }
+
+        function closeModal(packId) {
+            document.getElementById(packId).style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
