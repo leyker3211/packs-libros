@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Libros - Ocultismo y Espiritualidad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d4af37;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .packs-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pack-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .pack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+        .pack-card.principal {
+            background: linear-gradient(135deg, #2d1b69 0%, #5b2c6f 100%);
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .pack-card.regalo {
+            background: linear-gradient(135deg, #1a1a40 0%, #2d4a8c 100%);
+            color: #87ceeb;
+            border: 2px solid #87ceeb;
+        }
+
+        .pack-card.regalo-2 {
+            background: linear-gradient(135deg, #4a0e4e 0%, #81007f 100%);
+            color: #ffd700;
+            border: 2px solid #ffd700;
+        }
+
+        .pack-header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pack-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            border: 1px solid currentColor;
+        }
+
+        .pack-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .pack-count {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .btn-ver {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid currentColor;
+            border-radius: 10px;
+            color: inherit;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-ver:hover {
+            background: currentColor;
+            color: #1a1a2e;
+            box-shadow: 0 0 20px currentColor;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 50px auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            animation: slideIn 0.3s ease;
+            border: 2px solid #d4af37;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #2d1b69 0%, #5b2c6f 100%);
+            color: #d4af37;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .modal-header h2 {
+            font-size: 2em;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #d4af37;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 20px #d4af37;
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .book-list {
+            list-style: none;
+        }
+
+        .book-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(45, 27, 105, 0.3);
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+            transition: all 0.3s ease;
+            color: #e0e0e0;
+        }
+
+        .book-item:hover {
+            background: rgba(45, 27, 105, 0.5);
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .book-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #1a1a2e;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .book-title {
+            font-size: 1em;
+            color: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+        }
+
+        /* Scrollbar personalizado */
+        .modal-body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #f4d03f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Biblioteca Mística 2025 ✨</h1>
+        
+        <div class="packs-grid">
+            <!-- Pack Principal -->
+            <div class="pack-card principal">
+                <div class="pack-header">
+                    <div class="pack-badge">PACK PRINCIPAL</div>
+                    <div class="pack-title">Pack 8: Ocultismo</div>
+                    <div class="pack-count">10 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack8')">Ver Libros</button>
+            </div>
+
+            <!-- Pack Regalo 16 -->
+            <div class="pack-card regalo">
+                <div class="pack-header">
+                    <div class="pack-badge">🎁 PACK DE REGALO</div>
+                    <div class="pack-title">Pack 16: Espiritualidad y Filosofía</div>
+                    <div class="pack-count">18 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack16')">Ver Libros</button>
+            </div>
+
+            <!-- Pack Regalo 23 -->
+            <div class="pack-card regalo-2">
+                <div class="pack-header">
+                    <div class="pack-badge">🎁 PACK DE REGALO</div>
+                    <div class="pack-title">Pack 23: Magia y Ocultismo</div>
+                    <div class="pack-count">5 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack23')">Ver Libros</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 8 -->
+    <div id="pack8" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack8')">&times;</span>
+                <h2>Pack 8: Ocultismo Financiero</h2>
+                <p>Pack Principal - 10 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">Compartir Te lo ocultaron - El inicio - Dani Roa</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">El Libro de Urantia</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">El necronomicon - Lovecraft</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Excalibur una puerta al manicomio - Hubbard</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">La gnosis del Necronomicón: Una introducción práctica - Asenath Mason</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">Libro de la Sabiduría 1 - Harry B Joseph</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">Libro de la Sabiduría 2</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">Libro de Salomón</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">Los hijos de Enoc: El libro de Thoth - Marta Abelló</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">Sueños Macabros: Historias de Terror - Valeria Gianela</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 16 -->
+    <div id="pack16" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack16')">&times;</span>
+                <h2>Pack 16: Espiritualidad y Filosofía</h2>
+                <p>Pack de Regalo - 18 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">Cartas a Lucilio - Séneca</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Conocer A Dios - Chopra, Deepak</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Conversaciones con Dios - Walsch, Neale Donald</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Dios Vuelve en una Harley - Joan Brady, RN</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Dios y nuestra felicidad - Castillo, José M</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">El Arte de vivir como un Estoico - David Fideler</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">El hombre en busca de sentido - Viktor Frankl</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">El Libro de Urantia</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">El pequeño libro del estoicismo - Jonas Salzgeber</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">El poder de la Kabbalah - Yehuda Berg</span></li>
+                    <li class="book-item"><span class="book-number">11</span><span class="book-title">El poder frente a la fuerza - Enric Corbera</span></li>
+                    <li class="book-item"><span class="book-number">12</span><span class="book-title">El quinto acuerdo - Miguel Angel Ruiz Macias</span></li>
+                    <li class="book-item"><span class="book-number">13</span><span class="book-title">Jamás moriremos - Deepak Chopra</span></li>
+                    <li class="book-item"><span class="book-number">14</span><span class="book-title">Jesús</span></li>
+                    <li class="book-item"><span class="book-number">15</span><span class="book-title">Kabbalah - Yehuda Berg</span></li>
+                    <li class="book-item"><span class="book-number">16</span><span class="book-title">La Supraconciencia existe - Dr. Manuel Sans Segarra & Juan Carlos Cebrián</span></li>
+                    <li class="book-item"><span class="book-number">17</span><span class="book-title">Los cuatro acuerdos - Miguel Angel Ruiz</span></li>
+                    <li class="book-item"><span class="book-number">18</span><span class="book-title">Metahumano: Libera tu potencial infinito - Deepak Chopra</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 23 -->
+    <div id="pack23" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack23')">&times;</span>
+                <h2>Pack 23: Magia y Ocultismo</h2>
+                <p>Pack de Regalo - 5 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">Hechizos: Transforma tu Energía y Conquista tus Deseos - Sofía Montes</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Las clavículas de Salomón - Iroe el Mago</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Magia Negra - Jean Paul</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Magia Negra: Libro de Hechizos de Poder, Amor y Destrucción - Brittany Nightshade</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Rituales y Magia Blanca: Buscando a tu Bruja interior - Isabel Sánchez Rivera</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(packId) {
+            document.getElementById(packId).style.display = 'block';
+        }
+
+        function closeModal(packId) {
+            document.getElementById(packId).style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
