@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Libros - 3 Packs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .packs-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pack-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .pack-card.principal {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .pack-card.regalo {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .pack-card.regalo-2 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .pack-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pack-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .pack-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .pack-count {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .btn-ver {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-ver:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 50px auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .book-list {
+            list-style: none;
+        }
+
+        .book-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .book-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .book-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .book-title {
+            font-size: 1em;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Biblioteca de Libros 2025</h1>
+        
+        <div class="packs-grid">
+            <!-- Pack Principal -->
+            <div class="pack-card principal">
+                <div class="pack-header">
+                    <div class="pack-badge">PACK PRINCIPAL</div>
+                    <div class="pack-title">Pack 3: Inteligencia Emocional</div>
+                    <div class="pack-count">17 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack3')">Ver Libros</button>
+            </div>
+
+            <!-- Pack Regalo 14 -->
+            <div class="pack-card regalo">
+                <div class="pack-header">
+                    <div class="pack-badge">🎁 PACK DE REGALO</div>
+                    <div class="pack-title">Pack 14: Crecimiento Personal</div>
+                    <div class="pack-count">16 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack14')">Ver Libros</button>
+            </div>
+
+            <!-- Pack Regalo 17 -->
+            <div class="pack-card regalo-2">
+                <div class="pack-header">
+                    <div class="pack-badge">🎁 PACK DE REGALO</div>
+                    <div class="pack-title">Pack 17: Salud Mental y Bienestar</div>
+                    <div class="pack-count">18 libros</div>
+                </div>
+                <button class="btn-ver" onclick="openModal('pack17')">Ver Libros</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 3 -->
+    <div id="pack3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack3')">&times;</span>
+                <h2>Pack 3: Inteligencia Emocional</h2>
+                <p>Pack Principal - 17 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">AnsiosaMente: Adiós Ansiedad y Ataques de Pánico - Sara Espejo</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Cartas que no llegaron - Gilraen</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Creyendo y Creando - Sara Espejo</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Deja de tratarte como el culo: De la autocrítica también se - Lorena Gascón</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Déjate en paz - Fabrice</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">Deshacer la ansiedad (Divulgación) - Judson Brewer</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">El bienquerer: Aprende a construir relaciones emocionalmente - Paula Delgado</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">El cerebro de la gente feliz - Grijaldo</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">El Síndrome De La Chica Buena - Marta Martínez Novoa</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">Llámame cuando no te encuentres - Gilraen Eärfalas</span></li>
+                    <li class="book-item"><span class="book-number">11</span><span class="book-title">Para que no te olvides - Raquel Perera</span></li>
+                    <li class="book-item"><span class="book-number">12</span><span class="book-title">Piensa y razona como Sócrates: Manual para un diálogo - Wiss, Elke</span></li>
+                    <li class="book-item"><span class="book-number">13</span><span class="book-title">Red Flags, Green Flags - Dr Ali Fenwick</span></li>
+                    <li class="book-item"><span class="book-number">14</span><span class="book-title">Resetea tus intestinos: Sana más de 15 enfermedades - Facundo Pereyra</span></li>
+                    <li class="book-item"><span class="book-number">15</span><span class="book-title">TDAH del caos mental al equilibrio - Elysia Lune</span></li>
+                    <li class="book-item"><span class="book-number">16</span><span class="book-title">Tus zonas erróneas - Wayne W. Dyer</span></li>
+                    <li class="book-item"><span class="book-number">17</span><span class="book-title">Una vida sin salud mental - Alba González</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 14 -->
+    <div id="pack14" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack14')">&times;</span>
+                <h2>Pack 14: Crecimiento Personal</h2>
+                <p>Pack de Regalo - 16 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">¿Por qué le pasan cosas malas a la gente buena? - Ivan Gutierrez</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Cómo Dejar de Pensar Demasiado - Serena Lancaster</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Cómo Dejar de Pensar Demasiado: Una Guía para Vivir sin - Adam Tusco</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Cómo dejar de ser tu peor enemigo - Alba</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Como el Hombre Piensa Así es su Vida - Allen, James</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">Cómo ser como Rich De Vos - Pat Williams, Jim Denney</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">Confianza - Osho</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">Dejar ir: El camino a la liberación - David R. Hawkins</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">Desapegarse sin anestesia - Walter Riso</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">El poder de dejar ir - Daniel J. Martin</span></li>
+                    <li class="book-item"><span class="book-number">11</span><span class="book-title">El poder de la disciplina - Daniel Martin</span></li>
+                    <li class="book-item"><span class="book-number">12</span><span class="book-title">El poder de la gratitud: 7 pasos para una vida más feliz - Daniel J. Martin</span></li>
+                    <li class="book-item"><span class="book-number">13</span><span class="book-title">El poder de la resilencia - Nicolas Belli</span></li>
+                    <li class="book-item"><span class="book-number">14</span><span class="book-title">El poder de los objetivos: Descubre el secreto para alcanzar - Martin, Daniel J</span></li>
+                    <li class="book-item"><span class="book-number">15</span><span class="book-title">Estar bien: Prácticas de bienestar para una vida en - Xiomara</span></li>
+                    <li class="book-item"><span class="book-number">16</span><span class="book-title">Mi Viaje Sin Ti - Alejandro Sequera</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pack 17 -->
+    <div id="pack17" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('pack17')">&times;</span>
+                <h2>Pack 17: Salud Mental y Bienestar</h2>
+                <p>Pack de Regalo - 18 Libros</p>
+            </div>
+            <div class="modal-body">
+                <ul class="book-list">
+                    <li class="book-item"><span class="book-number">1</span><span class="book-title">Amor-zero - Iñaki Piñuel</span></li>
+                    <li class="book-item"><span class="book-number">2</span><span class="book-title">Calma tu puta cabeza - Faith-G Harper</span></li>
+                    <li class="book-item"><span class="book-number">3</span><span class="book-title">Caminando con Dios a través de el dolor y el sufrimiento - Timothy Keller</span></li>
+                    <li class="book-item"><span class="book-number">4</span><span class="book-title">Corazón espinado - María Iglesias</span></li>
+                    <li class="book-item"><span class="book-number">5</span><span class="book-title">Dejar IR: Deja de Vivir el Pasado y Empieza a Vivir el - Steven Raise</span></li>
+                    <li class="book-item"><span class="book-number">6</span><span class="book-title">Deshacer la ansiedad - Judson Brewer</span></li>
+                    <li class="book-item"><span class="book-number">7</span><span class="book-title">El origen emocional de las enfermedades - Christian Fleche</span></li>
+                    <li class="book-item"><span class="book-number">8</span><span class="book-title">El Poder de la Energía Sexual - Iris</span></li>
+                    <li class="book-item"><span class="book-number">9</span><span class="book-title">El síndrome de la impostora - Cadoche y Montarlot</span></li>
+                    <li class="book-item"><span class="book-number">10</span><span class="book-title">Entender Tu Muerte Me Salvó La Vida - Roberto Aguirre</span></li>
+                    <li class="book-item"><span class="book-number">11</span><span class="book-title">Intentemos de nuevo - Gary Chapman</span></li>
+                    <li class="book-item"><span class="book-number">12</span><span class="book-title">Las 12 competencias de la inteligencia emocional - Daniel Goleman</span></li>
+                    <li class="book-item"><span class="book-number">13</span><span class="book-title">Lo bueno de tener un mal día: Cómo cuidar de nuestras - Anabel González</span></li>
+                    <li class="book-item"><span class="book-number">14</span><span class="book-title">Mi cicatriz ya no llora - Niñato</span></li>
+                    <li class="book-item"><span class="book-number">15</span><span class="book-title">Mi Persona Equivocada - Faty Salinas</span></li>
+                    <li class="book-item"><span class="book-number">16</span><span class="book-title">Mientras te olvido - Aprendo a vivir sin ti - Completo - Nacarid Portal Arraez - Deja Vú</span></li>
+                    <li class="book-item"><span class="book-number">17</span><span class="book-title">Neurofelicidad: Descubre el poder de la química cerebral - Ana Asensio</span></li>
+                    <li class="book-item"><span class="book-number">18</span><span class="book-title">Remedios Herbales Olvidados: Mejora Tu Salud con el Poder - Domingo Escudero Santos</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(packId) {
+            document.getElementById(packId).style.display = 'block';
+        }
+
+        function closeModal(packId) {
+            document.getElementById(packId).style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
