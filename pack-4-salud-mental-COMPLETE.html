@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack 4 - Salud Mental | Biblioteca Digital Premium</title>
+    <meta name="description" content="Colección exclusiva de 199 libros de salud mental. Tu mente merece el mejor cuidado.">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #11998e;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .pack-badge {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #11998e;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-section {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #11998e;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .search-results {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .books-section {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .books-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .book-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #11998e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-category {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .book-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #11998e;
+            opacity: 0.3;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: #11998e;
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-primary {
+            background: #38ef7d;
+            color: white;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats { gap: 1.5rem; }
+            .stat-number { font-size: 2rem; }
+            .books-grid { grid-template-columns: 1fr; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #11998e;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                Salud Mental Premium
+            </div>
+            <a href="#contacto" class="contact-btn">
+                <i class="fas fa-whatsapp"></i>
+                Contactar Ahora
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="pack-badge">Pack Exclusivo #4</div>
+            <h1>SALUD MENTAL MASTER</h1>
+            <p>Tu mente merece el mejor cuidado.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalBooks">199</span>
+                    <span class="stat-label">Libros Únicos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">PDF</span>
+                    <span class="stat-label">Formato</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Buscar libros por título o tema...">
+            </div>
+            <div class="search-results" id="searchResults">
+                Mostrando <span id="currentCount">199</span> libros
+            </div>
+        </div>
+    </section>
+
+    <section class="books-section">
+        <div class="books-container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Cargando biblioteca...
+            </div>
+            <div class="books-grid" id="booksGrid" style="display: none;"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron resultados</h3>
+                <p>Intenta con otros términos de búsqueda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <h3>¿Listo para Transformar tu Vida?</h3>
+            <p>Accede inmediatamente a esta colección exclusiva de 199 libros. Tu mente merece el mejor cuidado.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20el%20Pack%204%20de%20Salud%20Mental%20con%20199%20libros" class="cta-btn cta-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Obtener Pack Ahora
+                </a>
+                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Pack%20Salud Mental" class="cta-btn cta-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Más Información
+                </a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let allBooks = [];
+        let filteredBooks = [];
+
+        async function loadBooks() {
+            const books = [
+                {"titulo": "CÓMO LLAMARTE AMOR 1 A GRITOS -- ALINA NOT", "carpeta": "SUPERACIÓN"},
+                {"titulo": "TODAS LAS PERSONAS QUE FUÍ- ALONSO CASAS", "carpeta": "SUPERACIÓN"},
+                {"titulo": "QUERIDO-YO-VAMOS-A-ESTAR-BIEN-ALEJANDRO-SEQU", "carpeta": "SUPERACIÓN"},
+                {"titulo": "QUERIDA YO TENEMOS QUE HABLAR CONÓCETE Y SÉ FELIZ -- ELIZABETH CLAPÉS", "carpeta": "SUPERACIÓN"},
+                {"titulo": "LA SANACION DE LAS 5 HERIDAS", "carpeta": "SUPERACIÓN"},
+                {"titulo": "HASTA LA VISTA, NARCISISTA - RAQUEL JIMÉNEZ GONZÁLEZ", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ESTE DOLOR NO ES MÍO -- MARK WOLYNN", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ENTIENDE-TU-MENTE-MOLO-CEBRIAN-2025-", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ENTENDER-TU-MUERTE-ME-SALVÓ-LA-VIDA-ROBERTO-AGUIRRE-2025", "carpeta": "SUPERACIÓN"},
+                {"titulo": "BASTA DE AMORES DE MIERDA “EL PELA” GONZALO ROMERO", "carpeta": "SUPERACIÓN"},
+                {"titulo": "AQUELLO QUE NO TE DIJERON", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ABRAZA TUS PARTES ROTAS -- MARÍA ROS -", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ABRAZA A LA NIÑA QUE FUISTE -- MARTA SEGRELLES", "carpeta": "SUPERACIÓN"},
+                {"titulo": "CUANDO PAPÁ LASTIMA RECONSTRUYENDO LA CAPA DEL SUPERHÉROE 2020", "carpeta": "SUPERACIÓN"},
+                {"titulo": "CUANDO MAMÁ LASTIMA RELATOS DE PERDÓN PARA HIJOS CON EL CORAZÓN HERIDO 2019", "carpeta": "SUPERACIÓN"},
+                {"titulo": "YA TE DIJE ADIÓS, AHORA CÓMO TE OLVIDO - WALTER RISO", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ANSIEDAD EN LAS RELACIONES 7 SENCILLOS PASOS PARA GESTIONAR -- MICHELLE MILLER", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ME QUIERO, TE QUIERO -- MARÍA ESCLAPEZ -- 2022 --", "carpeta": "SUPERACIÓN"},
+                {"titulo": "36- INVISIBLE - ELOY MORENO", "carpeta": "SUPERACIÓN"},
+                {"titulo": "MUJERES QUE CORREN CON LOS LOBOS - CLARISSA PINKOLA ESTÉS", "carpeta": "SUPERACIÓN"},
+                {"titulo": "SANANDO HERIDAS LLANTOS Y DESPEDIDAS -- JAIRO GUERRERO", "carpeta": "SUPERACIÓN"},
+                {"titulo": "BELLEZA VERDADERA", "carpeta": "SUPERACIÓN"},
+                {"titulo": "ERES EL AMOR DE MI OTRA VIDA", "carpeta": "SUPERACIÓN"},
+                {"titulo": "MUJERESQUEAMANDEMASIADO", "carpeta": "SUPERACIÓN"},
+                {"titulo": "TDAH DEL CAOS MENTAL AL EQUILIBRIO - ELYSIA LUNE", "carpeta": "SUPERACIÓN"},
+                {"titulo": "CONVERSACIONES CON DIOS - WALSCH, NEALE DONALD", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
+                {"titulo": "HOMBRE EN BUSCA DE SENTIDO, EL - VIKTOR FRANKL", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
+                {"titulo": "EL ARTE DE VIVIR COMO UN ESTOICO -EL-DAVID-FIDELER", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
+                {"titulo": "KABBALAH - YEHUDA BERG", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
+                {"titulo": "MEDITACIONES-MARCO-AURELIO", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
+                {"titulo": "EL PODER DE LA KABBALAH - YEHUDA BERG", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
+                {"titulo": "EL-ARTE-DE-AMAR-LAS-COSAS-IMPERFECTAS-HAEMIN-SUNIM", "carpeta": "AUTOAYUDA"},
+                {"titulo": "SOBREVIVIENDO CON UN CORAZÓN ROTO SPANISH EDITION FATY SALINAS 2023", "carpeta": "AUTOAYUDA"},
+                {"titulo": "ES-MANIPULACIÓN-Y-NO-LO-SABES-CLAUDIA-NICOLASA- 1", "carpeta": "AUTOAYUDA"},
+                {"titulo": "EL ARTE DE GESTIONAR TUS EMOCIONES - SERGIO APARICIO", "carpeta": "AUTOAYUDA"},
+                {"titulo": "MI PSICÓLOGA ME DIJO KATHERINE HOYER, YULIBETH R G 2025 EDICIONES", "carpeta": "AUTOAYUDA"},
+                {"titulo": "LA INCREIBLE CONEXIÓN INTESTINO CEREBRO -- CAMILA ROWLANDS", "carpeta": "AUTOAYUDA"},
+                {"titulo": "COSAS QUE NUNCA HABLÉ CON MI MADRE -- MICHELE FILGATE --", "carpeta": "AUTOAYUDA"},
+                {"titulo": "IKIGAI - HECTOR GARCIA", "carpeta": "AUTOAYUDA"},
+                {"titulo": "UNO SIEMPRE CAMBIA AL AMOR DE SU VIDA - AMALIA ANDRADE", "carpeta": "AUTOAYUDA"},
+                {"titulo": "TERAPIA PARA LLEVAR - ANA PÉREZ", "carpeta": "AUTOAYUDA"},
+                {"titulo": "ROMPER EL CÍRCULO - MYSTICAL BOOKS BH", "carpeta": "AUTOAYUDA"},
+                {"titulo": "ROJAS ESTAPE MARIAN - COMO HACER QUE TE PASEN COSAS BUENAS", "carpeta": "AUTOAYUDA"},
+                {"titulo": "RECUPERA TU MENTE, RECONQUISTA TU VIDA -- MARIAN ROJAS ESTAPÉ -- 2024", "carpeta": "AUTOAYUDA"},
+                {"titulo": "NADIE TIENE QUE SABERLO EXCEPTO TÚ -- ANNI VITAL", "carpeta": "AUTOAYUDA"},
+                {"titulo": "MARIAN ROJAS ESTAPE - ENCUENTRA TU PERSONA VITAMINA-", "carpeta": "AUTOAYUDA"},
+                {"titulo": "MARAVILLOSAMENTE IMPERFECTO, ESCANDALOSAMENTE FELIZ - WALTER RISO", "carpeta": "AUTOAYUDA"},
+                {"titulo": "LOS 5 LENGUAJES DEL AMOR - GARY CHAPMAN", "carpeta": "AUTOAYUDA"},
+                {"titulo": "DESFIBRILADOR -- GILRAEN EÄRFALAS --", "carpeta": "AUTOAYUDA"},
+                {"titulo": "DESAPEGARSE SIN ANESTESIA - WALTER RISO", "carpeta": "AUTOAYUDA"},
+                {"titulo": "DE MÍ PARA MÍ, PUEDES CON ESTO Y MÁS VERSIÓN 2", "carpeta": "AUTOAYUDA"},
+                {"titulo": "DE MÍ PARA MÍ, LA TORMENTA PASARÁ VERSIÓN 1", "carpeta": "AUTOAYUDA"},
+                {"titulo": "CUÍDATE PARA CRECER - ANA PÉREZ", "carpeta": "AUTOAYUDA"},
+                {"titulo": "COMPRENDE TUS EMOCIONES - ENRIQUE ROJAS", "carpeta": "AUTOAYUDA"},
+                {"titulo": "CÓMO MANDAR A LA MIERDA DE FORMA EDUCADA -- ALBA CARDALDA --", "carpeta": "AUTOAYUDA"},
+                {"titulo": "ARREGLA TU DESMADRE - SARAH KNINGHT", "carpeta": "AUTOAYUDA"},
+                {"titulo": "50 CÁPSULAS DE AMOR PROPIO - SARA ESPEJO", "carpeta": "AUTOAYUDA"},
+                {"titulo": "TRASTORNO DE APEGO CÓMO SUPERAR LA ANSIEDAD, EL MIEDO AL -- BLANCA NAVARRO", "carpeta": "AUTOAYUDA"},
+                {"titulo": "IMPOSIBLE DECIR ADIOS - HAN KANG", "carpeta": "AUTOAYUDA"},
+                {"titulo": "SANA, SUELTA, SIGUE ATRÉVETE A CONOCER EL PODER DE LA -- BRENDA QUINTANA -", "carpeta": "AUTOAYUDA"},
+                {"titulo": "ABRAZA-A-TU-NIÑO-INTERIOR", "carpeta": "AUTOAYUDA"},
+                {"titulo": "CAMINANDO CON DIOS A TRAVÉS DE EL DOLOR Y EL SUFRIMIENTO -- TIMOTHY KELLER -- 2019", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "MIENTRAS TE OLVIDO - APRENDO A VIVIR SIN TI - COMPLETO -- NACARID PORTAL ARRAEZ -- 2017 -- DEJA VÚ", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "DEJAR IR DEJA DE VIVIR EL PASADO Y EMPIEZA A VIVIR EL -- STEVEN RAISE -- 2025 -", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "ENTENDER-TU-MUERTE-ME-SALVÓ-LA-VIDA-ROBERTO-AGUIRRE-2025", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "CALMA TU PUTA CABEZA - FAITH-G HARPER 2023", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "REMEDIOS-HERBALES-OLVIDADOS -MEJORA-TU-SALUD-CON-EL-PODER-DOMINGO-ESCUDERO-SANTOS", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "EL PODER DE LA ENERGÍA SEXUAL - IRIS", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "NEUROFELICIDAD- -DESCUBRE-EL-PODER-DE-LA-QUÍMICA-CEREBRAL-ANA-ASENSIO", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "SOBREVIVIENDO CON UN CORAZÓN ROTO FATY SALINAS -- 2023", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "MI PERSONA EQUIVOCADA -- FATY SALINAS -- 2022", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "EL ORIGEN EMOCIONAL DE LAS ENFERMEDADES - CHRISTIAN FLECHE", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "INTENTEMOS DE NUEVO-GARY CHAPMAN", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "DESHACER LA ANSIEDAD - JUDSON BREWER", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "LO BUENO DE TENER UN MAL DÍA CÓMO CUIDAR DE NUESTRAS -- ANABEL GONZÁLEZ", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "LAS 12 COMPETENCIAS DE LA INTELIGENCIA EMOCIONAL - DANIEL GOLEMAN", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "CORAZON ESPINADO-MARIA IGLESIAS", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "EL SÍNDROME DE LA IMPOSTORA - CADOCHE Y MONTARLOT", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "AMOR-ZERO - IÑAKI PIÑUEL", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "MI CICATRIZ YA NO LLORA - NIÑATO", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
+                {"titulo": "MEMENTO MORI", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "POTENCIA TU ENERGÍA - PAM GROUT", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "EL SUTIL ARTE DE QUE", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "CÓMO DEJAR DE PENSAR DEMASIADO, UNA GUÍA PARA VIVIR SIN -- ADAM TUSCO", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "EL PODER DEL AHORA - ECKHART TOLLE", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "NO TE CREAS TODO LO QUE PIENSAS - JOSEPH NGUYEN", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "IKIGAI - HECTOR GARCIA", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "HOMBRE QUE ESTABA RODEADO DE IDIOTAS, EL - THOMAS ERIKSON", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "DEJA DE SER TU - JOE DISPENZA", "carpeta": "LIBROS DE PAZ MENTAL"},
+                {"titulo": "EL HOMBRE EN BUSCA DE SENTIDO, EL - VIKTOR FRANKL", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "KABBALAH - YEHUDA BERG", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "EL PODER DE LA KABBALAH - YEHUDA BERG", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "CONVERSACIONES CON DIOS - WALSCH, NEALE DONALD", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "METAHUMANO LIBERA TU POTENCIAL INFINITO METAHUMAN -- DEEPAK CHOPRA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "EL ARTE DE VIVIR COMO UN ESTOICO - DAVID FIDELER", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "LA SUPRACONCIENCIA EXISTE -- DR MANUEL SANS SEGARRA & JUAN CARLOS CEBRIÁN", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "DIOS VUELVE EN UNA HARLEY - JOAN BRADY, RN", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "CARTAS A LUCILIO - SÉNECA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "EL PEQUEÑO LIBRO DEL ESTOICISMO - JONAS SALZGEBER", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "EL QUINTO ACUERDO - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "EL LIBRO DE URANTIA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "EL PODER FRENTE A LA FUERZA - ENRIC CORBERA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "CONOCER A DIOS -- CHOPRA, DEEPAK", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "DIOS Y NUESTRA FELICIDAD - CASTILLO, JOSÉ M", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "LOS CUATRO ACUERDOS - MIGUEL ANGEL RUIZ", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "JAMÁS MORIREMOS - DEEPAK CHOPRA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "JESUS", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
+                {"titulo": "TDAH DEL CAOS MENTAL AL EQUILIBRIO - ELYSIA LUNE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CREYENDO Y CREANDO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "PIENSA Y RAZONA COMO SÓCRATES MANUAL PARA UN DIÁLOGO -- WISS, ELKE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "PARA QUE NO TE OLVIDES - RAQUEL PERERA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL SÍNDROME DE LA CHICA BUENA -- MARTA MARTÍNEZ NOVOA 2024", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL BIENQUERER APRENDE A CONSTRUIR RELACIONES EMOCIONALMENTE -- PAULA DELGADO -- AUTOAYUDA Y SUPERACIÓN", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "DEJATE EN PAZ- FABRICE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "DEJA DE TRATARTE COMO EL CULO DE LA AUTOCRTICA TAMBIN SE -- LORENA GASCÓN", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "UNA VIDA SIN SALUD MENTAL - ALBA GONZALEZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "RED FLAGS, GREEN FLAGS - DR ALI FENWICK", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "RESETEA TUS INTESTINOS SANA MÁS DE 15 ENFERMEDADES Y -- FACUNDO PEREYRA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "DESHACER LA ANSIEDAD", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ANSIOSAMENTE ADIÓS ANSIEDAD Y ATAQUES DE PÁNICO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CARTAS QUE NO LLEGARON- GILRAEN", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL CEREBRO DE LA GENTE FELIZ- GRIJALDO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LLÁMAME CUANDO NO TE ENCUENTRES -- GILRAEN EÄRFALAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TUS ZONAS ERRÓNEAS -- WAYNE W DYER [DYER, WAYNE W ]", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL MONJE QUE VENDIO SU FERRARI - ROBIN S. SHARMA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "USTED PUEDE SANAR SU VIDA - LOUISE L. HAY", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LAZOS DE AMOR - BRIAN WEISS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "SALIR DE LA TRAMPA - ALAN WATTS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "APRENDE A SUPERAR TUS MIEDOS - CORALIE CLOSON", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ESTO ES ESO - ALAN WATTS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "DOMINA EL ARTE DEL NETWORKING - ELISE EVRARD", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL PODER DEL AHORA - ECKHART TOLLE", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL SILENCIO HABLA - ECKHART TOLLE", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LOS CUATRO ACUERDOS - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LA ILUSION DE VIVIR - ENRIQUE ROJAS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL QUINTO ACUERDO - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "PODER SIN LIMITES - TONY ROBBINS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "DESHOJANDO MARGARITAS - WALTER RISO", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ADICTOS A LA INFELICIDAD - MARTHA HEINEMAN PIEPER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "12 PASOS HACIA LA FELICIDAD - CARMELA PARIS", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "TODO ESTA EN TU CABEZA - SUZANNE O SULLIVAN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "!CREAR O MORIR! - ANDRES OPPENHEIMER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "MAS PLATON Y MENOS PROZAC - LOU MARINOFF", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "MORIR PARA SER YO - ANITA MOORJANI", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "SE FUERTE - DEMI LOVATO", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ANATOMIA DEL MIEDO - JOSE ANTONIO MARINA TORRES", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EQUILIBRIO - DANIEL LOPEZ ROSETTI", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LA FELICIDAD EN SU MANO - ROSEMBERG LOPEZ", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ADIOS, AMOR - ABRAHAM JORGE CHINEA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ABRAZAME - KATHLEEN KEATING", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "PIENSE Y HAGASE RICO - NAPOLEON HILL", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "QUIEN SE HA LLEVADO MI QUESO - SPENCER JOHNSON", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL ARTE DE LA SEDUCCION - ROBERT GREENE", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EXITO EN LA VIDA, EXITO EN LOS - BERT HELLINGER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LOS MILLONARIOS NO NACEN, SE HA - JUAN ANTONIO GUERRERO CANONGO", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LA MITAD DE LA VIDA COMO TAREA - ANSELM GRUN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LOS HOMBRES SON DE MARTE, LAS M - JOHN GRAY", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL ALGORITMO DE LA FELICIDAD - MO GAWDAT", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ICHIGO-ICHIE - HECTOR GARCIA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "COMO DETECTAR MENTIRAS - PAUL EKMAN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL MILLONARIO INSTANTANEO - MARK FISHER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "TUS ZONAS MAGICAS - WAYNE W. DYER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "TUS ZONAS SAGRADAS - WAYNE W. DYER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL CANTO DEL PAJARO - ANTHONY DE MELLO", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "TUS ZONAS ERRONEAS - WAYNE W. DYER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "TOMA UN CAFE CONTIGO MISMO - WALTER DRESEL", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "!ME VALE MADRES! - PREM DAYAL", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL ARTE DE LA FELICIDAD - DALAI LAMA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL UNIVERSO EN UN SOLO ATOMO - DALAI LAMA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "SALVATE, LA VIDA TE ESPERA - BORIS CYRULNIK", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LOS 7 HABITOS DE LA GENTE ALTAM - STEPHEN RICHARDS COVEY", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LA MENTE DESPIERTA - DALAI LAMA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL ALMA DEL LIDERAZGO - DEEPAK CHOPRA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL HOMBRE MAS RICO DE BABILONIA - GEORGE S. CLASON", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "DE QUE SE RIE DIOS - DEEPAK CHOPRA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "COMO GANAR AMIGOS E INFLUIR SOB - DALE CARNEGIE", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "RELATOS DE PODER - CARLOS CASTANEDA", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "NO TE AHOGUES EN UN VASO DE AGU - RICHARD CARLSON", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL SECRETO - RHONDA BYRNE", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ESTE LIBRO LE HARA MAS INTELIGE - JOHN BROCKMAN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "SEGUIR SIN TI - JORGE BUCAY", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "PAZ INTERIOR PARA GENTE OCUPADA - JOAN BORYSENKO", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL PEQUENO INSTRUCTIVO PARA LA - H. JACKSON BROWN JR", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "YO ME HE LLEVADO TU QUESO - DARREL BRISTOW-BOVEY", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "EL ARTE DEL MINIMO ESFUERZO - BARBARA BERCKHAN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "LOS SACRAMENTOS DE LA VIDA - LEONARDO BOFF", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "AL FIN LIBRE - J. J. BENITEZ", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "MENTALIDAD PARA EL EXITO - AA. VV", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "MI VISION DEL MUNDO - ALBERT EINSTEIN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "DEJATE LLEVAR - ELISE SAVARO", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "DESPIDETE DE LA TIMIDEZ - ELY D. RICE", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ACABA CON LA ANSIEDAD - BARBARA RADOMME", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "CUESTIONES CUANTICAS - KEN WILBER", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ACABA CON LA PROCRASTINACION - AURELIE DORCHY", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "SUPERA TUS COMPLEJOS - IRENE GUITTIN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "SACA PARTIDO DEL TEST MYERS-BRI - BENJAMIN FLERON", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "APRENDE A QUERERTE - ESTHER BRUN", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "ORGANIZATE Y SE MAS EFICAZ - ISABELLE AUSSANT", "carpeta": "AUTOAYUDA 2"},
+                {"titulo": "MUCHAS VIDAS, MUCHOS MAESTROS - BRIAN WEISS", "carpeta": "AUTOAYUDA 2"}
+            ];
+            
+            allBooks = books;
+            filteredBooks = books;
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('booksGrid').style.display = 'grid';
+            renderBooks();
+        }
+
+        function renderBooks() {
+            const grid = document.getElementById('booksGrid');
+            const currentCount = document.getElementById('currentCount');
+            const noResults = document.getElementById('noResults');
+            
+            if (filteredBooks.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                currentCount.textContent = '0';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            currentCount.textContent = filteredBooks.length;
+            
+            grid.innerHTML = filteredBooks.map(book => `
+                <div class="book-card">
+                    <i class="fas fa-heart book-icon"></i>
+                    <h3 class="book-title">${book.titulo}</h3>
+                    <span class="book-category">${book.carpeta}</span>
+                </div>
+            `).join('');
+        }
+
+        function searchBooks() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (query === '') {
+                filteredBooks = allBooks;
+            } else {
+                filteredBooks = allBooks.filter(book => 
+                    book.titulo.toLowerCase().includes(query) ||
+                    book.carpeta.toLowerCase().includes(query)
+                );
+            }
+            
+            renderBooks();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', searchBooks);
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBooks();
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        loadBooks();
+    </script>
+</body>
+</html>

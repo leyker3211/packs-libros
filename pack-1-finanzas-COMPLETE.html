@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack 1 - Finanzas | Biblioteca Digital Premium</title>
+    <meta name="description" content="Colección exclusiva de 260 libros de finanzas. Transforma tu relación con el dinero y construye tu imperio económico.">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3c72;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .pack-badge {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3c72;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-section {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #1e3c72;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .search-results {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .books-section {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .books-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .book-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #1e3c72;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-category {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .book-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #1e3c72;
+            opacity: 0.3;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: #1e3c72;
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-primary {
+            background: #2a5298;
+            color: white;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats { gap: 1.5rem; }
+            .stat-number { font-size: 2rem; }
+            .books-grid { grid-template-columns: 1fr; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1e3c72;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                Finanzas Premium
+            </div>
+            <a href="#contacto" class="contact-btn">
+                <i class="fas fa-whatsapp"></i>
+                Contactar Ahora
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="pack-badge">Pack Exclusivo #1</div>
+            <h1>FINANZAS MASTER</h1>
+            <p>Transforma tu relación con el dinero y construye tu imperio económico.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalBooks">260</span>
+                    <span class="stat-label">Libros Únicos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">PDF</span>
+                    <span class="stat-label">Formato</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Buscar libros por título o tema...">
+            </div>
+            <div class="search-results" id="searchResults">
+                Mostrando <span id="currentCount">260</span> libros
+            </div>
+        </div>
+    </section>
+
+    <section class="books-section">
+        <div class="books-container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Cargando biblioteca...
+            </div>
+            <div class="books-grid" id="booksGrid" style="display: none;"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron resultados</h3>
+                <p>Intenta con otros términos de búsqueda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <h3>¿Listo para Transformar tu Vida?</h3>
+            <p>Accede inmediatamente a esta colección exclusiva de 260 libros. Transforma tu relación con el dinero y construye tu imperio económico.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20el%20Pack%201%20de%20Finanzas%20con%20260%20libros" class="cta-btn cta-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Obtener Pack Ahora
+                </a>
+                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Pack%20Finanzas" class="cta-btn cta-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Más Información
+                </a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let allBooks = [];
+        let filteredBooks = [];
+
+        async function loadBooks() {
+            const books = [
+                {"titulo": "CONVENCE Y VENCERAS FABREGAT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "DECÍDETE CÓMO TOMAR LAS MEJORES DECISIONES EN LA VIDA Y EN CHIP", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "FINANZAS BÍBLICAS CAMBIA TÚ Y CAMBIARÁN TUS FINANZAS -- SALCEDO, HÉCTOR --", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "UNA FILOSOFÍA PARA SOBREVIVIR EN EL SIGLO XXI YO NO SOY UN -- JESÚS GONZÁLEZ MAESTRO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "NO LO PIENSES, HAZLO YA -- SERGIO LUQUE -- 2025", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "INVICTO LOGRA MÁS SUFRE MENOS -- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "INVICTO - CUADERNO DE TRABAJO- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "MBA GUÍA VISUAL TODO LO QUE APRENDÍ EN DOS AÑOS -JASON BARRON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "ESPABILA DE UNA PUTA VEZ UN DESAFÍO INCÓMODO Y DOLOROSO QUE - JOSÉ MONTAÑEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "EL PODER DEL AHORA UN CAMINO HACIA LA REALIZACION ESPIRITUAL, EL - ECKHART TOLLE", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "LA PSICOLOGIA DEL DINERO COMO PIENSAN LOS RICOS -- MORGAN HOUSEL, ARNAU FIGUERAS DEULOFEU", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "DESCUBRE EL ARTE DE HABLAR EN PUBLICO - FERNANDO MIRALLES", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "ENCUENTRA TU ELEMENTO EL CAMINO PARA DESCUBRIR TU PASION Y TRANSFORMAR TU VIDA - KEN ROBINSON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "PODER SIN LIMITES - TONY ROBBINS", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "TU MEJOR AÑO - MICHAEL HYATT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "APRENDIENDO DE LOS MEJORES 1 Y 2", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "ELEMENTO-KEN-ROBINSON.PDF -EL-DESCONOCIDO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "HABITOS-ATOMICOS-JAMES-CLEAR", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "LA SEMANA LABORAL DE 4 HORAS - TIMOTHY FERRIS", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "EL OBSTÁCULO ES EL CAMINO - RYAN HOLIDAY", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "LOS SECRETOS DE LA MENTE MILLONARIA - T HARV EKER", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "LAS 48 LEYES DEL PODER - ROBERT GREENE", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "ELON MUSK - WALTER ISAACSON -- 2023", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "ELON MUSK EL CREADOR DE TESLA, PAYPAL Y SPACEX QUE ANTICIPA -- ASHLEE VANCE -- 2013", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "EL HOMBRE MÁS RICO DE BABILONIA - GEORGE CLASON", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "PIENSA COMO UN EMPERADOR ROMANO - DONALT ROBENSON", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "BURLAR AL DIABLO SECRETOS DESDE LA CRIPTA - NAPOLEON HILL", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "EL MONJE QUE VENDIO SU FERRARI - ROBIN S. SHARMA", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "FINANZAS BÍBLICAS CAMBIA TÚ Y CAMBIARÁN TUS FINANZAS -- SALCEDO, HÉCTOR -- 2020", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
+                {"titulo": "INTRODUCCION A LAS FINANZAS", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "¿POR QUÉ NO ME ENSEÑARON ESTO EN LA ESCUELA 99 PRINCIPIOS DE LA ADMINISTRACIÓN DEL DINERO PERSONAL A SEGUIR EN LA VIDA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "ADMINISTRACION DE LA CALIDAD", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DERECHO FISCAL I", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DESARROLLE EL LIDER QUE ESTA EN USTED - JOHN C. MAXWELL", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DESARROLLO DEL TALENTO HUMANO BASADO EN COMPETENCIAS 1ED - MARTHA ALLES", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "ADM CONTABILIDAD ADMINISTRATIVA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "COMO ATRAER EL DINERO - JOSEPH MURPHY", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "CONTABILIDAD BÁSICA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "SAMIR FLORES - LOS 7 SECRETOS PARA DEJAR DE PROCRASTINAR", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DOC-20230603-WA0008", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DOC-20230603-WA0014", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DOC-20230603-WA0019", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "LA BIBLIA DEL VENDEDOR - ALEX DEY", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "EL LIBRO QUE EL SAT NO QUIERE QUE LEAS TODO LO QUE NUNCA TE ENSEÑE", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "PEQUEÑO CERDO CAPITALISTA - SOFIA MACIAS", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "LIBERTAD FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "PUEDO COMPRAR UNA EMPRESA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "PROYECTO DE VIDA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "EDUCACIÓN FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "PRINCIPIOS DE ECONOMIA - FRANCISCO MOCHON", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "MATEMATICAS-FINANCIERAS-MORA-3ED-130913203925-PHPAPP02 1", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "GUIA PARA EMPRENDER - IRVING JIMENEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "FUNDAMENTOS DE ADMINISTRACIÓN FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "18 PASOS PARA DESARROLLAR TU NEGOCIO - LINDA PINSON", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DE INTELIGENCIA FINANCIERA - ANDRES LOPEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "CRISIS FINANCIERA 12 MEDIDAS PARA EVITARLA - ENRIQUE MONTENEGRO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DE CERO A INVERSIONISTA-DOMINA-EL-JUEGO-DEL-DINERO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "PRESUPUESTOS ENFOQUE PAR", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "INTELIGENCIA FINANCIERA - OTROS", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DE CERO A EMPRESARIO - TITO GÁLVEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "MENOS MIEDOS MAS RIQUEZAS - JUAN DIEGO GOMEZ GOMEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DESPIERTA EL GENIO FINANCIERO DE TUS HIJOS - ROBERT KIYOSAKI", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "FINANZAS PARA PRINCIPIANTES - SIMANOVSKY", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "FUNDAMENTOS MULTIPLICADORES DE RIQUEZA - ERIC MOSQUERA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "CANSADO DE PAGAR DEUDAS - NESTOR CASTILLERO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "GUIA PARA INVERTIR - ROBERT T. KIYOSAKI - 584 PAGINAS", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "10 LECCIONES DE ECONOMIA - JUAN CARPIO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "CARAS VEMOS DEUDAS NO SABEMOS - JAIRO FORERO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "EL AHORRADOR INTELIGENTE - EMILIO ONTIVEROS", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "COMO MULTIPLICAR POR 6 TUS INGRESOS POR 1 AÑO - MIGUEL RUIZ", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "ABUNDANCIA SUBCONSCIENTE - NACHO MUÑOZ", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "23 HABITOS INTELIGENTES PARA TUS FINANZAS PERSONALES - EL CONTADOR", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "7 CLAVES EN FINANZAS PERSONALES - SANDRO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "ADMINISTRACION FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "DINERO DOMINA EL JUEGO TONY ROBBINS", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "COMO SER UN MEXICANO EXITOSO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "COMOATRAERELDINEROLAINGARCIACALVO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "EL CÓDIGO DEL DINERO", "carpeta": "EDUCACIÓN FINANCIERA"},
+                {"titulo": "INVIRTIENDO EN BIENES RAICES 10 TIPS - OTROS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "CLAVES REFORMATRIBUTARIA CHILE", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "CARLOS MUÑOZ - INNOVACIÓN EN DESARROLLO INMOBILIARIO", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "CÓMO CREAR RIQUEZA INVIRTIENDO EN BIENES RAÍCES GRAND CARDONE", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "INVIRTIENDO COMO MR. MONOPOLY", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "LOS 100 SECRETOS DE LAS RENTAS - MUNOZ 4S, CARLOS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "RADI-CALIDAD DISRUPTIVA IDEAS - MUNOZ 4S, CARLOS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "DICCIONARIO DE SINONIMOS JURIDICOS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "DE 0 A 100 MDD EN BIENES RAICES", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "NEUROMARKETING INMOBILIARIO", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "TRUMP LOS MEJORES CONSEJOS DE BIENES RAICES - DONALD TRUMP", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "50 LECCIONES EN DESARROLLO INMOBILIARIO - CARLOS MUÑOZ", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "CÓMO INVERTIR EN BIENES RAÍCES", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "LA OPORTUNIDAD DEL CICLO BIENES RAICES - IGNACIO BETA", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "LA MEJOR FORMA DE GANAR ALTOS INGRESOS ES CON BIENES RAICES - MARIO ESQUIVEL", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "LA BURBUJA INMOBILIARIA - OTROS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "GESTION INMOBILIARIA - AULAMENTOR", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "GUIA PRACTICA DIRECCION DE EMPRESAS INMOBILIARIAS - OTROS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "GUIA PARA LA ENTREGA DE VIVIENDAS INMOBILIARIAS - OTROS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "GESTION INMOBILIARIA - OTROS", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "DOSSIER DE VENTAS PARA AGENTES INMOBILIARIOS - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "COPYWRITING INMOBILIARIO - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 4 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 3 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 2 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 1 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "COMO DESCRIBIR UN INMUEBLE PARA VENDERLOS CON RAPIDEZ - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "COMO CAPTAR INVERSORES INMOBILIARIOS - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "GUIA ESENCIAL PARA LOS CONTRATOS DE ARRENDAMIENTO DE BIENES RAICES", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "EL ABC DE LA INVERSION EN BIENES RAICES", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "GANAR DINERO SIN DINERO EN BIENES RAICES - MARIO ESQUIVEL", "carpeta": "BIENES RAÍCES"},
+                {"titulo": "5.NEUROVENTAS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "ROBA COMO UN ARTISTA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "PRE-SUASIÓN UN MÉTODO REVOLUCIONARIO PARA INFLUIR Y PERSUADIR", "carpeta": "MEGA VENTAS"},
+                {"titulo": "LA REGLA DE ORO DE LOS NEGOCIOS - GRANT CARDONE.PDFNFJJDJD", "carpeta": "MEGA VENTAS"},
+                {"titulo": "LA BIBLIA DEL VENDEDOR - ALEX DEY", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL ARTE DE CERRAR LA VENTA - BRIAN TRACY - 212 PAGINAS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDES O VENDES - GRANT CARDONE - 160 PAGINAS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDELE A LA MENTE, NO A LA GENTE. - JUREN KLARIC -", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDEDOR NINJA - JOSUE GADEA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "INFLUENCIA CIENCIA Y PRACTICA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "25 MANERAS DE GANARSE A LA GENTE - JOHN C. MAXWELL", "carpeta": "MEGA VENTAS"},
+                {"titulo": "¡!CÁLLESE Y VENDA!! TÉCNICAS COMPROBADAS PARA CERRAR LA VENTA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "RELACIONATE Y VENDE", "carpeta": "MEGA VENTAS"},
+                {"titulo": "ADMINISTRACIÓN DE VENTAS 8ED - DAVID JOBBER GEOFF LANCASTER", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDER ES MUCHO MÁS - COSIMO CHIESA DE NEGRI", "carpeta": "MEGA VENTAS"},
+                {"titulo": "NEGOCIAR PARA GANAR - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL VENDEDOR ELEGANTEMENTE IRRESISTIBLE - ALEJANDRO PLAGIARI", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL LIBRO MAESTRO DE LOS GUIONES DE VENTAS - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDEDOR PRO EBOOK", "carpeta": "MEGA VENTAS"},
+                {"titulo": "CIERRA VENTAS POR WHATSAPP EBOOK", "carpeta": "MEGA VENTAS"},
+                {"titulo": "LIBRO+VENTAS+MILLONARIAS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL VENDEDOR MILLONARIO", "carpeta": "MEGA VENTAS"},
+                {"titulo": "CREATIVIDAD SA - ED CAMULL", "carpeta": "MEGA VENTAS"},
+                {"titulo": "PERSUASION INSTANTANEA - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
+                {"titulo": "COMO MULTIPLICAR LAS VENTAS A TRAVES DEL BOCA A BOCA - PABLO BALSEIRO", "carpeta": "MEGA VENTAS"},
+                {"titulo": "ADMINISTRACION DE VENTAS - RUIPH ANDERSON", "carpeta": "MEGA VENTAS"},
+                {"titulo": "BUENO BONITO Y CARITO - OTROS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "COMO VENDER TU PRODUCTO O SERVICIO EN INTENET - FRANCISCO SEGURA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "ESTRATEGIAS DE VENTAS Y PERSUASION - ERIC DE LA PARRA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL ARTE DE CERRAR UNA VENTA - GONZALO GUERRERO", "carpeta": "MEGA VENTAS"},
+                {"titulo": "DUPLICA TU TASA DE CONVERSION EN UNA SEMANA - OTROS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL VENDEDOR DE TIEMPO - FERNANDO TRIAS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL VENDEDOR IRRESISTIBLE - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
+                {"titulo": "NEGOCIAR PARA CONVENCER - MERCEDES COSTA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "SABER VENDER - EL VENDEDOR", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDEDORES PERROS - ASESORES DE PADRE RICO", "carpeta": "MEGA VENTAS"},
+                {"titulo": "TODO ESTA EN SABER VENDER - RUBEN TREVIÑO", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDER CON PNL - DUANE LAKIN", "carpeta": "MEGA VENTAS"},
+                {"titulo": "LOCO POR LAS VENTAS - FACUNDO DE SALTERAIN", "carpeta": "MEGA VENTAS"},
+                {"titulo": "100 CONSEJOS PARA VENDER MAS Y MEJOR - JAN HENTSCHEL", "carpeta": "MEGA VENTAS"},
+                {"titulo": "COMPORTAMIENTO DEL CONSUMIDOR - LEON SCHIFFMAN", "carpeta": "MEGA VENTAS"},
+                {"titulo": "COMO CREAR UNA PRESENTACION DE VENTAS - OTROS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "TECNICAS DE NEGOCIACION - ANASTASIO OVEJERO", "carpeta": "MEGA VENTAS"},
+                {"titulo": "TECNICAS DE VENTA - MARIANA NAVARRO", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDER MAS EN INTERNET - DAVID BORONAT", "carpeta": "MEGA VENTAS"},
+                {"titulo": "VENDER ES FACIL SI SE SABE COMO - ALEJANDRO HERNANDEZ", "carpeta": "MEGA VENTAS"},
+                {"titulo": "TIPOS DE CLIENTES Y COMO MANEJARLOS - OTROS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "REGLAS DE ORO PARA PERSUADIR - OTROS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "PERSUASION E INFLUENCIA - STEVE ALLEN", "carpeta": "MEGA VENTAS"},
+                {"titulo": "MULTIPLES FLUJOS DE GANANCIAS - OTROS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "HAZ QUE TE COMPREN - SANTIAGO TORRE", "carpeta": "MEGA VENTAS"},
+                {"titulo": "NEURO VENTAS - NESTOR BRAIDOT", "carpeta": "MEGA VENTAS"},
+                {"titulo": "MINDSET HACKING - NACHO MUÑOZ", "carpeta": "MEGA VENTAS"},
+                {"titulo": "HIPNOSIS CONVERSACIONAL PARA TERAPEUTAS - NACHO MUÑOZ", "carpeta": "MEGA VENTAS"},
+                {"titulo": "COMO REPROGRAMARTE PARA EL EXITO EN 60 MINUTOS - MIGUEL RUIZ", "carpeta": "MEGA VENTAS"},
+                {"titulo": "HALCONES DE VENTAS - CARLOS MUÑOZ", "carpeta": "MEGA VENTAS"},
+                {"titulo": "LA FUERZA DE LAS VENTAS - PRANAB BHALLA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL LIBRO NEGRO DE LA PERSUASION-ALEJANDRO-LLANTADA", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL VENDEDOR MAS GRANDE DEL MUNDO - ANDINO - 45 PAGINAS", "carpeta": "MEGA VENTAS"},
+                {"titulo": "FORMAS ENAMORAR CLIENTES", "carpeta": "MEGA VENTAS"},
+                {"titulo": "HAZ QUE EL DINERO SEA TU AMIGO - GREGORIO HERNANDEZ JIMENEZ", "carpeta": "MEGA VENTAS"},
+                {"titulo": "ESTRATEGIAS-DE-WARREN-BUFFET", "carpeta": "MEGA VENTAS"},
+                {"titulo": "EL CODIGO DE LA ABUNDANCIA-PDF-GRATIS-COMPLETO", "carpeta": "DINERO"},
+                {"titulo": "EL CÓDIGO DE LAS MENTES EXTRAORDINARIAS", "carpeta": "DINERO"},
+                {"titulo": "LOS 3 ARBOLES DEL DINERO- RAIMON SAMSÓ", "carpeta": "DINERO"},
+                {"titulo": "HAZTE RICO MIENTRAS DUERMES - BEN SWEETLAND", "carpeta": "DINERO"},
+                {"titulo": "LA CIENCIA DE HACERSE RICO - WALLACE WATTLES", "carpeta": "DINERO"},
+                {"titulo": "EL DINERO NO ES EL PROBLEMA TÚ LO ERES", "carpeta": "DINERO"},
+                {"titulo": "TU CODIGO DE RIQUEZA - ENRIQUE DELGADILLO", "carpeta": "DINERO"},
+                {"titulo": "LIBRO DINERO Y AHORRO", "carpeta": "DINERO"},
+                {"titulo": "EL MAESTRO DEL DINERO - ALEX LOPEZ", "carpeta": "DINERO"},
+                {"titulo": "COMO ATRAER EL DINERO", "carpeta": "DINERO"},
+                {"titulo": "EL ARTE DE HACER DINERO", "carpeta": "DINERO"},
+                {"titulo": "COMO HACERSE RICO SIN PREOCUPACIONES - NAPOLEON HILL", "carpeta": "DINERO"},
+                {"titulo": "PIENSE Y HAGASE RICO - NAPOLEON HILL - 174 PAGINAS", "carpeta": "DINERO"},
+                {"titulo": "16. PASO A PASO, CÓMO SALIR DE DEUDAS DE FORMA EXITOSA AUTOR DEUDAS NUNCA MÁS", "carpeta": "DINERO"},
+                {"titulo": "LAS 11 TRAMPAS HACIA UNAS FINANZAS PERSONALES SANAS", "carpeta": "DINERO"},
+                {"titulo": "EL CUADRANTE DEL FLUJO DE DINERO - ROBERT KIYOSAKI", "carpeta": "DINERO"},
+                {"titulo": "VIVIR BIEN CON 300 DOLARES AL MES - PABLO OLONDRIZ", "carpeta": "DINERO"},
+                {"titulo": "FUNDAMENTOS DE INVERSIONES - GITMAN JOEHNK", "carpeta": "DINERO"},
+                {"titulo": "EL JUEGO DEL DINERO - ROBERT KIYOSAKI", "carpeta": "DINERO"},
+                {"titulo": "COMO GENERAR INGRESOS PASIVOS - STEVE PAVLINA", "carpeta": "DINERO"},
+                {"titulo": "POR DONDE EMPEZAR A INVERTIR - SOFIA MACIAS", "carpeta": "DINERO"},
+                {"titulo": "50 INGRESOS PASIVOS PARA COMENZAR A SER LIBRE - AGUSTIN GRAU", "carpeta": "DINERO"},
+                {"titulo": "LAS EXCUSAS NO DAN RESULTADOS - XAVIER MARTINEZ", "carpeta": "DINERO"},
+                {"titulo": "PADRE-RICO-PADRE-POBRE", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "INCREMENTA TU IQ FINANCIERO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "EL ABC PARA CREAR UN EQUIPO DE NEGOCIOS EXITOSOS - BLAIR SINGER", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "DESPIERTA EL GENIO FINANCIERO DE TUS HIJOS - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "VENDEDORES PERROS - ASESORES DE PADRE RICO", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "EL CUADRANTE DEL FLUJO DE DINERO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "EL JUEGO DEL DINERO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "ANTES DE RENUNCIAR A TU EMPLEO - ROBERT KIYOSAKI SHARON LECHTER . 247 PAGINAS", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "RETÍRATE JOVEN Y RICO - ROBERT KIYOSAKI -", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "GUIA PARA INVERTIR - ROBERT T. KIYOSAKI - 584 PAGINAS", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "EL NEGOCIO DEL SIGLO 21", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "LO MEJOR DE PADRE RICO SECRETOS PARA EL EXITO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "QUEREMOS QUE SEAS RICO - DONALD TRUMP Y ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "PADRE RICO PADRE POBRE PARA JOVENES - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "LA VENTAJA DEL GANADOR - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "HERMANO RICO HERMANA RICA - ROBERT KIYOSAKI Y EMI KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "NIÑO RICO NIÑO LISTO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
+                {"titulo": "IDEAS SIMPLES QUE TE HARAN MILLONARIO - JUAN ANTONIO GUERRERO", "carpeta": "NEGOCIOS"},
+                {"titulo": "AUDITORIA ADMINISTRATIVA", "carpeta": "NEGOCIOS"},
+                {"titulo": "INTRODUCCION A LAS FINANZAS", "carpeta": "NEGOCIOS"},
+                {"titulo": "INVESTIGACIÓN DE OPERACIONES - IRIS MARTÍNEZ", "carpeta": "NEGOCIOS"},
+                {"titulo": "CASOS DE EXITO DE NEGOCIOS GLOBALES - OTROS", "carpeta": "NEGOCIOS"},
+                {"titulo": "ADMINISTRACION Y CONTROL DE CALIDAD - EVANS 7MA", "carpeta": "NEGOCIOS"},
+                {"titulo": "INVESTIGACION DE MERCADOS 2016", "carpeta": "NEGOCIOS"},
+                {"titulo": "EXPERTOS AFILIADOS", "carpeta": "NEGOCIOS"},
+                {"titulo": "ADMINISTRACION EXITOSA DE PROYECTOS - GIDO", "carpeta": "NEGOCIOS"},
+                {"titulo": "ALCANZA EL EXITO EN TUS NEGOCIACIONES - FLORENCE SCHANDELER", "carpeta": "NEGOCIOS"},
+                {"titulo": "ALCANZA LA SATISFACCION LABORAL - VIRGINIE DE LUTIS", "carpeta": "NEGOCIOS"},
+                {"titulo": "APRENDE A AUTOEVALUARTE EN EL TRABAJO - NICOLAS ZINQUE", "carpeta": "NEGOCIOS"},
+                {"titulo": "NUNCA TIRES LA TOALLA - DONALD TRUMP", "carpeta": "NEGOCIOS"},
+                {"titulo": "EL EXITO DE LOS PREZOSOS - ERNIE J. ZELINSKI", "carpeta": "NEGOCIOS"},
+                {"titulo": "EL ARTE DE LA NEGOCIACION - DONALD TRUMP", "carpeta": "NEGOCIOS"},
+                {"titulo": "TITANES TIM FERRIS", "carpeta": "NEGOCIOS"},
+                {"titulo": "PODER SIN LIMITES -TONY ROBBINS", "carpeta": "NEGOCIOS"},
+                {"titulo": "EL CAMINO DEL LOBO JORDAN BELFORT", "carpeta": "NEGOCIOS"},
+                {"titulo": "LA VACA PURPURA - SETH GODIN", "carpeta": "NEGOCIOS"},
+                {"titulo": "VIVIR CON ABUNDANCIA - SERGIO FERNANDEZ", "carpeta": "NEGOCIOS"},
+                {"titulo": "VIVIR SIN JEFE - SERGIO FERNANDEZ", "carpeta": "NEGOCIOS"},
+                {"titulo": "101 IDEAS DE NEGOCIO EN INTERNET - TERRY DEAN", "carpeta": "NEGOCIOS"},
+                {"titulo": "HABILIDADES DIRECTIVAS", "carpeta": "NEGOCIOS"},
+                {"titulo": "PRINCIPIOS DE MACROECONOMÍA", "carpeta": "NEGOCIOS"},
+                {"titulo": "ADMINISTRACION-DE-COSTOS.-CONTABILIDAD-Y-CONTROL-HANSEN-5TH", "carpeta": "NEGOCIOS"},
+                {"titulo": "EL MEJOR NEGOCIO DEL MUNDO- PABLO ANTONIO LEON", "carpeta": "NEGOCIOS"},
+                {"titulo": "EL CUADRANTE DEL FLUJO DE DINERO - ROBERT KIYOSAKI", "carpeta": "NEGOCIOS"},
+                {"titulo": "ANTES DE RENUNCIAR A TU EMPLEO - ROBERT KIYOSAKI SHARON LECHTER . 247 PAGINAS", "carpeta": "NEGOCIOS"},
+                {"titulo": "NEGOCIAR PARA GANAR - ALEJANDRO PAGLIARI", "carpeta": "NEGOCIOS"},
+                {"titulo": "RETÍRATE JOVEN Y RICO - ROBERT KIYOSAKI -", "carpeta": "NEGOCIOS"},
+                {"titulo": "LA REGLA DE ORO DE LOS NEGOCIOS - GRANT CARDONE", "carpeta": "NEGOCIOS"},
+                {"titulo": "IDEAS MILLONARIAS - JUAN DIEGO GOMEZ", "carpeta": "NEGOCIOS"},
+                {"titulo": "GUIA PARA INVERTIR - ROBERT T. KIYOSAKI - 584 PAGINAS", "carpeta": "NEGOCIOS"},
+                {"titulo": "EL NEGOCIO DEL SIGLO 21", "carpeta": "NEGOCIOS"},
+                {"titulo": "EL NEGOCIADOR", "carpeta": "NEGOCIOS"},
+                {"titulo": "APRENDE A SER RICO - CRISTIAN ABRATTE", "carpeta": "NEGOCIOS"},
+                {"titulo": "SABER DIALOGAR Y CONVENCER - ALAIN BRULE", "carpeta": "NEGOCIOS"},
+                {"titulo": "PERSUASION EL PODER EXCEPCIONAL - MARIA MADERO", "carpeta": "NEGOCIOS"},
+                {"titulo": "NEGOCIACION - JOSE Y JUAN PABLO CORONA", "carpeta": "NEGOCIOS"},
+                {"titulo": "12 CLAVES PARA CONSTRUIR UN NEGOCIO EXITOSO - LUIS BARON", "carpeta": "NEGOCIOS"},
+                {"titulo": "100 INGRESOS PASISVOS - AGUSTIN GRAU", "carpeta": "NEGOCIOS"},
+                {"titulo": "50 FORMAS DE ENAMORAR A UN CLIENTE - DAVID GOMEZ", "carpeta": "NEGOCIOS"},
+                {"titulo": "VIVE SIN TRABAJAR - JOSE CASTELLO", "carpeta": "NEGOCIOS"},
+                {"titulo": "LA VENTAJA DEL GANADOR - ROBERT KIYOSAKI", "carpeta": "NEGOCIOS"},
+                {"titulo": "TU MODELO DE NEGOCIO 2", "carpeta": "NEGOCIOS"},
+                {"titulo": "JUEGO DE TRONOS PARA LOS NEGOCIOS - TIM PHILI", "carpeta": "NEGOCIOS"},
+                {"titulo": "HERMANO RICO HERMANA RICA - ROBERT KIYOSAKI Y EMI KIYOSAKI", "carpeta": "NEGOCIOS"},
+                {"titulo": "1000 IDEAS DE NEGOCIOS", "carpeta": "NEGOCIOS"},
+                {"titulo": "NEGOCIAR ES FACIL SI SABE COMO - ALEJANDRO HERNANDEZ - 125 PAGINAS", "carpeta": "NEGOCIOS"}
+            ];
+            
+            allBooks = books;
+            filteredBooks = books;
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('booksGrid').style.display = 'grid';
+            renderBooks();
+        }
+
+        function renderBooks() {
+            const grid = document.getElementById('booksGrid');
+            const currentCount = document.getElementById('currentCount');
+            const noResults = document.getElementById('noResults');
+            
+            if (filteredBooks.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                currentCount.textContent = '0';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            currentCount.textContent = filteredBooks.length;
+            
+            grid.innerHTML = filteredBooks.map(book => `
+                <div class="book-card">
+                    <i class="fas fa-chart-line book-icon"></i>
+                    <h3 class="book-title">${book.titulo}</h3>
+                    <span class="book-category">${book.carpeta}</span>
+                </div>
+            `).join('');
+        }
+
+        function searchBooks() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (query === '') {
+                filteredBooks = allBooks;
+            } else {
+                filteredBooks = allBooks.filter(book => 
+                    book.titulo.toLowerCase().includes(query) ||
+                    book.carpeta.toLowerCase().includes(query)
+                );
+            }
+            
+            renderBooks();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', searchBooks);
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBooks();
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        loadBooks();
+    </script>
+</body>
+</html>

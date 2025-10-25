@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack 3 - Desarrollo Personal | Biblioteca Digital Premium</title>
+    <meta name="description" content="Colección exclusiva de 313 libros de desarrollo personal. Conviértete en tu mejor versión.">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .pack-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-section {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .search-results {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .books-section {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .books-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .book-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #ff6b6b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-category {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .book-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #ff6b6b;
+            opacity: 0.3;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: #ff6b6b;
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-primary {
+            background: #ffa726;
+            color: white;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats { gap: 1.5rem; }
+            .stat-number { font-size: 2rem; }
+            .books-grid { grid-template-columns: 1fr; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #ff6b6b;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                Desarrollo Personal Premium
+            </div>
+            <a href="#contacto" class="contact-btn">
+                <i class="fas fa-whatsapp"></i>
+                Contactar Ahora
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="pack-badge">Pack Exclusivo #3</div>
+            <h1>DESARROLLO MASTER</h1>
+            <p>Conviértete en tu mejor versión.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalBooks">313</span>
+                    <span class="stat-label">Libros Únicos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">PDF</span>
+                    <span class="stat-label">Formato</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Buscar libros por título o tema...">
+            </div>
+            <div class="search-results" id="searchResults">
+                Mostrando <span id="currentCount">313</span> libros
+            </div>
+        </div>
+    </section>
+
+    <section class="books-section">
+        <div class="books-container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Cargando biblioteca...
+            </div>
+            <div class="books-grid" id="booksGrid" style="display: none;"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron resultados</h3>
+                <p>Intenta con otros términos de búsqueda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <h3>¿Listo para Transformar tu Vida?</h3>
+            <p>Accede inmediatamente a esta colección exclusiva de 313 libros. Conviértete en tu mejor versión.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20el%20Pack%203%20de%20Desarrollo%20Personal%20con%20313%20libros" class="cta-btn cta-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Obtener Pack Ahora
+                </a>
+                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Pack%20Desarrollo Personal" class="cta-btn cta-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Más Información
+                </a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let allBooks = [];
+        let filteredBooks = [];
+
+        async function loadBooks() {
+            const books = [
+                {"titulo": "LO BUENO DE TENER UN MAL DÍA CÓMO CUIDAR DE NUESTRAS -- ANABEL GONZÁLEZ -- BARCELONA, 2020", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "EL PODER DE CREER EN TI -- DANIEL J MARTIN -- 2021", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "DEJAR IR EL CAMINO A LA LIBERACIÓN", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "CONFIANZA -- OSHO -- 2016", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "VUELVO A MI", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "SANANDO MI HERIDA MATERNA.PDF · VERSIÓN 1", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "LOS PERDONO PERO NO LOS AMO JOSÉ ARMANDO ORNELAS M.PDF · VERSIÓN 1", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "MI MADRE NARCISISTA COMO COMPRENDER FACILMENTE EL NARCISISMO EN", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "LOWEN ALEXANDER EL NARCICISMO LA ENFERMEDAD DE NUESTRO TIEMPO PDF", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "SANANDO HERIDAS MIENTRAS DESPIDO TUS RECUERDOS", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "NADIE PUEDE SALVARTE EXCEPTO TÚ -- MADAME G ROUGE -- 2024", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "RAGNAROK", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
+                {"titulo": "CONVENCE Y VENCERAS FABREGAT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "DECÍDETE CÓMO TOMAR LAS MEJORES DECISIONES EN LA VIDA Y EN CHIP", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "FINANZAS BÍBLICAS CAMBIA TÚ Y CAMBIARÁN TUS FINANZAS -- SALCEDO, HÉCTOR --", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "UNA FILOSOFÍA PARA SOBREVIVIR EN EL SIGLO XXI YO NO SOY UN -- JESÚS GONZÁLEZ MAESTRO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "NO LO PIENSES, HAZLO YA -- SERGIO LUQUE -- 2025", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "INVICTO LOGRA MÁS SUFRE MENOS -- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "INVICTO - CUADERNO DE TRABAJO- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "MBA GUÍA VISUAL TODO LO QUE APRENDÍ EN DOS AÑOS -JASON BARRON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "ESPABILA DE UNA PUTA VEZ UN DESAFÍO INCÓMODO Y DOLOROSO QUE - JOSÉ MONTAÑEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "EL PODER DEL AHORA UN CAMINO HACIA LA REALIZACION ESPIRITUAL, EL - ECKHART TOLLE", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "LA PSICOLOGIA DEL DINERO COMO PIENSAN LOS RICOS -- MORGAN HOUSEL, ARNAU FIGUERAS DEULOFEU", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "DESCUBRE EL ARTE DE HABLAR EN PUBLICO - FERNANDO MIRALLES", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "ENCUENTRA TU ELEMENTO EL CAMINO PARA DESCUBRIR TU PASION Y TRANSFORMAR TU VIDA - KEN ROBINSON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "PODER SIN LIMITES - TONY ROBBINS", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "TU MEJOR AÑO - MICHAEL HYATT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "APRENDIENDO DE LOS MEJORES 1 Y 2", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "ELEMENTO-KEN-ROBINSON.PDF -EL-DESCONOCIDO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "HABITOS-ATOMICOS-JAMES-CLEAR", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
+                {"titulo": "INGENIERÍA INTERIOR GUÍA YOGUI PARA ALCANZAR LA ALEGRÍA Y -- SADHGURU, INMACULADA MORALES LORENZO", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "EL ARTE DE CUIDAR A TU NIÑO INTERIOR -- THICH NHAT HANH", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "TU FE ES TU FORTUNA - NEVILLE GODDARD -- 2018", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "GANA TIEMPO GANA-VIDA - CÓMO TENER TIEMPO PARA LO IMPORTANTE - GEMMA GARCIA 2024", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "LAS 12 PALANCAS DEL ÉXITO -- STEPHEN R COVEY", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "PENSAMIENTOS DEL CORAZÓN -- LOUISE L HAY", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "REPROGRÁMATE CÓMO CAMBIAR TUS MOLDES MENTALES, LOGRAR EL CONTROL - PEDRO HERNADEZ", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "VUELVE A MI - JENNIFER L. ARMENTROUT", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "POTENCIA TU ENERGÍA - PAM GROUT", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "GRACIAS ANSIEDAD, COMO TRANSFORME LOS ATAQUES DE PÁNICO Y LA ANSIEDAD EN LIBERTAD - FABIOLA CUEVAS", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "CALLATE EL PODER DE MANTENER LA BOCA CERRADA - DAN LIONS", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "NO ME PUEDES LASTIMAR DOMINA TU MENTE Y DESAFIA LAS PROBABILIDADES", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "VALENTIA - KELBIN TORRES.", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "MANUAL AVANZADO DE MANIFESTACION DESCUBRE EL PODER DE HACER -- NIEVES, RUT", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "NACISTE PARA DISFRUTAR SEXUALIDAD, ESPIRITUALIDAD - RUT NIEVES", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "HAZ TUS SUEÑOS REALIDAD MANUAL AVANZADO DE MANIFESTACIÓN - RUT NIEVES", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "VOLVER A EMPEZAR - COLLEEN HOOVER", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
+                {"titulo": "ESTAR-BIEN- -PRÁCTICAS-DE-BIENESTAR-PARA-UNA-VIDA-EN-XIOMARA", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "CÓMO DEJAR DE PENSAR DEMASIADO - SERENA LANCASTER 2023", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "EL PODER DE LA GRATITUD 7 PASOS PARA UNA VIDA MÁS FELIZ, -- DANIEL J MARTIN -- 2022", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "EL PODER DE LA DISCIPLINA -- DANIEL MARTÍN", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "EL PODER DE LOS OBJETIVOS DESCUBRE EL SECRETO PARA ALCANZAR -- MARTIN, DANIEL J - 2020", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "COMO EL HOMBRE PIENSA ASÍ ES SU VIDA - ALLEN, JAMES -- 2016", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "CÓMO DEJAR DE PENSAR DEMASIADO UNA GUÍA PARA VIVIR SIN -- ADAM TUSCO -- 2022", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "MI VIAJE SIN TI - ALEJANDRO SEQUERA", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "¿POR QUÉ LE PASAN COSAS MALAS A LA GENTE BUENA- IVAN GUTIERREZ", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "DESAPEGARSE SIN ANESTESIA - WALTER RISO", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "EL PODER DE DEJAR IR - DANIEL J. MARTIN", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "EL PODER DE LA RESILENCIA - NICOLAS BELLI", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "CONFIANZA -- OSHO -- 2016", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "CÓMO SER COMO RICH DE VOS - PAT WILLIAMS, JIM DENNEY", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "DEJAR IR EL CAMINO A LA LIBERACIÓN - DAVID R HAWKINS", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "CÓMO DEJAR DE SER TU PEOR ENEMIGO - ALBA", "carpeta": "CRECIMINTO PERSONAL"},
+                {"titulo": "TIENDE TU CAMA WILLIAM H MCRAVEN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "28.COMO HACER QUE TE PASEN COSAS BUENAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS 4 ACUERDOS - DR MIGUEL RUIZ", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS MENSAJES DE LOS SABIOS - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EXITO EN LA VIDA, EXITO EN LOS - BERT HELLINGER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ESPEJOS DEL TIEMPO - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ELIMINAR EL ESTRES - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL REY DEL CASH", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "SER EMPRESARIO - OTROS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS MENSAJES DE LOS SABIOS - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "PARECE DIFICIL PERO NO LO ES - ANGEL LLACER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MEDITACION - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MUCHOS CUERPOS MISMA ALMA - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS MILAGROS EXISTEN - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS MILLONARIOS NO NACEN, SE HA - JUAN ANTONIO GUERRERO CANONGO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DE AUTOEMPLEADO A EMPRESARIO - MIGUEL ANGEL DIAZ LEO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CREALO SI SE PUEDE - ALEX DEY", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CONOCE LA ÚNICA VERDAD- SEBASTIAN SANTISTEBAN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "APRENDIZAJE ACELERADO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ACABA CON LA PROCRASTINACION - AURELIE DORCHY", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "A VECES SE GANA, A VECES SE APRENDE - JOHN C. MAXWELL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "A TRAVES DEL TIEMPO - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS MILLONARIOS NO NACEN, SE HACEN-1", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL VERDADERO ÉXITO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "12 PASOS HACIA LA FELICIDAD - CARMELA PARIS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "25.- PODER DE LA CONCIENCIA, EL - NEVILLE GADDARD", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "¿POR QUÉ NO ME ENSEÑARON ESTO EN LA ESCUELA 99 PRINCIPIOS DE LA ADMINISTRACIÓN DEL DINERO PERSONAL A SEGUIR EN LA VIDA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "VOY A SER ASERTIVA UTILIZA TU INTELIGENCIA EMOCIONAL PARA AUTOAFIRMARTE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CABRONA Y MILLONARIA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "VU-LVETE-IMPARABLE-VOLUMEN-II-196- 230627 002521", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DIARIO PARA ESTOICOS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LAS-TRAMPAS-DEL-DESEO -COMO-CON-DANIEL-ARIELY", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ACTÚA COMO DAMA PERO PIENSA COMO HOMBRE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MIA LIBRO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DE-ANIMALES-A-DIOSES", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL BUHO- SAMUEL BJØRK", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "21 LECCIONES PARA EL SIGLO XXI SONYDEVIL- YUVAL N", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS-TRUCOS-DE-LOS-RICOS-DEUSTO-JUAN-HARO-LIBRO-COMPLETO-1", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "23 HÁBITOS ANTI-PROCRASTINACIÓN-1", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "GESTIÓN DE TIEMPO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "SAMIR FLORES - LOS 7 SECRETOS PARA DEJAR DE PROCRASTINAR", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LA MONTAÑA ERES TÚ - BRIANNA WIEST", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CONOCE LA ÚNICA VERDAD- SEBASTIAN SANTISTEBAN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EDUCACIÓN PARA LA SALUD UNA INTRODUCCIÓN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL ARTE DE LA GUERRA PARA LA PEQUEÑA Y MEDIANA EMPRESA - BECKY SHEETZ RUNKLE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL ARTE DE NO AMARGARSE LA VIDA - RAFAEL SANTANDREU", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "RESPIRA JAMES NESTOR", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MÉTODO-TED-PARA-HABLAR-EN-PÚBLICO-EDICIÓN-REVISADA-Y-AMPLIADA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "STEVE JOBS EDICION EN ESPANOL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "TU MEJOR AÑO UN PLAN DE 5 PASOS PARA ALCANZAR TUS METAS MÁS IMPORTANTES", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "POR QUÉ DORMIMOS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MAKE TIME", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LA VÍA RÁPIDA DEL MILLONARIO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "WILL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "2DE6E1EFF8A222DC7A10F35882AFDD6D", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ESPABILA DE UNA ... VEZ UN DESAFÍO INCÓMODO Y DOLOROSO QUE MARCARÁ TU VIDA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "JAMES NESTOR - RESPIRA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "RAGNAROK. EL CAMINO DE UN HOMBRE - HOMBRES PELIGROSOS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ENFOCATE-CAL-NEWPORT COMPRESS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "AUN NO ERES QUIEN TIENES QUE LLEGAR A SER CARLOS MUÑOZ 4S", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "UN TRANVÍA LLAMADO DESEO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EBOOK-GRATUITO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL ARTE DEL MINIMO ESFUERZO - BARBARA BERCKHAN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL PODER DE LA MOTIVACIÓN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "RUNAS PARA EL AUTOCONOCIMIENTO EL GUERRERO INTERIOR SIGNIFICADO DE LAS PIEDRAS VIKINGAS, GUÍA PARA APRENDER A USARLAS Y", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "UN GRITO DESESPERADO - CARLOS CUAUHTEMOC SANCHEZ", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "USTED PUEDE SANAR SU VIDA - LOUISE L. HAY - 106 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "TOAZ.INFO-NAVY-SEAL-AUTODISCIPLINA-COMO-DESARROLLAR-LA-FORTALEZA-MENTAL-DISCIPLINA-Y--PR DC794CFE77F4FF57905B6CCB6E77757B", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "COMO PIENSAN LOS RICOS L", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EDUCACIÓN EMOCIONAL PROPUESTAS PARA EDUCADORES Y FAMILIAS RAFAEL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DONA HUEVOTES - ANAMAR ORIHUELA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "PIENSE Y HAGASE RICO - NAPOLEON HILL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CALCULA TU ENEAGRAMA DE LA PERSONALIDAD - VALERIE DEBRUCHE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL CUERPO HABLA176", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LA VIDA SON DOS PUTOS DÍAS - JOSÉ MONTAÑEZ", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL PODER DEL AHORA - ECKHART TOLLE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LAS HISTORIAS QUE TE CUENTAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "TUS HIJOS ADOLESCENTES - GERARDO CASTILLO CEBALLOS-1", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "TOAZINFO-LA-MEDICINA-NATURAL-AL-ALCANCE-DE-TODOS-PDF-PR E9ACC0EE337E14EBB099E90163FFBF90 2", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "TRANSFORMA LAS HERIDAS DE TU INFANCIA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "SALUD PROHIBIDA ANDREAS L. KALCKER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DANIEL HABIF - LAS TRAMPAS DEL MIEDO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LE HARA MAS INTELIGE - JOHN BROCKMAN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL PODER DE CONFIAR EN TI MISMO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ROMPE-LA-BARRERA-DEL-NO-CHRIS-VOSS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "HÁBITOS ATÓMICOS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "PODER SIN LIMITES - ANTHONY ROBBINS 1", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL MILLONARIO INSTANTANEO - MARK FISHER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "!ME VALE MADRES! - PREM DAYAL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "COMO SUPRIMIR LAS PREOCUPACIONES Y DISFRUTAR DE LA VIDA - DALE CARNEGIE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "APRENDIENDO DE LOS MEJORES - FRANCISCO ALCAIDE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LIBERANDO EL GIGANTE QUE LLEVAS DENTRO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS 7 HABITOS DE LA GENTE ALTAMENTE EFECTIVA - STEPHEN R. COVEY", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LIBRO EL CLUB DE LAS 5 AM", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "INQUEBRANTABLE - TONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "INQUEBRANTABLES-DANIEL-HABIF", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EMPRENDEDOR - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DECIR-NO-NO-BASTA---NAOMI-KLEIN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "!CREAR O MORIR! - ANDRES OPPENHEIMER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL-LOBO-DE-WALL-STREET---JORDAN-BELFORT", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL QUINTO ACUERDO - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "¡ERES UN CHINGÓN! - JEN SINCERO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL SEÑOR DE LAS MOSCAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DOMINA-TU-TIEMPO-EN-10-MINUTOS-MICHA.PDF", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "COMO ATRAER LA ABUNDANCIA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL-ARTE-DE-HACER-PREGUNTAS-MARIO-BORGHINO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CAMBIA-TU-VIDA-EN-30-DIAS-CON-LA-LEY-DE-LA-ATRACCION", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL ARTE DE LA GUERRA CONTRA OJETES. OSVALDO FLORES", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL CEREBRO MASCULINO - LOUANN BRIZENDINE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "UN CURSO DE MILAGROS - COMPLETO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DOC-20221125-WA0056", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LAS-COSAS-PASAN-POR-ALGO-O-NO-LIBRO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DOC-20230215-WA0046", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "2️⃣BONUS+ OROY PLATA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EMPIEZA CON EL PORQUE-PDF", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "!YA SUPERALO! - CÉSAR LOZANO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "¡ARRIÉSGATE! PREGUNTAS QUE CAMBIARÁN TU VIDA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "NO ME PUEDES LASTIMAR", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MAÑANAS MILAGROSAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "SIN-LIMITES-JIM-KWIK", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "12 REGLAS PARA VIVIR - JORDAN PETERSON", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL MITO DEL CARISMA - OLIVIA FOX CABANE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "GUIA DE HABITOS INTELIGENTES - I. C. ROBLEDO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL PODER DE LOS HÁBITOS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL HOMBRE MAS RICO QUE JAMAS EXISTIO - STEVEN K. SCOTT", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MUNDO DE MILLONARIOS - LAS 50 MEJORES FRASES", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MENOS MIEDOS MAS RIQUEZAS - JUAN DIEGO GOMEZ GOMEZ", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LAS CUATRO VIDAS DE STEVE JOBS - DANIEL ICHBIAH", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LA ESCALERA MAGICA HACIA EL EXITO - NAPOLEON HILL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CASOS DE EXITO DE EMPRENDEDORES - OTROS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "5 CLAVES PARA INNOVAR - JAVIER GONZALEZ", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "100 TIPS PARA CONVERTIR TU PASION EN UN NEGOCIO - MARCO AYUSO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ANATOMIA DE LA PERSUASION - ANTONIO SALCEDO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS 88 PELDAÑOS DEL EXITO - ANXO PEREZ - 199 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL HOMBRE MAS RICO DE BABILONIA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MUEVE TUS AHORROS Y GANATE UN SUELDO - FRANCISCA SERRANO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS SECRETOS DE STEVE JOBS - CARMINE GALLO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "GUIA PARA PERSONAS QUE QUIEREN EMPRENDER PERO NO SABEN COMO EMPEZAR - JUAN RIVAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "UN AÑO PARA CAMBIAR EL CHIP - NAPOLEON HILL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "METODO PARA CREAR HÁBITOS DE MILLONARIOS FELICES - JURGUEN KLARIC", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "PASOS DE GIGANTE - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MENSAJE A UN AMIGO - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS 6 OBSTACULOS MAGAZINE - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LEYES DEL EXITO - BERNARDO STAMATEAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL CIRCULO DE LA RIQUEZA - CRISTIAN ABRATTE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "10 DIAS CAMBIO DE HABITOS - MARC REKLAU", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "7 LADRONES DEL TIEMPO Y COMO COMBATIRLOS - ALBERTO PENA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MOMENTUM CUADERNO DE TRABAJO - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MENTE Y DINERO MAGAZINE - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LA FUERZA DE LAS DECISIONES - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS 9 PASOS PARA ALCANZAR EL EXITO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS 12 LIBROS QUE TODO EMPRENDEDOR DEBE LEER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS MILLONARIOS NO NACEN SE HACEN - JUAN ANTONIO GUERRERO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LOS SECRETOS DE LA MENTE MILLONARIA - T. HARV EKER - 639 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "MENTALIDAD PARA EL EXITO AA-VV", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "NIÑO RICO NIÑO LISTO - ROBERT KIYOSAKI", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "VIVE TU SUEÑO - JOHN C. MAXWELL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "SIENTE ESTRATEGIAS PARA ALCANZAR RIQUEZA Y FELICIDAD - JIM ROHN", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LA GUIA DE HABITOS EXITOSOS - J. SANTIAGO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ESQUIVAR LA MEDIOCRIDAD - XAVIER MARCET", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL CAMPO DE BATALLA DE LA MENTE - JOYCE MEYER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CONSTRUYE TU DESTINO - WAYNE W. DYER", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "COMO RESOLVER PARA SIEMPRE SUS PROBLEMAS DE DINERO - BOB VICTOR", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "COMO RECORDAR TODO LO QUE LEEMOS - STANLEY D. FRANK", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "AVENTURAS EMPRENSARIALES - JOHN BROOKS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ATREVETE Y DESAFIA TUS MIEDOS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "ACITUD MENTAL POSITIVA - NAPOLEÓN HILL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "1001 CONSEJOS PARA TRIUNFAR COMO EMPRENDEDOR - FERNANDO JÁUREGUI LOURDES CARMONA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "25 MANERAS DE GANARSE A LA GENTE - JOHN C. MAXWELL", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "PODER DEL PENSAMIENTO POSITIVO - NORMAN VINCENT PEALE", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "CUIDA TU CEREBRO Y MEJORA TU VIDA - ALVARO BILBAO", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "COMO VENCER TODOS TUS MIEDOS - DAVID VALOIS - 439 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "15 CLAVES PARA UNA AUTOESTIMA INDESTRUCTIBLE - ELIAS BERNTSSON INA ARACKCHIYSKA", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "LA-SEMANA-LABORAL-DE-4-HORAS-TIMOTHY-FERRIS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "AUTODISCIPLINA EN DIEZ DIAS - THEODORE BRYANT - 111 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "DIARIO DE UNA OVEJA FINANCIERA - SONIA SANCHEZ", "carpeta": "DESARROLLO PERSONAL"},
+                {"titulo": "EL PLACEBO ERES TÚ", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "JOE DISPENZA - SOBRENATURAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ME CANSE DE TI - WALTER RISO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "A SOLAS DESCUBRE EL PLACER DE ESTAR CONTIGO MISMO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "DEJA DE SER TÚ", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "COSAS-QUE-PIENSAS-CUANDO-TE-MUERDES-LAS-UNAS-SPANISH-EDITION-BY-AMALIA-ANDRADE-ARANGO-ARANGO-AMALIA-ANDRADE-Z-LIB.ORG", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LIBERA TU MAGIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CUADERNO-DE-EJERCICIOS-DE-INTELIGENCIA-EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TU PROPOSITO DE VIDA - LAIN GARCIA CALVO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EDUCACIÓN EMOCIONAL PROPUESTAS PARA EDUCADORES Y FAMILIAS RAFAEL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "HERIDAS EMOCIONALES - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL+PODER+DE+LA+GRATITUD", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL MITO DE SISIFO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL BUHO- SAMUEL BJØRK", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "DONA HUEVOTES - ANAMAR ORIHUELA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CULPA MÍA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CONTRAVENENO - CARLOS CUAUHTEMOC SANCHEZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CONOCE LA ÚNICA VERDAD- SEBASTIAN SANTISTEBAN", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CONFIANZA-TOTAL-PARA-VIVIR-MEJOR-INTELIGENCIA-EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL SECRETO PARA UNA FAMILIA FELIZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL CIELO ESTÁ ABIERTO-ACTIVACIÓN DE LA GLÁNDULA PINEAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LIBERA TU MAGIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LOS-5-LENGUAJES-DEL-AMOR-DE-LOS-NINOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "DESPIERTA TU PODER MENTAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ANSIEDAD EN LAS RELACIONES", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "AMOR Y DESAMOR EN EL CEREBRO DESCUBRE LA CIENCIA DE LA ATRACCIÓN, EL SEXO Y EL AMOR", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "APRENDIENDO A QUERERSE A SI MIS - WALTER RISO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ACTÚA COMO DAMA PERO PIENSA COMO HOMBRE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "50 TÉCNICAS DE MINDFULNESS PARA VENCER LA ANSIEDAD, LA DEPRESIÓN, EL ESTRÉS Y EL DOLOR", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "PODER DE LA CONCIENCIA, EL - NEVILLE GADDARD", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EDUCAR EMOCIONES 3 A 6 AÑOS-1-1", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "DOMINA TUS EMOCIONES Y TU MOTIVACIÓN - THIBAUT MEURISSE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "PROGRAMA-INTELIGENCIA-EMOCIONAL-SECUNDARIA-12-14-AÑOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "NUDOS MENTALES - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "MIS EMOCIONES ME DOMINAN.", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "MEJORAR LA INTELIGENCIA EMOCIONAL DE LOS ADOLESCENTES - PROGRAMA INTEMO+", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LOS CUATRO ACUERDOS - DR. MIGUEL RUIZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LA-INTELIGENCIA-EMOCIONAL-DANIEL-GOLEMAN-1", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "INTELIGENCIAEMOCIONALYBIENESTARII-655308", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "INTELIGENCIA EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EMOCIONES TOXICAS - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TANATOLOGIA=SUPERANDO EL DUELO =COMO SUPERAR LA PERDIDA DE UN SER", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TANATOLOGIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TANATOLOGIA LA INTELIGENCIA EMOCIONAL EN EL PROCESO DE DUELO MARIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TU FUERZA INTERIOR - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CULPA MIA MERCEDES RON", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CÓMO HACERSE INOLVIDABLE - DALE CARNEGIE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "CÓMO OBTENER SEGURIDAD, CONFIANZA, INFLUENCIA Y AFINIDAD AL INSTANTE - TOM BIG", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ANSIEDAD, TOC Y CONDUCTAS PROBLEMÁTICAS EN AUTISMO - ANGELES MATOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "9-HABITOS-JAPONESES-QUE-CAMBIA-ANDREA-RODRIGUEZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "MI VIAJE SIN TI • ALEJANDRO SEQUERA-", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TOMA UN CAFE CONTIGO MISMO - WALTER DRESEL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LA INTELIGENCIA EMOCIONAL - DANIEL GOLEMAN", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "INTELIGENCIA EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ANSIEDAD, ESTRÉS, PÁNICO Y FOBIAS 1ªED. E CASCARDO, P RESNIK. ARG©2016", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ARREGLA TU DESMADRE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ALMENDRA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "VOLVER A EMPEZAR - COLLEEN HOOVER", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "VIVIR NUNCA FALLA", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "UNO SIEMPRE CAMBIA AL AMOR DE SU VIDA - AMALIA ANDRADE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TUS ZONAS MAGICAS - WAYNE W. DYER", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TENGO INTELIGENCIA EMOCIONAL - MANEL GUELL BARCELO-1", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "PERSONAS TÓXICAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "MIGUEL RUIZ LA MAESTRÍA DEL AMOR UNA GUÍA PRACTICA PARA EL ARTE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "MENTE, ¡DÉJAME VIVIR SUPERACION AUTOAYUDA DESCUBRE LA MENTALIDAD", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "MANDALO A LA MIERDA - SILVIA LLOP", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LOS HABITOS DE UN CEREBRO FELIZ - LORETTA GRAZIANO BREUNING", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "LA MENTE Y SUS SECRETOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ESTE DOLOR NO ES MIO IDENTIFICA Y RE", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EQUILIBRIO - DANIEL LOPEZ ROSETTI", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "ENRIC CORBERA - EMOCIONES PARA LA VIDA - EL CAMINO HACIA EL BIENESTAR", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL LIBRO QUE TU CEREBRO NO QUIERE LEER - DAVID DEL ROSARIO", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "EL ALGORITMO DE LA FELICIDAD - MO GAWDAT", "carpeta": "INTELIGENCIA EMOCIONAL"},
+                {"titulo": "TUS ZONAS ERRÓNEAS", "carpeta": "INTELIGENCIA EMOCIONAL"}
+            ];
+            
+            allBooks = books;
+            filteredBooks = books;
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('booksGrid').style.display = 'grid';
+            renderBooks();
+        }
+
+        function renderBooks() {
+            const grid = document.getElementById('booksGrid');
+            const currentCount = document.getElementById('currentCount');
+            const noResults = document.getElementById('noResults');
+            
+            if (filteredBooks.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                currentCount.textContent = '0';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            currentCount.textContent = filteredBooks.length;
+            
+            grid.innerHTML = filteredBooks.map(book => `
+                <div class="book-card">
+                    <i class="fas fa-rocket book-icon"></i>
+                    <h3 class="book-title">${book.titulo}</h3>
+                    <span class="book-category">${book.carpeta}</span>
+                </div>
+            `).join('');
+        }
+
+        function searchBooks() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (query === '') {
+                filteredBooks = allBooks;
+            } else {
+                filteredBooks = allBooks.filter(book => 
+                    book.titulo.toLowerCase().includes(query) ||
+                    book.carpeta.toLowerCase().includes(query)
+                );
+            }
+            
+            renderBooks();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', searchBooks);
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBooks();
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        loadBooks();
+    </script>
+</body>
+</html>

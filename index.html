@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital Premium | Packs de Libros 2025</title>
+    <meta name="description" content="Colección exclusiva de más de 1,372 libros organizados en 4 packs temáticos: Finanzas, Psicología, Desarrollo Personal y Salud Mental.">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo i {
+            margin-right: 0.8rem;
+            font-size: 2.5rem;
+            color: #667eea;
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23f0f0f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') center/cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Packs Section */
+        .packs-section {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .packs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pack-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .pack-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .pack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .pack-card.finanzas::before {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+
+        .pack-card.psicologia::before {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .pack-card.desarrollo::before {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+        }
+
+        .pack-card.salud::before {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+        }
+
+        .pack-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .pack-card.finanzas .pack-icon {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+
+        .pack-card.psicologia .pack-icon {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .pack-card.desarrollo .pack-icon {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+        }
+
+        .pack-card.salud .pack-icon {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+        }
+
+        .pack-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .pack-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .pack-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .pack-stat {
+            text-align: center;
+        }
+
+        .pack-stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            display: block;
+        }
+
+        .pack-stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pack-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            color: white;
+        }
+
+        .pack-card.finanzas .pack-btn {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+
+        .pack-card.psicologia .pack-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .pack-card.desarrollo .pack-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+        }
+
+        .pack-card.salud .pack-btn {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+        }
+
+        .pack-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .footer p {
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .cta-btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .cta-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .packs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pack-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .pack-card {
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .pack-card:nth-child(1) { animation-delay: 0.1s; }
+        .pack-card:nth-child(2) { animation-delay: 0.2s; }
+        .pack-card:nth-child(3) { animation-delay: 0.3s; }
+        .pack-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                Biblioteca Digital Premium
+            </div>
+            <a href="#contacto" class="contact-btn">
+                <i class="fas fa-whatsapp"></i>
+                Contactar Ahora
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✨ Colección Exclusiva 2025</div>
+            <h1>TRANSFORMA TU VIDA</h1>
+            <p>Descubre nuestra biblioteca digital premium con más de 1,372 libros cuidadosamente seleccionados y organizados en 4 packs temáticos para tu crecimiento personal, financiero y profesional.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">1,372</span>
+                    <span class="stat-label">Libros Únicos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Packs Temáticos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Digital PDF</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Acceso Inmediato</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packs Section -->
+    <section class="packs-section">
+        <div class="packs-container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Packs Exclusivos</h2>
+                <p class="section-subtitle">Cada pack está cuidadosamente curado para cubrir áreas específicas de tu desarrollo personal y profesional.</p>
+            </div>
+
+            <div class="packs-grid">
+                <!-- Pack 1 - Finanzas -->
+                <div class="pack-card finanzas">
+                    <div class="pack-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="pack-title">Pack 1: Finanzas Master</h3>
+                    <p class="pack-description">Domina el mundo financiero con libros sobre inversiones, emprendimiento, manejo del dinero y creación de riqueza. Transforma tu relación con el dinero.</p>
+                    
+                    <div class="pack-stats">
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">260</span>
+                            <span class="pack-stat-label">Libros</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">8</span>
+                            <span class="pack-stat-label">Categorías</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">PDF</span>
+                            <span class="pack-stat-label">Formato</span>
+                        </div>
+                    </div>
+                    
+                    <a href="pack-1-finanzas-COMPLETE.html" class="pack-btn">Ver Pack Completo</a>
+                </div>
+
+                <!-- Pack 2 - Psicología -->
+                <div class="pack-card psicologia">
+                    <div class="pack-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="pack-title">Pack 2: Psicología Master</h3>
+                    <p class="pack-description">Explora la mente humana con libros de psicología, PNL, persuasión e influencia. Comprende y domina el comportamiento humano.</p>
+                    
+                    <div class="pack-stats">
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">600</span>
+                            <span class="pack-stat-label">Libros</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">12</span>
+                            <span class="pack-stat-label">Categorías</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">PDF</span>
+                            <span class="pack-stat-label">Formato</span>
+                        </div>
+                    </div>
+                    
+                    <a href="pack-2-psicologia-COMPLETE.html" class="pack-btn">Ver Pack Completo</a>
+                </div>
+
+                <!-- Pack 3 - Desarrollo Personal -->
+                <div class="pack-card desarrollo">
+                    <div class="pack-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="pack-title">Pack 3: Desarrollo Master</h3>
+                    <p class="pack-description">Alcanza tu máximo potencial con libros de crecimiento personal, hábitos, productividad y transformación. Conviértete en tu mejor versión.</p>
+                    
+                    <div class="pack-stats">
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">313</span>
+                            <span class="pack-stat-label">Libros</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">10</span>
+                            <span class="pack-stat-label">Categorías</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">PDF</span>
+                            <span class="pack-stat-label">Formato</span>
+                        </div>
+                    </div>
+                    
+                    <a href="pack-3-desarrollo-COMPLETE.html" class="pack-btn">Ver Pack Completo</a>
+                </div>
+
+                <!-- Pack 4 - Salud Mental -->
+                <div class="pack-card salud">
+                    <div class="pack-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="pack-title">Pack 4: Salud Mental Master</h3>
+                    <p class="pack-description">Cuida tu bienestar emocional con libros de salud mental, manejo de ansiedad, depresión y crecimiento emocional. Tu mente merece cuidado.</p>
+                    
+                    <div class="pack-stats">
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">199</span>
+                            <span class="pack-stat-label">Libros</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">8</span>
+                            <span class="pack-stat-label">Categorías</span>
+                        </div>
+                        <div class="pack-stat">
+                            <span class="pack-stat-number">PDF</span>
+                            <span class="pack-stat-label">Formato</span>
+                        </div>
+                    </div>
+                    
+                    <a href="pack-4-salud-mental-COMPLETE.html" class="pack-btn">Ver Pack Completo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <h3>🚀 ¿Listo para Transformar tu Vida?</h3>
+            <p>Accede inmediatamente a más de 1,372 libros organizados en 4 packs temáticos. Comienza hoy tu transformación hacia el éxito, la prosperidad y el bienestar integral.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20Packs%20de%20Libros%202025" class="cta-btn cta-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Obtener Todos los Packs
+                </a>
+                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Biblioteca%20Digital%20Premium" class="cta-btn cta-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Más Información
+                </a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados. | Desarrollado con ❤️ para tu crecimiento</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de números
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.stat-number');
+            
+            numbers.forEach(number => {
+                const finalNumber = number.textContent;
+                const isNumber = !isNaN(finalNumber.replace(',', ''));
+                
+                if (isNumber) {
+                    const targetNumber = parseInt(finalNumber.replace(',', ''));
+                    let currentNumber = 0;
+                    const increment = targetNumber / 50;
+                    
+                    const timer = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= targetNumber) {
+                            number.textContent = finalNumber;
+                            clearInterval(timer);
+                        } else {
+                            number.textContent = Math.floor(currentNumber).toLocaleString();
+                        }
+                    }, 40);
+                }
+            });
+        }
+
+        // Observador para activar animaciones
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.stats-grid'));
+
+        // Efectos de paralaje suave
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
