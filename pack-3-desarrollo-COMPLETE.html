@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pack 3 - Desarrollo Personal | Biblioteca Digital Premium</title>
-    <meta name="description" content="Colección exclusiva de 313 libros de desarrollo personal. Conviértete en tu mejor versión.">
-    
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+    <title>Pack 3 - Desarrollo Personal & Productividad | 313 Libros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,819 +12,1162 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #FF6B35;
+            --secondary: #F7931E;
+            --accent: #FDB833;
+            --dark: #2C3E50;
+            --light: #FFF8F0;
+            --gradient: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FDB833 100%);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ff6b6b;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-        }
-
-        .contact-btn {
-            background: linear-gradient(45deg, #ff6b6b, #ffa726);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .hero {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .pack-badge {
-            background: linear-gradient(45deg, #ff6b6b, #ffa726);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b6b, #ffa726);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFE5D9 100%);
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ff6b6b;
-            display: block;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .search-section {
-            background: white;
-            padding: 2rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .search-box {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .search-input {
+        /* Particles Background */
+        #particles {
+            position: fixed;
             width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .search-input:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .search-icon {
+        .particle {
             position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite;
         }
 
-        .search-results {
-            text-align: center;
-            margin-top: 1rem;
-            color: #666;
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 0.6; }
         }
 
-        .books-section {
-            background: white;
-            padding: 3rem 0;
-        }
-
-        .books-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .book-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid #ff6b6b;
+        /* Header Hero */
+        .hero {
             position: relative;
+            background: var(--gradient);
+            padding: 80px 20px 100px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.3);
             overflow: hidden;
         }
 
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background: #fff;
-        }
-
-        .book-card::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.05" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path></svg>') repeat-x;
+            opacity: 0.5;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position: 0 0; }
+            100% { background-position: 1200px 0; }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .count {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 30px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFE5D9 100%);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Search Box */
+        .search-container {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 18px 50px 18px 25px;
+            font-size: 1.1rem;
+            border: 3px solid var(--primary);
+            border-radius: 50px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.2);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .search-box::placeholder {
+            color: #999;
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .category-section:hover {
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.15);
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(2px 2px 4px rgba(255, 107, 53, 0.3));
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .book-item {
+            background: linear-gradient(135deg, #FFF8F0 0%, white 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .book-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+            border-left-width: 8px;
+        }
+
+        .book-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            min-width: 45px;
+            text-align: center;
         }
 
         .book-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--dark);
             line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+        }
+
+        /* Bestsellers Section */
+        .bestsellers {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem 1rem;
+            margin: 2rem 0;
+            border-radius: 25px;
+            position: relative;
             overflow: hidden;
         }
 
-        .book-category {
-            background: linear-gradient(45deg, #ff6b6b, #ffa726);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: inline-block;
+        .bestsellers::before {
+            content: '⭐';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            right: -50px;
+            top: -50px;
+            animation: rotate 20s linear infinite;
         }
 
-        .book-icon {
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .bestsellers h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bestsellers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bestseller-card {
+            background: white;
+            color: var(--dark);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .bestseller-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .bestseller-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .bestseller-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 25px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '🚀';
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: #ff6b6b;
-            opacity: 0.3;
+            font-size: 300px;
+            opacity: 0.05;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-price {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-features {
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-feature {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent);
+        }
+
+        .cta-feature::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
             font-size: 1.2rem;
         }
 
-        .footer {
-            background: #ff6b6b;
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
             color: white;
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .footer p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .cta-btn {
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cta-primary {
-            background: #ffa726;
-            color: white;
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1rem;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .stats { gap: 1.5rem; }
-            .stat-number { font-size: 2rem; }
-            .books-grid { grid-template-columns: 1fr; }
-            .header-content { flex-direction: column; gap: 1rem; }
-            .cta-buttons { flex-direction: column; align-items: center; }
-        }
-
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-        }
-
-        .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #ff6b6b;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
         }
 
-        .no-results {
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Payment Info */
+        .payment-info {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .payment-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .payment-detail {
+            padding: 15px;
+            background: #FFF8F0;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 4px solid var(--primary);
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .payment-detail strong {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background: #2C3E50;
+            color: white;
             text-align: center;
-            padding: 3rem;
-            color: #666;
+            padding: 30px 20px;
+            margin-top: 60px;
         }
 
-        .no-results i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 50px 15px 70px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 15px 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem 10px;
+            }
+
+            .search-container {
+                margin-bottom: 1rem;
+            }
+
+            .search-box {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+
+            .category-section {
+                padding: 1rem 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                gap: 10px;
+            }
+
+            .category-icon {
+                font-size: 1.8rem;
+            }
+
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .book-item {
+                padding: 12px;
+                gap: 8px;
+            }
+
+            .book-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+
+            .book-title {
+                font-size: 0.8rem;
+                line-height: 1.3;
+            }
+
+            .bestsellers {
+                padding: 1.5rem 1rem;
+                margin: 1rem 0;
+            }
+
+            .bestsellers h2 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .bestsellers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .bestseller-card {
+                padding: 15px;
+            }
+
+            .bestseller-card h3 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .bestseller-card p {
+                font-size: 0.8rem;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-button {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-rocket"></i>
-                Desarrollo Personal Premium
-            </div>
-            <a href="#contacto" class="contact-btn">
-                <i class="fas fa-whatsapp"></i>
-                Contactar Ahora
-            </a>
-        </div>
-    </header>
+    <!-- Particles Background -->
+    <div id="particles"></div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="pack-badge">Pack Exclusivo #3</div>
-            <h1>DESARROLLO MASTER</h1>
-            <p>Conviértete en tu mejor versión.</p>
-            
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-number" id="totalBooks">313</span>
-                    <span class="stat-label">Libros Únicos</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">PDF</span>
-                    <span class="stat-label">Formato</span>
-                </div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>🚀 Pack 3 - Desarrollo Personal & Productividad</h1>
+        <p class="subtitle">La colección más completa para transformar tu vida</p>
+        <div class="count">✨ 313 Libros Premium ✨</div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">313</div>
+                <div class="stat-label">Libros Totales</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Categorías</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">S/10</div>
+                <div class="stat-label">Precio Único</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Digital</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="search-section">
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Search Box -->
         <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" id="searchInput" placeholder="Buscar libros por título o tema...">
-            </div>
-            <div class="search-results" id="searchResults">
-                Mostrando <span id="currentCount">313</span> libros
-            </div>
+            <input type="text" id="searchBox" class="search-box" placeholder="🔍 Busca tu libro por título o autor...">
         </div>
-    </section>
 
-    <section class="books-section">
-        <div class="books-container">
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                Cargando biblioteca...
-            </div>
-            <div class="books-grid" id="booksGrid" style="display: none;"></div>
-            <div class="no-results" id="noResults" style="display: none;">
-                <i class="fas fa-search"></i>
-                <h3>No se encontraron resultados</h3>
-                <p>Intenta con otros términos de búsqueda</p>
+        <!-- Bestsellers Section -->
+        <div class="bestsellers">
+            <h2>⭐ Top 6 Bestsellers Destacados</h2>
+            <div class="bestsellers-grid">
+                <div class="bestseller-card">
+                    <h3>📖 Hábitos Atómicos</h3>
+                    <p><strong>James Clear</strong><br>El bestseller definitivo sobre cómo construir buenos hábitos y romper los malos. Pequeños cambios, resultados extraordinarios.</p>
+                </div>
+                <div class="bestseller-card">
+                    <h3>📖 El Poder del Ahora</h3>
+                    <p><strong>Eckhart Tolle</strong><br>Una guía para la iluminación espiritual. Aprende a vivir en el momento presente y libérate del sufrimiento.</p>
+                </div>
+                <div class="bestseller-card">
+                    <h3>📖 Piense y Hágase Rico</h3>
+                    <p><strong>Napoleon Hill</strong><br>El clásico atemporal del éxito. Los 13 principios fundamentales para lograr riqueza y prosperidad.</p>
+                </div>
+                <div class="bestseller-card">
+                    <h3>📖 Los 7 Hábitos de la Gente Altamente Efectiva</h3>
+                    <p><strong>Stephen Covey</strong><br>La guía revolucionaria para el desarrollo personal y profesional que ha transformado millones de vidas.</p>
+                </div>
+                <div class="bestseller-card">
+                    <h3>📖 Inteligencia Emocional</h3>
+                    <p><strong>Daniel Goleman</strong><br>El libro que revolucionó nuestra comprensión de la inteligencia. Por qué es más importante que el CI.</p>
+                </div>
+                <div class="bestseller-card">
+                    <h3>📖 El Hombre en Busca de Sentido</h3>
+                    <p><strong>Viktor Frankl</strong><br>Una obra maestra sobre encontrar propósito en el sufrimiento. Lecciones desde los campos de concentración.</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <footer class="footer" id="contacto">
-        <div class="footer-content">
-            <h3>¿Listo para Transformar tu Vida?</h3>
-            <p>Accede inmediatamente a esta colección exclusiva de 313 libros. Conviértete en tu mejor versión.</p>
-            
-            <div class="cta-buttons">
-                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20el%20Pack%203%20de%20Desarrollo%20Personal%20con%20313%20libros" class="cta-btn cta-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    Obtener Pack Ahora
-                </a>
-                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Pack%20Desarrollo Personal" class="cta-btn cta-secondary">
-                    <i class="fas fa-envelope"></i>
-                    Más Información
-                </a>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados.</p>
+        <!-- Category 1: Autoayuda y Crecimiento Personal -->
+        <div class="category-section" data-category="AUTOAYUDA Y CRECIMIENTO">
+            <h2 class="category-title">
+                <span class="category-icon">🌱</span>
+                Autoayuda y Crecimiento Personal (36 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">1</div><div class="book-title">El Monje que Vendió su Ferrari - Robin Sharma</div></div>
+                <div class="book-item"><div class="book-number">2</div><div class="book-title">El Alquimista - Paulo Coelho</div></div>
+                <div class="book-item"><div class="book-number">3</div><div class="book-title">El Poder del Ahora - Eckhart Tolle</div></div>
+                <div class="book-item"><div class="book-number">4</div><div class="book-title">El Camino del Artista - Julia Cameron</div></div>
+                <div class="book-item"><div class="book-number">5</div><div class="book-title">Las 48 Leyes del Poder - Robert Greene</div></div>
+                <div class="book-item"><div class="book-number">6</div><div class="book-title">El Arte de la Guerra - Sun Tzu</div></div>
+                <div class="book-item"><div class="book-number">7</div><div class="book-title">Cómo Ganar Amigos e Influir sobre las Personas - Dale Carnegie</div></div>
+                <div class="book-item"><div class="book-number">8</div><div class="book-title">El Hombre en Busca de Sentido - Viktor Frankl</div></div>
+                <div class="book-item"><div class="book-number">9</div><div class="book-title">La Última Lección - Randy Pausch</div></div>
+                <div class="book-item"><div class="book-number">10</div><div class="book-title">El Caballero de la Armadura Oxidada - Robert Fisher</div></div>
+                <div class="book-item"><div class="book-number">11</div><div class="book-title">Usted También Puede Sanar su Vida - Louise Hay</div></div>
+                <div class="book-item"><div class="book-number">12</div><div class="book-title">El Secreto - Rhonda Byrne</div></div>
+                <div class="book-item"><div class="book-number">13</div><div class="book-title">Quien Se Ha Llevado Mi Queso - Spencer Johnson</div></div>
+                <div class="book-item"><div class="book-number">14</div><div class="book-title">La Vaca Púrpura - Seth Godin</div></div>
+                <div class="book-item"><div class="book-number">15</div><div class="book-title">El Punto de Inflexión - Malcolm Gladwell</div></div>
+                <div class="book-item"><div class="book-number">16</div><div class="book-title">Outliers - Malcolm Gladwell</div></div>
+                <div class="book-item"><div class="book-number">17</div><div class="book-title">Fuera de Serie - Malcolm Gladwell</div></div>
+                <div class="book-item"><div class="book-number">18</div><div class="book-title">El Talento Nunca es Suficiente - John Maxwell</div></div>
+                <div class="book-item"><div class="book-number">19</div><div class="book-title">Las 21 Leyes Irrefutables del Liderazgo - John Maxwell</div></div>
+                <div class="book-item"><div class="book-number">20</div><div class="book-title">Desarrolle el Líder que Está en Usted - John Maxwell</div></div>
+                <div class="book-item"><div class="book-number">21</div><div class="book-title">El Lado Positivo del Fracaso - John Maxwell</div></div>
+                <div class="book-item"><div class="book-number">22</div><div class="book-title">Tu Mejor Versión - Joel Osteen</div></div>
+                <div class="book-item"><div class="book-number">23</div><div class="book-title">Despertando el Gigante Interior - Tony Robbins</div></div>
+                <div class="book-item"><div class="book-number">24</div><div class="book-title">Poder sin Límites - Tony Robbins</div></div>
+                <div class="book-item"><div class="book-number">25</div><div class="book-title">El Código de la Mente Extraordinaria - Vishen Lakhiani</div></div>
+                <div class="book-item"><div class="book-number">26</div><div class="book-title">La Magia del Orden - Marie Kondo</div></div>
+                <div class="book-item"><div class="book-number">27</div><div class="book-title">Transforma tu Vida - Iyanla Vanzant</div></div>
+                <div class="book-item"><div class="book-number">28</div><div class="book-title">El Milagro de la Mañana - Hal Elrod</div></div>
+                <div class="book-item"><div class="book-number">29</div><div class="book-title">La Semana Laboral de 4 Horas - Timothy Ferriss</div></div>
+                <div class="book-item"><div class="book-number">30</div><div class="book-title">Cómo Hacer Que Te Pasen Cosas Buenas - Marian Rojas Estapé</div></div>
+                <div class="book-item"><div class="book-number">31</div><div class="book-title">Encuentra tu Persona Vitamina - Marian Rojas Estapé</div></div>
+                <div class="book-item"><div class="book-number">32</div><div class="book-title">La Carrera de tu Vida - Marian Rojas Estapé</div></div>
+                <div class="book-item"><div class="book-number">33</div><div class="book-title">El Poder de Confiar en Ti - Curro Cañete</div></div>
+                <div class="book-item"><div class="book-number">34</div><div class="book-title">Tu Eres tu Lugar Seguro - María Esclapez</div></div>
+                <div class="book-item"><div class="book-number">35</div><div class="book-title">El Arte de Empezar 2.0 - Guy Kawasaki</div></div>
+                <div class="book-item"><div class="book-number">36</div><div class="book-title">Despierta - Rhonda Byrne</div></div>
             </div>
         </div>
+
+        <!-- Category 2: Hábitos y Productividad -->
+        <div class="category-section" data-category="HÁBITOS Y PRODUCTIVIDAD">
+            <h2 class="category-title">
+                <span class="category-icon">⚡</span>
+                Hábitos y Productividad (42 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">37</div><div class="book-title">Hábitos Atómicos - James Clear</div></div>
+                <div class="book-item"><div class="book-number">38</div><div class="book-title">Los 7 Hábitos de la Gente Altamente Efectiva - Stephen Covey</div></div>
+                <div class="book-item"><div class="book-number">39</div><div class="book-title">El Octavo Hábito - Stephen Covey</div></div>
+                <div class="book-item"><div class="book-number">40</div><div class="book-title">Organízate con Eficacia - David Allen</div></div>
+                <div class="book-item"><div class="book-number">41</div><div class="book-title">Deep Work - Cal Newport</div></div>
+                <div class="book-item"><div class="book-number">42</div><div class="book-title">Enfócate - Cal Newport</div></div>
+                <div class="book-item"><div class="book-number">43</div><div class="book-title">Esencialismo - Greg McKeown</div></div>
+                <div class="book-item"><div class="book-number">44</div><div class="book-title">El Poder de los Hábitos - Charles Duhigg</div></div>
+                <div class="book-item"><div class="book-number">45</div><div class="book-title">La Magia del Orden - Marie Kondo</div></div>
+                <div class="book-item"><div class="book-number">46</div><div class="book-title">La Magia de la Acción - Marie Kondo</div></div>
+                <div class="book-item"><div class="book-number">47</div><div class="book-title">Cómete esa Rana - Brian Tracy</div></div>
+                <div class="book-item"><div class="book-number">48</div><div class="book-title">El Club de las 5 de la Mañana - Robin Sharma</div></div>
+                <div class="book-item"><div class="book-number">49</div><div class="book-title">El Milagro de la Mañana - Hal Elrod</div></div>
+                <div class="book-item"><div class="book-number">50</div><div class="book-title">El Milagro de la Mañana para Vendedores - Hal Elrod</div></div>
+                <div class="book-item"><div class="book-number">51</div><div class="book-title">El Milagro de la Mañana para Transformar tu Vida - Hal Elrod</div></div>
+                <div class="book-item"><div class="book-number">52</div><div class="book-title">El Año del Sí - Shonda Rhimes</div></div>
+                <div class="book-item"><div class="book-number">53</div><div class="book-title">Los Cuatro Acuerdos - Don Miguel Ruiz</div></div>
+                <div class="book-item"><div class="book-number">54</div><div class="book-title">El Quinto Acuerdo - Don Miguel Ruiz</div></div>
+                <div class="book-item"><div class="book-number">55</div><div class="book-title">La Maestría del Amor - Don Miguel Ruiz</div></div>
+                <div class="book-item"><div class="book-number">56</div><div class="book-title">La Voz de la Sabiduría - Don Miguel Ruiz</div></div>
+                <div class="book-item"><div class="book-number">57</div><div class="book-title">Inquebrantables - Tony Robbins</div></div>
+                <div class="book-item"><div class="book-number">58</div><div class="book-title">Domina tu Vida - Tony Robbins</div></div>
+                <div class="book-item"><div class="book-number">59</div><div class="book-title">El Efecto Compuesto - Darren Hardy</div></div>
+                <div class="book-item"><div class="book-number">60</div><div class="book-title">La Regla del 1% - Tom Connellan</div></div>
+                <div class="book-item"><div class="book-number">61</div><div class="book-title">Hazlo Fácil - Richard Templar</div></div>
+                <div class="book-item"><div class="book-number">62</div><div class="book-title">Las Reglas del Tiempo - Richard Templar</div></div>
+                <div class="book-item"><div class="book-number">63</div><div class="book-title">Como Ser Mejor - Richard Templar</div></div>
+                <div class="book-item"><div class="book-number">64</div><div class="book-title">El Camino de la Abundancia - Deepak Chopra</div></div>
+                <div class="book-item"><div class="book-number">65</div><div class="book-title">Las Siete Leyes Espirituales del Éxito - Deepak Chopra</div></div>
+                <div class="book-item"><div class="book-number">66</div><div class="book-title">La Ciencia de Hacerse Rico - Wallace Wattles</div></div>
+                <div class="book-item"><div class="book-number">67</div><div class="book-title">Piense y Hágase Rico - Napoleon Hill</div></div>
+                <div class="book-item"><div class="book-number">68</div><div class="book-title">La Ley del Éxito - Napoleon Hill</div></div>
+                <div class="book-item"><div class="book-number">69</div><div class="book-title">La Actitud Mental Positiva - Napoleon Hill</div></div>
+                <div class="book-item"><div class="book-number">70</div><div class="book-title">La Magia de Pensar en Grande - David Schwartz</div></div>
+                <div class="book-item"><div class="book-number">71</div><div class="book-title">Los 10 Secretos de la Abundante Felicidad - Adam Jackson</div></div>
+                <div class="book-item"><div class="book-number">72</div><div class="book-title">Cómo Obtener lo Mejor de Ti y de los Demás - Anthony Robbins</div></div>
+                <div class="book-item"><div class="book-number">73</div><div class="book-title">Transforma tu Vida en 21 Días - Maxwell Maltz</div></div>
+                <div class="book-item"><div class="book-number">74</div><div class="book-title">El Efecto de la Gratitud - John Kralik</div></div>
+                <div class="book-item"><div class="book-number">75</div><div class="book-title">Declara lo que Quieres - Joel Osteen</div></div>
+                <div class="book-item"><div class="book-number">76</div><div class="book-title">Cada Día es Viernes - Joel Osteen</div></div>
+                <div class="book-item"><div class="book-number">77</div><div class="book-title">El Principio de las 10x - Grant Cardone</div></div>
+                <div class="book-item"><div class="book-number">78</div><div class="book-title">Libera tu Magia - Elizabeth Gilbert</div></div>
+            </div>
+        </div>
+
+        <!-- Category 3: Inteligencia Emocional -->
+        <div class="category-section" data-category="INTELIGENCIA EMOCIONAL">
+            <h2 class="category-title">
+                <span class="category-icon">💡</span>
+                Inteligencia Emocional (28 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">79</div><div class="book-title">Inteligencia Emocional - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">80</div><div class="book-title">Inteligencia Social - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">81</div><div class="book-title">La Inteligencia Emocional en la Empresa - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">82</div><div class="book-title">Focus - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">83</div><div class="book-title">El Punto Ciego - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">84</div><div class="book-title">La Inteligencia Emocional Aplicada al Liderazgo - Norberto Levy</div></div>
+                <div class="book-item"><div class="book-number">85</div><div class="book-title">Tus Zonas Erróneas - Wayne Dyer</div></div>
+                <div class="book-item"><div class="book-number">86</div><div class="book-title">La Fuerza de Ser Altamente Sensible - Elaine Aron</div></div>
+                <div class="book-item"><div class="book-number">87</div><div class="book-title">El Don de la Sensibilidad - Elaine Aron</div></div>
+                <div class="book-item"><div class="book-number">88</div><div class="book-title">Emocional - Leonard Mlodinow</div></div>
+                <div class="book-item"><div class="book-number">89</div><div class="book-title">El Lenguaje de las Emociones - Karla McLaren</div></div>
+                <div class="book-item"><div class="book-number">90</div><div class="book-title">Inteligencia Emocional 2.0 - Travis Bradberry</div></div>
+                <div class="book-item"><div class="book-number">91</div><div class="book-title">El Arte de Amar - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">92</div><div class="book-title">El Corazón del Hombre - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">93</div><div class="book-title">La Revolución de la Esperanza - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">94</div><div class="book-title">El Miedo a la Libertad - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">95</div><div class="book-title">Anatomía de la Destructividad Humana - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">96</div><div class="book-title">Tener o Ser - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">97</div><div class="book-title">El Arte de Escuchar - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">98</div><div class="book-title">El Hombre que Confundió a su Mujer con un Sombrero - Oliver Sacks</div></div>
+                <div class="book-item"><div class="book-number">99</div><div class="book-title">La Trampa de la Felicidad - Russ Harris</div></div>
+                <div class="book-item"><div class="book-number">100</div><div class="book-title">El Sutilarte de que Todo Te Importe una Mierda - Mark Manson</div></div>
+                <div class="book-item"><div class="book-number">101</div><div class="book-title">Todo Está Jodido - Mark Manson</div></div>
+                <div class="book-item"><div class="book-number">102</div><div class="book-title">La Vaca - Camilo Cruz</div></div>
+                <div class="book-item"><div class="book-number">103</div><div class="book-title">El Factor X - Camilo Cruz</div></div>
+                <div class="book-item"><div class="book-number">104</div><div class="book-title">La Arquitectura del Pensamiento Positivo - Camilo Cruz</div></div>
+                <div class="book-item"><div class="book-number">105</div><div class="book-title">Emocionalmente Estable - Rodrigo Conesa</div></div>
+                <div class="book-item"><div class="book-number">106</div><div class="book-title">Entiende tu Mente - Molo Cebrián</div></div>
+            </div>
+        </div>
+
+        <!-- Category 4: Espiritualidad y Budismo -->
+        <div class="category-section" data-category="ESPIRITUALIDAD Y BUDISMO">
+            <h2 class="category-title">
+                <span class="category-icon">🧘</span>
+                Espiritualidad y Budismo (18 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">107</div><div class="book-title">El Arte de la Felicidad - Dalai Lama</div></div>
+                <div class="book-item"><div class="book-number">108</div><div class="book-title">El Libro de la Alegría - Dalai Lama</div></div>
+                <div class="book-item"><div class="book-number">109</div><div class="book-title">El Arte de la Compasión - Dalai Lama</div></div>
+                <div class="book-item"><div class="book-number">110</div><div class="book-title">El Camino de la Paz Interior - Dalai Lama</div></div>
+                <div class="book-item"><div class="book-number">111</div><div class="book-title">La Sabiduría de los Maestros - Dalai Lama</div></div>
+                <div class="book-item"><div class="book-number">112</div><div class="book-title">Enseñanzas Budistas Esenciales - Jack Kornfield</div></div>
+                <div class="book-item"><div class="book-number">113</div><div class="book-title">Vivir el Budismo - Ramiro Calle</div></div>
+                <div class="book-item"><div class="book-number">114</div><div class="book-title">Buda y la Ciencia de la Felicidad - William Wolly</div></div>
+                <div class="book-item"><div class="book-number">115</div><div class="book-title">Despertando al Buda Interior - Lama Surya Das</div></div>
+                <div class="book-item"><div class="book-number">116</div><div class="book-title">El Corazón de las Enseñanzas de Buda - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">117</div><div class="book-title">La Paz Está en tu Interior - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">118</div><div class="book-title">Prácticas Espirituales - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">119</div><div class="book-title">Hacia la Paz Interior - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">120</div><div class="book-title">El Arte de Comunicar - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">121</div><div class="book-title">Meditación para Principiantes - Jack Kornfield</div></div>
+                <div class="book-item"><div class="book-number">122</div><div class="book-title">El Camino con Corazón - Jack Kornfield</div></div>
+                <div class="book-item"><div class="book-number">123</div><div class="book-title">Buda - Karen Armstrong</div></div>
+                <div class="book-item"><div class="book-number">124</div><div class="book-title">Siddhartha - Hermann Hesse</div></div>
+            </div>
+        </div>
+
+        <!-- Category 5: Motivación y Mentalidad -->
+        <div class="category-section" data-category="MOTIVACIÓN Y MENTALIDAD">
+            <h2 class="category-title">
+                <span class="category-icon">🔥</span>
+                Motivación y Mentalidad (68 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">125</div><div class="book-title">Mindset: La Actitud del Éxito - Carol Dweck</div></div>
+                <div class="book-item"><div class="book-number">126</div><div class="book-title">El Obstáculo es el Camino - Ryan Holiday</div></div>
+                <div class="book-item"><div class="book-number">127</div><div class="book-title">Ego es el Enemigo - Ryan Holiday</div></div>
+                <div class="book-item"><div class="book-number">128</div><div class="book-title">Stillness is the Key - Ryan Holiday</div></div>
+                <div class="book-item"><div class="book-number">129</div><div class="book-title">Coraje - Ryan Holiday</div></div>
+                <div class="book-item"><div class="book-number">130</div><div class="book-title">Vive como un Estoico - Massimo Pigliucci</div></div>
+                <div class="book-item"><div class="book-number">131</div><div class="book-title">Meditaciones - Marco Aurelio</div></div>
+                <div class="book-item"><div class="book-number">132</div><div class="book-title">Cartas a Lucilio - Séneca</div></div>
+                <div class="book-item"><div class="book-number">133</div><div class="book-title">Manual de Vida - Epicteto</div></div>
+                <div class="book-item"><div class="book-number">134</div><div class="book-title">El Arte de la Guerra - Sun Tzu</div></div>
+                <div class="book-item"><div class="book-number">135</div><div class="book-title">El Libro de los Cinco Anillos - Miyamoto Musashi</div></div>
+                <div class="book-item"><div class="book-number">136</div><div class="book-title">La 12ª Regla para la Vida - Jordan Peterson</div></div>
+                <div class="book-item"><div class="book-number">137</div><div class="book-title">Más Allá del Bien y del Mal - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">138</div><div class="book-title">Así Habló Zaratustra - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">139</div><div class="book-title">El Anticristo - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">140</div><div class="book-title">Ecce Homo - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">141</div><div class="book-title">El Origen de la Tragedia - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">142</div><div class="book-title">El Crepúsculo de los Ídolos - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">143</div><div class="book-title">La Voluntad de Poder - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">144</div><div class="book-title">El Gay Saber - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">145</div><div class="book-title">Humano Demasiado Humano - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">146</div><div class="book-title">La Genealogía de la Moral - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">147</div><div class="book-title">Aurora - Friedrich Nietzsche</div></div>
+                <div class="book-item"><div class="book-number">148</div><div class="book-title">La Virtud del Egoísmo - Ayn Rand</div></div>
+                <div class="book-item"><div class="book-number">149</div><div class="book-title">La Rebelión de Atlas - Ayn Rand</div></div>
+                <div class="book-item"><div class="book-number">150</div><div class="book-title">El Manantial - Ayn Rand</div></div>
+                <div class="book-item"><div class="book-number">151</div><div class="book-title">Capitalismo el Ideal Desconocido - Ayn Rand</div></div>
+                <div class="book-item"><div class="book-number">152</div><div class="book-title">Filosofía: Quién Necesita de Ella - Ayn Rand</div></div>
+                <div class="book-item"><div class="book-number">153</div><div class="book-title">La Noche Oscura del Alma - San Juan de la Cruz</div></div>
+                <div class="book-item"><div class="book-number">154</div><div class="book-title">Las Confesiones - San Agustín</div></div>
+                <div class="book-item"><div class="book-number">155</div><div class="book-title">Los Miserables - Victor Hugo</div></div>
+                <div class="book-item"><div class="book-number">156</div><div class="book-title">Crimen y Castigo - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">157</div><div class="book-title">Los Hermanos Karamázov - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">158</div><div class="book-title">El Idiota - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">159</div><div class="book-title">Memorias del Subsuelo - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">160</div><div class="book-title">El Jugador - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">161</div><div class="book-title">Los Demonios - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">162</div><div class="book-title">El Eterno Marido - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">163</div><div class="book-title">Humillados y Ofendidos - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">164</div><div class="book-title">El Adolescente - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">165</div><div class="book-title">Pobres Gentes - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">166</div><div class="book-title">Diario de un Escritor - Fiódor Dostoyevski</div></div>
+                <div class="book-item"><div class="book-number">167</div><div class="book-title">La Metamorfosis - Franz Kafka</div></div>
+                <div class="book-item"><div class="book-number">168</div><div class="book-title">El Proceso - Franz Kafka</div></div>
+                <div class="book-item"><div class="book-number">169</div><div class="book-title">El Castillo - Franz Kafka</div></div>
+                <div class="book-item"><div class="book-number">170</div><div class="book-title">América - Franz Kafka</div></div>
+                <div class="book-item"><div class="book-number">171</div><div class="book-title">La Condena - Franz Kafka</div></div>
+                <div class="book-item"><div class="book-number">172</div><div class="book-title">La Peste - Albert Camus</div></div>
+                <div class="book-item"><div class="book-number">173</div><div class="book-title">El Extranjero - Albert Camus</div></div>
+                <div class="book-item"><div class="book-number">174</div><div class="book-title">El Mito de Sísifo - Albert Camus</div></div>
+                <div class="book-item"><div class="book-number">175</div><div class="book-title">La Caída - Albert Camus</div></div>
+                <div class="book-item"><div class="book-number">176</div><div class="book-title">El Hombre Rebelde - Albert Camus</div></div>
+                <div class="book-item"><div class="book-number">177</div><div class="book-title">El Primer Hombre - Albert Camus</div></div>
+                <div class="book-item"><div class="book-number">178</div><div class="book-title">La Náusea - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">179</div><div class="book-title">El Ser y la Nada - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">180</div><div class="book-title">A Puerta Cerrada - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">181</div><div class="book-title">El Existencialismo es un Humanismo - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">182</div><div class="book-title">La Edad de la Razón - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">183</div><div class="book-title">Las Palabras - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">184</div><div class="book-title">El Muro - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">185</div><div class="book-title">Los Caminos de la Libertad - Jean-Paul Sartre</div></div>
+                <div class="book-item"><div class="book-number">186</div><div class="book-title">Defensa de Sócrates - Platón</div></div>
+                <div class="book-item"><div class="book-number">187</div><div class="book-title">La República - Platón</div></div>
+                <div class="book-item"><div class="book-number">188</div><div class="book-title">El Banquete - Platón</div></div>
+                <div class="book-item"><div class="book-number">189</div><div class="book-title">Fedón - Platón</div></div>
+                <div class="book-item"><div class="book-number">190</div><div class="book-title">Fedro - Platón</div></div>
+                <div class="book-item"><div class="book-number">191</div><div class="book-title">El Sofista - Platón</div></div>
+                <div class="book-item"><div class="book-number">192</div><div class="book-title">El Político - Platón</div></div>
+            </div>
+        </div>
+
+        <!-- Category 6: Comunicación y Relaciones -->
+        <div class="category-section" data-category="COMUNICACIÓN Y RELACIONES">
+            <h2 class="category-title">
+                <span class="category-icon">🗣️</span>
+                Comunicación y Relaciones (35 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">193</div><div class="book-title">Cómo Ganar Amigos e Influir sobre las Personas - Dale Carnegie</div></div>
+                <div class="book-item"><div class="book-number">194</div><div class="book-title">Cómo Disfrutar la Vida y el Trabajo - Dale Carnegie</div></div>
+                <div class="book-item"><div class="book-number">195</div><div class="book-title">Cómo Hablar bien en Público - Dale Carnegie</div></div>
+                <div class="book-item"><div class="book-number">196</div><div class="book-title">Cómo Suprimir las Preocupaciones - Dale Carnegie</div></div>
+                <div class="book-item"><div class="book-number">197</div><div class="book-title">Los 5 Lenguajes del Amor - Gary Chapman</div></div>
+                <div class="book-item"><div class="book-number">198</div><div class="book-title">Las 5 Lenguas del Aprecio en el Trabajo - Gary Chapman</div></div>
+                <div class="book-item"><div class="book-number">199</div><div class="book-title">Hombres son de Marte, Mujeres de Venus - John Gray</div></div>
+                <div class="book-item"><div class="book-number">200</div><div class="book-title">Marte y Venus en el Dormitorio - John Gray</div></div>
+                <div class="book-item"><div class="book-number">201</div><div class="book-title">Marte y Venus Juntos para Siempre - John Gray</div></div>
+                <div class="book-item"><div class="book-number">202</div><div class="book-title">El Juego de la Seducción - Neil Strauss</div></div>
+                <div class="book-item"><div class="book-number">203</div><div class="book-title">La Verdad - Neil Strauss</div></div>
+                <div class="book-item"><div class="book-number">204</div><div class="book-title">Comunicación No Violenta - Marshall Rosenberg</div></div>
+                <div class="book-item"><div class="book-number">205</div><div class="book-title">Por Qué los Hombres No Escuchan - Allan y Barbara Pease</div></div>
+                <div class="book-item"><div class="book-number">206</div><div class="book-title">El Lenguaje del Cuerpo - Allan Pease</div></div>
+                <div class="book-item"><div class="book-number">207</div><div class="book-title">Las Preguntas de la Vida - Allan Pease</div></div>
+                <div class="book-item"><div class="book-number">208</div><div class="book-title">Por Qué Mienten los Hombres y Lloran las Mujeres - Allan Pease</div></div>
+                <div class="book-item"><div class="book-number">209</div><div class="book-title">Talk Like TED - Carmine Gallo</div></div>
+                <div class="book-item"><div class="book-number">210</div><div class="book-title">Charla - Steve Pavlina</div></div>
+                <div class="book-item"><div class="book-number">211</div><div class="book-title">Como Decir No - Patti Breitman</div></div>
+                <div class="book-item"><div class="book-number">212</div><div class="book-title">Conversaciones Cruciales - Kerry Patterson</div></div>
+                <div class="book-item"><div class="book-number">213</div><div class="book-title">Conversaciones Difíciles - Douglas Stone</div></div>
+                <div class="book-item"><div class="book-number">214</div><div class="book-title">Influencia - Robert Cialdini</div></div>
+                <div class="book-item"><div class="book-number">215</div><div class="book-title">Pre-Suasión - Robert Cialdini</div></div>
+                <div class="book-item"><div class="book-number">216</div><div class="book-title">Las Armas de la Persuasión - Robert Cialdini</div></div>
+                <div class="book-item"><div class="book-number">217</div><div class="book-title">El Arte de Tratar a las Personas - Srully Blotnick</div></div>
+                <div class="book-item"><div class="book-number">218</div><div class="book-title">Conecta - Matthew Lieberman</div></div>
+                <div class="book-item"><div class="book-number">219</div><div class="book-title">Dar y Recibir - Adam Grant</div></div>
+                <div class="book-item"><div class="book-number">220</div><div class="book-title">Originales - Adam Grant</div></div>
+                <div class="book-item"><div class="book-number">221</div><div class="book-title">Option B - Sheryl Sandberg</div></div>
+                <div class="book-item"><div class="book-number">222</div><div class="book-title">Vayamos Adelante - Sheryl Sandberg</div></div>
+                <div class="book-item"><div class="book-number">223</div><div class="book-title">Amarse con los Ojos Abiertos - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">224</div><div class="book-title">El Camino de las Lágrimas - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">225</div><div class="book-title">El Camino del Encuentro - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">226</div><div class="book-title">Déjame que te Cuente - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">227</div><div class="book-title">Cuentos para Pensar - Jorge Bucay</div></div>
+            </div>
+        </div>
+
+        <!-- Category 7: Pensamiento y Creatividad -->
+        <div class="category-section" data-category="PENSAMIENTO Y CREATIVIDAD">
+            <h2 class="category-title">
+                <span class="category-icon">🎨</span>
+                Pensamiento y Creatividad (48 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">228</div><div class="book-title">Robar Como un Artista - Austin Kleon</div></div>
+                <div class="book-item"><div class="book-number">229</div><div class="book-title">Enseña Tu Trabajo - Austin Kleon</div></div>
+                <div class="book-item"><div class="book-number">230</div><div class="book-title">Sigue Avanzando - Austin Kleon</div></div>
+                <div class="book-item"><div class="book-number">231</div><div class="book-title">El Camino del Artista - Julia Cameron</div></div>
+                <div class="book-item"><div class="book-number">232</div><div class="book-title">El Camino de la Abundancia - Julia Cameron</div></div>
+                <div class="book-item"><div class="book-number">233</div><div class="book-title">Pensar Rápido, Pensar Despacio - Daniel Kahneman</div></div>
+                <div class="book-item"><div class="book-number">234</div><div class="book-title">Ruido - Daniel Kahneman</div></div>
+                <div class="book-item"><div class="book-number">235</div><div class="book-title">Pensar en Sistemas - Donella Meadows</div></div>
+                <div class="book-item"><div class="book-number">236</div><div class="book-title">Pensamiento Lateral - Edward de Bono</div></div>
+                <div class="book-item"><div class="book-number">237</div><div class="book-title">Los Seis Sombreros para Pensar - Edward de Bono</div></div>
+                <div class="book-item"><div class="book-number">238</div><div class="book-title">El Libro de la Filosofía - Varios</div></div>
+                <div class="book-item"><div class="book-number">239</div><div class="book-title">El Mundo de Sofía - Jostein Gaarder</div></div>
+                <div class="book-item"><div class="book-number">240</div><div class="book-title">Sapiens - Yuval Noah Harari</div></div>
+                <div class="book-item"><div class="book-number">241</div><div class="book-title">Homo Deus - Yuval Noah Harari</div></div>
+                <div class="book-item"><div class="book-number">242</div><div class="book-title">21 Lecciones para el Siglo XXI - Yuval Noah Harari</div></div>
+                <div class="book-item"><div class="book-number">243</div><div class="book-title">El Cisne Negro - Nassim Taleb</div></div>
+                <div class="book-item"><div class="book-number">244</div><div class="book-title">Antifrágil - Nassim Taleb</div></div>
+                <div class="book-item"><div class="book-number">245</div><div class="book-title">El Lecho de Procusto - Nassim Taleb</div></div>
+                <div class="book-item"><div class="book-number">246</div><div class="book-title">Jugarse la Piel - Nassim Taleb</div></div>
+                <div class="book-item"><div class="book-number">247</div><div class="book-title">El Hombre Irracional - William Barrett</div></div>
+                <div class="book-item"><div class="book-number">248</div><div class="book-title">El Arte de la Guerra - Sun Tzu</div></div>
+                <div class="book-item"><div class="book-number">249</div><div class="book-title">Los Principios del Éxito - Ray Dalio</div></div>
+                <div class="book-item"><div class="book-number">250</div><div class="book-title">Factfulness - Hans Rosling</div></div>
+                <div class="book-item"><div class="book-number">251</div><div class="book-title">El Cisne Negro de los Mercados - Nassim Taleb</div></div>
+                <div class="book-item"><div class="book-number">252</div><div class="book-title">Ilusión de Control - David McRaney</div></div>
+                <div class="book-item"><div class="book-number">253</div><div class="book-title">No Estás Tan Loco Como Crees - David McRaney</div></div>
+                <div class="book-item"><div class="book-number">254</div><div class="book-title">Todos Somos Mentirosos - Robert Trivers</div></div>
+                <div class="book-item"><div class="book-number">255</div><div class="book-title">Supersentido - Bruce Hood</div></div>
+                <div class="book-item"><div class="book-number">256</div><div class="book-title">La Hipótesis de la Felicidad - Jonathan Haidt</div></div>
+                <div class="book-item"><div class="book-number">257</div><div class="book-title">La Mente de los Justos - Jonathan Haidt</div></div>
+                <div class="book-item"><div class="book-number">258</div><div class="book-title">La Coddling de la Mente Americana - Jonathan Haidt</div></div>
+                <div class="book-item"><div class="book-number">259</div><div class="book-title">El Animal Social - Elliot Aronson</div></div>
+                <div class="book-item"><div class="book-number">260</div><div class="book-title">Las Trampas del Deseo - Dan Ariely</div></div>
+                <div class="book-item"><div class="book-number">261</div><div class="book-title">Las Ventajas del Deseo - Dan Ariely</div></div>
+                <div class="book-item"><div class="book-number">262</div><div class="book-title">Por Qué Mentimos - Dan Ariely</div></div>
+                <div class="book-item"><div class="book-number">263</div><div class="book-title">Engaño - Sam Harris</div></div>
+                <div class="book-item"><div class="book-number">264</div><div class="book-title">Despertar - Sam Harris</div></div>
+                <div class="book-item"><div class="book-number">265</div><div class="book-title">Free Will - Sam Harris</div></div>
+                <div class="book-item"><div class="book-number">266</div><div class="book-title">El Fin de la Fe - Sam Harris</div></div>
+                <div class="book-item"><div class="book-number">267</div><div class="book-title">El Paisaje Moral - Sam Harris</div></div>
+                <div class="book-item"><div class="book-number">268</div><div class="book-title">Carta a una Nación Cristiana - Sam Harris</div></div>
+                <div class="book-item"><div class="book-number">269</div><div class="book-title">El Gen Egoísta - Richard Dawkins</div></div>
+                <div class="book-item"><div class="book-number">270</div><div class="book-title">El Espejismo de Dios - Richard Dawkins</div></div>
+                <div class="book-item"><div class="book-number">271</div><div class="book-title">El Relojero Ciego - Richard Dawkins</div></div>
+                <div class="book-item"><div class="book-number">272</div><div class="book-title">Destejiendo el Arcoíris - Richard Dawkins</div></div>
+                <div class="book-item"><div class="book-number">273</div><div class="book-title">Un Apetito por lo Maravilloso - Richard Dawkins</div></div>
+                <div class="book-item"><div class="book-number">274</div><div class="book-title">Una Breve Historia del Tiempo - Stephen Hawking</div></div>
+                <div class="book-item"><div class="book-number">275</div><div class="book-title">El Gran Diseño - Stephen Hawking</div></div>
+            </div>
+        </div>
+
+        <!-- Category 8: Varios y Biografías -->
+        <div class="category-section" data-category="VARIOS Y BIOGRAFÍAS">
+            <h2 class="category-title">
+                <span class="category-icon">📚</span>
+                Varios y Biografías (38 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">276</div><div class="book-title">El Código Da Vinci - Dan Brown</div></div>
+                <div class="book-item"><div class="book-number">277</div><div class="book-title">Ángeles y Demonios - Dan Brown</div></div>
+                <div class="book-item"><div class="book-number">278</div><div class="book-title">Inferno - Dan Brown</div></div>
+                <div class="book-item"><div class="book-number">279</div><div class="book-title">Origen - Dan Brown</div></div>
+                <div class="book-item"><div class="book-number">280</div><div class="book-title">El Símbolo Perdido - Dan Brown</div></div>
+                <div class="book-item"><div class="book-number">281</div><div class="book-title">Steve Jobs - Walter Isaacson</div></div>
+                <div class="book-item"><div class="book-number">282</div><div class="book-title">Elon Musk - Ashlee Vance</div></div>
+                <div class="book-item"><div class="book-number">283</div><div class="book-title">Einstein Su Vida y su Universo - Walter Isaacson</div></div>
+                <div class="book-item"><div class="book-number">284</div><div class="book-title">Leonardo da Vinci - Walter Isaacson</div></div>
+                <div class="book-item"><div class="book-number">285</div><div class="book-title">Autobiografía - Benjamin Franklin</div></div>
+                <div class="book-item"><div class="book-number">286</div><div class="book-title">Mi Historia - Michelle Obama</div></div>
+                <div class="book-item"><div class="book-number">287</div><div class="book-title">Educated - Tara Westover</div></div>
+                <div class="book-item"><div class="book-number">288</div><div class="book-title">El Diario de Ana Frank</div></div>
+                <div class="book-item"><div class="book-number">289</div><div class="book-title">Largo Pétalo de Mar - Isabel Allende</div></div>
+                <div class="book-item"><div class="book-number">290</div><div class="book-title">La Casa de los Espíritus - Isabel Allende</div></div>
+                <div class="book-item"><div class="book-number">291</div><div class="book-title">Cien Años de Soledad - Gabriel García Márquez</div></div>
+                <div class="book-item"><div class="book-number">292</div><div class="book-title">El Amor en los Tiempos del Cólera - Gabriel García Márquez</div></div>
+                <div class="book-item"><div class="book-number">293</div><div class="book-title">Crónica de una Muerte Anunciada - Gabriel García Márquez</div></div>
+                <div class="book-item"><div class="book-number">294</div><div class="book-title">El Coronel No Tiene Quien le Escriba - Gabriel García Márquez</div></div>
+                <div class="book-item"><div class="book-number">295</div><div class="book-title">Memoria de mis Putas Tristes - Gabriel García Márquez</div></div>
+                <div class="book-item"><div class="book-number">296</div><div class="book-title">Del Amor y Otros Demonios - Gabriel García Márquez</div></div>
+                <div class="book-item"><div class="book-number">297</div><div class="book-title">El Otoño del Patriarca - Gabriel García Márquez</div></div>
+                <div class="book-item"><div class="book-number">298</div><div class="book-title">1984 - George Orwell</div></div>
+                <div class="book-item"><div class="book-number">299</div><div class="book-title">Rebelión en la Granja - George Orwell</div></div>
+                <div class="book-item"><div class="book-number">300</div><div class="book-title">Un Mundo Feliz - Aldous Huxley</div></div>
+                <div class="book-item"><div class="book-number">301</div><div class="book-title">Fahrenheit 451 - Ray Bradbury</div></div>
+                <div class="book-item"><div class="book-number">302</div><div class="book-title">El Señor de los Anillos - J.R.R. Tolkien</div></div>
+                <div class="book-item"><div class="book-number">303</div><div class="book-title">El Hobbit - J.R.R. Tolkien</div></div>
+                <div class="book-item"><div class="book-number">304</div><div class="book-title">Harry Potter y la Piedra Filosofal - J.K. Rowling</div></div>
+                <div class="book-item"><div class="book-number">305</div><div class="book-title">El Principito - Antoine de Saint-Exupéry</div></div>
+                <div class="book-item"><div class="book-number">306</div><div class="book-title">El Pequeño Príncipe - Antoine de Saint-Exupéry</div></div>
+                <div class="book-item"><div class="book-number">307</div><div class="book-title">El Retrato de Dorian Gray - Oscar Wilde</div></div>
+                <div class="book-item"><div class="book-number">308</div><div class="book-title">Orgullo y Prejuicio - Jane Austen</div></div>
+                <div class="book-item"><div class="book-number">309</div><div class="book-title">Jane Eyre - Charlotte Brontë</div></div>
+                <div class="book-item"><div class="book-number">310</div><div class="book-title">Cumbres Borrascosas - Emily Brontë</div></div>
+                <div class="book-item"><div class="book-number">311</div><div class="book-title">Anna Karenina - León Tolstói</div></div>
+                <div class="book-item"><div class="book-number">312</div><div class="book-title">Guerra y Paz - León Tolstói</div></div>
+                <div class="book-item"><div class="book-number">313</div><div class="book-title">La Muerte de Iván Ilich - León Tolstói</div></div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>¡Transforma Tu Vida HOY! 🚀</h2>
+            <div class="cta-price">S/10</div>
+            <p style="font-size: 1.5rem; margin-bottom: 30px;">313 Libros Premium + Entrega Inmediata</p>
+            
+            <div class="cta-features">
+                <div class="cta-feature">313 libros digitales en formato PDF</div>
+                <div class="cta-feature">Acceso inmediato vía WhatsApp</div>
+                <div class="cta-feature">Organizado en 8 categorías temáticas</div>
+                <div class="cta-feature">Compatible con todos los dispositivos</div>
+                <div class="cta-feature">Lee offline cuando quieras</div>
+                <div class="cta-feature">Incluye bestsellers internacionales</div>
+                <div class="cta-feature">Sin mensualidades ni suscripciones</div>
+                <div class="cta-feature">Pago único - Tuyo para siempre</div>
+            </div>
+
+            <div class="payment-info">
+                <h3>💳 Datos de Pago</h3>
+                <div class="payment-detail">
+                    <strong>Yape / Plin:</strong> 930 296 792
+                </div>
+                <div class="payment-detail">
+                    <strong>Nombre:</strong> Hubert Sanchez
+                </div>
+                <div class="payment-detail">
+                    <strong>Monto:</strong> S/10.00
+                </div>
+                <p style="margin-top: 20px; color: #666;">
+                    Envía tu comprobante de pago por WhatsApp y recibe tu pack completo en minutos
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/51930296792?text=Hola%21%20Quiero%20el%20Pack%203%20de%20Desarrollo%20Personal" 
+           class="whatsapp-button" 
+           target="_blank"
+           aria-label="Contactar por WhatsApp">
+            📱
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pack Desarrollo Personal & Productividad. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px; opacity: 0.8;">313 libros para transformar tu vida • Entrega inmediata • Pago único</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        let allBooks = [];
-        let filteredBooks = [];
-
-        async function loadBooks() {
-            const books = [
-                {"titulo": "LO BUENO DE TENER UN MAL DÍA CÓMO CUIDAR DE NUESTRAS -- ANABEL GONZÁLEZ -- BARCELONA, 2020", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "EL PODER DE CREER EN TI -- DANIEL J MARTIN -- 2021", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "DEJAR IR EL CAMINO A LA LIBERACIÓN", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "CONFIANZA -- OSHO -- 2016", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "VUELVO A MI", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "SANANDO MI HERIDA MATERNA.PDF · VERSIÓN 1", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "LOS PERDONO PERO NO LOS AMO JOSÉ ARMANDO ORNELAS M.PDF · VERSIÓN 1", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "MI MADRE NARCISISTA COMO COMPRENDER FACILMENTE EL NARCISISMO EN", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "LOWEN ALEXANDER EL NARCICISMO LA ENFERMEDAD DE NUESTRO TIEMPO PDF", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "SANANDO HERIDAS MIENTRAS DESPIDO TUS RECUERDOS", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "NADIE PUEDE SALVARTE EXCEPTO TÚ -- MADAME G ROUGE -- 2024", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "RAGNAROK", "carpeta": "SANACIÓN Y CRECIMIENTO PERSONAL"},
-                {"titulo": "CONVENCE Y VENCERAS FABREGAT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "DECÍDETE CÓMO TOMAR LAS MEJORES DECISIONES EN LA VIDA Y EN CHIP", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "FINANZAS BÍBLICAS CAMBIA TÚ Y CAMBIARÁN TUS FINANZAS -- SALCEDO, HÉCTOR --", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "UNA FILOSOFÍA PARA SOBREVIVIR EN EL SIGLO XXI YO NO SOY UN -- JESÚS GONZÁLEZ MAESTRO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "NO LO PIENSES, HAZLO YA -- SERGIO LUQUE -- 2025", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "INVICTO LOGRA MÁS SUFRE MENOS -- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "INVICTO - CUADERNO DE TRABAJO- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "MBA GUÍA VISUAL TODO LO QUE APRENDÍ EN DOS AÑOS -JASON BARRON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "ESPABILA DE UNA PUTA VEZ UN DESAFÍO INCÓMODO Y DOLOROSO QUE - JOSÉ MONTAÑEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "EL PODER DEL AHORA UN CAMINO HACIA LA REALIZACION ESPIRITUAL, EL - ECKHART TOLLE", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "LA PSICOLOGIA DEL DINERO COMO PIENSAN LOS RICOS -- MORGAN HOUSEL, ARNAU FIGUERAS DEULOFEU", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "DESCUBRE EL ARTE DE HABLAR EN PUBLICO - FERNANDO MIRALLES", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "ENCUENTRA TU ELEMENTO EL CAMINO PARA DESCUBRIR TU PASION Y TRANSFORMAR TU VIDA - KEN ROBINSON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "PODER SIN LIMITES - TONY ROBBINS", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "TU MEJOR AÑO - MICHAEL HYATT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "APRENDIENDO DE LOS MEJORES 1 Y 2", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "ELEMENTO-KEN-ROBINSON.PDF -EL-DESCONOCIDO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "HABITOS-ATOMICOS-JAMES-CLEAR", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "INGENIERÍA INTERIOR GUÍA YOGUI PARA ALCANZAR LA ALEGRÍA Y -- SADHGURU, INMACULADA MORALES LORENZO", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "EL ARTE DE CUIDAR A TU NIÑO INTERIOR -- THICH NHAT HANH", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "TU FE ES TU FORTUNA - NEVILLE GODDARD -- 2018", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "GANA TIEMPO GANA-VIDA - CÓMO TENER TIEMPO PARA LO IMPORTANTE - GEMMA GARCIA 2024", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "LAS 12 PALANCAS DEL ÉXITO -- STEPHEN R COVEY", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "PENSAMIENTOS DEL CORAZÓN -- LOUISE L HAY", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "REPROGRÁMATE CÓMO CAMBIAR TUS MOLDES MENTALES, LOGRAR EL CONTROL - PEDRO HERNADEZ", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "VUELVE A MI - JENNIFER L. ARMENTROUT", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "POTENCIA TU ENERGÍA - PAM GROUT", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "GRACIAS ANSIEDAD, COMO TRANSFORME LOS ATAQUES DE PÁNICO Y LA ANSIEDAD EN LIBERTAD - FABIOLA CUEVAS", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "CALLATE EL PODER DE MANTENER LA BOCA CERRADA - DAN LIONS", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "NO ME PUEDES LASTIMAR DOMINA TU MENTE Y DESAFIA LAS PROBABILIDADES", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "VALENTIA - KELBIN TORRES.", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "MANUAL AVANZADO DE MANIFESTACION DESCUBRE EL PODER DE HACER -- NIEVES, RUT", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "NACISTE PARA DISFRUTAR SEXUALIDAD, ESPIRITUALIDAD - RUT NIEVES", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "HAZ TUS SUEÑOS REALIDAD MANUAL AVANZADO DE MANIFESTACIÓN - RUT NIEVES", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "VOLVER A EMPEZAR - COLLEEN HOOVER", "carpeta": "BIENESTAR Y ÉXITO PERSONAL"},
-                {"titulo": "ESTAR-BIEN- -PRÁCTICAS-DE-BIENESTAR-PARA-UNA-VIDA-EN-XIOMARA", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "CÓMO DEJAR DE PENSAR DEMASIADO - SERENA LANCASTER 2023", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "EL PODER DE LA GRATITUD 7 PASOS PARA UNA VIDA MÁS FELIZ, -- DANIEL J MARTIN -- 2022", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "EL PODER DE LA DISCIPLINA -- DANIEL MARTÍN", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "EL PODER DE LOS OBJETIVOS DESCUBRE EL SECRETO PARA ALCANZAR -- MARTIN, DANIEL J - 2020", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "COMO EL HOMBRE PIENSA ASÍ ES SU VIDA - ALLEN, JAMES -- 2016", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "CÓMO DEJAR DE PENSAR DEMASIADO UNA GUÍA PARA VIVIR SIN -- ADAM TUSCO -- 2022", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "MI VIAJE SIN TI - ALEJANDRO SEQUERA", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "¿POR QUÉ LE PASAN COSAS MALAS A LA GENTE BUENA- IVAN GUTIERREZ", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "DESAPEGARSE SIN ANESTESIA - WALTER RISO", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "EL PODER DE DEJAR IR - DANIEL J. MARTIN", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "EL PODER DE LA RESILENCIA - NICOLAS BELLI", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "CONFIANZA -- OSHO -- 2016", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "CÓMO SER COMO RICH DE VOS - PAT WILLIAMS, JIM DENNEY", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "DEJAR IR EL CAMINO A LA LIBERACIÓN - DAVID R HAWKINS", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "CÓMO DEJAR DE SER TU PEOR ENEMIGO - ALBA", "carpeta": "CRECIMINTO PERSONAL"},
-                {"titulo": "TIENDE TU CAMA WILLIAM H MCRAVEN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "28.COMO HACER QUE TE PASEN COSAS BUENAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS 4 ACUERDOS - DR MIGUEL RUIZ", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS MENSAJES DE LOS SABIOS - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EXITO EN LA VIDA, EXITO EN LOS - BERT HELLINGER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ESPEJOS DEL TIEMPO - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ELIMINAR EL ESTRES - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL REY DEL CASH", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "SER EMPRESARIO - OTROS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS MENSAJES DE LOS SABIOS - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "PARECE DIFICIL PERO NO LO ES - ANGEL LLACER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MEDITACION - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MUCHOS CUERPOS MISMA ALMA - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS MILAGROS EXISTEN - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS MILLONARIOS NO NACEN, SE HA - JUAN ANTONIO GUERRERO CANONGO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DE AUTOEMPLEADO A EMPRESARIO - MIGUEL ANGEL DIAZ LEO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CREALO SI SE PUEDE - ALEX DEY", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CONOCE LA ÚNICA VERDAD- SEBASTIAN SANTISTEBAN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "APRENDIZAJE ACELERADO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ACABA CON LA PROCRASTINACION - AURELIE DORCHY", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "A VECES SE GANA, A VECES SE APRENDE - JOHN C. MAXWELL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "A TRAVES DEL TIEMPO - BRIAN WEISS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS MILLONARIOS NO NACEN, SE HACEN-1", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL VERDADERO ÉXITO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "12 PASOS HACIA LA FELICIDAD - CARMELA PARIS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "25.- PODER DE LA CONCIENCIA, EL - NEVILLE GADDARD", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "¿POR QUÉ NO ME ENSEÑARON ESTO EN LA ESCUELA 99 PRINCIPIOS DE LA ADMINISTRACIÓN DEL DINERO PERSONAL A SEGUIR EN LA VIDA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "VOY A SER ASERTIVA UTILIZA TU INTELIGENCIA EMOCIONAL PARA AUTOAFIRMARTE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CABRONA Y MILLONARIA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "VU-LVETE-IMPARABLE-VOLUMEN-II-196- 230627 002521", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DIARIO PARA ESTOICOS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LAS-TRAMPAS-DEL-DESEO -COMO-CON-DANIEL-ARIELY", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ACTÚA COMO DAMA PERO PIENSA COMO HOMBRE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MIA LIBRO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DE-ANIMALES-A-DIOSES", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL BUHO- SAMUEL BJØRK", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "21 LECCIONES PARA EL SIGLO XXI SONYDEVIL- YUVAL N", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS-TRUCOS-DE-LOS-RICOS-DEUSTO-JUAN-HARO-LIBRO-COMPLETO-1", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "23 HÁBITOS ANTI-PROCRASTINACIÓN-1", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "GESTIÓN DE TIEMPO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "SAMIR FLORES - LOS 7 SECRETOS PARA DEJAR DE PROCRASTINAR", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LA MONTAÑA ERES TÚ - BRIANNA WIEST", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CONOCE LA ÚNICA VERDAD- SEBASTIAN SANTISTEBAN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EDUCACIÓN PARA LA SALUD UNA INTRODUCCIÓN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL ARTE DE LA GUERRA PARA LA PEQUEÑA Y MEDIANA EMPRESA - BECKY SHEETZ RUNKLE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL ARTE DE NO AMARGARSE LA VIDA - RAFAEL SANTANDREU", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "RESPIRA JAMES NESTOR", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MÉTODO-TED-PARA-HABLAR-EN-PÚBLICO-EDICIÓN-REVISADA-Y-AMPLIADA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "STEVE JOBS EDICION EN ESPANOL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "TU MEJOR AÑO UN PLAN DE 5 PASOS PARA ALCANZAR TUS METAS MÁS IMPORTANTES", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "POR QUÉ DORMIMOS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MAKE TIME", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LA VÍA RÁPIDA DEL MILLONARIO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "WILL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "2DE6E1EFF8A222DC7A10F35882AFDD6D", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ESPABILA DE UNA ... VEZ UN DESAFÍO INCÓMODO Y DOLOROSO QUE MARCARÁ TU VIDA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "JAMES NESTOR - RESPIRA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "RAGNAROK. EL CAMINO DE UN HOMBRE - HOMBRES PELIGROSOS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ENFOCATE-CAL-NEWPORT COMPRESS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "AUN NO ERES QUIEN TIENES QUE LLEGAR A SER CARLOS MUÑOZ 4S", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "UN TRANVÍA LLAMADO DESEO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EBOOK-GRATUITO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL ARTE DEL MINIMO ESFUERZO - BARBARA BERCKHAN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL PODER DE LA MOTIVACIÓN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "RUNAS PARA EL AUTOCONOCIMIENTO EL GUERRERO INTERIOR SIGNIFICADO DE LAS PIEDRAS VIKINGAS, GUÍA PARA APRENDER A USARLAS Y", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "UN GRITO DESESPERADO - CARLOS CUAUHTEMOC SANCHEZ", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "USTED PUEDE SANAR SU VIDA - LOUISE L. HAY - 106 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "TOAZ.INFO-NAVY-SEAL-AUTODISCIPLINA-COMO-DESARROLLAR-LA-FORTALEZA-MENTAL-DISCIPLINA-Y--PR DC794CFE77F4FF57905B6CCB6E77757B", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "COMO PIENSAN LOS RICOS L", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EDUCACIÓN EMOCIONAL PROPUESTAS PARA EDUCADORES Y FAMILIAS RAFAEL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DONA HUEVOTES - ANAMAR ORIHUELA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "PIENSE Y HAGASE RICO - NAPOLEON HILL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CALCULA TU ENEAGRAMA DE LA PERSONALIDAD - VALERIE DEBRUCHE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL CUERPO HABLA176", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LA VIDA SON DOS PUTOS DÍAS - JOSÉ MONTAÑEZ", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL PODER DEL AHORA - ECKHART TOLLE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LAS HISTORIAS QUE TE CUENTAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "TUS HIJOS ADOLESCENTES - GERARDO CASTILLO CEBALLOS-1", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "TOAZINFO-LA-MEDICINA-NATURAL-AL-ALCANCE-DE-TODOS-PDF-PR E9ACC0EE337E14EBB099E90163FFBF90 2", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "TRANSFORMA LAS HERIDAS DE TU INFANCIA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "SALUD PROHIBIDA ANDREAS L. KALCKER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DANIEL HABIF - LAS TRAMPAS DEL MIEDO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LE HARA MAS INTELIGE - JOHN BROCKMAN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL PODER DE CONFIAR EN TI MISMO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ROMPE-LA-BARRERA-DEL-NO-CHRIS-VOSS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "HÁBITOS ATÓMICOS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "PODER SIN LIMITES - ANTHONY ROBBINS 1", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL MILLONARIO INSTANTANEO - MARK FISHER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "!ME VALE MADRES! - PREM DAYAL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "COMO SUPRIMIR LAS PREOCUPACIONES Y DISFRUTAR DE LA VIDA - DALE CARNEGIE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "APRENDIENDO DE LOS MEJORES - FRANCISCO ALCAIDE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LIBERANDO EL GIGANTE QUE LLEVAS DENTRO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS 7 HABITOS DE LA GENTE ALTAMENTE EFECTIVA - STEPHEN R. COVEY", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LIBRO EL CLUB DE LAS 5 AM", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "INQUEBRANTABLE - TONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "INQUEBRANTABLES-DANIEL-HABIF", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EMPRENDEDOR - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DECIR-NO-NO-BASTA---NAOMI-KLEIN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "!CREAR O MORIR! - ANDRES OPPENHEIMER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL-LOBO-DE-WALL-STREET---JORDAN-BELFORT", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL QUINTO ACUERDO - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "¡ERES UN CHINGÓN! - JEN SINCERO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL SEÑOR DE LAS MOSCAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DOMINA-TU-TIEMPO-EN-10-MINUTOS-MICHA.PDF", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "COMO ATRAER LA ABUNDANCIA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL-ARTE-DE-HACER-PREGUNTAS-MARIO-BORGHINO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CAMBIA-TU-VIDA-EN-30-DIAS-CON-LA-LEY-DE-LA-ATRACCION", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL ARTE DE LA GUERRA CONTRA OJETES. OSVALDO FLORES", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL CEREBRO MASCULINO - LOUANN BRIZENDINE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "UN CURSO DE MILAGROS - COMPLETO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DOC-20221125-WA0056", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LAS-COSAS-PASAN-POR-ALGO-O-NO-LIBRO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DOC-20230215-WA0046", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "2️⃣BONUS+ OROY PLATA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EMPIEZA CON EL PORQUE-PDF", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "!YA SUPERALO! - CÉSAR LOZANO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "¡ARRIÉSGATE! PREGUNTAS QUE CAMBIARÁN TU VIDA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "NO ME PUEDES LASTIMAR", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MAÑANAS MILAGROSAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "SIN-LIMITES-JIM-KWIK", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "12 REGLAS PARA VIVIR - JORDAN PETERSON", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL MITO DEL CARISMA - OLIVIA FOX CABANE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "GUIA DE HABITOS INTELIGENTES - I. C. ROBLEDO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL PODER DE LOS HÁBITOS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL HOMBRE MAS RICO QUE JAMAS EXISTIO - STEVEN K. SCOTT", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MUNDO DE MILLONARIOS - LAS 50 MEJORES FRASES", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MENOS MIEDOS MAS RIQUEZAS - JUAN DIEGO GOMEZ GOMEZ", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LAS CUATRO VIDAS DE STEVE JOBS - DANIEL ICHBIAH", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LA ESCALERA MAGICA HACIA EL EXITO - NAPOLEON HILL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CASOS DE EXITO DE EMPRENDEDORES - OTROS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "5 CLAVES PARA INNOVAR - JAVIER GONZALEZ", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "100 TIPS PARA CONVERTIR TU PASION EN UN NEGOCIO - MARCO AYUSO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ANATOMIA DE LA PERSUASION - ANTONIO SALCEDO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS 88 PELDAÑOS DEL EXITO - ANXO PEREZ - 199 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL HOMBRE MAS RICO DE BABILONIA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MUEVE TUS AHORROS Y GANATE UN SUELDO - FRANCISCA SERRANO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS SECRETOS DE STEVE JOBS - CARMINE GALLO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "GUIA PARA PERSONAS QUE QUIEREN EMPRENDER PERO NO SABEN COMO EMPEZAR - JUAN RIVAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "UN AÑO PARA CAMBIAR EL CHIP - NAPOLEON HILL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "METODO PARA CREAR HÁBITOS DE MILLONARIOS FELICES - JURGUEN KLARIC", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "PASOS DE GIGANTE - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MENSAJE A UN AMIGO - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS 6 OBSTACULOS MAGAZINE - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LEYES DEL EXITO - BERNARDO STAMATEAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL CIRCULO DE LA RIQUEZA - CRISTIAN ABRATTE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "10 DIAS CAMBIO DE HABITOS - MARC REKLAU", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "7 LADRONES DEL TIEMPO Y COMO COMBATIRLOS - ALBERTO PENA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MOMENTUM CUADERNO DE TRABAJO - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MENTE Y DINERO MAGAZINE - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LA FUERZA DE LAS DECISIONES - ANTHONY ROBBINS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS 9 PASOS PARA ALCANZAR EL EXITO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS 12 LIBROS QUE TODO EMPRENDEDOR DEBE LEER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS MILLONARIOS NO NACEN SE HACEN - JUAN ANTONIO GUERRERO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LOS SECRETOS DE LA MENTE MILLONARIA - T. HARV EKER - 639 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "MENTALIDAD PARA EL EXITO AA-VV", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "NIÑO RICO NIÑO LISTO - ROBERT KIYOSAKI", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "VIVE TU SUEÑO - JOHN C. MAXWELL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "SIENTE ESTRATEGIAS PARA ALCANZAR RIQUEZA Y FELICIDAD - JIM ROHN", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LA GUIA DE HABITOS EXITOSOS - J. SANTIAGO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ESQUIVAR LA MEDIOCRIDAD - XAVIER MARCET", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL CAMPO DE BATALLA DE LA MENTE - JOYCE MEYER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CONSTRUYE TU DESTINO - WAYNE W. DYER", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "COMO RESOLVER PARA SIEMPRE SUS PROBLEMAS DE DINERO - BOB VICTOR", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "COMO RECORDAR TODO LO QUE LEEMOS - STANLEY D. FRANK", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "AVENTURAS EMPRENSARIALES - JOHN BROOKS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ATREVETE Y DESAFIA TUS MIEDOS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "ACITUD MENTAL POSITIVA - NAPOLEÓN HILL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "1001 CONSEJOS PARA TRIUNFAR COMO EMPRENDEDOR - FERNANDO JÁUREGUI LOURDES CARMONA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "25 MANERAS DE GANARSE A LA GENTE - JOHN C. MAXWELL", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "PODER DEL PENSAMIENTO POSITIVO - NORMAN VINCENT PEALE", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "CUIDA TU CEREBRO Y MEJORA TU VIDA - ALVARO BILBAO", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "COMO VENCER TODOS TUS MIEDOS - DAVID VALOIS - 439 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "15 CLAVES PARA UNA AUTOESTIMA INDESTRUCTIBLE - ELIAS BERNTSSON INA ARACKCHIYSKA", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "LA-SEMANA-LABORAL-DE-4-HORAS-TIMOTHY-FERRIS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "AUTODISCIPLINA EN DIEZ DIAS - THEODORE BRYANT - 111 PAGINAS", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "DIARIO DE UNA OVEJA FINANCIERA - SONIA SANCHEZ", "carpeta": "DESARROLLO PERSONAL"},
-                {"titulo": "EL PLACEBO ERES TÚ", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "JOE DISPENZA - SOBRENATURAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ME CANSE DE TI - WALTER RISO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "A SOLAS DESCUBRE EL PLACER DE ESTAR CONTIGO MISMO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "DEJA DE SER TÚ", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "COSAS-QUE-PIENSAS-CUANDO-TE-MUERDES-LAS-UNAS-SPANISH-EDITION-BY-AMALIA-ANDRADE-ARANGO-ARANGO-AMALIA-ANDRADE-Z-LIB.ORG", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LIBERA TU MAGIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CUADERNO-DE-EJERCICIOS-DE-INTELIGENCIA-EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TU PROPOSITO DE VIDA - LAIN GARCIA CALVO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EDUCACIÓN EMOCIONAL PROPUESTAS PARA EDUCADORES Y FAMILIAS RAFAEL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "HERIDAS EMOCIONALES - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL+PODER+DE+LA+GRATITUD", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL MITO DE SISIFO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL BUHO- SAMUEL BJØRK", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "DONA HUEVOTES - ANAMAR ORIHUELA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CULPA MÍA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CONTRAVENENO - CARLOS CUAUHTEMOC SANCHEZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CONOCE LA ÚNICA VERDAD- SEBASTIAN SANTISTEBAN", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CONFIANZA-TOTAL-PARA-VIVIR-MEJOR-INTELIGENCIA-EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL SECRETO PARA UNA FAMILIA FELIZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL CIELO ESTÁ ABIERTO-ACTIVACIÓN DE LA GLÁNDULA PINEAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LIBERA TU MAGIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LOS-5-LENGUAJES-DEL-AMOR-DE-LOS-NINOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "DESPIERTA TU PODER MENTAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ANSIEDAD EN LAS RELACIONES", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "AMOR Y DESAMOR EN EL CEREBRO DESCUBRE LA CIENCIA DE LA ATRACCIÓN, EL SEXO Y EL AMOR", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "APRENDIENDO A QUERERSE A SI MIS - WALTER RISO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ACTÚA COMO DAMA PERO PIENSA COMO HOMBRE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "50 TÉCNICAS DE MINDFULNESS PARA VENCER LA ANSIEDAD, LA DEPRESIÓN, EL ESTRÉS Y EL DOLOR", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "PODER DE LA CONCIENCIA, EL - NEVILLE GADDARD", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EDUCAR EMOCIONES 3 A 6 AÑOS-1-1", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "DOMINA TUS EMOCIONES Y TU MOTIVACIÓN - THIBAUT MEURISSE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "PROGRAMA-INTELIGENCIA-EMOCIONAL-SECUNDARIA-12-14-AÑOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "NUDOS MENTALES - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "MIS EMOCIONES ME DOMINAN.", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "MEJORAR LA INTELIGENCIA EMOCIONAL DE LOS ADOLESCENTES - PROGRAMA INTEMO+", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LOS CUATRO ACUERDOS - DR. MIGUEL RUIZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LA-INTELIGENCIA-EMOCIONAL-DANIEL-GOLEMAN-1", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "INTELIGENCIAEMOCIONALYBIENESTARII-655308", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "INTELIGENCIA EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EMOCIONES TOXICAS - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TANATOLOGIA=SUPERANDO EL DUELO =COMO SUPERAR LA PERDIDA DE UN SER", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TANATOLOGIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TANATOLOGIA LA INTELIGENCIA EMOCIONAL EN EL PROCESO DE DUELO MARIA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TU FUERZA INTERIOR - BERNARDO STAMATEAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CULPA MIA MERCEDES RON", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CÓMO HACERSE INOLVIDABLE - DALE CARNEGIE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CÓMO OBTENER SEGURIDAD, CONFIANZA, INFLUENCIA Y AFINIDAD AL INSTANTE - TOM BIG", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ANSIEDAD, TOC Y CONDUCTAS PROBLEMÁTICAS EN AUTISMO - ANGELES MATOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "9-HABITOS-JAPONESES-QUE-CAMBIA-ANDREA-RODRIGUEZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "MI VIAJE SIN TI • ALEJANDRO SEQUERA-", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TOMA UN CAFE CONTIGO MISMO - WALTER DRESEL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LA INTELIGENCIA EMOCIONAL - DANIEL GOLEMAN", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "INTELIGENCIA EMOCIONAL", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ANSIEDAD, ESTRÉS, PÁNICO Y FOBIAS 1ªED. E CASCARDO, P RESNIK. ARG©2016", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ARREGLA TU DESMADRE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ALMENDRA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "VOLVER A EMPEZAR - COLLEEN HOOVER", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "VIVIR NUNCA FALLA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "UNO SIEMPRE CAMBIA AL AMOR DE SU VIDA - AMALIA ANDRADE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TUS ZONAS MAGICAS - WAYNE W. DYER", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TENGO INTELIGENCIA EMOCIONAL - MANEL GUELL BARCELO-1", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "PERSONAS TÓXICAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "MIGUEL RUIZ LA MAESTRÍA DEL AMOR UNA GUÍA PRACTICA PARA EL ARTE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "MENTE, ¡DÉJAME VIVIR SUPERACION AUTOAYUDA DESCUBRE LA MENTALIDAD", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "MANDALO A LA MIERDA - SILVIA LLOP", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LOS HABITOS DE UN CEREBRO FELIZ - LORETTA GRAZIANO BREUNING", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LA MENTE Y SUS SECRETOS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ESTE DOLOR NO ES MIO IDENTIFICA Y RE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EQUILIBRIO - DANIEL LOPEZ ROSETTI", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ENRIC CORBERA - EMOCIONES PARA LA VIDA - EL CAMINO HACIA EL BIENESTAR", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL LIBRO QUE TU CEREBRO NO QUIERE LEER - DAVID DEL ROSARIO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL ALGORITMO DE LA FELICIDAD - MO GAWDAT", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TUS ZONAS ERRÓNEAS", "carpeta": "INTELIGENCIA EMOCIONAL"}
-            ];
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
             
-            allBooks = books;
-            filteredBooks = books;
-            
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('booksGrid').style.display = 'grid';
-            renderBooks();
-        }
-
-        function renderBooks() {
-            const grid = document.getElementById('booksGrid');
-            const currentCount = document.getElementById('currentCount');
-            const noResults = document.getElementById('noResults');
-            
-            if (filteredBooks.length === 0) {
-                grid.style.display = 'none';
-                noResults.style.display = 'block';
-                currentCount.textContent = '0';
-                return;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(particle);
             }
-            
-            grid.style.display = 'grid';
-            noResults.style.display = 'none';
-            currentCount.textContent = filteredBooks.length;
-            
-            grid.innerHTML = filteredBooks.map(book => `
-                <div class="book-card">
-                    <i class="fas fa-rocket book-icon"></i>
-                    <h3 class="book-title">${book.titulo}</h3>
-                    <span class="book-category">${book.carpeta}</span>
-                </div>
-            `).join('');
         }
 
-        function searchBooks() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const bookItems = document.querySelectorAll('.book-item');
+            const categories = document.querySelectorAll('.category-section');
             
-            if (query === '') {
-                filteredBooks = allBooks;
+            if (searchTerm === '') {
+                // Show all categories and books
+                categories.forEach(cat => cat.style.display = 'block');
+                bookItems.forEach(item => item.style.display = 'flex');
             } else {
-                filteredBooks = allBooks.filter(book => 
-                    book.titulo.toLowerCase().includes(query) ||
-                    book.carpeta.toLowerCase().includes(query)
-                );
-            }
-            
-            renderBooks();
-        }
-
-        document.getElementById('searchInput').addEventListener('input', searchBooks);
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchBooks();
+                // Hide all categories first
+                categories.forEach(cat => cat.style.display = 'none');
+                
+                bookItems.forEach(item => {
+                    const title = item.querySelector('.book-title').textContent.toLowerCase();
+                    const category = item.closest('.category-section');
+                    
+                    if (title.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        category.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             }
         });
 
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
+
+        // Smooth scroll for better UX
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -842,8 +1180,6 @@
                 }
             });
         });
-
-        loadBooks();
     </script>
 </body>
 </html>
