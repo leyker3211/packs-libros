@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pack 4 - Salud Mental | Biblioteca Digital Premium</title>
-    <meta name="description" content="Colección exclusiva de 199 libros de salud mental. Tu mente merece el mejor cuidado.">
-    
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+    <title>Pack 4 - Salud Mental & Mindfulness | 199 Libros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,705 +12,929 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #06D6A0;
+            --secondary: #118AB2;
+            --accent: #4ECDC4;
+            --dark: #073B4C;
+            --light: #EFF7F6;
+            --gradient: linear-gradient(135deg, #06D6A0 0%, #118AB2 50%, #4ECDC4 100%);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #11998e;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-        }
-
-        .contact-btn {
-            background: linear-gradient(45deg, #11998e, #38ef7d);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .hero {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .pack-badge {
-            background: linear-gradient(45deg, #11998e, #38ef7d);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #11998e, #38ef7d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #EFF7F6 0%, #E0F2F1 100%);
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #11998e;
-            display: block;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .search-section {
-            background: white;
-            padding: 2rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .search-box {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .search-input {
+        /* Particles Background */
+        #particles {
+            position: fixed;
             width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .search-input:focus {
-            outline: none;
-            border-color: #11998e;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .search-icon {
+        .particle {
             position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite;
         }
 
-        .search-results {
-            text-align: center;
-            margin-top: 1rem;
-            color: #666;
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 0.6; }
         }
 
-        .books-section {
-            background: white;
-            padding: 3rem 0;
-        }
-
-        .books-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .book-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid #11998e;
+        /* Header Hero */
+        .hero {
             position: relative;
+            background: var(--gradient);
+            padding: 80px 20px 100px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 40px rgba(6, 214, 160, 0.3);
             overflow: hidden;
         }
 
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background: #fff;
-        }
-
-        .book-card::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #11998e, #38ef7d);
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.05" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path></svg>') repeat-x;
+            opacity: 0.5;
+            animation: wave 20s linear infinite;
         }
 
-        .book-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.8rem;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+        @keyframes wave {
+            0% { background-position: 0 0; }
+            100% { background-position: 1200px 0; }
         }
 
-        .book-category {
-            background: linear-gradient(45deg, #11998e, #38ef7d);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .count {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
             display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
-        .book-icon {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: #11998e;
-            opacity: 0.3;
-            font-size: 1.2rem;
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 30px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
         }
 
-        .footer {
-            background: #11998e;
-            color: white;
-            padding: 3rem 0 2rem;
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .stat-item {
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #EFF7F6 0%, #E0F2F1 100%);
+            transition: transform 0.3s ease;
         }
 
-        .footer h3 {
-            margin-bottom: 1rem;
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Barra de búsqueda */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 15px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 18px 60px 18px 25px;
+            font-size: 1.1rem;
+            border: 3px solid var(--primary);
+            border-radius: 50px;
+            background: white;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(6, 214, 160, 0.2);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 6px 25px rgba(17, 138, 178, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 1.5rem;
         }
 
-        .footer p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .cta-btn {
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cta-primary {
-            background: #38ef7d;
-            color: white;
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1rem;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .stats { gap: 1.5rem; }
-            .stat-number { font-size: 2rem; }
-            .books-grid { grid-template-columns: 1fr; }
-            .header-content { flex-direction: column; gap: 1rem; }
-            .cta-buttons { flex-direction: column; align-items: center; }
-        }
-
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-        }
-
-        .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #11998e;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-        }
-
-        .no-results i {
-            font-size: 3rem;
+        /* Category Section */
+        .category-section {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
             margin-bottom: 1rem;
-            opacity: 0.5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .category-section:hover {
+            box-shadow: 0 8px 30px rgba(6, 214, 160, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .category-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-icon {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px;
+        }
+
+        .book-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: linear-gradient(135deg, #EFF7F6 0%, #ffffff 100%);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .book-item:hover {
+            background: linear-gradient(135deg, #E0F2F1 0%, #ffffff 100%);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(6, 214, 160, 0.2);
+        }
+
+        .book-number {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            background: var(--gradient);
+            min-width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .book-title {
+            font-size: 0.95rem;
+            color: var(--dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            padding: 60px 30px;
+            margin: 60px 0;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 40px rgba(6, 214, 160, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-price {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin: 20px 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-features {
+            max-width: 800px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-feature {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent);
+        }
+
+        .cta-feature::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Payment Info */
+        .payment-info {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .payment-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .payment-detail {
+            padding: 15px;
+            background: #EFF7F6;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 4px solid var(--primary);
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .payment-detail strong {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background: #073B4C;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 50px 15px 70px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 15px 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem 10px;
+            }
+
+            .search-container {
+                margin-bottom: 1rem;
+            }
+
+            .search-box {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+
+            .category-section {
+                padding: 1rem 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                gap: 10px;
+            }
+
+            .category-icon {
+                font-size: 1.8rem;
+            }
+
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .book-item {
+                padding: 12px;
+                gap: 8px;
+            }
+
+            .book-number {
+                min-width: 35px;
+                height: 35px;
+                font-size: 0.85rem;
+            }
+
+            .book-title {
+                font-size: 0.85rem;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-button {
+                width: 60px;
+                height: 60px;
+                font-size: 35px;
+            }
+
+            .payment-info {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-heart"></i>
-                Salud Mental Premium
-            </div>
-            <a href="#contacto" class="contact-btn">
-                <i class="fas fa-whatsapp"></i>
-                Contactar Ahora
-            </a>
-        </div>
-    </header>
+    <!-- Particles -->
+    <div id="particles"></div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="pack-badge">Pack Exclusivo #4</div>
-            <h1>SALUD MENTAL MASTER</h1>
-            <p>Tu mente merece el mejor cuidado.</p>
-            
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-number" id="totalBooks">199</span>
-                    <span class="stat-label">Libros Únicos</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">PDF</span>
-                    <span class="stat-label">Formato</span>
-                </div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Pack 4 - Salud Mental & Mindfulness</h1>
+        <p class="subtitle">Tu Camino Hacia la Paz Interior y el Bienestar Emocional</p>
+        <div class="count">199 Libros Premium</div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">199</div>
+                <div class="stat-label">Libros Digitales</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Categorías Temáticas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">S/ 10</div>
+                <div class="stat-label">Inversión Total</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Digital - Acceso Inmediato</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="search-section">
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Search Bar -->
         <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" id="searchInput" placeholder="Buscar libros por título o tema...">
-            </div>
-            <div class="search-results" id="searchResults">
-                Mostrando <span id="currentCount">199</span> libros
-            </div>
+            <input type="text" id="searchBox" class="search-box" placeholder="Buscar libro por título...">
+            <span class="search-icon">🔍</span>
         </div>
-    </section>
 
-    <section class="books-section">
-        <div class="books-container">
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                Cargando biblioteca...
-            </div>
-            <div class="books-grid" id="booksGrid" style="display: none;"></div>
-            <div class="no-results" id="noResults" style="display: none;">
-                <i class="fas fa-search"></i>
-                <h3>No se encontraron resultados</h3>
-                <p>Intenta con otros términos de búsqueda</p>
+        <!-- Category 1: Ansiedad y Estrés -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🌊</span>
+                Ansiedad y Estrés (35 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">1</div><div class="book-title">El Poder del Ahora - Eckhart Tolle</div></div>
+                <div class="book-item"><div class="book-number">2</div><div class="book-title">Mindfulness en la Vida Cotidiana - Jon Kabat-Zinn</div></div>
+                <div class="book-item"><div class="book-number">3</div><div class="book-title">El Arte de No Amargarse la Vida - Rafael Santandreu</div></div>
+                <div class="book-item"><div class="book-number">4</div><div class="book-title">Ser Feliz en Alaska - Rafael Santandreu</div></div>
+                <div class="book-item"><div class="book-number">5</div><div class="book-title">Las Gafas de la Felicidad - Rafael Santandreu</div></div>
+                <div class="book-item"><div class="book-number">6</div><div class="book-title">Ansiedad: Cómo Enfrentar el Mal del Siglo - Augusto Cury</div></div>
+                <div class="book-item"><div class="book-number">7</div><div class="book-title">AnsiosaMENTE - Rafa Santandreu</div></div>
+                <div class="book-item"><div class="book-number">8</div><div class="book-title">Deshacer la Ansiedad - Judson Brewer</div></div>
+                <div class="book-item"><div class="book-number">9</div><div class="book-title">Vencer la Ansiedad - Enrique Rojas</div></div>
+                <div class="book-item"><div class="book-number">10</div><div class="book-title">Calma tu Puta Cabeza - Faith G. Harper</div></div>
+                <div class="book-item"><div class="book-number">11</div><div class="book-title">Cómo Dejar de Pensar Demasiado - Nick Trenton</div></div>
+                <div class="book-item"><div class="book-number">12</div><div class="book-title">Dejar Ir - David R. Hawkins</div></div>
+                <div class="book-item"><div class="book-number">13</div><div class="book-title">No Te Creas Todo lo Que Piensas - Mark Freeman</div></div>
+                <div class="book-item"><div class="book-number">14</div><div class="book-title">El Fin de la Ansiedad - Gio Zararri</div></div>
+                <div class="book-item"><div class="book-number">15</div><div class="book-title">Cómo Superar el Miedo - Enrique Rojas</div></div>
+                <div class="book-item"><div class="book-number">16</div><div class="book-title">Vivir Sin Ansiedad - Louise Hay</div></div>
+                <div class="book-item"><div class="book-number">17</div><div class="book-title">Tú No Eres Tu Dolor - Vidyamala Burch</div></div>
+                <div class="book-item"><div class="book-number">18</div><div class="book-title">El Miedo es Tu Mejor Amigo - Jon Kabat-Zinn</div></div>
+                <div class="book-item"><div class="book-number">19</div><div class="book-title">Libérate de la Ansiedad - Tara Brach</div></div>
+                <div class="book-item"><div class="book-number">20</div><div class="book-title">Mindfulness para Reducir el Estrés - Bob Stahl</div></div>
+                <div class="book-item"><div class="book-number">21</div><div class="book-title">Stop Ansiedad - José Antonio García Higuera</div></div>
+                <div class="book-item"><div class="book-number">22</div><div class="book-title">La Solución del Estrés - Rangan Chatterjee</div></div>
+                <div class="book-item"><div class="book-number">23</div><div class="book-title">Gestión del Estrés - Chade-Meng Tan</div></div>
+                <div class="book-item"><div class="book-number">24</div><div class="book-title">Ansiedad Social - Ellen Hendriksen</div></div>
+                <div class="book-item"><div class="book-number">25</div><div class="book-title">El Trabajo - Byron Katie</div></div>
+                <div class="book-item"><div class="book-number">26</div><div class="book-title">DARE: Atrévete a Poner Fin a la Ansiedad - Barry McDonagh</div></div>
+                <div class="book-item"><div class="book-number">27</div><div class="book-title">La Ansiedad ¡Vaya Timo! - Paco Ávila</div></div>
+                <div class="book-item"><div class="book-number">28</div><div class="book-title">Parar de Sufrir - Marie-France Hirigoyen</div></div>
+                <div class="book-item"><div class="book-number">29</div><div class="book-title">Estrés Cero - Suzanne Gelb</div></div>
+                <div class="book-item"><div class="book-number">30</div><div class="book-title">Controla tu Mente - Morgan Housel</div></div>
+                <div class="book-item"><div class="book-number">31</div><div class="book-title">10% más Feliz - Dan Harris</div></div>
+                <div class="book-item"><div class="book-number">32</div><div class="book-title">Primeros Auxilios Emocionales - Guy Winch</div></div>
+                <div class="book-item"><div class="book-number">33</div><div class="book-title">Estrés y Bienestar - Mario Alonso Puig</div></div>
+                <div class="book-item"><div class="book-number">34</div><div class="book-title">El Poder de Confiar en Ti - Curro Cañete</div></div>
+                <div class="book-item"><div class="book-number">35</div><div class="book-title">Mente Tranquila - Ramiro Calle</div></div>
             </div>
         </div>
-    </section>
 
-    <footer class="footer" id="contacto">
-        <div class="footer-content">
-            <h3>¿Listo para Transformar tu Vida?</h3>
-            <p>Accede inmediatamente a esta colección exclusiva de 199 libros. Tu mente merece el mejor cuidado.</p>
-            
-            <div class="cta-buttons">
-                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20el%20Pack%204%20de%20Salud%20Mental%20con%20199%20libros" class="cta-btn cta-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    Obtener Pack Ahora
-                </a>
-                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Pack%20Salud Mental" class="cta-btn cta-secondary">
-                    <i class="fas fa-envelope"></i>
-                    Más Información
-                </a>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados.</p>
+        <!-- Category 2: Depresión y Bienestar Emocional -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🌈</span>
+                Depresión y Bienestar Emocional (28 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">36</div><div class="book-title">Sentirse Bien - David D. Burns</div></div>
+                <div class="book-item"><div class="book-number">37</div><div class="book-title">La Auténtica Felicidad - Martin Seligman</div></div>
+                <div class="book-item"><div class="book-number">38</div><div class="book-title">Razones para Seguir Viviendo - Matt Haig</div></div>
+                <div class="book-item"><div class="book-number">39</div><div class="book-title">Una Mente Feliz - Russell Simmons</div></div>
+                <div class="book-item"><div class="book-number">40</div><div class="book-title">Lo Bueno de Tener un Mal Día - Anabel González</div></div>
+                <div class="book-item"><div class="book-number">41</div><div class="book-title">El Demonio de la Depresión - Andrew Solomon</div></div>
+                <div class="book-item"><div class="book-number">42</div><div class="book-title">Aprender a Quererse - Walter Riso</div></div>
+                <div class="book-item"><div class="book-number">43</div><div class="book-title">El Arte de Amargarse la Vida - Paul Watzlawick</div></div>
+                <div class="book-item"><div class="book-number">44</div><div class="book-title">La Psicología del Optimismo - Martín Seligman</div></div>
+                <div class="book-item"><div class="book-number">45</div><div class="book-title">Los Pilares de la Felicidad - Tal Ben-Shahar</div></div>
+                <div class="book-item"><div class="book-number">46</div><div class="book-title">El Cerebro Feliz - Dean Burnett</div></div>
+                <div class="book-item"><div class="book-number">47</div><div class="book-title">Felicidad: Manual de Uso - Rafael Santandreu</div></div>
+                <div class="book-item"><div class="book-number">48</div><div class="book-title">La Buena Suerte - Álex Rovira</div></div>
+                <div class="book-item"><div class="book-number">49</div><div class="book-title">Psicología de la Felicidad - Sonja Lyubomirsky</div></div>
+                <div class="book-item"><div class="book-number">50</div><div class="book-title">El Camino de las Lágrimas - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">51</div><div class="book-title">El Valor de la Serenidad - Enrique Rojas</div></div>
+                <div class="book-item"><div class="book-number">52</div><div class="book-title">Neurofelicidad - Ana Asensio</div></div>
+                <div class="book-item"><div class="book-number">53</div><div class="book-title">Bienestar Emocional - Raphael Cushnir</div></div>
+                <div class="book-item"><div class="book-number">54</div><div class="book-title">La Fuerza de la Mente - Mario Alonso Puig</div></div>
+                <div class="book-item"><div class="book-number">55</div><div class="book-title">Gestión Emocional - Joan Garriga</div></div>
+                <div class="book-item"><div class="book-number">56</div><div class="book-title">Vivir Despacio - Rosa Montero</div></div>
+                <div class="book-item"><div class="book-number">57</div><div class="book-title">La Melancolía no es una Enfermedad - John Kaag</div></div>
+                <div class="book-item"><div class="book-number">58</div><div class="book-title">Sanar - David Servan-Schreiber</div></div>
+                <div class="book-item"><div class="book-number">59</div><div class="book-title">Mente Nueva - Joe Dispenza</div></div>
+                <div class="book-item"><div class="book-number">60</div><div class="book-title">Reinventarse - Mario Alonso Puig</div></div>
+                <div class="book-item"><div class="book-number">61</div><div class="book-title">El Libro del Bienestar - Deepak Chopra</div></div>
+                <div class="book-item"><div class="book-number">62</div><div class="book-title">Fluir - Mihaly Csikszentmihalyi</div></div>
+                <div class="book-item"><div class="book-number">63</div><div class="book-title">Emociones Tóxicas - Bernardo Stamateas</div></div>
             </div>
         </div>
+
+        <!-- Category 3: Inteligencia Emocional -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">💡</span>
+                Inteligencia Emocional (24 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">64</div><div class="book-title">Inteligencia Emocional - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">65</div><div class="book-title">Inteligencia Social - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">66</div><div class="book-title">Inteligencia Emocional 2.0 - Travis Bradberry</div></div>
+                <div class="book-item"><div class="book-number">67</div><div class="book-title">Las 12 Competencias de la Inteligencia Emocional</div></div>
+                <div class="book-item"><div class="book-number">68</div><div class="book-title">Educar con Inteligencia Emocional - Maurice Elias</div></div>
+                <div class="book-item"><div class="book-number">69</div><div class="book-title">La Inteligencia Emocional de los Niños - Lawrence Shapiro</div></div>
+                <div class="book-item"><div class="book-number">70</div><div class="book-title">Emociones Destructivas - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">71</div><div class="book-title">La Práctica de la Inteligencia Emocional - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">72</div><div class="book-title">Focus - Daniel Goleman</div></div>
+                <div class="book-item"><div class="book-number">73</div><div class="book-title">El Cerebro Emocional - Joseph LeDoux</div></div>
+                <div class="book-item"><div class="book-number">74</div><div class="book-title">La Fuerza de las Emociones - François Lelord</div></div>
+                <div class="book-item"><div class="book-number">75</div><div class="book-title">Vocabulario de Emociones - Rafael Bisquerra</div></div>
+                <div class="book-item"><div class="book-number">76</div><div class="book-title">Emociones: Una Guía Interna - Leslie Greenberg</div></div>
+                <div class="book-item"><div class="book-number">77</div><div class="book-title">El Error de Descartes - Antonio Damasio</div></div>
+                <div class="book-item"><div class="book-number">78</div><div class="book-title">Gestión Inteligente de las Emociones - Hendrie Weisinger</div></div>
+                <div class="book-item"><div class="book-number">79</div><div class="book-title">Emociones que Curan - Nazareth Castellanos</div></div>
+                <div class="book-item"><div class="book-number">80</div><div class="book-title">El Lenguaje de las Emociones - Karla McLaren</div></div>
+                <div class="book-item"><div class="book-number">81</div><div class="book-title">Permiso para Sentir - Marc Brackett</div></div>
+                <div class="book-item"><div class="book-number">82</div><div class="book-title">Emotional Agility - Susan David</div></div>
+                <div class="book-item"><div class="book-number">83</div><div class="book-title">El Don de la Sensibilidad - Elaine Aron</div></div>
+                <div class="book-item"><div class="book-number">84</div><div class="book-title">Siente el Miedo y Hazlo Igual - Susan Jeffers</div></div>
+                <div class="book-item"><div class="book-number">85</div><div class="book-title">La Brújula de las Emociones - Norberto Levy</div></div>
+                <div class="book-item"><div class="book-number">86</div><div class="book-title">Emocionario - Cristina Núñez</div></div>
+                <div class="book-item"><div class="book-number">87</div><div class="book-title">Domina tus Emociones - Thibaut Meurisse</div></div>
+            </div>
+        </div>
+
+        <!-- Category 4: Meditación y Mindfulness -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🧘</span>
+                Meditación y Mindfulness (22 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">88</div><div class="book-title">El Monje que Vendió su Ferrari - Robin Sharma</div></div>
+                <div class="book-item"><div class="book-number">89</div><div class="book-title">El Milagro del Mindfulness - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">90</div><div class="book-title">La Paz está en tu Interior - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">91</div><div class="book-title">El Arte de la Meditación - Matthieu Ricard</div></div>
+                <div class="book-item"><div class="book-number">92</div><div class="book-title">Meditación para Principiantes - Jack Kornfield</div></div>
+                <div class="book-item"><div class="book-number">93</div><div class="book-title">Un Nuevo Mundo Ahora - Eckhart Tolle</div></div>
+                <div class="book-item"><div class="book-number">94</div><div class="book-title">El Camino del Artista - Julia Cameron</div></div>
+                <div class="book-item"><div class="book-number">95</div><div class="book-title">Dondequiera que Vayas, Ahí Estás - Jon Kabat-Zinn</div></div>
+                <div class="book-item"><div class="book-number">96</div><div class="book-title">La Sabiduría de la Meditación - Jack Kornfield</div></div>
+                <div class="book-item"><div class="book-number">97</div><div class="book-title">Mindfulness: Guía Práctica - Mark Williams</div></div>
+                <div class="book-item"><div class="book-number">98</div><div class="book-title">Guiados por el Corazón - Jack Kornfield</div></div>
+                <div class="book-item"><div class="book-number">99</div><div class="book-title">La Mente Iluminada - John Yates</div></div>
+                <div class="book-item"><div class="book-number">100</div><div class="book-title">El Silencio - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">101</div><div class="book-title">Cada Día es una Nueva Vida - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">102</div><div class="book-title">Zen en el Arte del Tiro con Arco - Eugen Herrigel</div></div>
+                <div class="book-item"><div class="book-number">103</div><div class="book-title">La Práctica de la Atención Plena - Sharon Salzberg</div></div>
+                <div class="book-item"><div class="book-number">104</div><div class="book-title">Mindfulness en Acción - Chogyam Trungpa</div></div>
+                <div class="book-item"><div class="book-number">105</div><div class="book-title">El Espíritu de la Meditación - Ramiro Calle</div></div>
+                <div class="book-item"><div class="book-number">106</div><div class="book-title">Meditación Vipassana - S.N. Goenka</div></div>
+                <div class="book-item"><div class="book-number">107</div><div class="book-title">Respirar - James Nestor</div></div>
+                <div class="book-item"><div class="book-number">108</div><div class="book-title">Guía de Mindfulness para el Éxito - Maria Gonzalez</div></div>
+                <div class="book-item"><div class="book-number">109</div><div class="book-title">La Cueva de los Monjes - Ramiro Calle</div></div>
+            </div>
+        </div>
+
+        <!-- Category 5: Autoestima y Amor Propio -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">💖</span>
+                Autoestima y Amor Propio (26 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">110</div><div class="book-title">Cómo Hacer que te Pasen Cosas Buenas - Marian Rojas</div></div>
+                <div class="book-item"><div class="book-number">111</div><div class="book-title">Encuentra tu Persona Vitamina - Marian Rojas</div></div>
+                <div class="book-item"><div class="book-number">112</div><div class="book-title">Tú Eres tu Lugar Seguro - María Esclapez</div></div>
+                <div class="book-item"><div class="book-number">113</div><div class="book-title">Los Seis Pilares de la Autoestima - Nathaniel Branden</div></div>
+                <div class="book-item"><div class="book-number">114</div><div class="book-title">Usted Puede Sanar Su Vida - Louise Hay</div></div>
+                <div class="book-item"><div class="book-number">115</div><div class="book-title">El Poder está Dentro de Ti - Louise Hay</div></div>
+                <div class="book-item"><div class="book-number">116</div><div class="book-title">Ámate a Ti Mismo - Walter Riso</div></div>
+                <div class="book-item"><div class="book-number">117</div><div class="book-title">Amarse con los Ojos Abiertos - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">118</div><div class="book-title">El Camino de las Lágrimas - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">119</div><div class="book-title">Amar o Depender - Walter Riso</div></div>
+                <div class="book-item"><div class="book-number">120</div><div class="book-title">Pensar Bien, Sentirse Bien - Walter Riso</div></div>
+                <div class="book-item"><div class="book-number">121</div><div class="book-title">La Autoestima de la Mujer - Nathaniel Branden</div></div>
+                <div class="book-item"><div class="book-number">122</div><div class="book-title">Deshaciendo Dependencias - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">123</div><div class="book-title">El Arte de Amar - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">124</div><div class="book-title">Déjame Que Te Cuente - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">125</div><div class="book-title">Deja de Ser Tú - Joe Dispenza</div></div>
+                <div class="book-item"><div class="book-number">126</div><div class="book-title">El Poder del Ahora para Enamorarte - Eckhart Tolle</div></div>
+                <div class="book-item"><div class="book-number">127</div><div class="book-title">Tú No Eres Tu Trabajo - Svend Brinkmann</div></div>
+                <div class="book-item"><div class="book-number">128</div><div class="book-title">Supérate - Álex Dey</div></div>
+                <div class="book-item"><div class="book-number">129</div><div class="book-title">La Autoestima - Rojas Marcos</div></div>
+                <div class="book-item"><div class="book-number">130</div><div class="book-title">Autoestima Automática - Paul McGee</div></div>
+                <div class="book-item"><div class="book-number">131</div><div class="book-title">Frases que Sanan - Bernie Siegel</div></div>
+                <div class="book-item"><div class="book-number">132</div><div class="book-title">La Fuerza de la Autoestima - Enrique Rojas</div></div>
+                <div class="book-item"><div class="book-number">133</div><div class="book-title">El Valor de Valorarte - Carlos González</div></div>
+                <div class="book-item"><div class="book-number">134</div><div class="book-title">Más Allá del Bien y del Mal Interior - Guy Winch</div></div>
+                <div class="book-item"><div class="book-number">135</div><div class="book-title">Autorrespeto - Nathaniel Branden</div></div>
+            </div>
+        </div>
+
+        <!-- Category 6: Trauma y Sanación -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🕊️</span>
+                Trauma y Sanación (18 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">136</div><div class="book-title">El Cuerpo Lleva la Cuenta - Bessel van der Kolk</div></div>
+                <div class="book-item"><div class="book-number">137</div><div class="book-title">Cuando el Cuerpo Dice No - Gabor Maté</div></div>
+                <div class="book-item"><div class="book-number">138</div><div class="book-title">El Drama del Niño Dotado - Alice Miller</div></div>
+                <div class="book-item"><div class="book-number">139</div><div class="book-title">El Origen Emocional de las Enfermedades - Christian Flèche</div></div>
+                <div class="book-item"><div class="book-number">140</div><div class="book-title">La Sanación es Ahora - Jean Shinoda Bolen</div></div>
+                <div class="book-item"><div class="book-number">141</div><div class="book-title">EMDR - Francine Shapiro</div></div>
+                <div class="book-item"><div class="book-number">142</div><div class="book-title">Trauma y Recuperación - Judith Herman</div></div>
+                <div class="book-item"><div class="book-number">143</div><div class="book-title">El Poder de la Vulnerabilidad - Brené Brown</div></div>
+                <div class="book-item"><div class="book-number">144</div><div class="book-title">Frente al Espejo - Brené Brown</div></div>
+                <div class="book-item"><div class="book-number">145</div><div class="book-title">Las Heridas de la Infancia - Anaïs Nin</div></div>
+                <div class="book-item"><div class="book-number">146</div><div class="book-title">Sanar - Alexandra H. Solomon</div></div>
+                <div class="book-item"><div class="book-number">147</div><div class="book-title">El Espejo Roto - Theodor Schaarschmidt</div></div>
+                <div class="book-item"><div class="book-number">148</div><div class="book-title">Niños con Cicatrices Emocionales - Caroline Garland</div></div>
+                <div class="book-item"><div class="book-number">149</div><div class="book-title">El Trauma Invisible - Paul Conti</div></div>
+                <div class="book-item"><div class="book-number">150</div><div class="book-title">Liberación del Trauma - Peter Levine</div></div>
+                <div class="book-item"><div class="book-number">151</div><div class="book-title">Anatomía de una Herida - Deborah Korn</div></div>
+                <div class="book-item"><div class="book-number">152</div><div class="book-title">La Transformación del Sufrimiento - Thich Nhat Hanh</div></div>
+                <div class="book-item"><div class="book-number">153</div><div class="book-title">Renacer - Desmond Tutu</div></div>
+            </div>
+        </div>
+
+        <!-- Category 7: Relaciones y Apego -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">💞</span>
+                Relaciones y Apego (24 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">154</div><div class="book-title">Maneras de Amar - Amir Levine</div></div>
+                <div class="book-item"><div class="book-number">155</div><div class="book-title">Apegados - Amir Levine</div></div>
+                <div class="book-item"><div class="book-number">156</div><div class="book-title">Los 5 Lenguajes del Amor - Gary Chapman</div></div>
+                <div class="book-item"><div class="book-number">157</div><div class="book-title">Las 5 Lenguas del Aprecio en el Trabajo - Gary Chapman</div></div>
+                <div class="book-item"><div class="book-number">158</div><div class="book-title">Hombres son de Marte, Mujeres de Venus - John Gray</div></div>
+                <div class="book-item"><div class="book-number">159</div><div class="book-title">Marte y Venus en el Dormitorio - John Gray</div></div>
+                <div class="book-item"><div class="book-number">160</div><div class="book-title">Comunicación No Violenta - Marshall Rosenberg</div></div>
+                <div class="book-item"><div class="book-number">161</div><div class="book-title">Por Qué los Hombres No Escuchan - Allan y Barbara Pease</div></div>
+                <div class="book-item"><div class="book-number">162</div><div class="book-title">El Lenguaje del Cuerpo - Allan Pease</div></div>
+                <div class="book-item"><div class="book-number">163</div><div class="book-title">Por Qué Mienten los Hombres y Lloran las Mujeres - Allan Pease</div></div>
+                <div class="book-item"><div class="book-number">164</div><div class="book-title">Amarse con los Ojos Abiertos - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">165</div><div class="book-title">Aprender a Quererse - Walter Riso</div></div>
+                <div class="book-item"><div class="book-number">166</div><div class="book-title">Amar o Depender - Walter Riso</div></div>
+                <div class="book-item"><div class="book-number">167</div><div class="book-title">Deshaciendo Dependencias - Jorge Bucay</div></div>
+                <div class="book-item"><div class="book-number">168</div><div class="book-title">El Arte de Amar - Erich Fromm</div></div>
+                <div class="book-item"><div class="book-number">169</div><div class="book-title">Los Secretos de las Parejas Felices - John Gottman</div></div>
+                <div class="book-item"><div class="book-number">170</div><div class="book-title">Siete Reglas de Oro para Vivir en Pareja - John Gottman</div></div>
+                <div class="book-item"><div class="book-number">171</div><div class="book-title">El Principio 90/10 - Stephen Covey</div></div>
+                <div class="book-item"><div class="book-number">172</div><div class="book-title">Cómo Decir No - Patti Breitman</div></div>
+                <div class="book-item"><div class="book-number">173</div><div class="book-title">Límites - Henry Cloud</div></div>
+                <div class="book-item"><div class="book-number">174</div><div class="book-title">Boundaries - Henry Cloud y John Townsend</div></div>
+                <div class="book-item"><div class="book-number">175</div><div class="book-title">El Amor Inteligente - Enrique Rojas</div></div>
+                <div class="book-item"><div class="book-number">176</div><div class="book-title">El Apego en Psicoterapia - David Wallin</div></div>
+                <div class="book-item"><div class="book-number">177</div><div class="book-title">La Teoría del Apego - John Bowlby</div></div>
+            </div>
+        </div>
+
+        <!-- Category 8: Psicología Positiva y Resiliencia -->
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">✨</span>
+                Psicología Positiva y Resiliencia (22 libros)
+            </h2>
+            <div class="books-grid">
+                <div class="book-item"><div class="book-number">178</div><div class="book-title">El Hombre en Busca de Sentido - Viktor Frankl</div></div>
+                <div class="book-item"><div class="book-number">179</div><div class="book-title">La Voluntad de Sentido - Viktor Frankl</div></div>
+                <div class="book-item"><div class="book-number">180</div><div class="book-title">Los Patitos Feos - Boris Cyrulnik</div></div>
+                <div class="book-item"><div class="book-number">181</div><div class="book-title">La Resiliencia - Boris Cyrulnik</div></div>
+                <div class="book-item"><div class="book-number">182</div><div class="book-title">La Fuerza de Voluntad - Roy Baumeister</div></div>
+                <div class="book-item"><div class="book-number">183</div><div class="book-title">Flourish - Martin Seligman</div></div>
+                <div class="book-item"><div class="book-number">184</div><div class="book-title">El Optimismo Aprendido - Martin Seligman</div></div>
+                <div class="book-item"><div class="book-number">185</div><div class="book-title">La Buena Vida - Robert Waldinger</div></div>
+                <div class="book-item"><div class="book-number">186</div><div class="book-title">La Ventaja de la Felicidad - Shawn Achor</div></div>
+                <div class="book-item"><div class="book-number">187</div><div class="book-title">La Sabiduría de la Psicología - Christopher Peterson</div></div>
+                <div class="book-item"><div class="book-number">188</div><div class="book-title">El Efecto Compuesto - Darren Hardy</div></div>
+                <div class="book-item"><div class="book-number">189</div><div class="book-title">Logoterapia - Viktor Frankl</div></div>
+                <div class="book-item"><div class="book-number">190</div><div class="book-title">Vencer la Adversidad - Al Siebert</div></div>
+                <div class="book-item"><div class="book-number">191</div><div class="book-title">Resiliencia - Andrew Zolli</div></div>
+                <div class="book-item"><div class="book-number">192</div><div class="book-title">El Arte de la Resiliencia - Kamal Ravikant</div></div>
+                <div class="book-item"><div class="book-number">193</div><div class="book-title">Grit - Angela Duckworth</div></div>
+                <div class="book-item"><div class="book-number">194</div><div class="book-title">El Libro de la Esperanza - Jane Goodall</div></div>
+                <div class="book-item"><div class="book-number">195</div><div class="book-title">Option B - Sheryl Sandberg</div></div>
+                <div class="book-item"><div class="book-number">196</div><div class="book-title">Nacidos para Ser Buenos - Dacher Keltner</div></div>
+                <div class="book-item"><div class="book-number">197</div><div class="book-title">La Ciencia de la Felicidad - Sonja Lyubomirsky</div></div>
+                <div class="book-item"><div class="book-number">198</div><div class="book-title">Alegría de Vivir - Yongey Mingyur Rinpoche</div></div>
+                <div class="book-item"><div class="book-number">199</div><div class="book-title">La Vida que Florece - Martin Seligman</div></div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>¡Transforma Tu Salud Mental HOY! 🌿</h2>
+            <div class="cta-price">S/10</div>
+            <p style="font-size: 1.5rem; margin-bottom: 30px;">199 Libros Premium + Entrega Inmediata</p>
+            
+            <div class="cta-features">
+                <div class="cta-feature">199 libros digitales en formato PDF</div>
+                <div class="cta-feature">Acceso inmediato vía WhatsApp</div>
+                <div class="cta-feature">Organizado en 8 categorías temáticas</div>
+                <div class="cta-feature">Compatible con todos los dispositivos</div>
+                <div class="cta-feature">Lee offline cuando quieras</div>
+                <div class="cta-feature">Incluye bestsellers internacionales</div>
+                <div class="cta-feature">Sin mensualidades ni suscripciones</div>
+                <div class="cta-feature">Pago único - Tuyo para siempre</div>
+            </div>
+
+            <div class="payment-info">
+                <h3>💳 Datos de Pago</h3>
+                <div class="payment-detail">
+                    <strong>Yape / Plin:</strong> 930 296 792
+                </div>
+                <div class="payment-detail">
+                    <strong>Nombre:</strong> Hubert Sanchez
+                </div>
+                <div class="payment-detail">
+                    <strong>Monto:</strong> S/10.00
+                </div>
+                <p style="margin-top: 20px; color: #666;">
+                    Envía tu comprobante de pago por WhatsApp y recibe tu pack completo en minutos
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/51930296792?text=Hola%21%20Quiero%20el%20Pack%204%20de%20Salud%20Mental" 
+           class="whatsapp-button" 
+           target="_blank"
+           aria-label="Contactar por WhatsApp">
+            📱
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pack Salud Mental & Mindfulness. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px; opacity: 0.8;">199 libros para tu paz interior • Entrega inmediata • Pago único</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        let allBooks = [];
-        let filteredBooks = [];
-
-        async function loadBooks() {
-            const books = [
-                {"titulo": "CÓMO LLAMARTE AMOR 1 A GRITOS -- ALINA NOT", "carpeta": "SUPERACIÓN"},
-                {"titulo": "TODAS LAS PERSONAS QUE FUÍ- ALONSO CASAS", "carpeta": "SUPERACIÓN"},
-                {"titulo": "QUERIDO-YO-VAMOS-A-ESTAR-BIEN-ALEJANDRO-SEQU", "carpeta": "SUPERACIÓN"},
-                {"titulo": "QUERIDA YO TENEMOS QUE HABLAR CONÓCETE Y SÉ FELIZ -- ELIZABETH CLAPÉS", "carpeta": "SUPERACIÓN"},
-                {"titulo": "LA SANACION DE LAS 5 HERIDAS", "carpeta": "SUPERACIÓN"},
-                {"titulo": "HASTA LA VISTA, NARCISISTA - RAQUEL JIMÉNEZ GONZÁLEZ", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ESTE DOLOR NO ES MÍO -- MARK WOLYNN", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ENTIENDE-TU-MENTE-MOLO-CEBRIAN-2025-", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ENTENDER-TU-MUERTE-ME-SALVÓ-LA-VIDA-ROBERTO-AGUIRRE-2025", "carpeta": "SUPERACIÓN"},
-                {"titulo": "BASTA DE AMORES DE MIERDA “EL PELA” GONZALO ROMERO", "carpeta": "SUPERACIÓN"},
-                {"titulo": "AQUELLO QUE NO TE DIJERON", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ABRAZA TUS PARTES ROTAS -- MARÍA ROS -", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ABRAZA A LA NIÑA QUE FUISTE -- MARTA SEGRELLES", "carpeta": "SUPERACIÓN"},
-                {"titulo": "CUANDO PAPÁ LASTIMA RECONSTRUYENDO LA CAPA DEL SUPERHÉROE 2020", "carpeta": "SUPERACIÓN"},
-                {"titulo": "CUANDO MAMÁ LASTIMA RELATOS DE PERDÓN PARA HIJOS CON EL CORAZÓN HERIDO 2019", "carpeta": "SUPERACIÓN"},
-                {"titulo": "YA TE DIJE ADIÓS, AHORA CÓMO TE OLVIDO - WALTER RISO", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ANSIEDAD EN LAS RELACIONES 7 SENCILLOS PASOS PARA GESTIONAR -- MICHELLE MILLER", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ME QUIERO, TE QUIERO -- MARÍA ESCLAPEZ -- 2022 --", "carpeta": "SUPERACIÓN"},
-                {"titulo": "36- INVISIBLE - ELOY MORENO", "carpeta": "SUPERACIÓN"},
-                {"titulo": "MUJERES QUE CORREN CON LOS LOBOS - CLARISSA PINKOLA ESTÉS", "carpeta": "SUPERACIÓN"},
-                {"titulo": "SANANDO HERIDAS LLANTOS Y DESPEDIDAS -- JAIRO GUERRERO", "carpeta": "SUPERACIÓN"},
-                {"titulo": "BELLEZA VERDADERA", "carpeta": "SUPERACIÓN"},
-                {"titulo": "ERES EL AMOR DE MI OTRA VIDA", "carpeta": "SUPERACIÓN"},
-                {"titulo": "MUJERESQUEAMANDEMASIADO", "carpeta": "SUPERACIÓN"},
-                {"titulo": "TDAH DEL CAOS MENTAL AL EQUILIBRIO - ELYSIA LUNE", "carpeta": "SUPERACIÓN"},
-                {"titulo": "CONVERSACIONES CON DIOS - WALSCH, NEALE DONALD", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
-                {"titulo": "HOMBRE EN BUSCA DE SENTIDO, EL - VIKTOR FRANKL", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
-                {"titulo": "EL ARTE DE VIVIR COMO UN ESTOICO -EL-DAVID-FIDELER", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
-                {"titulo": "KABBALAH - YEHUDA BERG", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
-                {"titulo": "MEDITACIONES-MARCO-AURELIO", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
-                {"titulo": "EL PODER DE LA KABBALAH - YEHUDA BERG", "carpeta": "FILOSOFÍA Y ESPIRITUALIDAD"},
-                {"titulo": "EL-ARTE-DE-AMAR-LAS-COSAS-IMPERFECTAS-HAEMIN-SUNIM", "carpeta": "AUTOAYUDA"},
-                {"titulo": "SOBREVIVIENDO CON UN CORAZÓN ROTO SPANISH EDITION FATY SALINAS 2023", "carpeta": "AUTOAYUDA"},
-                {"titulo": "ES-MANIPULACIÓN-Y-NO-LO-SABES-CLAUDIA-NICOLASA- 1", "carpeta": "AUTOAYUDA"},
-                {"titulo": "EL ARTE DE GESTIONAR TUS EMOCIONES - SERGIO APARICIO", "carpeta": "AUTOAYUDA"},
-                {"titulo": "MI PSICÓLOGA ME DIJO KATHERINE HOYER, YULIBETH R G 2025 EDICIONES", "carpeta": "AUTOAYUDA"},
-                {"titulo": "LA INCREIBLE CONEXIÓN INTESTINO CEREBRO -- CAMILA ROWLANDS", "carpeta": "AUTOAYUDA"},
-                {"titulo": "COSAS QUE NUNCA HABLÉ CON MI MADRE -- MICHELE FILGATE --", "carpeta": "AUTOAYUDA"},
-                {"titulo": "IKIGAI - HECTOR GARCIA", "carpeta": "AUTOAYUDA"},
-                {"titulo": "UNO SIEMPRE CAMBIA AL AMOR DE SU VIDA - AMALIA ANDRADE", "carpeta": "AUTOAYUDA"},
-                {"titulo": "TERAPIA PARA LLEVAR - ANA PÉREZ", "carpeta": "AUTOAYUDA"},
-                {"titulo": "ROMPER EL CÍRCULO - MYSTICAL BOOKS BH", "carpeta": "AUTOAYUDA"},
-                {"titulo": "ROJAS ESTAPE MARIAN - COMO HACER QUE TE PASEN COSAS BUENAS", "carpeta": "AUTOAYUDA"},
-                {"titulo": "RECUPERA TU MENTE, RECONQUISTA TU VIDA -- MARIAN ROJAS ESTAPÉ -- 2024", "carpeta": "AUTOAYUDA"},
-                {"titulo": "NADIE TIENE QUE SABERLO EXCEPTO TÚ -- ANNI VITAL", "carpeta": "AUTOAYUDA"},
-                {"titulo": "MARIAN ROJAS ESTAPE - ENCUENTRA TU PERSONA VITAMINA-", "carpeta": "AUTOAYUDA"},
-                {"titulo": "MARAVILLOSAMENTE IMPERFECTO, ESCANDALOSAMENTE FELIZ - WALTER RISO", "carpeta": "AUTOAYUDA"},
-                {"titulo": "LOS 5 LENGUAJES DEL AMOR - GARY CHAPMAN", "carpeta": "AUTOAYUDA"},
-                {"titulo": "DESFIBRILADOR -- GILRAEN EÄRFALAS --", "carpeta": "AUTOAYUDA"},
-                {"titulo": "DESAPEGARSE SIN ANESTESIA - WALTER RISO", "carpeta": "AUTOAYUDA"},
-                {"titulo": "DE MÍ PARA MÍ, PUEDES CON ESTO Y MÁS VERSIÓN 2", "carpeta": "AUTOAYUDA"},
-                {"titulo": "DE MÍ PARA MÍ, LA TORMENTA PASARÁ VERSIÓN 1", "carpeta": "AUTOAYUDA"},
-                {"titulo": "CUÍDATE PARA CRECER - ANA PÉREZ", "carpeta": "AUTOAYUDA"},
-                {"titulo": "COMPRENDE TUS EMOCIONES - ENRIQUE ROJAS", "carpeta": "AUTOAYUDA"},
-                {"titulo": "CÓMO MANDAR A LA MIERDA DE FORMA EDUCADA -- ALBA CARDALDA --", "carpeta": "AUTOAYUDA"},
-                {"titulo": "ARREGLA TU DESMADRE - SARAH KNINGHT", "carpeta": "AUTOAYUDA"},
-                {"titulo": "50 CÁPSULAS DE AMOR PROPIO - SARA ESPEJO", "carpeta": "AUTOAYUDA"},
-                {"titulo": "TRASTORNO DE APEGO CÓMO SUPERAR LA ANSIEDAD, EL MIEDO AL -- BLANCA NAVARRO", "carpeta": "AUTOAYUDA"},
-                {"titulo": "IMPOSIBLE DECIR ADIOS - HAN KANG", "carpeta": "AUTOAYUDA"},
-                {"titulo": "SANA, SUELTA, SIGUE ATRÉVETE A CONOCER EL PODER DE LA -- BRENDA QUINTANA -", "carpeta": "AUTOAYUDA"},
-                {"titulo": "ABRAZA-A-TU-NIÑO-INTERIOR", "carpeta": "AUTOAYUDA"},
-                {"titulo": "CAMINANDO CON DIOS A TRAVÉS DE EL DOLOR Y EL SUFRIMIENTO -- TIMOTHY KELLER -- 2019", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "MIENTRAS TE OLVIDO - APRENDO A VIVIR SIN TI - COMPLETO -- NACARID PORTAL ARRAEZ -- 2017 -- DEJA VÚ", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "DEJAR IR DEJA DE VIVIR EL PASADO Y EMPIEZA A VIVIR EL -- STEVEN RAISE -- 2025 -", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "ENTENDER-TU-MUERTE-ME-SALVÓ-LA-VIDA-ROBERTO-AGUIRRE-2025", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "CALMA TU PUTA CABEZA - FAITH-G HARPER 2023", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "REMEDIOS-HERBALES-OLVIDADOS -MEJORA-TU-SALUD-CON-EL-PODER-DOMINGO-ESCUDERO-SANTOS", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "EL PODER DE LA ENERGÍA SEXUAL - IRIS", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "NEUROFELICIDAD- -DESCUBRE-EL-PODER-DE-LA-QUÍMICA-CEREBRAL-ANA-ASENSIO", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "SOBREVIVIENDO CON UN CORAZÓN ROTO FATY SALINAS -- 2023", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "MI PERSONA EQUIVOCADA -- FATY SALINAS -- 2022", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "EL ORIGEN EMOCIONAL DE LAS ENFERMEDADES - CHRISTIAN FLECHE", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "INTENTEMOS DE NUEVO-GARY CHAPMAN", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "DESHACER LA ANSIEDAD - JUDSON BREWER", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "LO BUENO DE TENER UN MAL DÍA CÓMO CUIDAR DE NUESTRAS -- ANABEL GONZÁLEZ", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "LAS 12 COMPETENCIAS DE LA INTELIGENCIA EMOCIONAL - DANIEL GOLEMAN", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "CORAZON ESPINADO-MARIA IGLESIAS", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "EL SÍNDROME DE LA IMPOSTORA - CADOCHE Y MONTARLOT", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "AMOR-ZERO - IÑAKI PIÑUEL", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "MI CICATRIZ YA NO LLORA - NIÑATO", "carpeta": "SALUD MENTAL Y BIENESTAR EMOCIONAL"},
-                {"titulo": "MEMENTO MORI", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "POTENCIA TU ENERGÍA - PAM GROUT", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "EL SUTIL ARTE DE QUE", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "CÓMO DEJAR DE PENSAR DEMASIADO, UNA GUÍA PARA VIVIR SIN -- ADAM TUSCO", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "EL PODER DEL AHORA - ECKHART TOLLE", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "NO TE CREAS TODO LO QUE PIENSAS - JOSEPH NGUYEN", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "IKIGAI - HECTOR GARCIA", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "HOMBRE QUE ESTABA RODEADO DE IDIOTAS, EL - THOMAS ERIKSON", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "DEJA DE SER TU - JOE DISPENZA", "carpeta": "LIBROS DE PAZ MENTAL"},
-                {"titulo": "EL HOMBRE EN BUSCA DE SENTIDO, EL - VIKTOR FRANKL", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "KABBALAH - YEHUDA BERG", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "EL PODER DE LA KABBALAH - YEHUDA BERG", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "CONVERSACIONES CON DIOS - WALSCH, NEALE DONALD", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "METAHUMANO LIBERA TU POTENCIAL INFINITO METAHUMAN -- DEEPAK CHOPRA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "EL ARTE DE VIVIR COMO UN ESTOICO - DAVID FIDELER", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "LA SUPRACONCIENCIA EXISTE -- DR MANUEL SANS SEGARRA & JUAN CARLOS CEBRIÁN", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "DIOS VUELVE EN UNA HARLEY - JOAN BRADY, RN", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "CARTAS A LUCILIO - SÉNECA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "EL PEQUEÑO LIBRO DEL ESTOICISMO - JONAS SALZGEBER", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "EL QUINTO ACUERDO - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "EL LIBRO DE URANTIA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "EL PODER FRENTE A LA FUERZA - ENRIC CORBERA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "CONOCER A DIOS -- CHOPRA, DEEPAK", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "DIOS Y NUESTRA FELICIDAD - CASTILLO, JOSÉ M", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "LOS CUATRO ACUERDOS - MIGUEL ANGEL RUIZ", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "JAMÁS MORIREMOS - DEEPAK CHOPRA", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "JESUS", "carpeta": "ESPIRITUALIDAD Y FILOSOFIA"},
-                {"titulo": "TDAH DEL CAOS MENTAL AL EQUILIBRIO - ELYSIA LUNE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CREYENDO Y CREANDO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "PIENSA Y RAZONA COMO SÓCRATES MANUAL PARA UN DIÁLOGO -- WISS, ELKE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "PARA QUE NO TE OLVIDES - RAQUEL PERERA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL SÍNDROME DE LA CHICA BUENA -- MARTA MARTÍNEZ NOVOA 2024", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL BIENQUERER APRENDE A CONSTRUIR RELACIONES EMOCIONALMENTE -- PAULA DELGADO -- AUTOAYUDA Y SUPERACIÓN", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "DEJATE EN PAZ- FABRICE", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "DEJA DE TRATARTE COMO EL CULO DE LA AUTOCRTICA TAMBIN SE -- LORENA GASCÓN", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "UNA VIDA SIN SALUD MENTAL - ALBA GONZALEZ", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "RED FLAGS, GREEN FLAGS - DR ALI FENWICK", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "RESETEA TUS INTESTINOS SANA MÁS DE 15 ENFERMEDADES Y -- FACUNDO PEREYRA", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "DESHACER LA ANSIEDAD", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "ANSIOSAMENTE ADIÓS ANSIEDAD Y ATAQUES DE PÁNICO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "CARTAS QUE NO LLEGARON- GILRAEN", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL CEREBRO DE LA GENTE FELIZ- GRIJALDO", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "LLÁMAME CUANDO NO TE ENCUENTRES -- GILRAEN EÄRFALAS", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "TUS ZONAS ERRÓNEAS -- WAYNE W DYER [DYER, WAYNE W ]", "carpeta": "INTELIGENCIA EMOCIONAL"},
-                {"titulo": "EL MONJE QUE VENDIO SU FERRARI - ROBIN S. SHARMA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "USTED PUEDE SANAR SU VIDA - LOUISE L. HAY", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LAZOS DE AMOR - BRIAN WEISS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "SALIR DE LA TRAMPA - ALAN WATTS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "APRENDE A SUPERAR TUS MIEDOS - CORALIE CLOSON", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ESTO ES ESO - ALAN WATTS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "DOMINA EL ARTE DEL NETWORKING - ELISE EVRARD", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL PODER DEL AHORA - ECKHART TOLLE", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL SILENCIO HABLA - ECKHART TOLLE", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LOS CUATRO ACUERDOS - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LA ILUSION DE VIVIR - ENRIQUE ROJAS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL QUINTO ACUERDO - MIGUEL ANGEL RUIZ MACIAS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "PODER SIN LIMITES - TONY ROBBINS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "DESHOJANDO MARGARITAS - WALTER RISO", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ADICTOS A LA INFELICIDAD - MARTHA HEINEMAN PIEPER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "12 PASOS HACIA LA FELICIDAD - CARMELA PARIS", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "TODO ESTA EN TU CABEZA - SUZANNE O SULLIVAN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "!CREAR O MORIR! - ANDRES OPPENHEIMER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "MAS PLATON Y MENOS PROZAC - LOU MARINOFF", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "MORIR PARA SER YO - ANITA MOORJANI", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "SE FUERTE - DEMI LOVATO", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ANATOMIA DEL MIEDO - JOSE ANTONIO MARINA TORRES", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EQUILIBRIO - DANIEL LOPEZ ROSETTI", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LA FELICIDAD EN SU MANO - ROSEMBERG LOPEZ", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ADIOS, AMOR - ABRAHAM JORGE CHINEA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ABRAZAME - KATHLEEN KEATING", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "PIENSE Y HAGASE RICO - NAPOLEON HILL", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "QUIEN SE HA LLEVADO MI QUESO - SPENCER JOHNSON", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL ARTE DE LA SEDUCCION - ROBERT GREENE", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EXITO EN LA VIDA, EXITO EN LOS - BERT HELLINGER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LOS MILLONARIOS NO NACEN, SE HA - JUAN ANTONIO GUERRERO CANONGO", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LA MITAD DE LA VIDA COMO TAREA - ANSELM GRUN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LOS HOMBRES SON DE MARTE, LAS M - JOHN GRAY", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL ALGORITMO DE LA FELICIDAD - MO GAWDAT", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ICHIGO-ICHIE - HECTOR GARCIA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "COMO DETECTAR MENTIRAS - PAUL EKMAN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL MILLONARIO INSTANTANEO - MARK FISHER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "TUS ZONAS MAGICAS - WAYNE W. DYER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "TUS ZONAS SAGRADAS - WAYNE W. DYER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL CANTO DEL PAJARO - ANTHONY DE MELLO", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "TUS ZONAS ERRONEAS - WAYNE W. DYER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "TOMA UN CAFE CONTIGO MISMO - WALTER DRESEL", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "!ME VALE MADRES! - PREM DAYAL", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL ARTE DE LA FELICIDAD - DALAI LAMA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL UNIVERSO EN UN SOLO ATOMO - DALAI LAMA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "SALVATE, LA VIDA TE ESPERA - BORIS CYRULNIK", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LOS 7 HABITOS DE LA GENTE ALTAM - STEPHEN RICHARDS COVEY", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LA MENTE DESPIERTA - DALAI LAMA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL ALMA DEL LIDERAZGO - DEEPAK CHOPRA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL HOMBRE MAS RICO DE BABILONIA - GEORGE S. CLASON", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "DE QUE SE RIE DIOS - DEEPAK CHOPRA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "COMO GANAR AMIGOS E INFLUIR SOB - DALE CARNEGIE", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "RELATOS DE PODER - CARLOS CASTANEDA", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "NO TE AHOGUES EN UN VASO DE AGU - RICHARD CARLSON", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL SECRETO - RHONDA BYRNE", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ESTE LIBRO LE HARA MAS INTELIGE - JOHN BROCKMAN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "SEGUIR SIN TI - JORGE BUCAY", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "PAZ INTERIOR PARA GENTE OCUPADA - JOAN BORYSENKO", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL PEQUENO INSTRUCTIVO PARA LA - H. JACKSON BROWN JR", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "YO ME HE LLEVADO TU QUESO - DARREL BRISTOW-BOVEY", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "EL ARTE DEL MINIMO ESFUERZO - BARBARA BERCKHAN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "LOS SACRAMENTOS DE LA VIDA - LEONARDO BOFF", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "AL FIN LIBRE - J. J. BENITEZ", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "MENTALIDAD PARA EL EXITO - AA. VV", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "MI VISION DEL MUNDO - ALBERT EINSTEIN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "DEJATE LLEVAR - ELISE SAVARO", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "DESPIDETE DE LA TIMIDEZ - ELY D. RICE", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ACABA CON LA ANSIEDAD - BARBARA RADOMME", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "CUESTIONES CUANTICAS - KEN WILBER", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ACABA CON LA PROCRASTINACION - AURELIE DORCHY", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "SUPERA TUS COMPLEJOS - IRENE GUITTIN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "SACA PARTIDO DEL TEST MYERS-BRI - BENJAMIN FLERON", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "APRENDE A QUERERTE - ESTHER BRUN", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "ORGANIZATE Y SE MAS EFICAZ - ISABELLE AUSSANT", "carpeta": "AUTOAYUDA 2"},
-                {"titulo": "MUCHAS VIDAS, MUCHOS MAESTROS - BRIAN WEISS", "carpeta": "AUTOAYUDA 2"}
-            ];
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
             
-            allBooks = books;
-            filteredBooks = books;
-            
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('booksGrid').style.display = 'grid';
-            renderBooks();
-        }
-
-        function renderBooks() {
-            const grid = document.getElementById('booksGrid');
-            const currentCount = document.getElementById('currentCount');
-            const noResults = document.getElementById('noResults');
-            
-            if (filteredBooks.length === 0) {
-                grid.style.display = 'none';
-                noResults.style.display = 'block';
-                currentCount.textContent = '0';
-                return;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(particle);
             }
-            
-            grid.style.display = 'grid';
-            noResults.style.display = 'none';
-            currentCount.textContent = filteredBooks.length;
-            
-            grid.innerHTML = filteredBooks.map(book => `
-                <div class="book-card">
-                    <i class="fas fa-heart book-icon"></i>
-                    <h3 class="book-title">${book.titulo}</h3>
-                    <span class="book-category">${book.carpeta}</span>
-                </div>
-            `).join('');
         }
 
-        function searchBooks() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const bookItems = document.querySelectorAll('.book-item');
+            const categories = document.querySelectorAll('.category-section');
             
-            if (query === '') {
-                filteredBooks = allBooks;
+            if (searchTerm === '') {
+                // Show all categories and books
+                categories.forEach(cat => cat.style.display = 'block');
+                bookItems.forEach(item => item.style.display = 'flex');
             } else {
-                filteredBooks = allBooks.filter(book => 
-                    book.titulo.toLowerCase().includes(query) ||
-                    book.carpeta.toLowerCase().includes(query)
-                );
-            }
-            
-            renderBooks();
-        }
-
-        document.getElementById('searchInput').addEventListener('input', searchBooks);
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchBooks();
+                // Hide all categories first
+                categories.forEach(cat => cat.style.display = 'none');
+                
+                bookItems.forEach(item => {
+                    const title = item.querySelector('.book-title').textContent.toLowerCase();
+                    const category = item.closest('.category-section');
+                    
+                    if (title.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        category.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             }
         });
 
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
+
+        // Smooth scroll for better UX
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -728,8 +947,6 @@
                 }
             });
         });
-
-        loadBooks();
     </script>
 </body>
 </html>
