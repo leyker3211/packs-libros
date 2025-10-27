@@ -3,1134 +3,753 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pack 2 - Psicología | Biblioteca Digital Premium</title>
-    <meta name="description" content="Colección exclusiva de 600 libros de psicología. Domina el arte de entender y persuadir.">
-    
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+    <title>🧠 Pack 2: Psicología Oscura & Persuasión | 600 Libros</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-        }
-
-        .contact-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .hero {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .pack-badge {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a0033 0%, #2d0a47 25%, #1a1a2e 50%, #16213e 75%, #0a0a0a 100%);
+            color: #e0e0e0;
             line-height: 1.6;
+            min-height: 100vh;
         }
-
+        
+        .header {
+            background: linear-gradient(135deg, #2d1545 0%, #1a0033 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff3366;
+            box-shadow: 0 4px 20px rgba(255, 51, 102, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 51, 102, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 51, 102, 0.8), 0 0 30px rgba(255, 51, 102, 0.4); }
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ff3366;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
         .stats {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 40px;
+            margin: 30px 20px;
+            flex-wrap: wrap;
         }
-
-        .stat {
-            text-align: center;
+        
+        .stat-card {
+            background: linear-gradient(135deg, #2d1545 0%, #1a0033 100%);
+            padding: 25px 40px;
+            border-radius: 15px;
+            border: 2px solid #ff3366;
+            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
+            transition: transform 0.3s ease;
         }
-
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.5);
+        }
+        
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #667eea;
-            display: block;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff3366;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
         }
-
+        
         .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-top: 5px;
         }
-
-        .search-section {
-            background: white;
-            padding: 2rem 0;
-            border-bottom: 1px solid #eee;
+        
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        
+        .category-section {
+            background: rgba(29, 14, 45, 0.6);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255, 51, 102, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-
-        .search-box {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
+        
+        .category-section:hover {
+            border-color: #ff3366;
+            box-shadow: 0 8px 30px rgba(255, 51, 102, 0.3);
+            transform: translateY(-2px);
         }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e0e0e0;
+        
+        .category-title {
+            font-size: 2rem;
+            color: #ff3366;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.3);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 8px rgba(255, 51, 102, 0.5));
+        }
+        
+        .book-count {
+            background: linear-gradient(135deg, #ff3366 0%, #cc0033 100%);
+            color: white;
+            padding: 8px 20px;
             border-radius: 25px;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(255, 51, 102, 0.4);
         }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        
+        .category-description {
+            font-size: 1.15rem;
+            color: #b8b8b8;
+            line-height: 1.8;
+            margin-top: 15px;
         }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
+        
+        .bestsellers {
+            background: linear-gradient(135deg, #1a0033 0%, #2d1545 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 3px solid #ff3366;
+            box-shadow: 0 8px 30px rgba(255, 51, 102, 0.4);
         }
-
-        .search-results {
+        
+        .bestsellers h2 {
+            font-size: 2rem;
+            color: #ff3366;
             text-align: center;
-            margin-top: 1rem;
-            color: #666;
-        }
-
-        .books-section {
-            background: white;
-            padding: 3rem 0;
-        }
-
-        .books-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .book-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid #667eea;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background: #fff;
-        }
-
-        .book-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-
-        .book-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.8rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
             line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
-
-        .book-category {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.3rem 0.8rem;
+        
+        .bestseller-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 30px;
+        }
+        
+        .bestseller-item {
+            background: rgba(45, 21, 69, 0.6);
+            padding: 25px;
             border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: inline-block;
-        }
-
-        .book-icon {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: #667eea;
-            opacity: 0.3;
-            font-size: 1.2rem;
-        }
-
-        .footer {
-            background: #667eea;
-            color: white;
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .footer p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .cta-btn {
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
+            border: 2px solid rgba(255, 51, 102, 0.3);
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin-bottom: 10px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
-        .cta-primary {
-            background: #764ba2;
+        
+        .bestseller-item:hover {
+            border-color: #ff3366;
+            transform: scale(1.03);
+            box-shadow: 0 5px 20px rgba(255, 51, 102, 0.4);
+        }
+        
+        .bestseller-item h3 {
+            color: #ff3366;
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+        
+        .bestseller-item p {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #1a0033 0%, #0a0a0a 100%);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 3px solid #ff3366;
+        }
+        
+        .footer p {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+        
+        .power-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff3366 0%, #cc0033 100%);
             color: white;
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1rem;
-            margin-top: 2rem;
-            opacity: 0.7;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+            box-shadow: 0 2px 8px rgba(255, 51, 102, 0.4);
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .stats { gap: 1.5rem; }
-            .stat-number { font-size: 2rem; }
-            .books-grid { grid-template-columns: 1fr; }
-            .header-content { flex-direction: column; gap: 1rem; }
-            .cta-buttons { flex-direction: column; align-items: center; }
+            .header {
+                padding: 30px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+
+            .stats {
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 15px 25px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 10px;
+            }
+
+            .category-section {
+                padding: 1rem 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .category-title {
+                font-size: 1.3rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+
+            .category-icon {
+                font-size: 1.8rem;
+            }
+
+            .book-count {
+                font-size: 0.85rem;
+                padding: 5px 12px;
+            }
+
+            .category-description {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .bestsellers {
+                padding: 1.5rem 1rem;
+                margin: 1rem 0;
+            }
+
+            .bestsellers h2 {
+                font-size: 1.4rem;
+                line-height: 1.4;
+                margin-bottom: 15px;
+            }
+
+            .bestseller-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin-top: 15px;
+            }
+
+            .bestseller-item {
+                padding: 12px;
+                min-height: 90px;
+                margin-bottom: 0;
+            }
+
+            .bestseller-item h3 {
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+            }
+
+            .bestseller-item p {
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+
+            .footer {
+                padding: 20px 15px;
+                margin-top: 30px;
+            }
+
+            .footer p {
+                font-size: 0.95rem;
+            }
         }
 
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-        }
-
-        .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-        }
-
-        .no-results i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-brain"></i>
-                Psicología Premium
-            </div>
-            <a href="#contacto" class="contact-btn">
-                <i class="fas fa-whatsapp"></i>
-                Contactar Ahora
-            </a>
-        </div>
-    </header>
+    <div class="header">
+        <h1>🧠 PACK 2: PSICOLOGÍA OSCURA & PERSUASIÓN 🎭</h1>
+        <p class="subtitle">Domina el Arte de la Influencia y el Poder Mental</p>
+        <p class="description">
+            La colección más completa de psicología oscura, persuasión, seducción y PNL. 
+            Aprende los secretos que usan los maestros de la influencia para controlar mentes y situaciones.
+        </p>
+    </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="pack-badge">Pack Exclusivo #2</div>
-            <h1>PSICOLOGÍA MASTER</h1>
-            <p>Domina el arte de entender y persuadir.</p>
-            
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-number" id="totalBooks">600</span>
-                    <span class="stat-label">Libros Únicos</span>
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">600</div>
+            <div class="stat-label">Libros Completos</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">10</div>
+            <div class="stat-label">Categorías Maestras</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Autores Expertos</div>
+        </div>
+    </div>
+
+
+    <div style="background: linear-gradient(135deg, #1a0033 0%, #2d1545 100%); border-radius: 20px; padding: 30px; margin: 30px 20px; border: 3px solid #ff3366; text-align: center; box-shadow: 0 8px 30px rgba(255, 51, 102, 0.4);">
+        <h2 style="color: #ff3366; font-size: 2.2rem; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255, 51, 102, 0.5);">
+            🎁 BONO EXCLUSIVO INCLUIDO
+        </h2>
+        <div style="background: rgba(45, 21, 69, 0.6); padding: 30px; border-radius: 15px; border: 2px solid rgba(255, 51, 102, 0.3); max-width: 600px; margin: 0 auto;">
+            <h3 style="color: #ff3366; font-size: 1.8rem; margin-bottom: 15px;">🎧 300 AUDIOLIBROS</h3>
+            <p style="color: #cccccc; font-size: 1.2rem; line-height: 1.6;">
+                Escucha la biblioteca completa en formato audio. Perfectos para aprovechar cada momento del día: mientras manejas, haces ejercicio o te relajas.
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bestsellers">
+            <h2>⭐ TOP 12 BESTSELLERS ⭐</h2>
+            <div class="bestseller-grid">
+                <div class="bestseller-item">
+                    <h3>📖 Las 48 Leyes del Poder</h3>
+                    <p>Robert Greene</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">PDF</span>
-                    <span class="stat-label">Formato</span>
+                <div class="bestseller-item">
+                    <h3>📖 Influencia: La Psicología de la Persuasión</h3>
+                    <p>Robert Cialdini</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 El Arte de la Seducción</h3>
+                    <p>Robert Greene</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 El Lenguaje del Cuerpo</h3>
+                    <p>Allan y Barbara Pease</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 Cómo Ganar Amigos e Influir</h3>
+                    <p>Dale Carnegie</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 El Juego (The Game)</h3>
+                    <p>Neil Strauss</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 Pre-Suasión</h3>
+                    <p>Robert Cialdini</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 Las Leyes de la Naturaleza Humana</h3>
+                    <p>Robert Greene</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 El Príncipe</h3>
+                    <p>Nicolás Maquiavelo</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 PNL: Programación Neurolingüística</h3>
+                    <p>Richard Bandler & John Grinder</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 La Estrategia del Seductor</h3>
+                    <p>Robert Greene</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📖 Qué Dice el Cuerpo</h3>
+                    <p>Joe Navarro (Ex-FBI)</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="search-section">
-        <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" id="searchInput" placeholder="Buscar libros por título o tema...">
-            </div>
-            <div class="search-results" id="searchResults">
-                Mostrando <span id="currentCount">600</span> libros
-            </div>
+        <h2 style="text-align: center; font-size: 2.5rem; color: #ff3366; margin: 50px 0 30px 0; text-shadow: 0 0 15px rgba(255, 51, 102, 0.5);">
+            📚 LAS 10 CATEGORÍAS MAESTRAS
+        </h2>
+
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">👑</span>
+                Las 48 Leyes del Poder & Robert Greene
+                <span class="book-count">50+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Robert Greene, Nicolás Maquiavelo, Sun Tzu<br><br>
+                La colección completa de Robert Greene sobre poder, estrategia y dominio social. Incluye:<br><br>
+                — Las 48 Leyes del Poder<br>
+                — El Arte de la Seducción<br>
+                — Las Leyes de la Naturaleza Humana<br>
+                — Maestría<br>
+                — La 33ª Estrategia<br>
+                — El Arte de la Guerra<br>
+                — Los 36 Estratagemas Chinas<br>
+                — El Príncipe de Maquiavelo<br>
+                — Y decenas más sobre estrategia, poder político y tácticas de dominación social
+            </p>
         </div>
-    </section>
 
-    <section class="books-section">
-        <div class="books-container">
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                Cargando biblioteca...
-            </div>
-            <div class="books-grid" id="booksGrid" style="display: none;"></div>
-            <div class="no-results" id="noResults" style="display: none;">
-                <i class="fas fa-search"></i>
-                <h3>No se encontraron resultados</h3>
-                <p>Intenta con otros términos de búsqueda</p>
-            </div>
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🧠</span>
+                Persuasión e Influencia Social
+                <span class="book-count">80+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Robert Cialdini, Richard Thaler, Dan Ariely<br><br>
+                Domina los 6 principios de influencia de Cialdini y mucho más. Incluye:<br><br>
+                — Influencia: La Psicología de la Persuasión<br>
+                — Pre-Suasión<br>
+                — Las Armas de la Persuasión<br>
+                — Pensar Rápido, Pensar Despacio (Daniel Kahneman)<br>
+                — Nudge<br>
+                — Predictably Irrational<br>
+                — Técnicas de persuasión avanzadas<br>
+                — Psicología de ventas<br>
+                — Sesgos cognitivos y heurísticas mentales<br>
+                — Ingeniería social y manipulación de opinión pública
+            </p>
         </div>
-    </section>
 
-    <footer class="footer" id="contacto">
-        <div class="footer-content">
-            <h3>¿Listo para Transformar tu Vida?</h3>
-            <p>Accede inmediatamente a esta colección exclusiva de 600 libros. Domina el arte de entender y persuadir.</p>
-            
-            <div class="cta-buttons">
-                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20el%20Pack%202%20de%20Psicología%20y%20Persuasión%20con%20600%20libros" class="cta-btn cta-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    Obtener Pack Ahora
-                </a>
-                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Pack%20Psicología" class="cta-btn cta-secondary">
-                    <i class="fas fa-envelope"></i>
-                    Más Información
-                </a>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados.</p>
-            </div>
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">💋</span>
+                Seducción y Atracción
+                <span class="book-count">70+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Neil Strauss, Mystery, David DeAngelo, Ross Jeffries<br><br>
+                El arsenal completo de seducción masculina y femenina. Incluye:<br><br>
+                — The Game (El Juego)<br>
+                — El Método Mystery<br>
+                — La Biblia de la Seducción<br>
+                — El Arte de la Conquista<br>
+                — Técnicas de cold reading<br>
+                — Negging y peacocking<br>
+                — DHV (Demonstrating Higher Value)<br>
+                — Kino escalation<br>
+                — Seducción femenina<br>
+                — Psicología de la atracción<br>
+                — Lenguaje corporal en el cortejo<br>
+                — Hipnosis conversacional para seducir
+            </p>
         </div>
-    </footer>
 
-    <script>
-        let allBooks = [];
-        let filteredBooks = [];
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🎯</span>
+                PNL - Programación Neurolingüística
+                <span class="book-count">90+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Richard Bandler, John Grinder, Tony Robbins, Steve Andreas<br><br>
+                La biblioteca más completa de PNL en español. Incluye:<br><br>
+                — La Estructura de la Magia (Vols. 1 y 2)<br>
+                — De Sapos a Príncipes<br>
+                — Use su Cabeza para Variar<br>
+                — Trance-Fórmate<br>
+                — Psicocibernética<br>
+                — Metamodelo del lenguaje<br>
+                — Patrones hipnóticos de Milton Erickson<br>
+                — Sistemas representacionales (VAK)<br>
+                — Anclajes emocionales<br>
+                — Reencuadre y submodalidades<br>
+                — Estrategias mentales<br>
+                — Rapport avanzado y línea del tiempo<br>
+                — Cambio de creencias
+            </p>
+        </div>
 
-        async function loadBooks() {
-            const books = [
-                {"titulo": "COACHING DE PNL - MIGUEL ANGEL LEON", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "CREE MÁS EN TI CON PNL PROGRAMACIÓN NEURO-LINGÜÍSTICA", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "TRABAJOS PARAPSICOLÓGICOS INFALIBLES PARA OBTENER AMOR, PODER Y DINERO", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "PSICOLOGIA DEL EXITO - MARIO LUNA", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "PSICOLOGIA DE LA MOTIVACION - DR. DIEGO JORGE GONZALEZ", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "POR QUÉ MENTIMOS...EN ESPECIAL A NOSOTROS MISMOS - DAN ARIELY", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "PNL", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "PATRONES DE PERSUASION ALVARO BONILLA NA", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "LENGUAJE CORPORAL EN 40 DIAS - ROSAS JESUS ENRIQUE", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "LAS ZONAS OSCURAS DE TU MENTE", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "INTELIGENCIA EMOCIONAL CON PNL", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "GENTE TOXICA - BERNARDO STAMATEAS", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "EL PODER DEL PENSAMIENTO POSITIVO CON PNL - ANA LUZ VELAZCO FLORES", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "EL PODER DE LAS PALABRAS - TERRY MAHONY", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "TECNICAPNL CÓMO GENERAR NUEVOS", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "PNL PERSUASIÓN E INFLUENCIA CON PATRONES DE LENGUAJE, 2015 - STEVE L. ALLEN D.", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "LENGUAJE CORPORAL", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "LA MAGIA DE LA PNL AL DESCUBIERTO - BYRON LEWIS", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "EL PODER DE LA PALABRA PNL - ROBERT DILTS", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "EL FUTURO DE NUESTRA MENTE - MICHO KAKU", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "39 TECNICAS PATRONES Y E - STEVE ALLEN", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "10 TIPS DE VENTAS EXITOSOS", "carpeta": "PSICOLOGÍA PNL"},
-                {"titulo": "PSICOLOGÍA OSCURA Y MANIPUL", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA TÉCNICAS", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "PNL LA CIENCIA DEL DESARROLLO PERSONAL 2 X 1 ZAID ASHER 216", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "NLP-PSICOLOGÍA-OSCURA-APRENRY", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "MANIPULATION-UNMASKED-STRAT -", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "MANIPULACIÓN Y PSICOLOGÍA O Y)", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "MANIPULACIÓN SECRETOS DE LA )", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "LA PERSUASIÓN EFECTIVA COMO PERSUADIR CON PALABRAS", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "DARK-PSYCHOLOGY-AND-MANIPUL -", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "CHARLES MANSON - PSICOLOGÍA )", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "50 PATRONES DE PERSUACIÓN", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "4. DARK PSYCHOLOGY SECRET THE", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "3.HOW TO ANALYZE PEOPLE", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "2. DARK PSYCHOLOGY AND MANIPUL", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "2.0SECRETOS-DE-LA-PSICOLOGÍA-O -Y", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "1.-LENGUAJE-CORPORAL-LA-GUÍA-D -", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "0.DARK PSYCHOLOGY 2 EN 1", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "1. HOW TO ANALYZE PEOPLE - DAR", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "ALLEN STEVE TÉCNICAS PROHIBIDAS DE PERSUASIÓN MANIPULACIÓN E INFLUENCIA", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "- 33 TÉCNICAS DE PERSUASIÓN INFALIBLES", "carpeta": "05- ACTUALIZACION DE PSICOLOGIA OSCURA"},
-                {"titulo": "23. MANIPULACIÓN - DANIEL PATTERSON", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "22. MANIPULACIÓN MENTAL - RYAN CLARK", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "21. MANIPULACION - VINCENT MCDANIEL", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "20. MANIPULACION - VICTOR SYKES", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "16 - 18 .-MANIPULACION Y PSICOLOGIA OSCURA - MARIA COSTANZA CALVIO", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "19.-MANIPULACION - PAUL ORTEGA", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "15. MANIPULACIÓN DE GLORIA HUSMANN Y GRACIELA CHIALE", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "12 - 14 .- MANIPULACIÓN MENTAL", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "11. MANIPULACIÓN Y LENGUAJE CORPORAL - MAX KR", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "10. MANIPULACIÓN - BEATRICE SH", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "8 - 9. MANIPULACIÓN Y SECRETOS DE LA PSICOLOGÍA OSCURA", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "7. MANIPULACIÓN Y PSICOLOGÍAOSCURA - CARLOS LÓPEZ", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "6. MANIPULACIÓN - BRAD WOOD", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "5. MANIPULACIÓN Y PSICOLOGÍA OSCURA - MENDOZA, ALEJANDRO", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "4. MANIPULACION MENTAL TECNICAS PROHIBIDAS", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "2. MANIPULACIÓN ENCUBIERTO ROBERT LEARY", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "3. MANIPULACIÓN PSICOLÓGICA -CRAIG CROWE", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "1. MANIPULACION MENTAL - VICTOR SYKES", "carpeta": "03-PACK MANIPULACION"},
-                {"titulo": "UNIVERSITARIAS A LA CAMA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "TRUCO PSICOLOGICO PARA QUE SE OBSESIONE CONTIGO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEXCODE EL MANUAL PRACTICO DE LOS MAESTROS DE LA SEDUCCION - MARIO LUNA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "TRUCO PSICOLOGICO PARA ENAMORAR", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEXCODE", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCTORA MORTAL - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCTOR-DE-0-A-100", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCCIONES Y REVELACIONES - HINOKU", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCCION SECRETA - IVAN RODRIGUEZ", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCCION TIPS Y CONSEJOS - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCCIÓN", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCCIÓN PSICOLÓGICA A UNA MUJER", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SEDUCCION", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SECRETOS DE SEDUCCION - ALAN CAROL", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "PDF-NEIL-STRAUSS-DOMINA-EL-METODO-EN-30-DIAS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SABER-SIEMPRE-QUE-DECIR", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "PSICOLOGIA FEMENINA - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "REVERTIR EL RECHAZO - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "PROYECCION SEXUAL PNL - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "PLAN PARA HACERLA TUYA EN CATORCE DIAS - ESCUELA DE SEDUCCION", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "PALABRAS-SEDUCTORAS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "NUEVO+MASTER+DE+LA+SEDUCCION COMPRESSED", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "NUEVO+MASTER+DE+LA+SEDUCCION COMPRESSED", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "NO SOLO SED - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "MATER EN SEDUCCION ELITE - DAVID DEL BASS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "MAS CHICAS - JAZZMAN", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "MANUAL DE SEDUCCION SECRETA - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "MANUAL DE PICKUP Y SEDUCCION - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LIGAR ES FACIL SI SABES COMO PARA NO EXPERTOS - MARIO LUNA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "MAESTRO DE LA SEDUCCION ATRAE Y CONQUISTA - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LOS SECRETOS DE LA MENTALIDAD SEDUCTORA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LOS 8 SECRETOS DE LA SEDUCCION - JOEY PALMER", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LIGAR ES FACIL SI SABES COMO - MARC VIDAL", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LIGAR DESPUES DE LA CUARENTENA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LENGUAJE-CORPORAL-FEMENINO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LENGUAJE-CORPORAL-ATRACTIVO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LA SEDUCCION DE LAS PALABRAS - ALEX GRIJELMO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LABIA, FLORO Y CONQUITA DE UNA MUJER, SEXO, EMPATÍA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LA PRIMERA SALIDA - NATASHA BERLET", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LA LOCURA MÁS ARDIENTE", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LA FORMULA PARA RECUPERAR A TU EX - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LA FORMULA PARA ENAMORAR A UNA PERSONA EN 45 MINUTOS - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LA CITA PERFECTA - DAVID DEL BASS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "LA BIBLIA DE LA PSICOLOGÍA OSCURA - MARK A", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL-METODO-NEIL-STRAUSS-V13-EPUBGRATIS COMPRESS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "HAS QUE ELLAS TE DESEEN", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL SECRETO, ARTE SECRETO DE LLEVARSE MUJERES A LA CAMA MYSTERY", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL SECRETO PARA SEDUCIR UNA MUJER - JACOB MILANO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL SECRETO MYSTERY - ERIK VON MARKOVIK", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL NUMERO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL METODO - NEIL STRAUSS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL METODO MENTAL - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL METODO GUNWITCH - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL LIBRO NARANJA - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL ARTE DE LA SEDUCCION - ROBERT GREENE", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "EL JUEGO DE LA SEDUCCION - MARTIN RIEZNIK", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "DIVERTIDO Y ATREVIDO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "DE TIMIDO A SEDUCTOR 2.0", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "CÓMO SER UN HOMBRE ALFA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "CÓMO SER UN MUJERIEGO APREN )", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "CÓMO SER UN MAESTRO SEDUCTO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO SER UN HOMBRE ALFA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO SALIR CON MUCHAS MUJERES - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO SEDUCIR A UNA MUJER MAYOR DE 30 - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO SEDUCIR A UNA MUJER - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO SEDUCIR Y CONQUISTAR A UNA MUJER - ADRIEN ARCHARD", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO SABER SI LES GUSTAS A UNA MUJER - DOMENEC BENAIGES", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO LLEGAR A SER UN MACHO ALFA - JOHN ALEXANDER", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO ESCRIBIR CARTAS Y TEXTOS QUE REALMENTE ENAMORAN - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO LEER LA MENTE DE UNA MUJER - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO ENAMORAR A UNA MUJER MAS JOVEN - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO DESARROLLAR UNA PERSONALIDAD ATRACTIVA CON LAS MUJERES - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO CREAR CURIOSIDAD - ANDRES ORRACA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "CÓMO CONQUISTAR A UNA MUJER", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "COMO CONQUISTAR UNA MUJER - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "CIGSSN-LIBRO SEDUCCIÓN NATURAL", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "CERO DUDAS - LUIS CARABALLO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "ATRAE MUJERES", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "ATRAER MUJERES MODERNAS - VIC MYSTIC", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "ATRACCION INMEDIATA - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "ATRACCION HIPNOTICA - ESTEBAN LARA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "150 FORMAS DE INICIAR UNA CONVERSACION - LUIS TEJEDOR", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "150 FORMAS DE INICIAR UNA CONVERSACION - EGOLAND", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "ARMAS DE SEDUCCION MASIVA - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "APOCALIPSEX - MARIO LUNA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "198.SEX CRACK. MARIO LUNA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "198.SEX CRACK. MARIO LUNA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "101 IDEAS ROMANTICAS - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "100 CONSEJOS DE COQUETEO - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "22 PALABRAS PARA CAPTAR LA ATENCION DE TUS CLIENTES", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "21 CLAVES PARA CULTIVAR TU INGENIO EN UNA CONVERSACION - ALVARO TEJEDOR", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "19 THE GAME NEIL STRAUSS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "20 TIPS PARA SEDUCIR A UNA MUJER SOLTERA - OTROS", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "18 NUEVO+MASTER+DE+LA+SEDUCCION COMPRESSED", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "11 EL ARTE DE LA SEDUCCIÓN - ROBERT GREENE", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "15. EL MÉTODO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "12 COMO ANALIZAR A LAS PERSONAS - RJ ANDERSON", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "09 RAGNAROK.-EL-CAMINO-DE-UN-HOMBRE", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "08 CONSEJOS DE SEDUCCIÓN ENSEÑADOS POR INSTAGRAM Y TOKTOK - ACTUALIZADO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "07 CONSEJOS PARA MUJERES SEDUCCIÓN", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "06. MASTER DE SEDUCCION - ACTUALIZADO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "05 BIBLIA DE MACHO ALFA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "4. CONSEJOS DE SEDUCCIÓN ENSEÑADOS POR INSTAGRAM Y TOKTOK - ACTUALIZADO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "1. MASTER DE SEDUCCION - ACTUALIZADO", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "3. CONSEJOS PARA MUJERES SEDUCCIÓN", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "SIGMA - IVANBARCA", "carpeta": "08-PACK SEDUCCION"},
-                {"titulo": "PERSUASIÓN EL PODER EXCEPCIONAL - MARÍA DEL CARMEN MADERO", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "PERSUASIÓN, EL ARTE DE INFLUIR EN LAS PERSONAS DAVE L...", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "PERSUASIÓN INFLUENCIA Y MANIPULACIÓN USANDO MÉTODOS CIENTÍFICAMENTE", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "PERSUASION COMO ANALIZAR A LAS PERSONAS E INFLUENCIARLAS CON METODOS", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "PERSUASIÓN - BRIAN O C. LEGGETT Y RICARDO VELILLA BARQUERO", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "MORTENSEN-PODER-DE-LA-PERSUASION COMPRESS", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "LA-PERSUASION-TECNICAS-DE-MANIPULACION-M", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "LA MAGIA DE LA PERSUASION - PAMELA JEAN ZETINA", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "MAESTRO DE LA PERSUASION - MATEO HOLM", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "ESTRATEGIAS DE VENTAS Y PERSUASION - ERIC DE LA PARRA", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "LA FUENTE DE LA PERSUASIÓN", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "EL ARTE DE LA PERSUASION COMO SER MAS PERSUASIVO Y CONVINCENTE PARA", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "EL LIBRO NEGRO DE LA PERSUASION - ALEJANDRO LLANTADA", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "EL CAMINO DEL LOBO JORDAN BELFORT", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "COMO DOMINAR EL ARTE DE LA PERSUASION - KEVIN HOGAN", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "DARK PSYCHOLOGY 7 IN 1 THE ART OF PERSUASION, HOW", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "COMUNICACION PERSUASIVA 3 LIBROS EN 1 PERSUASION MANIPULACIO", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "CÓMO DOMINAR LAS TÉCNICAS DE HIPNOSIS CONVERSACIONAL, PERSUASIÓN", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "CARLOS DE LA ROSA VIDAL - PERSUASIÓN HIPNÓTICA. 10 SECRETOS PARA UNA CONFERENCIA DE ALTO IMPACTO", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "ANATOMIA DE LA PERSUASION - ANTONIO SALCEDO", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "55 TÁCTICAS DE PERSUASIÓN PARA INFLUIR SOBRE TUS LECTORES Y CLIENTES", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "27 TECNICAS DE PERSUASION CHRIS ST HILAIRE", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "50-PATRONES-PERSUASION-NAXOS", "carpeta": "02-PACK PERSUASION"},
-                {"titulo": "PNL=EL VUELO DEL AVE FÉNIX=PRÁCTICAS DE NEUROLINGUISTICA E HIPNOSIS ERICKSORIANA=FDERICO PÉREZ=AVG", "carpeta": "07-PNL"},
-                {"titulo": "TECNICAPNL CÓMO GENERAR NUEVOS", "carpeta": "07-PNL"},
-                {"titulo": "TECNICA PNL PARA AMARSE MAS A SI MISMO", "carpeta": "07-PNL"},
-                {"titulo": "PNL GESTIÓN EQUIPOS", "carpeta": "07-PNL"},
-                {"titulo": "MANUAL-DE-TECNICAS-Y-ESTRATEGIAS-DE-PNL", "carpeta": "07-PNL"},
-                {"titulo": "PETER WRYCZA - DARSE CUENTA GUÌA PNL", "carpeta": "07-PNL"},
-                {"titulo": "LA MAGIA DE LA PNL AL DESCUBIERTO - BYRON LEWIS", "carpeta": "07-PNL"},
-                {"titulo": "MANUAL DE TECNICAS DE PNL", "carpeta": "07-PNL"},
-                {"titulo": "INTRODUCCION A LA PNL", "carpeta": "07-PNL"},
-                {"titulo": "INTELIGENCIA EMOCIONAL CON PNL", "carpeta": "07-PNL"},
-                {"titulo": "EL PODER DE LA PALABRA PNL DE ROBERT DILTS", "carpeta": "07-PNL"},
-                {"titulo": "CREE MÁS EN TI CON PNL PROGRAMACIÓN NEURO-LINGÜÍSTICA", "carpeta": "07-PNL"},
-                {"titulo": "EL PODER DE LAS PALABRAS PNL", "carpeta": "07-PNL"},
-                {"titulo": "COMO-CAMBIAR-CREENCIAS-CON-LA-PNL", "carpeta": "07-PNL"},
-                {"titulo": "39 TECNICAS DE PNL - STEVE ALLEN1", "carpeta": "07-PNL"},
-                {"titulo": "23. MANUAL PARA DETECTAR MENTIRAS - WILLIAM J", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "22. LENGUAJE NO VERBAL - MARK B", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "21. ESTAS MINTIENDO - SECRETO MILITAR", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "20. DOMINAR LA COMUNICACION NO VERBAL", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "18. TODOS MIENTEN", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "19. EL LENGUAJE CORPORAL NO MIENTE", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "17. CÓMO DESCUBRIR UN MENTIROSO - LEONARD F", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "16. EL ARTE DE LEER A LAS PERSONAS - JULIETA C", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "15. CÓMO ANALIZAR A LAS PERSONAS - RJ ANDERSON", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "13. CÓMO ANALIZAR A LA GENTE - CARLOS LOPEZ", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "12. CÓMO ANALIZAR A LAS PERSONAS - HAYDEN J", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "11. CÓMO CONOCER A LAS PERSONAS POR SU LENGUAJE CORPORAL", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "8. 100 TIPS DE LENGUAJE CORPORAL - JOSÉ MARÍA BONNEMAISON", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "10. CÓMO SER UN DETECTORDE MENTIRAS - ALEX FISHCHER", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "9. ÁLAVA REYES - LA VERDAD DE LA MENTIRA", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "7. CÓMO DETECTAR MENTIRAS EN LOS NIÑOS - PAUL ELKMAN", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "6. CÓMO ANALIZAR A LAS PERSONAS - RJ ANDERSON", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "5. EL LENGUAJE DEL CUERPO - ALAN Y BARBARA PEACE", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "2. CÓMO DETECTAR MENTIRAS - PAUL ELKMAN", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "4. LA CIENCIA DEL LENGUAJE CORPRAL - CAMILA DÍAZ", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "3. CÓMO DETECTAR MENTIRAS - STEVE ALLEN", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "1. COMO DETECTAR MENTIRAS - JUAN DAVID", "carpeta": "04-PACK COMO DETECTAR MENTIRAS"},
-                {"titulo": "209.VENDELE A LA MENTE Y NO A LA GENTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "208. TRUCOS PSICOLOGIA OSCURA - STEVEN TORRENT", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "210.YO TE MANIPULO, TU QUE HACES. - WALTER DRESEL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "207.TRUCOS PARA LEER LA MENTE DE LOS DEMÁS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "205. TRIADA OSCURA Y TEORIA DE LA MENTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "204.TODO SOBRE LA IMAGEN DEL ÉXITO - GABY VARGAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "203.TECNICAS PROHIBIDAS DE MANIPULACION MENTAL PERSUASION 3 LIBROS P", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "202.TECNICAS SECRETAS DE MANIPULACION - ROBERT CLEAR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "201.TECNICAS PROHIBIDAS DE PERSUASIÓN - STEVE ALLER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "200.TACTICAS DE CONVERSACION", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "199.SUPER CEREBRO - DEEPAK CHOPRA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "198.SEX CRACK. MARIO LUNA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "197. SEX CODE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "195.SEDUCCION ELITE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "196.SEDUCCIÓN+SIN+LÍMITES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "194.SECTAS Y MANIPULACION MENTAL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "193.SECRETOS DE LA PSICOLOGÍA OSCURA APRENDA LAS TÉCNICAS DE PERSUA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "192.SECRETOS DEL COMPORTAMIENTO HUMANO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "190.SECRETOS DE LA PSICOLOGIA OSCURA - 4 EN 1", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "191.SECRETOS DE LA PSICOLOGÍA OSCURA - ALEX FISCHER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "189.SECRETOS DE EXPERTOS MANIPULACIÓN - TERRY LINDBERG", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "188.ROMPE LA BARRERA DEL NO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "187.ROJAS ESTAPE MARIAN - COMO HACER QUE TE PASEN COSAS BUENAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "186.RHYS BAKER - PSICOLOGÍA OSCURA Y MANIPULACIÓN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "185.RESETEA TU MENTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "184.PSICOPLOGIA OSCURA - R.J. ANDERSON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "183.PSICOLOGIA OSCURA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "182.PSICOLOGÍA OSCURA Y MANIPULACIÓN ENTENDIENDO EL ACTO DE LA MANI", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "181.PSICOLOGIA OSCURA Y MANIPULACION 2", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "180.PSICOLOGÍA OSCURA Y MANIPULACIÓN - LEÓN MILLER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "179.PSICOLOGIA OSCURA SECRETOS DE CONTROL MENTAL Y LA MANIPULACIÓN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "178.PSICOLOGÍA OSCURA MANIPULACIÓN Y PERSUASIÓN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "177. PSICOLOGIA OSCURA MANIPULACION EMOCIONAL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "175. PSICOLOGÍA OSCURA CÓMO RECONOCER Y CONTROLAR LA MANIPULACIÓN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "176.PSICOLOGIA OSCURA E INTELIGENCIA EMOCIONAL - JOSE VILLA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "174. PSICOLOGIA OSCURA AL EXTREMO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "171. PSICOLOGÍA OSCURA - STEVEN TURNER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "172.PSICOLOGÍA OSCURA - TERRY LINDBERG", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "173.PSICOLOGIA OSCURA - VICTOR SYKES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "170.PSICOLOGÍA OSCURA - PIETRO MORETTI", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "169.PSICOLOGIA OSCURA - PIETRO MORETTI", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "168.PSICOLOGÍA OSCURA - MARCOS ROMERO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "167. PSICOLOGIA OSCURA - JOSE VILLA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "166. PSICOLOGÍA OSCURA - JAMES WILLIAMS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "164.PSICOLOGÍA OSCURA ... BY S.L. MOORE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "165. PSICOLOGÍA OSCURA - DARELL WISE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "162.PSICOLOGIA DE LAS MASAS Y ANALISIS DEL YO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "163.PSICOLOGIA DE MASAS DEL FASCISMO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "161.PSICOLOGIA DE LAS MASAS - GUSTAVO LE BON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "160.PRE-SUASION UN METODO REVOLUCIONARIO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "159.PODER MENTE SUBCONSCIENTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "158.PNL TENICAS PROHIBIDAS DE PERSUASIÓN - STEVE ALLEN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "156.PNL LA TECNICA DEL EXITO - MERLINA DE DOBRINSKY", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "157.PNL PARA PRINCIPIANTES CLAVES PARA PERSUADIR, INFLUIR - ZAID ASHER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "155.PNL - JAVIER PALACIOS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "154.PERSUASION E INFLUENCIA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "153.PERSUACION", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "151.PERSUACION E INFLUIENCIA CON PATRONES DE LENGUAJE - STEVE ALLEN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "152.PERSUACIÓN SIN LIMITES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "150.PARA INSULTAR CON PROPIEDAD", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "149.PALABRAS QUE VENDEN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "148.NO TE DEJES MANIPULAR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "147.NLP PSICOLOGIA OSCURA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "146.NCUENTRO CON LA SOMBRA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "145.MENTE AYUDAME A DECIDIR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "143.MEJORA LA MEMORIA - CAROLINA RAMOS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "144.MENTALIDAD DE TIBURON LAS 13 LEYES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "142.MAQUIAVLEO EN 90 MINUTOS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "141. MANUAL-DE-CONTROL-MENTAL-CONCEPTOS-VITALES-SOBRE-CONTROL-MENTAL-SECTAS-Y-PSICOPATAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "140.MANUAL DE TECNICAS DE PNL ARMAS LAURA ELENA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "139.MANIPULADORES COTIDIANOS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "137.MANIPULACION Y PSICOLOGIA OSCURA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "136. MANIPULACIÓN Y PSICOLOGÍA OSCURA GUÍA ESENCIAL SOBRE MANIPULACIÓ", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "135. MANIPULACIÓN Y PSICOLOGÍA OSCURA - DRA. M. COSTANZA CALVIO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "134. MANIPULACIÓN Y PSICOLOGÍA OSCURA - CARLOS LÓPEZ", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "133. MANIPULACION Y PSICOLOGIA OSCURA - ALFREDO VELASQUEZ", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "132. MANIPULACION SECRETOS DE LA PSICOLOGIA OSCURA - JOSEPH GOEBBELS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "131. MANIPULACIÓN PSICOLÓGICA Y LENGUAJE CORPORAL - CRAIG CROWE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "130. MANIPULACION PSICOLOGICA - CRAIG CROWE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "129. MANIPULACION MENTAL PARA PRINCIPIANTES - CHARLIE WOOD", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "128. MANIPULACION MENTAL - VICTOR SYKES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "127. MANIPULACIÓN - RJ ANDERSON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "126. MANIPULACIÓN - FABIÁN GOLEMAN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "125. MANIPULACIÓN - BRAD WOOD", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "124. MANIPULACIÓN - BEATRICE SHORTS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "123. MANIPU~2", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "121. LOS SECRETOS DE LA PSICOLOGIA - DANIEL COLEMAN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "122. LOS-12-PASOS-DEL-PERDON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "120. LOS OSCUROS LUGARES DEL SABER - PETER KINGSLEY", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "119. LOBOS PSICOLOGIA OSCURA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "118.LIBRO-NEGRO-DE-LA-MANIPULACION-POLITICA-PUBLICITARIA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "117. LEE A LAS PERSONAS COMO UN LIBRO - PATRICK KING", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "116. LAS ZONAS OSCURAS DE TU MENTE - RAMIRO A. CALLE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "115. LA-TRAMPA-DE-LOS-MANIPULADORES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "113. LA VOLUNTAD DE PODER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "114. LA-MANIPULACION-INVISIBLE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "112. LA VIDA SECRETA DE LA MENTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "111.LA SEDUCCION DE LAS PALABRAS - ALEX GRIJELMO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "110. LA SABIDURIA DE LOS PSICOPATAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "109. LA MENTE DEL LIDER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "108. LA MANIPULACION DE LAS MENTES ROBIN COOK", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "107. LA MANIPULACIÓN DE LAS MENTES - ROBIN COOK", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "106. LA MAGIA DE LA PERSUACIÓN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "105. LA MAGIA DE LA INFLUENCIA, CORWIN HARGROVE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "104.LA LEY DE LA ATRACCION EN EL MUNDO DEL PENSAMIENTO WILLIAM WALKER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "103.LA LEY DE LA ATRACCION - CAMILO CRUZ", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "102.LA LEY 50 - ROBERT GREENE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "101.LA LEY 50 - GREENE, ROBERT CENT,", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "100.LA CIENCIA DESCONOCIDA DE LA PSICOLOGIA OSCURA - KYLE MURPHY", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "99.INTELIGENCIA EMOCIONAL - TERRY LINDBERG", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "98.INGENIERIA DE UNA NEGOCIACION", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "97. INFLUIR SILENCIOSAMENTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "95. INFLUENCIA CIENCIA Y PRACTICA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "96.INFLUENCIA Y PERSUASION", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "94. GUÍA DEFINITIVA DE LA PSICOLOGÍA OSCURA APRENDE A ANALIZAR A LA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "92. GREENE ,ROBERT - LAS LEYES DE LA NATURALEZA HUMANA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "93. GUERRA PSICOLOGICA - NEIL MORTON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "92.GUIA PRACTICA PARA NO DEJARSE MANIPULAR Y SER ASERTIVO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "91. GOLEMAN FABIAN - MANIPULACION C", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "90.GANA LA GUERRA EN TU MENTE - CRAIG GROESCHEL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "89.EXPERTO EN PNL 24 TÉCNICAS DE PNL AVANZADA QUE TRANSFORMARÁN TU", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "88.ENGAÑO - NEIL MORTON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "87.EMPATIA POR EL DIABLO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "86. EL SUTIL ARTE QUE TODO TE IMPORTE UNA MIERDA - MARK MANSON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "85. EL PRINCIPE - NICOLAS MAQUIAVELO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "84. EL PODER DE ORGANIZAR LAS EMOCIONES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "82. EL PODER DE LAS PALABRAS - MARIANO SIGMAN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "81. EL PODER DE LA PERSUASION - KURT MORTENSEN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "80.EL PODER DE LA MENTE SIN LIMITE- DAVID REIG", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "79. EL PODER DE LA CONCIENCIA - NEVILLE GODDARD", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "72.EL LAVADO DE CEREBRO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "78.EL PODER CURATIVO DE LA MENTE- TULKU THONDUP", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "77. EL LIBRO QUE TU CEREBRO NO QUIERE LEER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "76.EL LIBRO PROHIBIDO - GRANDES MENTIRAS DE LA HUMANIDAD", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "75.EL LIBRO NEGRO DE LA PERSUASIÓN - ALEJANDRO LLANTADA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "74.EL LIBRO NEGRO DE LA PERSUASION - ALEJANDRO LLANTADA TOSCANO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "73.EL LIBRO NEGRO DE LA MANIPULACION - ISMAEL LINARES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "71.EL ARTE Y LA CIENCIA DE OBTENER LO QUE DESEAS - DR. HARRY ALDER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "70.EL ARTE DE TENER LA RAZON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "69. EL ARTE DE NEGOCIAR Y PERSUADIR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "67.EL ARTE DE MANIPULACIÓN Y PSICOLOGÍA OSCURA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "66.EL ARTE DE LIGAR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "64. EL ARTE DE INFLUIR EN LOS DEMAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "65.EL ARTE DE LA MANIPULACION", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "63.EFECTO LUZ DE GAS DETECTAR Y SOBREVIVIR A LA MANIPULACION INVISIBLE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "62.DOMINANDO LA MENTE HUMANA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "60.DE MENTES Y DEMENTES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "61. DE QUE PUTAS MADRES ESTAS HABLANDO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "59. DE LA MANIPULACION EFECTIVA AL CHANTRAJE EMOCIONAL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "58. DARK PSYCHOLOGY NLP - RJ ANDERSON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "56. DARK PSYCHOLOGY - WILLIAM COOPER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "57. DARK PSYCHOLOGY 101 - MICHAEL PACE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "55. DARK PSYCHOLOGY - RJ ANDERSON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "54. DARK PSYCHOLOGY - ABRAHAM LEE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "52.. CONVENCER Y PERSUADIR !ES FÁCIL! - MARCOS ÁLVAREZ", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "51.CONVENCE Y VENCERÁS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "50. CONVENCE SIN ABRIR LA BOCA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "46. COMUNICACIÓN EFECTIVA QUE CAMBIA EL PENSAMIENTO COMUNICACIÓN HUMORÍSTICA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "49. CONOCETE A TI MISMO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "47. COMUNICATE, CAUTIVA Y CONVENCE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "48.CONOCER PERSONAS POR SU LENGUAJE CORPORAL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "53. CREE MÁS EN TÍ", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "54. DARK PSYCHOLOGY - ABRAHAM LEE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "45. COMO TRATAR CON PERSONAS DIFICILES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "52.. CONVENCER Y PERSUADIR !ES FÁCIL! - MARCOS ÁLVAREZ", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "51.CONVENCE Y VENCERÁS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "50. CONVENCE SIN ABRIR LA BOCA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "46. COMUNICACIÓN EFECTIVA QUE CAMBIA EL PENSAMIENTO COMUNICACIÓN HUMORÍSTICA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "49. CONOCETE A TI MISMO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "48.CONOCER PERSONAS POR SU LENGUAJE CORPORAL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "47. COMUNICATE, CAUTIVA Y CONVENCE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "45. COMO TRATAR CON PERSONAS DIFICILES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "43. COMO MANIPULAR A CUALQUIER PERSONA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "44. COMO OBTENER SIEMPRE LO QUE QUIERES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "42. COMO LEER A LAS PERSONAS COMO A UN LIBRO - GABRIEL MORENO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "41.COMO INFLUIR SOBRE LAS PERSONAS - CAMILO TOVAR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "40. COMO HACERSE INOLVIDABLE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "39.COMO HABLAR BIEN EN PUBLICO - DALE CARNEGIE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "37. CÓMO GANAR AMIGOS E INFLUIR SOBRE LAS PERSONAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "38.CÓMO GANAR AMIGOS E INFLUIR SOBRE LAS…", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "36. COMO DETECTAR A UN HOMBRE PELIGROSO - SANDRA L BROWN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "35. COMO APLICAR LA LEY DE LA ATRACCIÓN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "34. COMO ANALIZAR PERSONAS - RJ ANDERSON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "33.COMO ANALIZAR A LAS PERSONAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "32.CÓMO ANALIZAR A LAS PERSONAS-WILLIAM GOLEMAN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "31. COMO ANALIZAR A LAS PERSONAS CON PSICOLOGIA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "30. CÓMO ANALIZAR A LAS PERSONAS APRENDE A MANEJAR TUS RELACIONES,", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "29. CÓMO ANALIZAR A LAS PERSONAS - TERRY LINDBERG", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "27. COMO ANALIZAR A LAS PERSONAS - MARVIN NAVARRO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "28. COMO ANALIZAR A LAS PERSONAS - ROBERT LEARY", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "26. COMO ANALIZAR A LAS PERSONAS - LIAM ROBINSON", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "24. CHANTAJE EMOCIONAL - SUSAN FORWARD", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "25. COMO ADQUIRIR PRESTIGIO E INFLUENCIA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "23. CAMPBELL, RICHARD - SECRETOS DE PSICOLOGÍA OSCURA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "22. BURLAR AL DIABLO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "20. ASERTIVIDAD Y PNL 2 LIBROS EN 1 LA COMBINACIÓN PERFECTA PARA DOMINAR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "21. AUTODISCIPLINA AUTOMATICA - EL PODER DE LA MENTE SUBCONCIENTE - RUSSELL C. JAMES", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "19. ARTE DE ESCUCHAR", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "18.APRENDIENDO DE LOS PSICOPATAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "17. APRENDA DE LA MAFIA - LOUIS FERRANTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "16. APOCALIPSEX. LOS DIEZ MANDAMIENTOS. MARIO LUNA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "15. AMAR SIN PALABRAS. INTERPRETA LOS GESTOS DE LA SEDUCCIÓN", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "14. 101 FRASES COPIA Y PEGA PARA LIGAR FÁCILMENTE", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "13. 100 HÁBITOS DE PENSAMIENTO QUE NO SON LAVADOS DE CEREBRO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "12. TECNICAS CONTROL MENTAL SECTAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "10. COMO SER UN CONVERSADOR DIVERTIDO", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "11. JUDO CON PALABRAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "09. 54 TRIADA OSCURA DETECCION TRAMPOSOS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "08. 50 EJERCICIOS CONVENCER A CUALQUIERA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "07. 48 PSICOLOGIA OSCURA", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "06. 48 LEYES DEL PODER", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "05. 48 LEYES DEL PODER V2", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "04.CÓMO ANALIZAR A LAS PERSONAS - HAYDEN J", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "02. NEGOCIACIONES Y MANIPULACION", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "03. 30 TACTICAS MANIPULACION EMOCIONAL ENCUBIERTAS", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "01. 5 PASOS PARA COMPRENDER LA MANIPULACIÓN PROFESIONAL", "carpeta": "01- LIBROS DE PSICOLOGIA OSCURA"},
-                {"titulo": "EL LIBRO NEGRO DEL PSICOANÁLISIS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "ESTADO CREPUSCULAR - JAVIER NEGRETE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EVITE SER UTILIZADO - DR. WAYNE W. DYER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "ZIMBARDO-PHILIP-EL-EFECTO-LUCIFER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "27 TÉCNICAS DE PERSUASIÓN ESTRATEGIAS PARA CONVENCER Y GANAR ALIADOS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CHARLES MANSON – PSICOLOGÍA OSCURA Y MANIPULACIÓN CÓMO LOS ASESINOS SERIALES USAN TÉCNICAS Y ARTIMAÑAS PARA ANALIZAR, CONTROLAR Y PERSUADIR A LAS PERSONAS. EVITAR EL ENGAÑO Y EL CONTROL MENTAL, PNL - DOMINIC W. ACKERMAN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CÓMO ANALIZAR A LAS PERSONAS CON PSICOLOGÍA OSCURA APRENDA A LEER EL LENGUAJE CORPORAL, A DESCIFRAR LAS INTENCIONES Y LOS TIPOS DE PERSONALIDAD HUMANA - SANTIAGO GONZÁLEZ", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CMOLEE~1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "COMUNICACIÓN NO VERBAL - CATALINA PONS FREIXAS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "COMUNICACIÓN PERSUASIVA - 3 LIBROS EN 1 - HAYDEN J. POWER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CURSO DE PNL DESDE CERO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ABC DEL PSICÓPATA, SOCIÓPATA Y NARCISISTA - FABIAN MORALES", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LENGUAJE CORPORAL EN 40 DÍAS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MAESTRO DE LA PERSUASIÓN - MATEO HOLM", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN MENTAL 3 EN 1 - JHON BOARD", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANUAL DE CONTROL MENTAL CONCEPTOS VITALES SOBRE CONTROL MENTAL, SECTAS Y PSICÓPATAS - DR. DAVID MC DERMOTT", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANUAL DE TÉCNICAS Y ESTRATEGIAS DE PNL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PNL PSICOLOGÍA OSCURA APRENDA LOS SECRETOS DE LA PERSUACIÓN, MANIPULACIÓN, DECEPCIÓN, CONTROL EMOCIONAL Y MÁS - TIMOTHY WILLINK", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PERSUASIÓN LO QUE NECESITA SABER SOBRE INFLUENCIA, MANIPULACIÓN, PSICOLOGÍA OSCURA, INTELIGENCIA EMOCIONAL, COMPORTAMIENTO HUMANO, ENGAÑO, NEGOCIACIÓN, PNL, CONTROL MENTAL Y APTITUDES SOCIALES - MARK DUDLEY", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PNL AVANZADO REPROGRAMACIÓN MENTAL PARA ELIMINAR TUS CREENCIAS LIMITANTES - ZAID ASHER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PNL TÉCNICAS OSCURAS DE PERSUASIÓN - ROBERT D. GOLEMAN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PNL TC~1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA - LUIS VEGA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA E INTELIGENCIA EMOCIONAL - JOSÉ VILLA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA CÓMO APRENDER A LEER RÁPIDAMENTE A LAS PERSONAS, DETECTAR LA MANIPULACIÓN EMOCIONAL ENCUBIERTA, DETECTAR EL ENGAÑO Y DEFENDERSE - SANTIAGO GONZÁLEZ", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA LA GUÍA DEFINITIVA SOBRE CÓMO USAR LAS TÉCNICAS DE MANIPULACIÓN A TU FAVOR PARA INFLUIR EN OTROS. PERSUASIÓN. IDENTIFICAR PERSONALIDADES - LOGAN D. STONE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SECRETOS DE LA MANIPULACIÓN ENCUBIERTA - LO QUE NECESITAS SABER PARA EJERCER MÁS INFLUENCIA Y AFIRMAR TUS NECESIDADES A TRAVÉS DE TÉCNICAS DE PSICOLOGÍA PSCURA PARA INFLUENCIAR A OTROS - LEO BLACK", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SECRETOS DE LA PSICOLOGÍA OSCURA CÓMO DOMINAR LA PERSUASIÓN, EL CONTROL MENTAL Y LA MANIPULACIÓN PARA PROTEGERTE DE ENGAÑOS COMÚNMENTE USADOS EN MENTES DÉBILES - ALEX FISCHER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SECRETOS DE PSICOLOGÍA OSCURA - DANIEL JAMES HOLLINS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SEÑUELOS SEDUCCIÓN Y PERSUASIÓN.", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "APRENDIENDO DE LOS PSICÓPATAS - CESAR LANDAETA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CÓMO ANALIZAR A LAS PERSONAS CON UNA MIRADA - 27 SEÑALES INCONFUNDIBLES QUE OTROS DAN SIN DARSE CUENTE Y LO QUE SIGNIFICAN - LEO BLACK", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PNL PARA PRINCIPIANTES CLAVES PARA PERSUADIR, INFLUIR Y ALCANZAR TU SUPERACIÓN PERSONAL - ZAID ASHER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MAESTR~3", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN EL SANTO GRIAL DE LA PSICOLOGÍA OSCURA - BRAD WOOD", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CÓMO ANALIZAR A LAS PERSONAS Y LA PSICOLOGÍA OSCURA GUÍA SECRETA DE LA PERSUASIÓN,LA GUERRA PSICOLÓGICA,EL CONTROL MENTAL, LA PNL,EL COMPORTAMIENTO HUMANO,LA MANIPULACIÓN Y LA INTELIGENCIA EMOCIONAL - ROBERT CLEAR", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SECRETOS DE EXPERTOS - PSICOLOGÍA OSCURA Y CÓMO ANALIZAR PERSONAS - TERRY LINDBERG", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA DE LAS MASAS Y ANÁLISIS DEL YO - SIGMUND FREUD", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "TÉCNICAS SECRETAS DE MANIPULACIÓN LAS 7 TÉCNICAS MÁS PODEROSAS PARA INFLUIR EN LA GENTE, PERSUASIÓN, CONTROL MENTAL, LECTURA DE PERSONAS, PNL. CÓMO ANALIZAR A LAS PERSONAS Y EL LENGUAJE CORPORAL - ROBERT CLEAR", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA PERSUASIÓN TÉCNICAS DE MANIPULACIÓN MUY EFECTIVAS PARA INFLUIR EN LAS PERSONAS Y QUE HAGAN VOLUNTARIAMENTE LO QUE USTED QUIERE UTILIZANDO LA PNL, EL CONTROL MENTAL Y LA PSICOLOGÍA OSCURA - STEVEN TURNER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SECRETOS DE PSICOLOGÍA OSCURA - RICHARD CAMPBELL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CÓMO ANALIZAR A LAS PERSONAS EVITA GENTE TÓXICA ANALIZANDO LOS PATRONES DE PERSONALIDAD Y CÓMO INFLUIR EN ELLAS CON TÉCNICAS DE CONTROL MENTAL, HIPNOSIS, PERSUASIÓN Y PNL AVANZADA - LOGAN D. STONE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PROGRAMAS MENTALES DE EMPODERAMIENTO PERSONAL - DR. EDMUNDO VELASCO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DE LA MANIPULACIÓN Y PSICOLOGÍA OSCURA - JAVIER PALACIOS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DE LA GUERRA CONTRA OJETES. OSVALDO FLORES", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CÓMO ANALIZAR A LAS PERSONAS 4 LIBROS EN 1 - HAYDEN J. POWER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "GUÍA DEFINITIVA PSICOLOGÍA OSCURA - BRAD WOOD", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA BIBLIA DE LA PSICOLOGÍA OSCURA LOS SECRETOS DE LA MANIPULACIÓN QUE NADIE TE QUIERE CONTAR - MARK A. PHILLIPS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA CIENCIA DE LA PSICOLOGÍA OSCURA - ZAID ASHER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN Y PSICOLOGÍA OSCURA - M. COSTANZA CALVIO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN - EDWARD BENEDICT", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN - GOLEMAN FABIAN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN PSICOLÓGICA APRENDE A MANIPULAR Y INFLUIR EN LOS COMPORTAMIENTOS HUMANOS - NUEVAS TÉCNICAS PARA LAVAR EL CEREBRO USANDO HIPNOSIS, PNL Y LECTURA DE LENGUAJE CORPORAL - CRAIG CROWE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN Y PSICOLOGÍA OSCURA - DANIEL LONG", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN Y PSICOLOGÍA OSCURA UNA GUÍA COMPLETA PARA APRENDER LAS TÉCNICAS SECRETAS PARA INFLUIR EN LAS PERSONAS CON PERSUASIÓN, ENGAÑO, CONTROL MENTAL Y LENGUAJE CORPORAL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN GUÍA PARA EL DOMINIO DE LA MANIPULACIÓN USANDO TÉCNICAS DE PNL, PERSUASIÓN Y CONTROL MENTAL - DANIEL PATTERSON", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN LOS SECRETOS POCO DIFUNDIDOS QUE LA GENTE CON RASGOS DE TRÍADA OSCURA CONOCE SOBRE LA PERSUASIÓN, LA PSICOLOGÍA HUMANA, EL ANÁLISIS DEL LENGUAJE CORPORAL Y EL CONTROL DE LA MENTE - NEIL MORTON", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PERSUASIÓN - PSICOLOGÍA OSCURA - TÉCNICAS SECRETAS PARA INFLUENCIAR EN LAS PERSONAS USANDO EL CONTROL MENTAL, LA MANIPULACIÓN Y EL ENGAÑO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA COMPENDIO 6 LIBROS - BENEDICT GOLEMAN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PS170D~1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA APRENDE TÉCNICAS DE CONTROL MENTAL Y CÓMO ANALIZAR A LAS PERSONAS PARA INFLUIR EN EL COMPORTAMIENTO HUMANO CON MANIPULACIÓN ENCUBIERTA, LENGUAJE CORPORAL, PNL Y PERSUASIÓN SUBLIMINAL - GABRIEL MORENO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA LA GUÍA DEFINITIVA DE LA PSICOLOGÍA OSCURA, UN NUEVO ENFOQUE DE LA PERSUASIÓN Y LA MANIPULACIÓN - DARELL WISE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGIA OSCURA APRENDA COMO INFLUIR EN LAS PERSONAS MEDIANTE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SECRETOS DE LA PSICOLOGÍA OSCURA - BRIAN COVERT MCBRIDE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "TÉCNICAS DE MANIPULACIÓN SECRETAS IDENTIFICA LAS TÉCNICAS DE CONTROL MENTAL Y EVITA SER MANIPULADO. EL SECRETO DE LA PERSUASIÓN, LENGUAJE CORPORAL Y PNL - LOGAN D. STONE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA MAQUIAVÉLICA TEORÍA Y TÉCNICAS DE PSICOLOGÍA OSCURA, MANIPULACIÓN E INFLUENCIA - GIOVANNI BARONE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA LA GUÍA DEFINITIVA PARA APRENDER A ANALIZAR - ABRAHAM LEE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL CAMINO DEL ESTOICO - OLLIE SNIDER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EMMA ANABEL HERNANDEZ", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL DOMINIO MENTAL - PEDRO BAÑOS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA MAGIA DE LA PERSUASION PAMELA JEAN ZETINA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA MANIPULACION DEL LENGUAJE NICOLAS SARTORIUS 1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGIA OSCURA PIETRO MORETTI 1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA Y MANIPULACIÓN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EMOTIONAL PATHWAY - COMO ANALIZAR A LAS PERSONAS CON PSICOLOGIA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MAESTRO DE LA PERSUASION - MATEO HOLM", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LAS 33 ESTRATEGIAS DE LA GUERRA - ROBERT GREENE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA MENTE DEL LÍDER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "TZU, SUN - EL ARTE DE LA GUERRA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL PEQUENO LIBRO DE LA INFLUENCIA Y LA PERSUASION JAVIER LUXOR", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MASTER DE LA SEDUCCION", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "RAGNAROK. EL CAMINO DE UN HOMBRE - HOMBRES PELIGROSOS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DE LA GUERRA - SUN TZU", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL LADO OSCURO DEL HOMBRE - MICHAEL P. GHIGLIERI", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LAS 48 LEYES DEL PODER - ROBERT GREENE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "TECNICAS PROHIBIDAS DE MANIPULACION-MENTAL-PERSUASION-3-LIBROS-PSICOLOGIA-OS-PR D377380407B074B710B731419C3ADED6", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "-PNL-TÉCNICAS-PROHIBIDAS-DE-PERSUASIÓN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL-DUELO-DE-FAUSTO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACION Y SECRETOS DE LA PSICOLOGIA OSCURA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGIA-OSCURAAPRENDA-USOS-INFLUENCIA-EMOCIONAL-OTRAS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA SABIDURIA DE LOS PSICOPATAS - KEVIN DUTTON-1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CONTROLARE-TUS-SUENOS---JOHN-VERDON", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "DIOS COMO OBJETO. SÍMBOLOS-CUERPOS-MATERIAS-PALABRAS. BARCELONA. GEDISA.", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CÓMO ANALIZAR A LAS PERSONAS APRENDE A MANEJAR TUS RELACIONES, DETECTA EL LENGUAJE CORPORAL E INFLUYE EN CUALQUIER PERSONA A TRAVÉS DEL ARTE DE LA MANIPULACIÓN, PERSUASIÓN Y PNL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGIA OSCURAS L MOORE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DEL ENGANO - DANIEL TUBAU", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACION FABIAN GOLEMAN PR B745738DD35F46E138F0B47434B171B1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "COMO ANALIZAR A LAS PERSONAS-PSICOLOGIA-OSCURA-TECNICAS-SECRETAS-PARA-ANALIZA-", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "DEJA-EN-PAZ-AL-DIABLO---JOHN-VERDON", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACION Y PSICOLOGIA OSCURA ALEJANDRO MENDOZA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DE LA MANIPULACIÓN POLÍTICA.-VOTACIONES-Y-TEORÍA-DE-JUEGOS-EN-LA-POLÍTICA-ESPAÑOLA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SE-LO-QUE-ESTAS-PENSANDO---JOHN-VERDON", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL LIBRO NEGRO DE LA MANIPULACION - ISMAEL LINARES", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "BUSHIDO - INAZ NITOBE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÍA OSCURA DOMINA LOS SECRETOS...", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PERSUASIÓN LA CLAVE DEL ÉXITO PARA LA COMUNICACIÓN EN LOS NEGOCIOS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "YO TE MANIPULO Y TU QUÉ HACES - WALTER DRESEL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SE LO QUE PIENSAS - SECRETOS PARA LEER LA MENTE - THORTEN HAVENER", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "HIPNOSIS PARA PRINCIPIANTES - WILLIAM W. HEWITT", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL LIBRO NEGRO DE LOS ILUMINATI - ROBERT GOODMAN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGÃ A OSCURA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "PSICOLOGIA OSCURA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MILUCHA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL PSICOANALISTA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "HACKING DESDE CERO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LEER EL ROSTRO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "CAMPBELL, RICHARD - SECRETOS DE PSICOLOGÍA OSCURA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "RHYS BAKER - PSICOLOGÍA OSCURA Y MANIPULACIÓN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN ENCUBIERTO APRENDE TÉCNICAS DE PERSUASIÓN Y MANIPULACIÓN QUE TÚ NECESITAS PARA INFLUENCIAR A LAS PERSONAS MEDIANTE INTELIGENCIA EMOCIONAL, PSICOLOGÍA OSCURA Y PNL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MANIPULACIÓN EL SANTO GRIAL DE LA PSICOLOGÍA OSCURA - APRENDER A INFLUIR EN LAS PERSONAS GRACIAS AL CONTROL MENTAL Y EMOCIONAL, HIPNOSIS SUPERFICIAL Y TÉCNICAS DE PNL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "GARCIA SERRANO JAIME - SEA USTED UNA COMPUTADORA HUMANA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "ACTIVADORES DEL EXITO CON PNL-1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL LIBRO NEGRO DE LA PERSUASIÓN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "COMO CONOCER A LAS PERSONAS POR SU LENGUAJE CORPORAL L. FERRARI", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "SATAN, UNA AUTOBIOGRAFIA- YEHUDA BERG", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA FASE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "VIAJES-ASTRALES-Y-SUENOS-LUCIDOS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "COMPORTAMIENTO HUMANO, LENGUAJE CORPORAL, PSICOLOGÍA DE LA PERSONALIDAD", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "DICCIONARIO-DE-PSICOANALISIS-LAPLANCHE-Y-PONTALIS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LOS-HORNOS-DE-HITLER---OLGA-LENGYEL", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL CLUB DE LA LUCHA---CHUCK-PALAHNIUK", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "TRAINSPOTTING - IRVINE WELSH", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LACHICADELTREN", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA-MENTE-CRIMINAL---VICENTE-GARRIDO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "LA GUERRA DE LOS MUNDOS - H. G. WELLS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL SILENCIO HABLA - ECKHART TOLLE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "ABRIR EL TERCER OJO", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "MARQUEZ NICOLAS - LA MAQUINA DE MATAR", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DE LEER A LAS PERSONAS – LENGUAJE CORPORAL - JULIETA CONTRERAS", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL SECRETO - RHONDA BYRNE", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DE LA GUERRA NICOLÁS MAQUIAVELO-1", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL-LIBRO-DE-LAS-REVELACIONES---MARIO-MENDOZA", "carpeta": "PSICOLOGÍA OSCURA"},
-                {"titulo": "EL ARTE DE LA SEDUCCIÓN - ROBERT GREEN", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "PSICOLOGIA-OSCURA-STEVEN-TURNER", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "COMO SEDUCIR Y CONQUISTAR A UNA MUJER- ADRIENE ARCHARD", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "SEDUCCION PARA MUJERES - MARIA JOSE MONTOYA", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "BIO SEDUCCION ANIMAL", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "CONSEJOS DE SEDUCCION DE TIKTOK E INSTAGRAM - MARIA JOSE MONTOYA", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "MASTER DE LA PERSUASION - MARIA JOSE MONTOYA", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "BIBLIA DEL MACHO ALFA - SEAN WAYNE", "carpeta": "LIBROS DE SEDUCCIÓN"},
-                {"titulo": "02 PSICOLOGÍA OSCURA", "carpeta": "LIBROS DE MANIPULACIÓN"},
-                {"titulo": "PSICOLOGÍA OSCURA TRUCOS Y DEFENSAS CONTRA LA PERSUASIÓN -- SYKES, VICTOR", "carpeta": "LIBROS DE MANIPULACIÓN"},
-                {"titulo": "PSICOLOGÍA OSCURA - STEVEN TURNER", "carpeta": "LIBROS DE MANIPULACIÓN"},
-                {"titulo": "PSICOLOGÍA OSCURA & MANIPULACIÓN MENTAL 5 LIBROS EN 1 TÉCNICAONAL.", "carpeta": "LIBROS DE MANIPULACIÓN"},
-                {"titulo": "PSICOLOGÍA OSCURA TÉCNICAS PROHIBIDAS PARA DOMINAR MENTES - FHEREN FERRY", "carpeta": "LIBROS DE MANIPULACIÓN"},
-                {"titulo": "MANIPULACIÓN Y PSICOLOGÍA OSCURA CÓMO APRENDER Y DEFENDERSE -- CARLOS LOPEZ", "carpeta": "LIBROS DE MANIPULACIÓN"}
-            ];
-            
-            allBooks = books;
-            filteredBooks = books;
-            
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('booksGrid').style.display = 'grid';
-            renderBooks();
-        }
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">👁️</span>
+                Lenguaje Corporal y Comunicación No Verbal
+                <span class="book-count">60+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Allan Pease, Joe Navarro, Paul Ekman, Amy Cuddy<br><br>
+                Conviértete en un experto en leer a las personas. Incluye:<br><br>
+                — El Lenguaje del Cuerpo (Allan Pease)<br>
+                — Qué Dice el Cuerpo (Joe Navarro - ex FBI)<br>
+                — Cómo Detectar Mentiras<br>
+                — Por Qué los Hombres No Escuchan<br>
+                — Microexpresiones faciales<br>
+                — FACS (Facial Action Coding System)<br>
+                — Análisis de gestos<br>
+                — Proxémica y kinésica<br>
+                — Detección de engaños<br>
+                — Interrogatorios efectivos<br>
+                — Lectura corporal en negociaciones<br>
+                — Posturas de poder<br>
+                — Técnicas de profiling behavioral del FBI y CIA
+            </p>
+        </div>
 
-        function renderBooks() {
-            const grid = document.getElementById('booksGrid');
-            const currentCount = document.getElementById('currentCount');
-            const noResults = document.getElementById('noResults');
-            
-            if (filteredBooks.length === 0) {
-                grid.style.display = 'none';
-                noResults.style.display = 'block';
-                currentCount.textContent = '0';
-                return;
-            }
-            
-            grid.style.display = 'grid';
-            noResults.style.display = 'none';
-            currentCount.textContent = filteredBooks.length;
-            
-            grid.innerHTML = filteredBooks.map(book => `
-                <div class="book-card">
-                    <i class="fas fa-brain book-icon"></i>
-                    <h3 class="book-title">${book.titulo}</h3>
-                    <span class="book-category">${book.carpeta}</span>
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🎭</span>
+                Manipulación y Psicología Oscura
+                <span class="book-count">80+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Temas clave:</strong> Manipulación, Control Mental, Narcisismo, Psicopatía, Gaslighting<br><br>
+                El lado oscuro de la psicología humana al descubierto. Incluye:<br><br>
+                — Psicología Oscura<br>
+                — El Arte de la Manipulación<br>
+                — Técnicas de Control Mental<br>
+                — Manipulación Emocional<br>
+                — Narcisismo y trastornos de personalidad<br>
+                — Sociopatía y psicopatía corporativa<br>
+                — Gaslighting y abuso psicológico<br>
+                — Love bombing y hoovering<br>
+                — Triangulación<br>
+                — Técnicas de lavado de cerebro<br>
+                — Sectas y control mental<br>
+                — Defensa contra manipuladores<br>
+                — Identificación de personalidades tóxicas
+            </p>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">💬</span>
+                Comunicación y Relaciones Humanas
+                <span class="book-count">70+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Dale Carnegie, Marshall Rosenberg, Stephen Covey<br><br>
+                Maestría en el arte de conectar con las personas. Incluye:<br><br>
+                — Cómo Ganar Amigos e Influir sobre las Personas<br>
+                — Los 7 Hábitos de la Gente Altamente Efectiva<br>
+                — Comunicación No Violenta<br>
+                — Conversaciones Cruciales<br>
+                — Inteligencia Social<br>
+                — Habilidades de networking<br>
+                — Rapport building<br>
+                — Empatía estratégica<br>
+                — Escucha activa<br>
+                — Gestión de conflictos<br>
+                — Negociación en relaciones personales<br>
+                — Assertividad sin agresividad
+            </p>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">🗣️</span>
+                Oratoria y Hablar en Público
+                <span class="book-count">40+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Dale Carnegie, Chris Anderson, Carmine Gallo<br><br>
+                Domina el arte de hablar en público y capturar audiencias. Incluye:<br><br>
+                — Talk Like TED<br>
+                — El Poder de la Palabra<br>
+                — El Arte de Cautivar<br>
+                — Técnicas de storytelling persuasivo<br>
+                — Estructura de presentaciones poderosas<br>
+                — Manejo del miedo escénico<br>
+                — Uso de pausas dramáticas<br>
+                — Modulación vocal<br>
+                — Lenguaje corporal en el escenario<br>
+                — Retórica clásica (Aristóteles, Cicerón)<br>
+                — Discursos memorables de la historia<br>
+                — Técnicas de improvisación
+            </p>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">💼</span>
+                Negociación y Ventas
+                <span class="book-count">50+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores destacados:</strong> Chris Voss, Daniel Pink, Jeffrey Gitomer<br><br>
+                Las técnicas de negociación más avanzadas del mundo. Incluye:<br><br>
+                — Obtenga el Sí (Roger Fisher)<br>
+                — Rompe la Barrera del No (Chris Voss - ex FBI)<br>
+                — El Método SPIN<br>
+                — La Venta Desafiante<br>
+                — Influence: Science and Practice<br>
+                — Técnicas de cierre de ventas avanzadas<br>
+                — Manejo de objeciones<br>
+                — Psicología del comprador<br>
+                — Cold calling mastery<br>
+                — Negociación de rehenes aplicada a negocios<br>
+                — BATNA (Best Alternative To Negotiated Agreement)<br>
+                — Anclaje de precios y framing
+            </p>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">
+                <span class="category-icon">📚</span>
+                Clásicos de Estrategia y Poder
+                <span class="book-count">30+ libros</span>
+            </h2>
+            <p class="category-description">
+                <strong>Autores clásicos:</strong> Sun Tzu, Maquiavelo, Baltasar Gracián, Carl von Clausewitz<br><br>
+                Sabiduría milenaria sobre estrategia y poder político. Incluye:<br><br>
+                — El Arte de la Guerra (Sun Tzu)<br>
+                — El Príncipe (Maquiavelo)<br>
+                — Los 36 Estratagemas Chinos<br>
+                — El Libro de los Cinco Anillos (Miyamoto Musashi)<br>
+                — Oráculo Manual y Arte de Prudencia (Gracián)<br>
+                — De la Guerra (Clausewitz)<br>
+                — La República (Platón)<br>
+                — Estrategias de guerra psicológica<br>
+                — Tácticas de divide y vencerás<br>
+                — Realpolitik y raison d'état<br>
+                — Filosofía política y estratégica de imperios
+            </p>
+        </div>
+
+        <div class="bestsellers" style="margin-top: 60px;">
+            <h2>🎯 ¿QUÉ DOMINARÁS?</h2>
+            <div class="bestseller-grid">
+                <div class="bestseller-item">
+                    <h3>👑 Dominio del Poder</h3>
+                    <p>Las 48 leyes que rigen todas las interacciones de poder</p>
                 </div>
-            `).join('');
-        }
+                <div class="bestseller-item">
+                    <h3>🧠 Persuasión Masiva</h3>
+                    <p>Los 6 principios de Cialdini y técnicas avanzadas</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>💋 Seducción Natural</h3>
+                    <p>El método completo para atraer a quien quieras</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>🎯 PNL Avanzada</h3>
+                    <p>Reprograma mentes y cambia comportamientos</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>👁️ Lectura Corporal</h3>
+                    <p>Detecta mentiras y lee personas en 3 segundos</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>🎭 Defensa Psicológica</h3>
+                    <p>Protégete de manipuladores y narcisistas</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>💬 Comunicación Maestra</h3>
+                    <p>Conecta profundamente con cualquier persona</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>🗣️ Oratoria Hipnótica</h3>
+                    <p>Habla en público y cautiva audiencias</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>💼 Negociación FBI</h3>
+                    <p>Técnicas de negociación de rehenes</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>📚 Estrategia Milenaria</h3>
+                    <p>Sabiduría de Sun Tzu y Maquiavelo</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>🎪 Ingeniería Social</h3>
+                    <p>Manipula situaciones y controla narrativas</p>
+                </div>
+                <div class="bestseller-item">
+                    <h3>⚔️ Psicología de Guerra</h3>
+                    <p>Tácticas psicológicas de combate mental</p>
+                </div>
+            </div>
+        </div>
 
-        function searchBooks() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if (query === '') {
-                filteredBooks = allBooks;
-            } else {
-                filteredBooks = allBooks.filter(book => 
-                    book.titulo.toLowerCase().includes(query) ||
-                    book.carpeta.toLowerCase().includes(query)
-                );
-            }
-            
-            renderBooks();
-        }
 
-        document.getElementById('searchInput').addEventListener('input', searchBooks);
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchBooks();
-            }
-        });
+    <div style="background: linear-gradient(135deg, #1a0033 0%, #2d1545 100%); border-radius: 20px; padding: 30px; margin: 30px 20px; border: 3px solid #ff3366; text-align: center; box-shadow: 0 8px 30px rgba(255, 51, 102, 0.4);">
+        <h2 style="color: #ff3366; font-size: 2.2rem; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255, 51, 102, 0.5);">
+            🎁 BONO EXCLUSIVO INCLUIDO
+        </h2>
+        <div style="background: rgba(45, 21, 69, 0.6); padding: 30px; border-radius: 15px; border: 2px solid rgba(255, 51, 102, 0.3); max-width: 600px; margin: 0 auto;">
+            <h3 style="color: #ff3366; font-size: 1.8rem; margin-bottom: 15px;">🎧 300 AUDIOLIBROS</h3>
+            <p style="color: #cccccc; font-size: 1.2rem; line-height: 1.6;">
+                Escucha la biblioteca completa en formato audio. Perfectos para aprovechar cada momento del día: mientras manejas, haces ejercicio o te relajas.
+            </p>
+        </div>
+    </div>
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    </div>
 
-        loadBooks();
-    </script>
+    <div class="footer">
+        <p style="font-size: 1.3rem; font-weight: bold; color: #ff3366; margin-bottom: 15px;">
+            🧠 PACK 2: PSICOLOGÍA OSCURA & PERSUASIÓN 🎭
+        </p>
+        <p>
+            600 Libros Completos | 10 Categorías Maestras | Los Secretos de la Influencia Mental
+        </p>
+        <p style="margin-top: 10px; font-size: 0.95rem; color: #999;">
+            Incluye obras de Robert Greene, Robert Cialdini, Dale Carnegie, Allan Pease, Richard Bandler, 
+            Joe Navarro, Neil Strauss, Daniel Kahneman y decenas de expertos más.
+        </p>
+    </div>
 </body>
 </html>
