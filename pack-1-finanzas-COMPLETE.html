@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pack 1 - Finanzas | Biblioteca Digital Premium</title>
-    <meta name="description" content="Colección exclusiva de 260 libros de finanzas. Transforma tu relación con el dinero y construye tu imperio económico.">
-    
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+    <title>Pack Exclusivo #1 - FINANZAS & EMPRENDIMIENTO MASTER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,766 +12,1128 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #059669;
+            --secondary: #10b981;
+            --accent: #fbbf24;
+            --dark: #1a1a1a;
+            --light: #f9fafb;
+            --gradient-1: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            --gradient-2: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --gold: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            min-height: 100vh;
-            color: #333;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
+        /* Partículas animadas de fondo */
+        .particles {
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        .header-content {
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { 
+            width: 80px; height: 80px; 
+            background: radial-gradient(circle, rgba(5,150,105,0.3) 0%, transparent 70%);
+            top: 20%; left: 10%; 
+            animation-delay: 0s;
+        }
+        .particle:nth-child(2) { 
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%);
+            top: 60%; left: 80%;
+            animation-delay: 5s;
+        }
+        .particle:nth-child(3) { 
+            width: 100px; height: 100px;
+            background: radial-gradient(circle, rgba(251,191,36,0.25) 0%, transparent 70%);
+            top: 80%; left: 20%;
+            animation-delay: 10s;
+        }
+        .particle:nth-child(4) { 
+            width: 60px; height: 60px;
+            background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, transparent 70%);
+            top: 40%; left: 60%;
+            animation-delay: 15s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -50px) scale(1.1); }
+            50% { transform: translate(-80px, 80px) scale(0.9); }
+            75% { transform: translate(120px, 60px) scale(1.05); }
+        }
+
+        /* Iconos de dinero flotantes */
+        .money-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .money-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: floatMoney 15s infinite ease-in-out;
+        }
+
+        .money-icon:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; }
+        .money-icon:nth-child(2) { top: 45%; left: 90%; animation-delay: 3s; }
+        .money-icon:nth-child(3) { top: 75%; left: 10%; animation-delay: 6s; }
+        .money-icon:nth-child(4) { top: 30%; left: 85%; animation-delay: 9s; }
+        .money-icon:nth-child(5) { top: 60%; left: 15%; animation-delay: 12s; }
+
+        @keyframes floatMoney {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1e3c72;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-        }
-
-        .contact-btn {
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .hero {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 0;
+        /* Header Premium */
+        .header {
             text-align: center;
+            padding: 60px 20px;
+            background: var(--gradient-1);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(5,150,105,0.4);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(251,191,36,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .pack-badge {
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
             display: inline-block;
-            margin-bottom: 1rem;
+            background: var(--gold);
+            color: #1a1a1a;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(251,191,36,0.4);
+            position: relative;
+            z-index: 1;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .stats {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
         }
 
-        .stat {
+        .stat-item {
             text-align: center;
         }
 
         .stat-number {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: #1e3c72;
+            font-weight: 900;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
         }
 
         .stat-label {
-            color: #666;
             font-size: 0.9rem;
+            opacity: 0.9;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .search-section {
-            background: white;
-            padding: 2rem 0;
-            border-bottom: 1px solid #eee;
+        /* Sección de destacados */
+        .featured-section {
+            background: linear-gradient(135deg, rgba(5,150,105,0.1) 0%, rgba(16,185,129,0.1) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(5,150,105,0.3);
         }
 
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .featured-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #10b981;
         }
 
-        .search-box {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 1rem;
+        .featured-book {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid var(--accent);
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .search-input:focus {
+        .featured-book:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(251,191,36,0.3);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .featured-book h3 {
+            color: #fbbf24;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .featured-book .author {
+            color: #10b981;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .featured-book .description {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* Barra de búsqueda */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 18px 50px 18px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(5,150,105,0.3);
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        #searchInput:focus {
             outline: none;
-            border-color: #1e3c72;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(5,150,105,0.1);
+            background: rgba(255,255,255,0.08);
+        }
+
+        #searchInput::placeholder {
+            color: rgba(255,255,255,0.5);
         }
 
         .search-icon {
             position: absolute;
-            left: 1rem;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: #666;
+            color: var(--primary);
+            font-size: 1.2rem;
         }
 
-        .search-results {
-            text-align: center;
-            margin-top: 1rem;
-            color: #666;
+        /* Contenedor de lista de libros */
+        #booksList {
+            margin-top: 0;
+            padding-top: 0;
         }
 
-        .books-section {
-            background: white;
-            padding: 3rem 0;
+        /* Lista de libros por categoría */
+        .category-section {
+            margin-bottom: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(5,150,105,0.2);
         }
 
-        .books-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #10b981;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
         }
 
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
         }
 
-        .book-card {
-            background: #f8f9fa;
+        .book-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
             border-radius: 12px;
-            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
             transition: all 0.3s ease;
-            border-left: 4px solid #1e3c72;
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background: #fff;
+        .book-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(5,150,105,0.2);
         }
 
-        .book-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        .book-number {
+            background: var(--gradient-1);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
         }
 
         .book-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.8rem;
+            flex: 1;
+            font-size: 0.95rem;
             line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
-        .book-category {
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: inline-block;
+        /* Botón WhatsApp fijo */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
         }
 
-        .book-icon {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: #1e3c72;
-            opacity: 0.3;
-            font-size: 1.2rem;
-        }
-
-        .footer {
-            background: #1e3c72;
-            color: white;
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .footer p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
+        .whatsapp-button {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .cta-btn {
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cta-primary {
-            background: #2a5298;
+            gap: 15px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
+            padding: 18px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37,211,102,0.6);
         }
 
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 10px 40px rgba(37,211,102,0.7); }
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1rem;
-            margin-top: 2rem;
+        .whatsapp-icon {
+            font-size: 2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-1);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(5,150,105,0.4);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(251,191,36,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite reverse;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #fbbf24;
+            margin: 20px 0;
+        }
+
+        .cta-old-price {
+            font-size: 1.5rem;
+            text-decoration: line-through;
             opacity: 0.7;
+            margin-bottom: 30px;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .stats { gap: 1.5rem; }
-            .stat-number { font-size: 2rem; }
-            .books-grid { grid-template-columns: 1fr; }
-            .header-content { flex-direction: column; gap: 1rem; }
-            .cta-buttons { flex-direction: column; align-items: center; }
+        .benefits-list {
+            max-width: 600px;
+            margin: 30px auto;
+            text-align: left;
         }
 
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
-        .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #1e3c72;
+        .benefit-icon {
+            background: rgba(255,255,255,0.2);
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .featured-book {
+                padding: 15px;
+            }
+
+            .featured-book h3 {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+
+            .featured-book .author {
+                font-size: 0.75rem;
+                margin-bottom: 5px;
+            }
+
+            .featured-book .description {
+                font-size: 0.7rem;
+                line-height: 1.3;
+            }
+
+            .featured-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .book-item {
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .book-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+
+            .book-title {
+                font-size: 0.8rem;
+                line-height: 1.3;
+            }
+
+            .category-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+
+            .category-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-button {
+                padding: 15px 20px;
+                font-size: 0.9rem;
+            }
+
+            .whatsapp-text {
+                display: none;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-price {
+                font-size: 3rem;
+            }
+
+            .header {
+                padding: 40px 20px;
+                margin-bottom: 15px;
+            }
+
+            .featured-section {
+                margin-bottom: 0.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .search-container {
+                margin: 0 auto;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            #booksList {
+                margin-top: 0.5rem;
+                padding-top: 0;
+            }
+
+            .category-section {
+                margin-bottom: 0.5rem;
+                padding: 1rem 0.8rem;
+            }
         }
 
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
+        /* Loading animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .no-results i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
+        .category-section {
+            animation: fadeIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-chart-line"></i>
-                Finanzas Premium
-            </div>
-            <a href="#contacto" class="contact-btn">
-                <i class="fas fa-whatsapp"></i>
-                Contactar Ahora
-            </a>
-        </div>
-    </header>
+    <!-- Partículas de fondo -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="pack-badge">Pack Exclusivo #1</div>
-            <h1>FINANZAS MASTER</h1>
-            <p>Transforma tu relación con el dinero y construye tu imperio económico.</p>
+    <!-- Iconos de dinero flotantes -->
+    <div class="money-icons">
+        <div class="money-icon">💰</div>
+        <div class="money-icon">💵</div>
+        <div class="money-icon">📈</div>
+        <div class="money-icon">💎</div>
+        <div class="money-icon">🏆</div>
+    </div>
+
+    <div class="container">
+        <!-- Header Premium -->
+        <div class="header">
+            <div class="pack-badge">✨ PACK EXCLUSIVO #1</div>
+            <h1>FINANZAS & EMPRENDIMIENTO<br>MASTER</h1>
+            <p class="subtitle">Domina el arte de crear riqueza con 260 libros de los mejores expertos en finanzas del mundo</p>
             
             <div class="stats">
-                <div class="stat">
-                    <span class="stat-number" id="totalBooks">260</span>
-                    <span class="stat-label">Libros Únicos</span>
+                <div class="stat-item">
+                    <span class="stat-number">260</span>
+                    <span class="stat-label">Libros Digitales</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">PDF</span>
-                    <span class="stat-label">Formato</span>
+                <div class="stat-item">
+                    <span class="stat-number">300</span>
+                    <span class="stat-label">Audiolibros BONO</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">S/10</span>
+                    <span class="stat-label">Inversión Total</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="search-section">
+        <!-- Sección de Libros Destacados -->
+        <div class="featured-section">
+            <h2 class="featured-title">🏆 Bestsellers Internacionales Incluidos</h2>
+            <div class="featured-grid">
+                <div class="featured-book">
+                    <h3>📕 Padre Rico, Padre Pobre</h3>
+                    <p class="author">Robert Kiyosaki</p>
+                    <p class="description">El libro #1 de finanzas personales. Aprende cómo los ricos enseñan a sus hijos sobre el dinero y cómo crear activos que generen ingresos pasivos.</p>
+                </div>
+                <div class="featured-book">
+                    <h3>📗 Piense y Hágase Rico</h3>
+                    <p class="author">Napoleon Hill</p>
+                    <p class="description">Los 13 principios del éxito basados en el estudio de 500 millonarios. La filosofía completa de la riqueza personal.</p>
+                </div>
+                <div class="featured-book">
+                    <h3>📘 El Inversor Inteligente</h3>
+                    <p class="author">Benjamin Graham</p>
+                    <p class="description">La biblia de la inversión en valor. El libro que Warren Buffett considera "el mejor libro sobre inversión jamás escrito".</p>
+                </div>
+                <div class="featured-book">
+                    <h3>📙 Los Secretos de la Mente Millonaria</h3>
+                    <p class="author">T. Harv Eker</p>
+                    <p class="description">Descubre las 17 formas de pensar de los ricos que determinan tu éxito financiero y cómo reprogramar tu mente para la riqueza.</p>
+                </div>
+                <div class="featured-book">
+                    <h3>📕 El Hombre Más Rico de Babilonia</h3>
+                    <p class="author">George S. Clason</p>
+                    <p class="description">Parábolas atemporales sobre el dinero ambientadas en la antigua Babilonia. Principios de oro para construir riqueza.</p>
+                </div>
+                <div class="featured-book">
+                    <h3>📗 La Ciencia de Hacerse Rico</h3>
+                    <p class="author">Wallace D. Wattles</p>
+                    <p class="description">El clásico que inspiró "El Secreto". Método científico y sistemático para crear riqueza de forma garantizada.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de Búsqueda -->
         <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" id="searchInput" placeholder="Buscar libros por título o tema...">
-            </div>
-            <div class="search-results" id="searchResults">
-                Mostrando <span id="currentCount">260</span> libros
-            </div>
+            <input type="text" id="searchInput" placeholder="🔍 Busca entre los 260 libros... (ej: Warren Buffett, Bolsa, Inversión)">
+            <span class="search-icon">🔎</span>
         </div>
-    </section>
 
-    <section class="books-section">
-        <div class="books-container">
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                Cargando biblioteca...
+        <!-- Categorías y Libros -->
+        <div id="booksList">
+            <!-- Categoría 1: Contabilidad y Finanzas -->
+            <div class="category-section" data-category="CONTABILIDAD Y FINANZAS">
+                <h2 class="category-title">
+                    <span class="category-icon">📊</span>
+                    Contabilidad y Finanzas (59 libros)
+                </h2>
+                <div class="books-grid">
+                    <div class="book-item"><div class="book-number">1</div><div class="book-title">Administración y Finanzas</div></div>
+                    <div class="book-item"><div class="book-number">2</div><div class="book-title">Análisis Fundamental</div></div>
+                    <div class="book-item"><div class="book-number">3</div><div class="book-title">Análisis Técnico de los Mercados Financieros - John J Murphy</div></div>
+                    <div class="book-item"><div class="book-number">4</div><div class="book-title">Aprende a Controlar tus Gastos sin Complicarte la Vida</div></div>
+                    <div class="book-item"><div class="book-number">5</div><div class="book-title">Aprende a Invertir en Bolsa de Valores para Principiantes</div></div>
+                    <div class="book-item"><div class="book-number">6</div><div class="book-title">Aprende Inversión Exitosa de la Mano de Warren Buffett</div></div>
+                    <div class="book-item"><div class="book-number">7</div><div class="book-title">Auditoría: Un Enfoque Integral 13 Ed</div></div>
+                    <div class="book-item"><div class="book-number">8</div><div class="book-title">Billete Primera Clase a la Riqueza - Ray Lucia</div></div>
+                    <div class="book-item"><div class="book-number">9</div><div class="book-title">Cómo Analizar e Invertir en Bienes Raíces</div></div>
+                    <div class="book-item"><div class="book-number">10</div><div class="book-title">Cómo Comprar una Casa para Dummies</div></div>
+                    <div class="book-item"><div class="book-number">11</div><div class="book-title">Cómo Hacer que el Dinero Crezca en Árboles</div></div>
+                    <div class="book-item"><div class="book-number">12</div><div class="book-title">Cómo Invertir en Bienes Raíces - Donald Trump</div></div>
+                    <div class="book-item"><div class="book-number">13</div><div class="book-title">Cómo Invertir en Bolsa de Valores desde Cero</div></div>
+                    <div class="book-item"><div class="book-number">14</div><div class="book-title">Cómo Invertir en Bolsa de Valores para Principiantes</div></div>
+                    <div class="book-item"><div class="book-number">15</div><div class="book-title">Cómo Invertir en Bolsa y No Morir en el Intento</div></div>
+                    <div class="book-item"><div class="book-number">16</div><div class="book-title">Cómo Invertir en Criptomonedas - Alan T Norman</div></div>
+                    <div class="book-item"><div class="book-number">17</div><div class="book-title">Cómo Invertir en Forex - Gino Daly</div></div>
+                    <div class="book-item"><div class="book-number">18</div><div class="book-title">Cómo Invertir en Opciones</div></div>
+                    <div class="book-item"><div class="book-number">19</div><div class="book-title">Cómo Invertir en Oro y Plata - Michael Maloney</div></div>
+                    <div class="book-item"><div class="book-number">20</div><div class="book-title">Cómo Invertir Tu Dinero y No Morir en el Intento</div></div>
+                    <div class="book-item"><div class="book-number">21</div><div class="book-title">Cómo Salir de Deudas</div></div>
+                    <div class="book-item"><div class="book-number">22</div><div class="book-title">Cómo Vender Cualquier Cosa a Cualquier Persona - Joe Girard</div></div>
+                    <div class="book-item"><div class="book-number">23</div><div class="book-title">Contabilidad Básica</div></div>
+                    <div class="book-item"><div class="book-number">24</div><div class="book-title">Contabilidad de Costos</div></div>
+                    <div class="book-item"><div class="book-number">25</div><div class="book-title">Contabilidad Financiera</div></div>
+                    <div class="book-item"><div class="book-number">26</div><div class="book-title">Contabilidad Superior</div></div>
+                    <div class="book-item"><div class="book-number">27</div><div class="book-title">Decisiones de Inversión - Lawrence J Gitman</div></div>
+                    <div class="book-item"><div class="book-number">28</div><div class="book-title">Educación Financiera para Jóvenes</div></div>
+                    <div class="book-item"><div class="book-number">29</div><div class="book-title">El Arte de Leer los Estados Financieros</div></div>
+                    <div class="book-item"><div class="book-number">30</div><div class="book-title">El Arte de Vender en el Siglo XXI</div></div>
+                    <div class="book-item"><div class="book-number">31</div><div class="book-title">El Camino Hacia la Libertad Financiera</div></div>
+                    <div class="book-item"><div class="book-number">32</div><div class="book-title">El Código del Dinero</div></div>
+                    <div class="book-item"><div class="book-number">33</div><div class="book-title">El Emprendedor Exitoso: 4 Disciplinas</div></div>
+                    <div class="book-item"><div class="book-number">34</div><div class="book-title">El Hombre Más Rico de Babilonia</div></div>
+                    <div class="book-item"><div class="book-number">35</div><div class="book-title">El Inversor Inteligente</div></div>
+                    <div class="book-item"><div class="book-number">36</div><div class="book-title">El Método Buffett de Inversión - Mary Buffett</div></div>
+                    <div class="book-item"><div class="book-number">37</div><div class="book-title">El Método del Sobre - Dave Ramsey</div></div>
+                    <div class="book-item"><div class="book-number">38</div><div class="book-title">El Millonario Automático - David Bach</div></div>
+                    <div class="book-item"><div class="book-number">39</div><div class="book-title">El Plan de Tu Libertad Financiera en 7 Pasos - Fernando Martí</div></div>
+                    <div class="book-item"><div class="book-number">40</div><div class="book-title">El Secreto para Ganar Dinero en Bolsa</div></div>
+                    <div class="book-item"><div class="book-number">41</div><div class="book-title">Estados Financieros - Warren Buffett</div></div>
+                    <div class="book-item"><div class="book-number">42</div><div class="book-title">Estrategias de Inversión en Bolsa de Valores</div></div>
+                    <div class="book-item"><div class="book-number">43</div><div class="book-title">Finanzas Personales para Dummies</div></div>
+                    <div class="book-item"><div class="book-number">44</div><div class="book-title">Forex para Principiantes Ambiciosos</div></div>
+                    <div class="book-item"><div class="book-number">45</div><div class="book-title">Fundamentos de Inversión</div></div>
+                    <div class="book-item"><div class="book-number">46</div><div class="book-title">Invertir para Crecer - Terry Smith</div></div>
+                    <div class="book-item"><div class="book-number">47</div><div class="book-title">La Ciencia de Hacerse Rico - Wallace D. Wattles</div></div>
+                    <div class="book-item"><div class="book-number">48</div><div class="book-title">La Guía de Inversión de Warren Buffett</div></div>
+                    <div class="book-item"><div class="book-number">49</div><div class="book-title">La Psicología del Dinero - Morgan Housel</div></div>
+                    <div class="book-item"><div class="book-number">50</div><div class="book-title">Las Trampas del Dinero</div></div>
+                    <div class="book-item"><div class="book-number">51</div><div class="book-title">Libertad Financiera con Criptomonedas</div></div>
+                    <div class="book-item"><div class="book-number">52</div><div class="book-title">Los Secretos de la Mente Millonaria - T. Harv Eker</div></div>
+                    <div class="book-item"><div class="book-number">53</div><div class="book-title">Padre Rico, Padre Pobre - Robert Kiyosaki</div></div>
+                    <div class="book-item"><div class="book-number">54</div><div class="book-title">Piense y Hágase Rico - Napoleon Hill</div></div>
+                    <div class="book-item"><div class="book-number">55</div><div class="book-title">Principios para el Éxito - Ray Dalio</div></div>
+                    <div class="book-item"><div class="book-number">56</div><div class="book-title">Renta Fija - Conceptos Fundamentales</div></div>
+                    <div class="book-item"><div class="book-number">57</div><div class="book-title">Trading en la Zona - Mark Douglas</div></div>
+                    <div class="book-item"><div class="book-number">58</div><div class="book-title">Un Paso Adelante en Wall Street - Peter Lynch</div></div>
+                    <div class="book-item"><div class="book-number">59</div><div class="book-title">Warren Buffett: El Oráculo de Omaha</div></div>
+                </div>
             </div>
-            <div class="books-grid" id="booksGrid" style="display: none;"></div>
-            <div class="no-results" id="noResults" style="display: none;">
-                <i class="fas fa-search"></i>
-                <h3>No se encontraron resultados</h3>
-                <p>Intenta con otros términos de búsqueda</p>
-            </div>
-        </div>
-    </section>
 
-    <footer class="footer" id="contacto">
-        <div class="footer-content">
-            <h3>¿Listo para Transformar tu Vida?</h3>
-            <p>Accede inmediatamente a esta colección exclusiva de 260 libros. Transforma tu relación con el dinero y construye tu imperio económico.</p>
-            
-            <div class="cta-buttons">
-                <a href="https://wa.me/51946609794?text=Hola!%20Me%20interesa%20el%20Pack%201%20de%20Finanzas%20con%20260%20libros" class="cta-btn cta-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    Obtener Pack Ahora
-                </a>
-                <a href="mailto:cs190656@gmail.com?subject=Interés%20en%20Pack%20Finanzas" class="cta-btn cta-secondary">
-                    <i class="fas fa-envelope"></i>
-                    Más Información
-                </a>
+            <!-- Categoría 2: Emprendimiento y Negocios -->
+            <div class="category-section" data-category="EMPRENDIMIENTO Y NEGOCIOS">
+                <h2 class="category-title">
+                    <span class="category-icon">🚀</span>
+                    Emprendimiento y Negocios (78 libros)
+                </h2>
+                <div class="books-grid">
+                    <div class="book-item"><div class="book-number">60</div><div class="book-title">10 Leyes para Ser Feliz - Robin Sharma</div></div>
+                    <div class="book-item"><div class="book-number">61</div><div class="book-title">100 Consejos de Warren Buffett</div></div>
+                    <div class="book-item"><div class="book-number">62</div><div class="book-title">1000 Maneras de Ganar $1,000</div></div>
+                    <div class="book-item"><div class="book-number">63</div><div class="book-title">12 Meses para Millones - Ryan Daniel Moran</div></div>
+                    <div class="book-item"><div class="book-number">64</div><div class="book-title">20 Secretos para el Éxito</div></div>
+                    <div class="book-item"><div class="book-number">65</div><div class="book-title">21 Leyes del Liderazgo - John C. Maxwell</div></div>
+                    <div class="book-item"><div class="book-number">66</div><div class="book-title">48 Días Hacia el Trabajo que Amas</div></div>
+                    <div class="book-item"><div class="book-number">67</div><div class="book-title">Actitud Mental Positiva - Napoleon Hill</div></div>
+                    <div class="book-item"><div class="book-number">68</div><div class="book-title">Atrévete a Ser Empresario</div></div>
+                    <div class="book-item"><div class="book-number">69</div><div class="book-title">Audaz y Más Audaz: Elon Musk</div></div>
+                    <div class="book-item"><div class="book-number">70</div><div class="book-title">Cómo Crear un Negocio en 90 Días</div></div>
+                    <div class="book-item"><div class="book-number">71</div><div class="book-title">Cómo Ganar Amigos e Influir sobre las Personas - Dale Carnegie</div></div>
+                    <div class="book-item"><div class="book-number">72</div><div class="book-title">Cómo Hacerse Rico - Felix Dennis</div></div>
+                    <div class="book-item"><div class="book-number">73</div><div class="book-title">Cómo Pensar como un Millonario</div></div>
+                    <div class="book-item"><div class="book-number">74</div><div class="book-title">Cómo Ser un Líder - Daniel Goleman</div></div>
+                    <div class="book-item"><div class="book-number">75</div><div class="book-title">De Cero a Uno - Peter Thiel</div></div>
+                    <div class="book-item"><div class="book-number">76</div><div class="book-title">Desarrolla una Mente Prodigiosa - Ramón Campayo</div></div>
+                    <div class="book-item"><div class="book-number">77</div><div class="book-title">Despierta Tu Héroe Interior - Victor Hugo Manzanilla</div></div>
+                    <div class="book-item"><div class="book-number">78</div><div class="book-title">El Arte de la Guerra - Sun Tzu</div></div>
+                    <div class="book-item"><div class="book-number">79</div><div class="book-title">El Camino al Éxito - Og Mandino</div></div>
+                    <div class="book-item"><div class="book-number">80</div><div class="book-title">El Código de la Riqueza</div></div>
+                    <div class="book-item"><div class="book-number">81</div><div class="book-title">El Emprendedor de Éxito - Rafael Alcaraz</div></div>
+                    <div class="book-item"><div class="book-number">82</div><div class="book-title">El Ejecutivo Eficaz - Peter Drucker</div></div>
+                    <div class="book-item"><div class="book-number">83</div><div class="book-title">El Lado Difícil de las Situaciones Difíciles - Ben Horowitz</div></div>
+                    <div class="book-item"><div class="book-number">84</div><div class="book-title">El Líder 360 Grados - John C. Maxwell</div></div>
+                    <div class="book-item"><div class="book-number">85</div><div class="book-title">El Líder Interior - Tim Irwin</div></div>
+                    <div class="book-item"><div class="book-number">86</div><div class="book-title">El Manual del Emprendedor - Steve Blank</div></div>
+                    <div class="book-item"><div class="book-number">87</div><div class="book-title">El Millonario de la Puerta de al Lado</div></div>
+                    <div class="book-item"><div class="book-number">88</div><div class="book-title">El Monje que Vendió su Ferrari - Robin Sharma</div></div>
+                    <div class="book-item"><div class="book-number">89</div><div class="book-title">El Momento Clave - Malcolm Gladwell</div></div>
+                    <div class="book-item"><div class="book-number">90</div><div class="book-title">El Negocio del Siglo 21 - Robert Kiyosaki</div></div>
+                    <div class="book-item"><div class="book-number">91</div><div class="book-title">El Poder de las Palabras - Robert Dilts</div></div>
+                    <div class="book-item"><div class="book-number">92</div><div class="book-title">El Principio 80/20 - Richard Koch</div></div>
+                    <div class="book-item"><div class="book-number">93</div><div class="book-title">El Método Lean Startup - Eric Ries</div></div>
+                    <div class="book-item"><div class="book-number">94</div><div class="book-title">El Zen del Ejecutivo - Steven Harrison</div></div>
+                    <div class="book-item"><div class="book-number">95</div><div class="book-title">Empresas que Perduran - Jim Collins</div></div>
+                    <div class="book-item"><div class="book-number">96</div><div class="book-title">Emprender es una Actitud - Andy Freire</div></div>
+                    <div class="book-item"><div class="book-number">97</div><div class="book-title">Emprende tu Sueño - Jurgen Klaric</div></div>
+                    <div class="book-item"><div class="book-number">98</div><div class="book-title">Estrategia Océano Azul - W. Chan Kim</div></div>
+                    <div class="book-item"><div class="book-number">99</div><div class="book-title">Gestión del Conocimiento</div></div>
+                    <div class="book-item"><div class="book-number">100</div><div class="book-title">Hábitos para Ser Millonario - Brian Tracy</div></div>
+                    <div class="book-item"><div class="book-number">101</div><div class="book-title">Inquebrantables - Tony Robbins</div></div>
+                    <div class="book-item"><div class="book-number">102</div><div class="book-title">La Clave del Éxito - Malcolm Gladwell</div></div>
+                    <div class="book-item"><div class="book-number">103</div><div class="book-title">La Guía de Steve Jobs para el Éxito</div></div>
+                    <div class="book-item"><div class="book-number">104</div><div class="book-title">La Máquina de Hacer Dinero</div></div>
+                    <div class="book-item"><div class="book-number">105</div><div class="book-title">La Semana Laboral de 4 Horas - Tim Ferriss</div></div>
+                    <div class="book-item"><div class="book-number">106</div><div class="book-title">Las 21 Leyes Irrefutables del Liderazgo - John Maxwell</div></div>
+                    <div class="book-item"><div class="book-number">107</div><div class="book-title">Las 48 Leyes del Poder - Robert Greene</div></div>
+                    <div class="book-item"><div class="book-number">108</div><div class="book-title">Lecciones de Liderazgo - Ricardo Bellino</div></div>
+                    <div class="book-item"><div class="book-number">109</div><div class="book-title">Liderazgo con Propósito - Rick Warren</div></div>
+                    <div class="book-item"><div class="book-number">110</div><div class="book-title">Liderazgo de Alto Nivel - John Maxwell</div></div>
+                    <div class="book-item"><div class="book-number">111</div><div class="book-title">Liderazgo: El Poder de la Inteligencia Emocional - Daniel Goleman</div></div>
+                    <div class="book-item"><div class="book-number">112</div><div class="book-title">Los 7 Hábitos de la Gente Altamente Efectiva - Stephen Covey</div></div>
+                    <div class="book-item"><div class="book-number">113</div><div class="book-title">Los Secretos del Éxito - Napoleon Hill</div></div>
+                    <div class="book-item"><div class="book-number">114</div><div class="book-title">Mil Millones de Dólares - Tom Nicholas</div></div>
+                    <div class="book-item"><div class="book-number">115</div><div class="book-title">Multiplica Tu Dinero - Gregorio Hernández</div></div>
+                    <div class="book-item"><div class="book-number">116</div><div class="book-title">Negociar lo Imposible - Deepak Malhotra</div></div>
+                    <div class="book-item"><div class="book-number">117</div><div class="book-title">Nunca te Rindas - Bear Grylls</div></div>
+                    <div class="book-item"><div class="book-number">118</div><div class="book-title">Padre Rico, Padre Pobre para Jóvenes - Robert Kiyosaki</div></div>
+                    <div class="book-item"><div class="book-number">119</div><div class="book-title">Pensar Rápido, Pensar Despacio - Daniel Kahneman</div></div>
+                    <div class="book-item"><div class="book-number">120</div><div class="book-title">Plan de Negocios en 100 Pasos</div></div>
+                    <div class="book-item"><div class="book-number">121</div><div class="book-title">Poder sin Límites - Tony Robbins</div></div>
+                    <div class="book-item"><div class="book-number">122</div><div class="book-title">Por Qué Fracasan los Países - Daron Acemoglu</div></div>
+                    <div class="book-item"><div class="book-number">123</div><div class="book-title">Prosperidad: El Secreto del Éxito</div></div>
+                    <div class="book-item"><div class="book-number">124</div><div class="book-title">Quiebra tu Chanchito - Sofía Macías</div></div>
+                    <div class="book-item"><div class="book-number">125</div><div class="book-title">Ricos vs Pobres - Robert Kiyosaki</div></div>
+                    <div class="book-item"><div class="book-number">126</div><div class="book-title">Sapiens: De Animales a Dioses - Yuval Noah Harari</div></div>
+                    <div class="book-item"><div class="book-number">127</div><div class="book-title">Secretos de la Mente Millonaria (Audiolibro)</div></div>
+                    <div class="book-item"><div class="book-number">128</div><div class="book-title">Steve Jobs - Walter Isaacson</div></div>
+                    <div class="book-item"><div class="book-number">129</div><div class="book-title">Trágate Ese Sapo - Brian Tracy</div></div>
+                    <div class="book-item"><div class="book-number">130</div><div class="book-title">Tribu de Mentores - Tim Ferriss</div></div>
+                    <div class="book-item"><div class="book-number">131</div><div class="book-title">Tu Futuro es HOY - Jürgen Klaric</div></div>
+                    <div class="book-item"><div class="book-number">132</div><div class="book-title">Tu MBA Personal - Josh Kaufman</div></div>
+                    <div class="book-item"><div class="book-number">133</div><div class="book-title">Tus Zonas Erróneas - Wayne Dyer</div></div>
+                    <div class="book-item"><div class="book-number">134</div><div class="book-title">Vender es Humano - Daniel H. Pink</div></div>
+                    <div class="book-item"><div class="book-number">135</div><div class="book-title">Venta Directa y Marketing Multinivel</div></div>
+                    <div class="book-item"><div class="book-number">136</div><div class="book-title">Ventas Exitosas - Zig Ziglar</div></div>
+                    <div class="book-item"><div class="book-number">137</div><div class="book-title">Warren Buffett y la Interpretación de Estados Financieros</div></div>
+                </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Biblioteca Digital Premium. Todos los derechos reservados.</p>
+
+            <!-- Categoría 3: Motivación y Transformación Personal -->
+            <div class="category-section" data-category="TRANSFORMACIÓN PERSONAL Y ÉXITO">
+                <h2 class="category-title">
+                    <span class="category-icon">⚡</span>
+                    Motivación y Transformación Personal (49 libros)
+                </h2>
+                <div class="books-grid">
+                    <div class="book-item"><div class="book-number">138</div><div class="book-title">Actitud de Campeón - Pat Williams</div></div>
+                    <div class="book-item"><div class="book-number">139</div><div class="book-title">Actitud de Ganador - Norman Vincent Peale</div></div>
+                    <div class="book-item"><div class="book-number">140</div><div class="book-title">Ahora o Nunca - Will Schwalbe</div></div>
+                    <div class="book-item"><div class="book-number">141</div><div class="book-title">Atrapado en el Espejo - Sal Gencarelle</div></div>
+                    <div class="book-item"><div class="book-number">142</div><div class="book-title">Autoimagen y Personalidad - Maxwell Maltz</div></div>
+                    <div class="book-item"><div class="book-number">143</div><div class="book-title">Avanza: 7 Claves Poderosas - Dave Ramsey</div></div>
+                    <div class="book-item"><div class="book-number">144</div><div class="book-title">Breve Historia del Ser Humano - Felipe Fernández</div></div>
+                    <div class="book-item"><div class="book-number">145</div><div class="book-title">Busca tu Propio Everest - Jim Davidson</div></div>
+                    <div class="book-item"><div class="book-number">146</div><div class="book-title">Caminos: De Jóvenes que Llegaron Lejos</div></div>
+                    <div class="book-item"><div class="book-number">147</div><div class="book-title">Cómo Hablar con Cualquier Persona - Leil Lowndes</div></div>
+                    <div class="book-item"><div class="book-number">148</div><div class="book-title">Cómo Llegar a Ser un Líder</div></div>
+                    <div class="book-item"><div class="book-number">149</div><div class="book-title">Conversaciones Cruciales - Kerry Patterson</div></div>
+                    <div class="book-item"><div class="book-number">150</div><div class="book-title">Desata tu Éxito - Camilo Cruz</div></div>
+                    <div class="book-item"><div class="book-number">151</div><div class="book-title">Despertando al Gigante Interior - Tony Robbins</div></div>
+                    <div class="book-item"><div class="book-number">152</div><div class="book-title">Desprogramado: La Ruta del Líder - Alexander Rovira</div></div>
+                    <div class="book-item"><div class="book-number">153</div><div class="book-title">Disciplina tu Camino al Éxito - Brad Lomenick</div></div>
+                    <div class="book-item"><div class="book-number">154</div><div class="book-title">Disciplina, Enfoque y Energía - César Piqueras</div></div>
+                    <div class="book-item"><div class="book-number">155</div><div class="book-title">Domina tu Mente - Eric Bailey</div></div>
+                    <div class="book-item"><div class="book-number">156</div><div class="book-title">Domina tu Vida - Tony Robbins</div></div>
+                    <div class="book-item"><div class="book-number">157</div><div class="book-title">El Código de la Grandeza</div></div>
+                    <div class="book-item"><div class="book-number">158</div><div class="book-title">El Efecto Compuesto - Darren Hardy</div></div>
+                    <div class="book-item"><div class="book-number">159</div><div class="book-title">El Juego Interior del Tenis - W. Timothy Gallwey</div></div>
+                    <div class="book-item"><div class="book-number">160</div><div class="book-title">El Manifiesto por la Motivación - Brendon Burchard</div></div>
+                    <div class="book-item"><div class="book-number">161</div><div class="book-title">El Mayor Vendedor del Mundo - Og Mandino</div></div>
+                    <div class="book-item"><div class="book-number">162</div><div class="book-title">El Obstáculo es el Camino - Ryan Holiday</div></div>
+                    <div class="book-item"><div class="book-number">163</div><div class="book-title">El Secreto - Rhonda Byrne</div></div>
+                    <div class="book-item"><div class="book-number">164</div><div class="book-title">El Vendedor más Grande del Mundo - Og Mandino</div></div>
+                    <div class="book-item"><div class="book-number">165</div><div class="book-title">En Deuda con la Vida - Adrián Betancourt</div></div>
+                    <div class="book-item"><div class="book-number">166</div><div class="book-title">Encuentra tu Persona Vitamina - Marian Rojas</div></div>
+                    <div class="book-item"><div class="book-number">167</div><div class="book-title">Escapa de tu Prisión Mental</div></div>
+                    <div class="book-item"><div class="book-number">168</div><div class="book-title">Esencialismo - Greg McKeown</div></div>
+                    <div class="book-item"><div class="book-number">169</div><div class="book-title">Foco - Daniel Goleman</div></div>
+                    <div class="book-item"><div class="book-number">170</div><div class="book-title">Finanzas Bíblicas: Cambia Tú y Cambiarán tus Finanzas - Héctor Salcedo</div></div>
+                    <div class="book-item"><div class="book-number">171</div><div class="book-title">Padre Rico, Padre Pobre Edición Especial para Mujeres</div></div>
+                    <div class="book-item"><div class="book-number">172</div><div class="book-title">Qué Hubiera Pasado Si... Reflexiones Cotidianas para la Felicidad</div></div>
+                    <div class="book-item"><div class="book-number">173</div><div class="book-title">Vivir Sin Miedos: Reconoce y Vence tus 10 Miedos más Comunes</div></div>
+                    <div class="book-item"><div class="book-number">174</div><div class="book-title">Vive Sin Temor - Charles Stanley</div></div>
+                    <div class="book-item"><div class="book-number">175</div><div class="book-title">Yo Soy Especial - Max Lucado</div></div>
+                    <div class="book-item"><div class="book-number">176</div><div class="book-title">Ya No Más - Óscar Velasco</div></div>
+                    <div class="book-item"><div class="book-number">177</div><div class="book-title">Wingmaker: Camino al Liderazgo - Álvaro González</div></div>
+                    <div class="book-item"><div class="book-number">178</div><div class="book-title">Vive la Vida que Deseas - Joel Osteen</div></div>
+                    <div class="book-item"><div class="book-number">179</div><div class="book-title">Víctima de Tus Emociones</div></div>
+                    <div class="book-item"><div class="book-number">180</div><div class="book-title">Vencer la Crisis - Ken Blanchard</div></div>
+                    <div class="book-item"><div class="book-number">181</div><div class="book-title">Usted Es Mejor de Lo Que Cree</div></div>
+                    <div class="book-item"><div class="book-number">182</div><div class="book-title">Un Plan Brillante para Vivir Mejor</div></div>
+                    <div class="book-item"><div class="book-number">183</div><div class="book-title">Tu Potencial Ilimitado</div></div>
+                    <div class="book-item"><div class="book-number">184</div><div class="book-title">Tu Mejor Amigo: Tú Mismo</div></div>
+                    <div class="book-item"><div class="book-number">185</div><div class="book-title">Transforma tu Vida</div></div>
+                    <div class="book-item"><div class="book-number">186</div><div class="book-title">Toma las Riendas de tu Vida</div></div>
+                </div>
+            </div>
+
+            <!-- Categoría 4: Marketing y Ventas -->
+            <div class="category-section" data-category="MARKETING Y VENTAS">
+                <h2 class="category-title">
+                    <span class="category-icon">📱</span>
+                    Marketing y Ventas (38 libros)
+                </h2>
+                <div class="books-grid">
+                    <div class="book-item"><div class="book-number">187</div><div class="book-title">El Arte de Cautivar - Guy Kawasaki</div></div>
+                    <div class="book-item"><div class="book-number">188</div><div class="book-title">Cómo Escribir para Vender - José Carlos Castillo</div></div>
+                    <div class="book-item"><div class="book-number">189</div><div class="book-title">Copywriting: Cómo Escribir para Vender</div></div>
+                    <div class="book-item"><div class="book-number">190</div><div class="book-title">Crea un Producto Digital Exitoso</div></div>
+                    <div class="book-item"><div class="book-number">191</div><div class="book-title">Dale Carnegie en Acción</div></div>
+                    <div class="book-item"><div class="book-number">192</div><div class="book-title">El Arte de la Venta - Brian Tracy</div></div>
+                    <div class="book-item"><div class="book-number">193</div><div class="book-title">El Código del Dinero - Raimon Samsó</div></div>
+                    <div class="book-item"><div class="book-number">194</div><div class="book-title">El Marketing de Guerrilla - Jay Conrad Levinson</div></div>
+                    <div class="book-item"><div class="book-number">195</div><div class="book-title">Embudos de Venta - Russell Brunson</div></div>
+                    <div class="book-item"><div class="book-number">196</div><div class="book-title">Estrategia de Contenidos - Vilma Núñez</div></div>
+                    <div class="book-item"><div class="book-number">197</div><div class="book-title">Influencia: La Psicología de la Persuasión - Robert Cialdini</div></div>
+                    <div class="book-item"><div class="book-number">198</div><div class="book-title">Inbound Marketing - Juan Merodio</div></div>
+                    <div class="book-item"><div class="book-number">199</div><div class="book-title">La Fórmula del Lanzamiento - Jeff Walker</div></div>
+                    <div class="book-item"><div class="book-number">200</div><div class="book-title">La Magia de Pensar en Grande - David Schwartz</div></div>
+                    <div class="book-item"><div class="book-number">201</div><div class="book-title">La Vaca Púrpura - Seth Godin</div></div>
+                    <div class="book-item"><div class="book-number">202</div><div class="book-title">Las 22 Leyes Inmutables del Marketing - Al Ries</div></div>
+                    <div class="book-item"><div class="book-number">203</div><div class="book-title">Marketing 3.0 - Philip Kotler</div></div>
+                    <div class="book-item"><div class="book-number">204</div><div class="book-title">Marketing de Contenidos - Joe Pulizzi</div></div>
+                    <div class="book-item"><div class="book-number">205</div><div class="book-title">Marketing Digital - Martha Gabriel</div></div>
+                    <div class="book-item"><div class="book-number">206</div><div class="book-title">Marketing en Redes Sociales - Damian Ryan</div></div>
+                    <div class="book-item"><div class="book-number">207</div><div class="book-title">Mercadotecnia - Laura Fischer</div></div>
+                    <div class="book-item"><div class="book-number">208</div><div class="book-title">Neuromarketing - Jürgen Klaric</div></div>
+                    <div class="book-item"><div class="book-number">209</div><div class="book-title">Permission Marketing - Seth Godin</div></div>
+                    <div class="book-item"><div class="book-number">210</div><div class="book-title">Posicionamiento - Al Ries & Jack Trout</div></div>
+                    <div class="book-item"><div class="book-number">211</div><div class="book-title">Pre-Suasión - Robert Cialdini</div></div>
+                    <div class="book-item"><div class="book-number">212</div><div class="book-title">Publicidad 101 - Ogilvy</div></div>
+                    <div class="book-item"><div class="book-number">213</div><div class="book-title">Secta de Marketing - Seth Godin</div></div>
+                    <div class="book-item"><div class="book-number">214</div><div class="book-title">SEO para Negocios - David Viñuales</div></div>
+                    <div class="book-item"><div class="book-number">215</div><div class="book-title">Social Media ROI - Olivier Blanchard</div></div>
+                    <div class="book-item"><div class="book-number">216</div><div class="book-title">Storytelling - Carmine Gallo</div></div>
+                    <div class="book-item"><div class="book-number">217</div><div class="book-title">Tráfico: Secretos de Publicidad - Russell Brunson</div></div>
+                    <div class="book-item"><div class="book-number">218</div><div class="book-title">Vendedor Canalla - Dan Kennedy</div></div>
+                    <div class="book-item"><div class="book-number">219</div><div class="book-title">Vendele a la Mente, No a la Gente - Jürgen Klaric</div></div>
+                    <div class="book-item"><div class="book-number">220</div><div class="book-title">Ventas B2B - Michael Nick</div></div>
+                    <div class="book-item"><div class="book-number">221</div><div class="book-title">Viral Loop - Adam Penenberg</div></div>
+                    <div class="book-item"><div class="book-number">222</div><div class="book-title">Web Analytics - Avinash Kaushik</div></div>
+                    <div class="book-item"><div class="book-number">223</div><div class="book-title">Y Tú, ¿Por Qué No? - Borja Vilaseca</div></div>
+                    <div class="book-item"><div class="book-number">224</div><div class="book-title">Zapatillas Rojas y Sombrero de Copa - Tom Peters</div></div>
+                </div>
+            </div>
+
+            <!-- Categoría 5: Productividad y Gestión del Tiempo -->
+            <div class="category-section" data-category="PRODUCTIVIDAD Y GESTIÓN">
+                <h2 class="category-title">
+                    <span class="category-icon">⏰</span>
+                    Productividad y Gestión del Tiempo (36 libros)
+                </h2>
+                <div class="books-grid">
+                    <div class="book-item"><div class="book-number">225</div><div class="book-title">Alto Rendimiento - Jake Humphrey</div></div>
+                    <div class="book-item"><div class="book-number">226</div><div class="book-title">Arregle su Vida - Lair Ribeiro</div></div>
+                    <div class="book-item"><div class="book-number">227</div><div class="book-title">Atómicos: Hábitos</div></div>
+                    <div class="book-item"><div class="book-number">228</div><div class="book-title">Comprométete Contigo - Pablo Arribas</div></div>
+                    <div class="book-item"><div class="book-number">229</div><div class="book-title">Deep Work - Cal Newport</div></div>
+                    <div class="book-item"><div class="book-number">230</div><div class="book-title">Diseña tu Vida - Bill Burnett</div></div>
+                    <div class="book-item"><div class="book-number">231</div><div class="book-title">El Club de las 5 de la Mañana - Robin Sharma</div></div>
+                    <div class="book-item"><div class="book-number">232</div><div class="book-title">El Método GTD - David Allen</div></div>
+                    <div class="book-item"><div class="book-number">233</div><div class="book-title">El Poder de los Hábitos - Charles Duhigg</div></div>
+                    <div class="book-item"><div class="book-number">234</div><div class="book-title">Enfócate - Cal Newport</div></div>
+                    <div class="book-item"><div class="book-number">235</div><div class="book-title">Flow: Psicología de la Experiencia Óptima - Mihaly Csikszentmihalyi</div></div>
+                    <div class="book-item"><div class="book-number">236</div><div class="book-title">Fluir en el Trabajo - Mihaly Csikszentmihalyi</div></div>
+                    <div class="book-item"><div class="book-number">237</div><div class="book-title">Hábitos Atómicos - James Clear</div></div>
+                    <div class="book-item"><div class="book-number">238</div><div class="book-title">Hábitos Exitosos - Stephen Covey</div></div>
+                    <div class="book-item"><div class="book-number">239</div><div class="book-title">Hiperenfoque - Chris Bailey</div></div>
+                    <div class="book-item"><div class="book-number">240</div><div class="book-title">La Agenda del Éxito</div></div>
+                    <div class="book-item"><div class="book-number">241</div><div class="book-title">La Curva de la Felicidad - Raúl Hernández</div></div>
+                    <div class="book-item"><div class="book-number">242</div><div class="book-title">La Magia de Ordenar - Marie Kondo</div></div>
+                    <div class="book-item"><div class="book-number">243</div><div class="book-title">La Regla del 80/20 en Ventas y Marketing - Richard Koch</div></div>
+                    <div class="book-item"><div class="book-number">244</div><div class="book-title">Lo Único - Gary Keller</div></div>
+                    <div class="book-item"><div class="book-number">245</div><div class="book-title">Mañana Productiva - Michael Hyatt</div></div>
+                    <div class="book-item"><div class="book-number">246</div><div class="book-title">Más Efectivo - Pedro Amador</div></div>
+                    <div class="book-item"><div class="book-number">247</div><div class="book-title">Mentalidad de Productividad</div></div>
+                    <div class="book-item"><div class="book-number">248</div><div class="book-title">Método Pomodoro - Francesco Cirillo</div></div>
+                    <div class="book-item"><div class="book-number">249</div><div class="book-title">Mini Hábitos - Stephen Guise</div></div>
+                    <div class="book-item"><div class="book-number">250</div><div class="book-title">Organízate con Eficacia - David Allen</div></div>
+                    <div class="book-item"><div class="book-number">251</div><div class="book-title">Productividad Personal - José Miguel Bolívar</div></div>
+                    <div class="book-item"><div class="book-number">252</div><div class="book-title">Regreso al Método - Berto Pena</div></div>
+                    <div class="book-item"><div class="book-number">253</div><div class="book-title">Resultado: Productividad sin Estrés</div></div>
+                    <div class="book-item"><div class="book-number">254</div><div class="book-title">Super Productivo - Jim Kwik</div></div>
+                    <div class="book-item"><div class="book-number">255</div><div class="book-title">Termina Lo Que Empiezas - Peter Hollins</div></div>
+                    <div class="book-item"><div class="book-number">256</div><div class="book-title">Tiempo de Guerreros - Josh Waitzkin</div></div>
+                    <div class="book-item"><div class="book-number">257</div><div class="book-title">Tu Mejor Versión - Dan Sullivan</div></div>
+                    <div class="book-item"><div class="book-number">258</div><div class="book-title">Unchained: Libérate de Distracciones</div></div>
+                    <div class="book-item"><div class="book-number">259</div><div class="book-title">Workflowy: Productividad Total</div></div>
+                    <div class="book-item"><div class="book-number">260</div><div class="book-title">Zen To Done - Leo Babauta</div></div>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <!-- CTA Final -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">🎯 ¡Transforma Tu Vida Financiera HOY!</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">260 Libros Digitales + 300 Audiolibros BONO</p>
+                
+                <div class="cta-old-price">Valor Real: S/780</div>
+                <div class="cta-price">S/ 10</div>
+                <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px;">Descuento del 98% - ¡Oferta por Tiempo Limitado!</p>
+
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Entrega INMEDIATA por WhatsApp</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Formato PDF optimizado para celular/tablet</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Acceso de por vida a todo el contenido</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Incluye bestsellers de Robert Kiyosaki, Napoleon Hill, Warren Buffett</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Más de 1,000+ clientes satisfechos</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 1.3rem; font-weight: 700; margin-top: 30px;">
+                    💳 Yape/Plin: 930 296 792<br>
+                    <span style="font-size: 1rem; opacity: 0.9;">A nombre de: Hubert Sanchez</span>
+                </p>
+                <p style="margin-top: 20px; font-size: 1rem;">Envía tu captura de pago por WhatsApp y recibe tu pack al instante 🚀</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón WhatsApp Flotante -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/51930296792?text=Hola!%20Quiero%20el%20Pack%201%20de%20Finanzas%20%26%20Emprendimiento%20por%20S/10" class="whatsapp-button" target="_blank">
+            <span class="whatsapp-icon">💬</span>
+            <span class="whatsapp-text">¡Comprar Ahora!</span>
+        </a>
+    </div>
 
     <script>
-        let allBooks = [];
-        let filteredBooks = [];
+        // Funcionalidad de búsqueda
+        const searchInput = document.getElementById('searchInput');
+        const booksList = document.getElementById('booksList');
+        const allCategories = document.querySelectorAll('.category-section');
+        const allBooks = document.querySelectorAll('.book-item');
 
-        async function loadBooks() {
-            const books = [
-                {"titulo": "CONVENCE Y VENCERAS FABREGAT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "DECÍDETE CÓMO TOMAR LAS MEJORES DECISIONES EN LA VIDA Y EN CHIP", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "FINANZAS BÍBLICAS CAMBIA TÚ Y CAMBIARÁN TUS FINANZAS -- SALCEDO, HÉCTOR --", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "UNA FILOSOFÍA PARA SOBREVIVIR EN EL SIGLO XXI YO NO SOY UN -- JESÚS GONZÁLEZ MAESTRO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "NO LO PIENSES, HAZLO YA -- SERGIO LUQUE -- 2025", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "INVICTO LOGRA MÁS SUFRE MENOS -- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "INVICTO - CUADERNO DE TRABAJO- MARCOS VAZQUEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "MBA GUÍA VISUAL TODO LO QUE APRENDÍ EN DOS AÑOS -JASON BARRON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "ESPABILA DE UNA PUTA VEZ UN DESAFÍO INCÓMODO Y DOLOROSO QUE - JOSÉ MONTAÑEZ", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "EL PODER DEL AHORA UN CAMINO HACIA LA REALIZACION ESPIRITUAL, EL - ECKHART TOLLE", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "LA PSICOLOGIA DEL DINERO COMO PIENSAN LOS RICOS -- MORGAN HOUSEL, ARNAU FIGUERAS DEULOFEU", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "DESCUBRE EL ARTE DE HABLAR EN PUBLICO - FERNANDO MIRALLES", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "ENCUENTRA TU ELEMENTO EL CAMINO PARA DESCUBRIR TU PASION Y TRANSFORMAR TU VIDA - KEN ROBINSON", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "PODER SIN LIMITES - TONY ROBBINS", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "TU MEJOR AÑO - MICHAEL HYATT", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "APRENDIENDO DE LOS MEJORES 1 Y 2", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "ELEMENTO-KEN-ROBINSON.PDF -EL-DESCONOCIDO", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "HABITOS-ATOMICOS-JAMES-CLEAR", "carpeta": "TRANSFORMACIÓN PERSONAL Y ÉXITO"},
-                {"titulo": "LA SEMANA LABORAL DE 4 HORAS - TIMOTHY FERRIS", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "EL OBSTÁCULO ES EL CAMINO - RYAN HOLIDAY", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "LOS SECRETOS DE LA MENTE MILLONARIA - T HARV EKER", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "LAS 48 LEYES DEL PODER - ROBERT GREENE", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "ELON MUSK - WALTER ISAACSON -- 2023", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "ELON MUSK EL CREADOR DE TESLA, PAYPAL Y SPACEX QUE ANTICIPA -- ASHLEE VANCE -- 2013", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "EL HOMBRE MÁS RICO DE BABILONIA - GEORGE CLASON", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "PIENSA COMO UN EMPERADOR ROMANO - DONALT ROBENSON", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "BURLAR AL DIABLO SECRETOS DESDE LA CRIPTA - NAPOLEON HILL", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "EL MONJE QUE VENDIO SU FERRARI - ROBIN S. SHARMA", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "FINANZAS BÍBLICAS CAMBIA TÚ Y CAMBIARÁN TUS FINANZAS -- SALCEDO, HÉCTOR -- 2020", "carpeta": "NEGOCIOS, FINANZAS EXITO"},
-                {"titulo": "INTRODUCCION A LAS FINANZAS", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "¿POR QUÉ NO ME ENSEÑARON ESTO EN LA ESCUELA 99 PRINCIPIOS DE LA ADMINISTRACIÓN DEL DINERO PERSONAL A SEGUIR EN LA VIDA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "ADMINISTRACION DE LA CALIDAD", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DERECHO FISCAL I", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DESARROLLE EL LIDER QUE ESTA EN USTED - JOHN C. MAXWELL", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DESARROLLO DEL TALENTO HUMANO BASADO EN COMPETENCIAS 1ED - MARTHA ALLES", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "ADM CONTABILIDAD ADMINISTRATIVA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "COMO ATRAER EL DINERO - JOSEPH MURPHY", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "CONTABILIDAD BÁSICA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "SAMIR FLORES - LOS 7 SECRETOS PARA DEJAR DE PROCRASTINAR", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DOC-20230603-WA0008", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DOC-20230603-WA0014", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DOC-20230603-WA0019", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "LA BIBLIA DEL VENDEDOR - ALEX DEY", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "EL LIBRO QUE EL SAT NO QUIERE QUE LEAS TODO LO QUE NUNCA TE ENSEÑE", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "PEQUEÑO CERDO CAPITALISTA - SOFIA MACIAS", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "LIBERTAD FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "PUEDO COMPRAR UNA EMPRESA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "PROYECTO DE VIDA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "EDUCACIÓN FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "PRINCIPIOS DE ECONOMIA - FRANCISCO MOCHON", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "MATEMATICAS-FINANCIERAS-MORA-3ED-130913203925-PHPAPP02 1", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "GUIA PARA EMPRENDER - IRVING JIMENEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "FUNDAMENTOS DE ADMINISTRACIÓN FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "18 PASOS PARA DESARROLLAR TU NEGOCIO - LINDA PINSON", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DE INTELIGENCIA FINANCIERA - ANDRES LOPEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "CRISIS FINANCIERA 12 MEDIDAS PARA EVITARLA - ENRIQUE MONTENEGRO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DE CERO A INVERSIONISTA-DOMINA-EL-JUEGO-DEL-DINERO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "PRESUPUESTOS ENFOQUE PAR", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "INTELIGENCIA FINANCIERA - OTROS", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DE CERO A EMPRESARIO - TITO GÁLVEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "MENOS MIEDOS MAS RIQUEZAS - JUAN DIEGO GOMEZ GOMEZ", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DESPIERTA EL GENIO FINANCIERO DE TUS HIJOS - ROBERT KIYOSAKI", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "FINANZAS PARA PRINCIPIANTES - SIMANOVSKY", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "FUNDAMENTOS MULTIPLICADORES DE RIQUEZA - ERIC MOSQUERA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "CANSADO DE PAGAR DEUDAS - NESTOR CASTILLERO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "GUIA PARA INVERTIR - ROBERT T. KIYOSAKI - 584 PAGINAS", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "10 LECCIONES DE ECONOMIA - JUAN CARPIO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "CARAS VEMOS DEUDAS NO SABEMOS - JAIRO FORERO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "EL AHORRADOR INTELIGENTE - EMILIO ONTIVEROS", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "COMO MULTIPLICAR POR 6 TUS INGRESOS POR 1 AÑO - MIGUEL RUIZ", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "ABUNDANCIA SUBCONSCIENTE - NACHO MUÑOZ", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "23 HABITOS INTELIGENTES PARA TUS FINANZAS PERSONALES - EL CONTADOR", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "7 CLAVES EN FINANZAS PERSONALES - SANDRO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "ADMINISTRACION FINANCIERA", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "DINERO DOMINA EL JUEGO TONY ROBBINS", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "COMO SER UN MEXICANO EXITOSO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "COMOATRAERELDINEROLAINGARCIACALVO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "EL CÓDIGO DEL DINERO", "carpeta": "EDUCACIÓN FINANCIERA"},
-                {"titulo": "INVIRTIENDO EN BIENES RAICES 10 TIPS - OTROS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "CLAVES REFORMATRIBUTARIA CHILE", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "CARLOS MUÑOZ - INNOVACIÓN EN DESARROLLO INMOBILIARIO", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "CÓMO CREAR RIQUEZA INVIRTIENDO EN BIENES RAÍCES GRAND CARDONE", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "INVIRTIENDO COMO MR. MONOPOLY", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "LOS 100 SECRETOS DE LAS RENTAS - MUNOZ 4S, CARLOS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "RADI-CALIDAD DISRUPTIVA IDEAS - MUNOZ 4S, CARLOS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "DICCIONARIO DE SINONIMOS JURIDICOS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "DE 0 A 100 MDD EN BIENES RAICES", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "NEUROMARKETING INMOBILIARIO", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "TRUMP LOS MEJORES CONSEJOS DE BIENES RAICES - DONALD TRUMP", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "50 LECCIONES EN DESARROLLO INMOBILIARIO - CARLOS MUÑOZ", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "CÓMO INVERTIR EN BIENES RAÍCES", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "LA OPORTUNIDAD DEL CICLO BIENES RAICES - IGNACIO BETA", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "LA MEJOR FORMA DE GANAR ALTOS INGRESOS ES CON BIENES RAICES - MARIO ESQUIVEL", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "LA BURBUJA INMOBILIARIA - OTROS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "GESTION INMOBILIARIA - AULAMENTOR", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "GUIA PRACTICA DIRECCION DE EMPRESAS INMOBILIARIAS - OTROS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "GUIA PARA LA ENTREGA DE VIVIENDAS INMOBILIARIAS - OTROS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "GESTION INMOBILIARIA - OTROS", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "DOSSIER DE VENTAS PARA AGENTES INMOBILIARIOS - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "COPYWRITING INMOBILIARIO - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 4 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 3 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 2 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "COMO VENDER RAPIDO TU PARCELA O LOTE DE TERRENO 1 - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "COMO DESCRIBIR UN INMUEBLE PARA VENDERLOS CON RAPIDEZ - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "COMO CAPTAR INVERSORES INMOBILIARIOS - CARLOS PEREZ NEWMAN", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "GUIA ESENCIAL PARA LOS CONTRATOS DE ARRENDAMIENTO DE BIENES RAICES", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "EL ABC DE LA INVERSION EN BIENES RAICES", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "GANAR DINERO SIN DINERO EN BIENES RAICES - MARIO ESQUIVEL", "carpeta": "BIENES RAÍCES"},
-                {"titulo": "5.NEUROVENTAS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "ROBA COMO UN ARTISTA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "PRE-SUASIÓN UN MÉTODO REVOLUCIONARIO PARA INFLUIR Y PERSUADIR", "carpeta": "MEGA VENTAS"},
-                {"titulo": "LA REGLA DE ORO DE LOS NEGOCIOS - GRANT CARDONE.PDFNFJJDJD", "carpeta": "MEGA VENTAS"},
-                {"titulo": "LA BIBLIA DEL VENDEDOR - ALEX DEY", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL ARTE DE CERRAR LA VENTA - BRIAN TRACY - 212 PAGINAS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDES O VENDES - GRANT CARDONE - 160 PAGINAS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDELE A LA MENTE, NO A LA GENTE. - JUREN KLARIC -", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDEDOR NINJA - JOSUE GADEA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "INFLUENCIA CIENCIA Y PRACTICA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "25 MANERAS DE GANARSE A LA GENTE - JOHN C. MAXWELL", "carpeta": "MEGA VENTAS"},
-                {"titulo": "¡!CÁLLESE Y VENDA!! TÉCNICAS COMPROBADAS PARA CERRAR LA VENTA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "RELACIONATE Y VENDE", "carpeta": "MEGA VENTAS"},
-                {"titulo": "ADMINISTRACIÓN DE VENTAS 8ED - DAVID JOBBER GEOFF LANCASTER", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDER ES MUCHO MÁS - COSIMO CHIESA DE NEGRI", "carpeta": "MEGA VENTAS"},
-                {"titulo": "NEGOCIAR PARA GANAR - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL VENDEDOR ELEGANTEMENTE IRRESISTIBLE - ALEJANDRO PLAGIARI", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL LIBRO MAESTRO DE LOS GUIONES DE VENTAS - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDEDOR PRO EBOOK", "carpeta": "MEGA VENTAS"},
-                {"titulo": "CIERRA VENTAS POR WHATSAPP EBOOK", "carpeta": "MEGA VENTAS"},
-                {"titulo": "LIBRO+VENTAS+MILLONARIAS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL VENDEDOR MILLONARIO", "carpeta": "MEGA VENTAS"},
-                {"titulo": "CREATIVIDAD SA - ED CAMULL", "carpeta": "MEGA VENTAS"},
-                {"titulo": "PERSUASION INSTANTANEA - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
-                {"titulo": "COMO MULTIPLICAR LAS VENTAS A TRAVES DEL BOCA A BOCA - PABLO BALSEIRO", "carpeta": "MEGA VENTAS"},
-                {"titulo": "ADMINISTRACION DE VENTAS - RUIPH ANDERSON", "carpeta": "MEGA VENTAS"},
-                {"titulo": "BUENO BONITO Y CARITO - OTROS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "COMO VENDER TU PRODUCTO O SERVICIO EN INTENET - FRANCISCO SEGURA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "ESTRATEGIAS DE VENTAS Y PERSUASION - ERIC DE LA PARRA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL ARTE DE CERRAR UNA VENTA - GONZALO GUERRERO", "carpeta": "MEGA VENTAS"},
-                {"titulo": "DUPLICA TU TASA DE CONVERSION EN UNA SEMANA - OTROS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL VENDEDOR DE TIEMPO - FERNANDO TRIAS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL VENDEDOR IRRESISTIBLE - ALEJANDRO PAGLIARI", "carpeta": "MEGA VENTAS"},
-                {"titulo": "NEGOCIAR PARA CONVENCER - MERCEDES COSTA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "SABER VENDER - EL VENDEDOR", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDEDORES PERROS - ASESORES DE PADRE RICO", "carpeta": "MEGA VENTAS"},
-                {"titulo": "TODO ESTA EN SABER VENDER - RUBEN TREVIÑO", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDER CON PNL - DUANE LAKIN", "carpeta": "MEGA VENTAS"},
-                {"titulo": "LOCO POR LAS VENTAS - FACUNDO DE SALTERAIN", "carpeta": "MEGA VENTAS"},
-                {"titulo": "100 CONSEJOS PARA VENDER MAS Y MEJOR - JAN HENTSCHEL", "carpeta": "MEGA VENTAS"},
-                {"titulo": "COMPORTAMIENTO DEL CONSUMIDOR - LEON SCHIFFMAN", "carpeta": "MEGA VENTAS"},
-                {"titulo": "COMO CREAR UNA PRESENTACION DE VENTAS - OTROS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "TECNICAS DE NEGOCIACION - ANASTASIO OVEJERO", "carpeta": "MEGA VENTAS"},
-                {"titulo": "TECNICAS DE VENTA - MARIANA NAVARRO", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDER MAS EN INTERNET - DAVID BORONAT", "carpeta": "MEGA VENTAS"},
-                {"titulo": "VENDER ES FACIL SI SE SABE COMO - ALEJANDRO HERNANDEZ", "carpeta": "MEGA VENTAS"},
-                {"titulo": "TIPOS DE CLIENTES Y COMO MANEJARLOS - OTROS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "REGLAS DE ORO PARA PERSUADIR - OTROS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "PERSUASION E INFLUENCIA - STEVE ALLEN", "carpeta": "MEGA VENTAS"},
-                {"titulo": "MULTIPLES FLUJOS DE GANANCIAS - OTROS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "HAZ QUE TE COMPREN - SANTIAGO TORRE", "carpeta": "MEGA VENTAS"},
-                {"titulo": "NEURO VENTAS - NESTOR BRAIDOT", "carpeta": "MEGA VENTAS"},
-                {"titulo": "MINDSET HACKING - NACHO MUÑOZ", "carpeta": "MEGA VENTAS"},
-                {"titulo": "HIPNOSIS CONVERSACIONAL PARA TERAPEUTAS - NACHO MUÑOZ", "carpeta": "MEGA VENTAS"},
-                {"titulo": "COMO REPROGRAMARTE PARA EL EXITO EN 60 MINUTOS - MIGUEL RUIZ", "carpeta": "MEGA VENTAS"},
-                {"titulo": "HALCONES DE VENTAS - CARLOS MUÑOZ", "carpeta": "MEGA VENTAS"},
-                {"titulo": "LA FUERZA DE LAS VENTAS - PRANAB BHALLA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL LIBRO NEGRO DE LA PERSUASION-ALEJANDRO-LLANTADA", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL VENDEDOR MAS GRANDE DEL MUNDO - ANDINO - 45 PAGINAS", "carpeta": "MEGA VENTAS"},
-                {"titulo": "FORMAS ENAMORAR CLIENTES", "carpeta": "MEGA VENTAS"},
-                {"titulo": "HAZ QUE EL DINERO SEA TU AMIGO - GREGORIO HERNANDEZ JIMENEZ", "carpeta": "MEGA VENTAS"},
-                {"titulo": "ESTRATEGIAS-DE-WARREN-BUFFET", "carpeta": "MEGA VENTAS"},
-                {"titulo": "EL CODIGO DE LA ABUNDANCIA-PDF-GRATIS-COMPLETO", "carpeta": "DINERO"},
-                {"titulo": "EL CÓDIGO DE LAS MENTES EXTRAORDINARIAS", "carpeta": "DINERO"},
-                {"titulo": "LOS 3 ARBOLES DEL DINERO- RAIMON SAMSÓ", "carpeta": "DINERO"},
-                {"titulo": "HAZTE RICO MIENTRAS DUERMES - BEN SWEETLAND", "carpeta": "DINERO"},
-                {"titulo": "LA CIENCIA DE HACERSE RICO - WALLACE WATTLES", "carpeta": "DINERO"},
-                {"titulo": "EL DINERO NO ES EL PROBLEMA TÚ LO ERES", "carpeta": "DINERO"},
-                {"titulo": "TU CODIGO DE RIQUEZA - ENRIQUE DELGADILLO", "carpeta": "DINERO"},
-                {"titulo": "LIBRO DINERO Y AHORRO", "carpeta": "DINERO"},
-                {"titulo": "EL MAESTRO DEL DINERO - ALEX LOPEZ", "carpeta": "DINERO"},
-                {"titulo": "COMO ATRAER EL DINERO", "carpeta": "DINERO"},
-                {"titulo": "EL ARTE DE HACER DINERO", "carpeta": "DINERO"},
-                {"titulo": "COMO HACERSE RICO SIN PREOCUPACIONES - NAPOLEON HILL", "carpeta": "DINERO"},
-                {"titulo": "PIENSE Y HAGASE RICO - NAPOLEON HILL - 174 PAGINAS", "carpeta": "DINERO"},
-                {"titulo": "16. PASO A PASO, CÓMO SALIR DE DEUDAS DE FORMA EXITOSA AUTOR DEUDAS NUNCA MÁS", "carpeta": "DINERO"},
-                {"titulo": "LAS 11 TRAMPAS HACIA UNAS FINANZAS PERSONALES SANAS", "carpeta": "DINERO"},
-                {"titulo": "EL CUADRANTE DEL FLUJO DE DINERO - ROBERT KIYOSAKI", "carpeta": "DINERO"},
-                {"titulo": "VIVIR BIEN CON 300 DOLARES AL MES - PABLO OLONDRIZ", "carpeta": "DINERO"},
-                {"titulo": "FUNDAMENTOS DE INVERSIONES - GITMAN JOEHNK", "carpeta": "DINERO"},
-                {"titulo": "EL JUEGO DEL DINERO - ROBERT KIYOSAKI", "carpeta": "DINERO"},
-                {"titulo": "COMO GENERAR INGRESOS PASIVOS - STEVE PAVLINA", "carpeta": "DINERO"},
-                {"titulo": "POR DONDE EMPEZAR A INVERTIR - SOFIA MACIAS", "carpeta": "DINERO"},
-                {"titulo": "50 INGRESOS PASIVOS PARA COMENZAR A SER LIBRE - AGUSTIN GRAU", "carpeta": "DINERO"},
-                {"titulo": "LAS EXCUSAS NO DAN RESULTADOS - XAVIER MARTINEZ", "carpeta": "DINERO"},
-                {"titulo": "PADRE-RICO-PADRE-POBRE", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "INCREMENTA TU IQ FINANCIERO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "EL ABC PARA CREAR UN EQUIPO DE NEGOCIOS EXITOSOS - BLAIR SINGER", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "DESPIERTA EL GENIO FINANCIERO DE TUS HIJOS - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "VENDEDORES PERROS - ASESORES DE PADRE RICO", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "EL CUADRANTE DEL FLUJO DE DINERO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "EL JUEGO DEL DINERO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "ANTES DE RENUNCIAR A TU EMPLEO - ROBERT KIYOSAKI SHARON LECHTER . 247 PAGINAS", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "RETÍRATE JOVEN Y RICO - ROBERT KIYOSAKI -", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "GUIA PARA INVERTIR - ROBERT T. KIYOSAKI - 584 PAGINAS", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "EL NEGOCIO DEL SIGLO 21", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "LO MEJOR DE PADRE RICO SECRETOS PARA EL EXITO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "QUEREMOS QUE SEAS RICO - DONALD TRUMP Y ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "PADRE RICO PADRE POBRE PARA JOVENES - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "LA VENTAJA DEL GANADOR - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "HERMANO RICO HERMANA RICA - ROBERT KIYOSAKI Y EMI KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "NIÑO RICO NIÑO LISTO - ROBERT KIYOSAKI", "carpeta": "ROBERT KIYOSAKI"},
-                {"titulo": "IDEAS SIMPLES QUE TE HARAN MILLONARIO - JUAN ANTONIO GUERRERO", "carpeta": "NEGOCIOS"},
-                {"titulo": "AUDITORIA ADMINISTRATIVA", "carpeta": "NEGOCIOS"},
-                {"titulo": "INTRODUCCION A LAS FINANZAS", "carpeta": "NEGOCIOS"},
-                {"titulo": "INVESTIGACIÓN DE OPERACIONES - IRIS MARTÍNEZ", "carpeta": "NEGOCIOS"},
-                {"titulo": "CASOS DE EXITO DE NEGOCIOS GLOBALES - OTROS", "carpeta": "NEGOCIOS"},
-                {"titulo": "ADMINISTRACION Y CONTROL DE CALIDAD - EVANS 7MA", "carpeta": "NEGOCIOS"},
-                {"titulo": "INVESTIGACION DE MERCADOS 2016", "carpeta": "NEGOCIOS"},
-                {"titulo": "EXPERTOS AFILIADOS", "carpeta": "NEGOCIOS"},
-                {"titulo": "ADMINISTRACION EXITOSA DE PROYECTOS - GIDO", "carpeta": "NEGOCIOS"},
-                {"titulo": "ALCANZA EL EXITO EN TUS NEGOCIACIONES - FLORENCE SCHANDELER", "carpeta": "NEGOCIOS"},
-                {"titulo": "ALCANZA LA SATISFACCION LABORAL - VIRGINIE DE LUTIS", "carpeta": "NEGOCIOS"},
-                {"titulo": "APRENDE A AUTOEVALUARTE EN EL TRABAJO - NICOLAS ZINQUE", "carpeta": "NEGOCIOS"},
-                {"titulo": "NUNCA TIRES LA TOALLA - DONALD TRUMP", "carpeta": "NEGOCIOS"},
-                {"titulo": "EL EXITO DE LOS PREZOSOS - ERNIE J. ZELINSKI", "carpeta": "NEGOCIOS"},
-                {"titulo": "EL ARTE DE LA NEGOCIACION - DONALD TRUMP", "carpeta": "NEGOCIOS"},
-                {"titulo": "TITANES TIM FERRIS", "carpeta": "NEGOCIOS"},
-                {"titulo": "PODER SIN LIMITES -TONY ROBBINS", "carpeta": "NEGOCIOS"},
-                {"titulo": "EL CAMINO DEL LOBO JORDAN BELFORT", "carpeta": "NEGOCIOS"},
-                {"titulo": "LA VACA PURPURA - SETH GODIN", "carpeta": "NEGOCIOS"},
-                {"titulo": "VIVIR CON ABUNDANCIA - SERGIO FERNANDEZ", "carpeta": "NEGOCIOS"},
-                {"titulo": "VIVIR SIN JEFE - SERGIO FERNANDEZ", "carpeta": "NEGOCIOS"},
-                {"titulo": "101 IDEAS DE NEGOCIO EN INTERNET - TERRY DEAN", "carpeta": "NEGOCIOS"},
-                {"titulo": "HABILIDADES DIRECTIVAS", "carpeta": "NEGOCIOS"},
-                {"titulo": "PRINCIPIOS DE MACROECONOMÍA", "carpeta": "NEGOCIOS"},
-                {"titulo": "ADMINISTRACION-DE-COSTOS.-CONTABILIDAD-Y-CONTROL-HANSEN-5TH", "carpeta": "NEGOCIOS"},
-                {"titulo": "EL MEJOR NEGOCIO DEL MUNDO- PABLO ANTONIO LEON", "carpeta": "NEGOCIOS"},
-                {"titulo": "EL CUADRANTE DEL FLUJO DE DINERO - ROBERT KIYOSAKI", "carpeta": "NEGOCIOS"},
-                {"titulo": "ANTES DE RENUNCIAR A TU EMPLEO - ROBERT KIYOSAKI SHARON LECHTER . 247 PAGINAS", "carpeta": "NEGOCIOS"},
-                {"titulo": "NEGOCIAR PARA GANAR - ALEJANDRO PAGLIARI", "carpeta": "NEGOCIOS"},
-                {"titulo": "RETÍRATE JOVEN Y RICO - ROBERT KIYOSAKI -", "carpeta": "NEGOCIOS"},
-                {"titulo": "LA REGLA DE ORO DE LOS NEGOCIOS - GRANT CARDONE", "carpeta": "NEGOCIOS"},
-                {"titulo": "IDEAS MILLONARIAS - JUAN DIEGO GOMEZ", "carpeta": "NEGOCIOS"},
-                {"titulo": "GUIA PARA INVERTIR - ROBERT T. KIYOSAKI - 584 PAGINAS", "carpeta": "NEGOCIOS"},
-                {"titulo": "EL NEGOCIO DEL SIGLO 21", "carpeta": "NEGOCIOS"},
-                {"titulo": "EL NEGOCIADOR", "carpeta": "NEGOCIOS"},
-                {"titulo": "APRENDE A SER RICO - CRISTIAN ABRATTE", "carpeta": "NEGOCIOS"},
-                {"titulo": "SABER DIALOGAR Y CONVENCER - ALAIN BRULE", "carpeta": "NEGOCIOS"},
-                {"titulo": "PERSUASION EL PODER EXCEPCIONAL - MARIA MADERO", "carpeta": "NEGOCIOS"},
-                {"titulo": "NEGOCIACION - JOSE Y JUAN PABLO CORONA", "carpeta": "NEGOCIOS"},
-                {"titulo": "12 CLAVES PARA CONSTRUIR UN NEGOCIO EXITOSO - LUIS BARON", "carpeta": "NEGOCIOS"},
-                {"titulo": "100 INGRESOS PASISVOS - AGUSTIN GRAU", "carpeta": "NEGOCIOS"},
-                {"titulo": "50 FORMAS DE ENAMORAR A UN CLIENTE - DAVID GOMEZ", "carpeta": "NEGOCIOS"},
-                {"titulo": "VIVE SIN TRABAJAR - JOSE CASTELLO", "carpeta": "NEGOCIOS"},
-                {"titulo": "LA VENTAJA DEL GANADOR - ROBERT KIYOSAKI", "carpeta": "NEGOCIOS"},
-                {"titulo": "TU MODELO DE NEGOCIO 2", "carpeta": "NEGOCIOS"},
-                {"titulo": "JUEGO DE TRONOS PARA LOS NEGOCIOS - TIM PHILI", "carpeta": "NEGOCIOS"},
-                {"titulo": "HERMANO RICO HERMANA RICA - ROBERT KIYOSAKI Y EMI KIYOSAKI", "carpeta": "NEGOCIOS"},
-                {"titulo": "1000 IDEAS DE NEGOCIOS", "carpeta": "NEGOCIOS"},
-                {"titulo": "NEGOCIAR ES FACIL SI SABE COMO - ALEJANDRO HERNANDEZ - 125 PAGINAS", "carpeta": "NEGOCIOS"}
-            ];
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
             
-            allBooks = books;
-            filteredBooks = books;
-            
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('booksGrid').style.display = 'grid';
-            renderBooks();
-        }
-
-        function renderBooks() {
-            const grid = document.getElementById('booksGrid');
-            const currentCount = document.getElementById('currentCount');
-            const noResults = document.getElementById('noResults');
-            
-            if (filteredBooks.length === 0) {
-                grid.style.display = 'none';
-                noResults.style.display = 'block';
-                currentCount.textContent = '0';
+            if (searchTerm === '') {
+                // Mostrar todas las categorías y libros
+                allCategories.forEach(cat => cat.style.display = 'block');
+                allBooks.forEach(book => book.style.display = 'flex');
                 return;
             }
-            
-            grid.style.display = 'grid';
-            noResults.style.display = 'none';
-            currentCount.textContent = filteredBooks.length;
-            
-            grid.innerHTML = filteredBooks.map(book => `
-                <div class="book-card">
-                    <i class="fas fa-chart-line book-icon"></i>
-                    <h3 class="book-title">${book.titulo}</h3>
-                    <span class="book-category">${book.carpeta}</span>
-                </div>
-            `).join('');
-        }
 
-        function searchBooks() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if (query === '') {
-                filteredBooks = allBooks;
-            } else {
-                filteredBooks = allBooks.filter(book => 
-                    book.titulo.toLowerCase().includes(query) ||
-                    book.carpeta.toLowerCase().includes(query)
-                );
-            }
-            
-            renderBooks();
-        }
+            // Ocultar todos primero
+            allCategories.forEach(cat => cat.style.display = 'none');
+            allBooks.forEach(book => book.style.display = 'none');
 
-        document.getElementById('searchInput').addEventListener('input', searchBooks);
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchBooks();
-            }
+            // Mostrar solo los que coinciden
+            allBooks.forEach(book => {
+                const title = book.querySelector('.book-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    book.style.display = 'flex';
+                    // Mostrar la categoría padre
+                    let category = book.closest('.category-section');
+                    if (category) {
+                        category.style.display = 'block';
+                    }
+                }
+            });
         });
 
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -790,7 +1147,27 @@
             });
         });
 
-        loadBooks();
+        // Animación de entrada
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.category-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
